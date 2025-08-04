@@ -587,7 +587,7 @@ celerybeat.pid
 *.sage.py
 
 # Environments
-.env
+#.env    # only comment if repo is private
 .venv
 env/
 venv/
