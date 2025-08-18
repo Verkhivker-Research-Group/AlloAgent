@@ -24,6 +24,7 @@ docker compose build
 ```bash
 docker compose up -d
 docker exec -it biomni-dev bash
+conda activate biomni_e1
 ```
 
 This command launches a fully configured Conda environment (`biomni_e1`) inside the container.
