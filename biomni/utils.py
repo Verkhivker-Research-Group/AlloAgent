@@ -870,6 +870,61 @@ def read_module2api():
     return module2api
 
 
+# Grabs descriptions from alloster_tools.py and combines with full descriptions with hyperparameter filters
+
+def read_module2api_allosteric(
+    include_name=False,
+    include_short_description=False,
+    include_allosteric_function=True,
+    include_allosteric_relevance=True,
+    include_allosteric_research_area=True,
+):
+    # Import the curated allosteric tool list
+    curated_module = importlib.import_module("biomni.tool.tool_description.allosteric_tools")
+    curated_tools = curated_module.allosteric_tools  # list of dictionaries
+
+    module2api = {}
+
+    # Group curated tools by their Source File
+    tools_by_field = {}
+    for tool in curated_tools:
+        field = tool.get("Source File")
+        if not field:
+            continue
+        tools_by_field.setdefault(field, []).append(tool)
+
+    # For each field, import the original module and merge metadata
+    for field, tools in tools_by_field.items():
+        module_name = f"biomni.tool.tool_description.{field.replace('.py','')}"
+        original_module = importlib.import_module(module_name)
+        full_tool_lookup = {t["name"]: t for t in original_module.description}
+
+        merged_tools = []
+        for curated in tools:
+            name = curated.get("Name") or curated.get("name")
+            if not name:
+                continue
+            full_schema = full_tool_lookup.get(name, {}).copy()
+
+            # Merge selectively
+            if include_name and "Name" in curated:
+                full_schema["name"] = curated["Name"]
+            if include_short_description and "Short Description" in curated:
+                full_schema["description"] = curated["Short Description"]
+            if include_allosteric_function and "Allosteric Function" in curated:
+                full_schema["allosteric_function"] = curated["Allosteric Function"]
+            if include_allosteric_relevance and "Allosteric Relevance" in curated:
+                full_schema["allosteric_relevance"] = curated["Allosteric Relevance"]
+            if include_allosteric_research_area and "Allosteric Research Area" in curated:
+                full_schema["allosteric_research_area"] = curated["Allosteric Research Area"]
+
+            merged_tools.append(full_schema)
+
+        # Keep the original namespace style
+        module2api[f"biomni.tool.{field}"] = merged_tools
+    return module2api
+
+
 def download_and_unzip(url: str, dest_dir: str) -> str:
     """Download a zip file from a URL and extract it to the destination directory.
 

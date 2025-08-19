@@ -11,7 +11,7 @@ from langchain_core.prompts import ChatPromptTemplate
 from langgraph.checkpoint.memory import MemorySaver
 from langgraph.graph import END, START, StateGraph
 
-from biomni.env_desc import data_lake_dict, library_content_dict
+from biomni.env_desc import data_lake_dict, library_content_dict, allosteric_data_lake
 from biomni.llm import get_llm
 from biomni.model.retriever import ToolRetriever
 from biomni.tool.support_tools import run_python_repl
@@ -22,6 +22,7 @@ from biomni.utils import (
     function_to_api_schema,
     pretty_print,
     read_module2api,
+    read_module2api_allosteric,
     run_bash_script,
     run_r_code,
     run_with_timeout,
@@ -43,6 +44,7 @@ class A1:
         self,
         path="./data",
         llm="claude-sonnet-4-20250514",
+        allosteric=False,
         use_tool_retriever=True,
         timeout_seconds=600,
         base_url: str | None = None,
@@ -60,6 +62,7 @@ class A1:
 
         """
         self.path = path
+        self.allosteric = allosteric
 
         if not os.path.exists(path):
             os.makedirs(path)
@@ -101,7 +104,12 @@ class A1:
             )
 
         self.path = os.path.join(path, "biomni_data")
-        module2api = read_module2api()
+
+
+        if self.allosteric:
+            module2api = read_module2api_allosteric()
+        else:
+            module2api = read_module2api()
 
         self.llm = get_llm(llm, stop_sequences=["</execute>", "</solution>"], base_url=base_url, api_key=api_key)
         self.module2api = module2api
@@ -1183,11 +1191,52 @@ Each library is listed with its description to help you understand its functiona
             data_lake_content = glob.glob(data_lake_path + "/*")
             data_lake_items = [x.split("/")[-1] for x in data_lake_content]
 
+
+            if self.allosteric:
+            # Allosteric datalake file filter
+                allosteric_file_ids = {
+                    "affinity_capture-ms", "co-fractionation", "proximity_label-ms", "two-hybrid",
+                    "reconstituted_complex", "virus-host_ppi", "bindingdb", "broad_repurposing_molecule",
+                    "broad_repurposing_moa_target", "enamine_cloud_library", "evebio_assay_table",
+                    "evebio_bundle_table", "evebio_compound_table", "evebio_control_table",
+                    "evebio_detailed_result_table", "evebio_observed_points_table",
+                    "evebio_summary_result_table", "evebio_target_table", "gene_info", "variant_table",
+                    "proteinatlas", "gtex_tissue_gene_tpm", "disgenet", "omim", "marker_celltype",
+                    "go-plus", "miRDB", "miRTarBase_interactions", "miRTarBase_sites",
+                    "depmap_gene_dependency", "depmap_gene_effect", "sgRNA_KO_mouse", "sgRNA_KO_human",
+                    "synthetic_growth_defect", "synthetic_lethality", "synthetic_rescue",
+                    "genetic_interaction", "mousemine_m1_positional_geneset", "mousemine_m2_curated_geneset",
+                    "mousemine_m3_regulatory_target_geneset", "mousemine_m5_ontology_geneset",
+                    "mousemine_m8_celltype_signature_geneset", "mousemine_mh_hallmark_geneset",
+                    "msigdb_human_c1_positional_geneset", "msigdb_human_c2_curated_geneset",
+                    "msigdb_human_c3_regulatory_target_geneset", "msigdb_human_c3_subset_tf_targets",
+                    "msigdb_human_c4_computational_geneset", "msigdb_human_c5_ontology_geneset",
+                    "msigdb_human_c6_oncogenic_signature_geneset", "msigdb_human_c7_immunologic_signature_geneset",
+                    "msigdb_human_c8_celltype_signature_geneset", "msigdb_human_h_hallmark_geneset",
+                    "kg"
+                }
+                allosteric_data_lake_items = [item for item in data_lake_items if item.split(".")[0] in allosteric_file_ids]
+
+
+                data_lake_descriptions = []
+
+                for item in allosteric_data_lake_items:
+                    item_id = item.split(".")[0]  # remove file extension
+                    if item_id in allosteric_data_lake:
+                        # Use the info from the allosteric_data_lake dictionary
+                        entry = allosteric_data_lake[item_id]
+                        data_lake_descriptions.append({
+                            "name": item,  # keep the full filename including extension
+                            "description": entry["description"],
+                            "categories": entry["allosteric_category"]
+                        })
+            else:
+
             # Create data lake descriptions for retrieval
-            data_lake_descriptions = []
-            for item in data_lake_items:
-                description = self.data_lake_dict.get(item, f"Data lake item: {item}")
-                data_lake_descriptions.append({"name": item, "description": description})
+                data_lake_descriptions = []
+                for item in data_lake_items:
+                    description = self.data_lake_dict.get(item, f"Data lake item: {item}")
+                    data_lake_descriptions.append({"name": item, "description": description})
 
             # Add custom data items to retrieval if they exist
             if hasattr(self, "_custom_data") and self._custom_data:

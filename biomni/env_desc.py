@@ -216,3 +216,277 @@ library_content_dict = {
     "vina": "[CLI Tool] An open-source program for molecular docking and virtual screening, known for its speed and accuracy improvements over AutoDock 4.",
     "autosite": "[CLI Tool] A binding site detection tool used to identify potential ligand binding pockets on protein structures for molecular docking.",
 }
+
+
+allosteric_data_lake = {
+    "affinity_capture-ms": {
+        "name": "Affinity Capture MS",
+        "description": "Protein-protein interactions detected via affinity capture and mass spectrometry.",
+        "allosteric_category": ["PPI", "Structural", "Functional"]
+    },
+    "co-fractionation": {
+        "name": "Co-fractionation",
+        "description": "Protein-protein interactions from co-fractionation experiments.",
+        "allosteric_category": ["PPI", "Structural", "Functional"]
+    },
+    "proximity_label-ms": {
+        "name": "Proximity Label MS",
+        "description": "Protein interactions via proximity labeling and mass spectrometry.",
+        "allosteric_category": ["PPI", "Structural", "Functional"]
+    },
+    "two-hybrid": {
+        "name": "Yeast Two-Hybrid",
+        "description": "Protein-protein interactions detected by yeast two-hybrid assays.",
+        "allosteric_category": ["PPI", "Structural", "Functional"]
+    },
+    "reconstituted_complex": {
+        "name": "Reconstituted Complex",
+        "description": "Protein complexes reconstituted in vitro.",
+        "allosteric_category": ["PPI", "Structural", "Functional"]
+    },
+    "virus-host_ppi": {
+        "name": "Virus-Host PPI",
+        "description": "Virus-host protein-protein interactions from P-HIPSTER.",
+        "allosteric_category": ["PPI", "Structural", "Functional"]
+    },
+    "bindingdb": {
+        "name": "BindingDB",
+        "description": "Measured binding affinities between proteins and small molecules for drug discovery.",
+        "allosteric_category": ["Ligand", "Modulator", "Functional"]
+    },
+    "broad_repurposing_molecule": {
+        "name": "Broad Repurposing Hub Molecules",
+        "description": "Molecules from Broad Institute's Drug Repurposing Hub with SMILES annotations.",
+        "allosteric_category": ["Ligand", "Modulator"]
+    },
+    "broad_repurposing_moa_target": {
+        "name": "Broad Repurposing MOA & Target Info",
+        "description": "Drug phases, mechanisms of action, and target information from Broad Institute.",
+        "allosteric_category": ["Ligand", "Modulator", "Target info"]
+    },
+    "enamine_cloud_library": {
+        "name": "Enamine Cloud Library",
+        "description": "Compounds from Enamine REAL library with SMILES annotations.",
+        "allosteric_category": ["Ligand", "Modulator"]
+    },
+    "evebio_assay_table": {
+        "name": "EveBio Assay Table",
+        "description": "Assay metadata with one row per assay from EveBio pharmome mapping.",
+        "allosteric_category": ["Assay", "Functional"]
+    },
+    "evebio_bundle_table": {
+        "name": "EveBio Bundle Table",
+        "description": "Target subfamily bundles used for screening-to-profiling progression.",
+        "allosteric_category": ["Assay", "Target info"]
+    },
+    "evebio_compound_table": {
+        "name": "EveBio Compound Table",
+        "description": "Compound metadata with common identifiers from EveBio screening.",
+        "allosteric_category": ["Ligand", "Assay", "Functional"]
+    },
+    "evebio_control_table": {
+        "name": "EveBio Control Table",
+        "description": "Control datapoints for all screening and profiling plates.",
+        "allosteric_category": ["Assay", "Functional"]
+    },
+    "evebio_detailed_result_table": {
+        "name": "EveBio Detailed Result Table",
+        "description": "Expanded results on evebio_summary_result_table with curve fit parameters and phase categories.",
+        "allosteric_category": ["Assay", "Functional"]
+    },
+    "evebio_observed_points_table": {
+        "name": "EveBio Observed Points Table",
+        "description": "Raw observed datapoints from all screening and profiling experiments.",
+        "allosteric_category": ["Assay", "Functional"]
+    },
+    "evebio_summary_result_table": {
+        "name": "EveBio Summary Result Table",
+        "description": "Succinct summary of results for each assay-compound combination.",
+        "allosteric_category": ["Assay", "Functional"]
+    },
+    "evebio_target_table": {
+        "name": "EveBio Target Table",
+        "description": "Target metadata with common identifiers from EveBio screening.",
+        "allosteric_category": ["Target info", "Functional"]
+    },
+    "depmap_gene_dependency": {
+        "name": "DepMap Gene Dependency",
+        "description": "Gene dependency probability estimates for cancer cell lines, including all DepMap models.",
+        "allosteric_category": ["Genetic perturbation", "Functional"]
+    },
+    "depmap_gene_effect": {
+        "name": "DepMap Gene Effect",
+        "description": "Genome-wide CRISPR gene effect estimates for cancer cell lines.",
+        "allosteric_category": ["Genetic perturbation", "Functional"]
+    },
+    "sgRNA_KO_mouse": {
+        "name": "sgRNA Knockout Mouse",
+        "description": "sgRNA knockout data for mouse.",
+        "allosteric_category": ["Genetic perturbation", "Functional"]
+    },
+    "sgRNA_KO_human": {
+        "name": "sgRNA Knockout Human",
+        "description": "sgRNA knockout data for human.",
+        "allosteric_category": ["Genetic perturbation", "Functional"]
+    },
+    "synthetic_growth_defect": {
+        "name": "Synthetic Growth Defect",
+        "description": "Gene dosage changes affecting growth.",
+        "allosteric_category": ["Genetic perturbation", "Functional"]
+    },
+    "synthetic_lethality": {
+        "name": "Synthetic Lethality",
+        "description": "Synthetic lethal interactions.",
+        "allosteric_category": ["Genetic perturbation", "Functional"]
+    },
+    "synthetic_rescue": {
+        "name": "Synthetic Rescue",
+        "description": "Genetic interactions rescuing phenotypes.",
+        "allosteric_category": ["Genetic perturbation", "Functional"]
+    },
+    "genetic_interaction": {
+        "name": "Genetic Interaction",
+        "description": "Genetic interactions between genes.",
+        "allosteric_category": ["Genetic perturbation", "Functional"]
+    },
+    "gene_info": {
+        "name": "Gene Info",
+        "description": "Comprehensive gene information.",
+        "allosteric_category": ["Functional annotation", "Target info"]
+    },
+    "variant_table": {
+        "name": "Variant Table",
+        "description": "Annotated genetic variants table.",
+        "allosteric_category": ["Functional annotation", "Target info"]
+    },
+    "proteinatlas": {
+        "name": "Protein Atlas",
+        "description": "Protein expression data from Human Protein Atlas.",
+        "allosteric_category": ["Functional annotation", "Target info"]
+    },
+    "gtex_tissue_gene_tpm": {
+        "name": "GTEx Tissue Gene Expression",
+        "description": "Gene expression (TPM) across human tissues from GTEx.",
+        "allosteric_category": ["Functional annotation", "Target info"]
+    },
+    "disgenet": {
+        "name": "DisGeNET",
+        "description": "Gene-disease associations from multiple sources.",
+        "allosteric_category": ["Functional annotation", "Target info"]
+    },
+    "omim": {
+        "name": "OMIM",
+        "description": "Genetic disorders and associated genes.",
+        "allosteric_category": ["Functional annotation", "Target info"]
+    },
+    "marker_celltype": {
+        "name": "Marker Celltype",
+        "description": "Cell type marker genes for identification.",
+        "allosteric_category": ["Functional annotation", "Target info"]
+    },
+    "go-plus": {
+        "name": "Gene Ontology Plus",
+        "description": "Gene ontology data for functional gene annotations.",
+        "allosteric_category": ["Functional annotation", "Target info"]
+    },
+    "miRDB": {
+        "name": "miRDB",
+        "description": "Predicted microRNA targets from miRDB.",
+        "allosteric_category": ["Regulatory", "Functional"]
+    },
+    "miRTarBase_interactions": {
+        "name": "miRTarBase microRNA Target Interactions",
+        "description": "Experimentally validated microRNA-target interactions from miRTarBase.",
+        "allosteric_category": ["Regulatory", "Functional"]
+    },
+    "miRTarBase_sites": {
+        "name": "miRTarBase MicroRNA Target Sites",
+        "description": "Binding sites of microRNAs on target genes from miRTarBase.",
+        "allosteric_category": ["Regulatory", "Functional"]
+    },
+    "mousemine_m1_positional_geneset": {
+        "name": "MouseMine M1 Positional Geneset",
+        "description": "Positional gene sets from MouseMine.",
+        "allosteric_category": ["Functional annotation", "Pathway"]
+    },
+    "mousemine_m2_curated_geneset": {
+        "name": "MouseMine M2 Curated Geneset",
+        "description": "Curated gene sets from MouseMine.",
+        "allosteric_category": ["Functional annotation", "Pathway"]
+    },
+    "mousemine_m3_regulatory_target_geneset": {
+        "name": "MouseMine M3 Regulatory Target Geneset",
+        "description": "Regulatory target gene sets from MouseMine.",
+        "allosteric_category": ["Regulatory", "Functional"]
+    },
+    "mousemine_m5_ontology_geneset": {
+        "name": "MouseMine M5 Ontology Geneset",
+        "description": "Ontology-based gene sets from MouseMine.",
+        "allosteric_category": ["Functional annotation", "Pathway"]
+    },
+    "mousemine_m8_celltype_signature_geneset": {
+        "name": "MouseMine M8 Celltype Signature Geneset",
+        "description": "Cell type signature gene sets from MouseMine.",
+        "allosteric_category": ["Functional annotation", "Pathway"]
+    },
+    "mousemine_mh_hallmark_geneset": {
+        "name": "MouseMine MH Hallmark Geneset",
+        "description": "Hallmark gene sets from MouseMine.",
+        "allosteric_category": ["Functional annotation", "Pathway"]
+    },
+    "msigdb_human_c1_positional_geneset": {
+        "name": "MSigDB Human C1 Positional Geneset",
+        "description": "Human positional gene sets from MSigDB.",
+        "allosteric_category": ["Functional annotation", "Pathway"]
+    },
+    "msigdb_human_c2_curated_geneset": {
+        "name": "MSigDB Human C2 Curated Geneset",
+        "description": "Curated human gene sets from MSigDB.",
+        "allosteric_category": ["Functional annotation", "Pathway"]
+    },
+    "msigdb_human_c3_regulatory_target_geneset": {
+        "name": "MSigDB Human C3 Regulatory Target Geneset",
+        "description": "Regulatory target gene sets from MSigDB.",
+        "allosteric_category": ["Regulatory", "Functional"]
+    },
+    "msigdb_human_c3_subset_tf_targets": {
+        "name": "MSigDB Human C3 Subset TF Targets",
+        "description": "Transcription factor targets from GTRD/MSigDB.",
+        "allosteric_category": ["Regulatory", "Functional"]
+    },
+    "msigdb_human_c4_computational_geneset": {
+        "name": "MSigDB Human C4 Computational Geneset",
+        "description": "Computationally derived gene sets from MSigDB.",
+        "allosteric_category": ["Functional annotation", "Pathway"]
+    },
+    "msigdb_human_c5_ontology_geneset": {
+        "name": "MSigDB Human C5 Ontology Geneset",
+        "description": "Ontology-based gene sets from MSigDB.",
+        "allosteric_category": ["Functional annotation", "Pathway"]
+    },
+    "msigdb_human_c6_oncogenic_signature_geneset": {
+        "name": "MSigDB Human C6 Oncogenic Signature Geneset",
+        "description": "Oncogenic signatures from MSigDB.",
+        "allosteric_category": ["Functional annotation", "Pathway"]
+    },
+    "msigdb_human_c7_immunologic_signature_geneset": {
+        "name": "MSigDB Human C7 Immunologic Signature Geneset",
+        "description": "Immunologic signatures from MSigDB.",
+        "allosteric_category": ["Functional annotation", "Pathway"]
+    },
+    "msigdb_human_c8_celltype_signature_geneset": {
+        "name": "MSigDB Human C8 Celltype Signature Geneset",
+        "description": "Cell type signatures from MSigDB.",
+        "allosteric_category": ["Functional annotation", "Pathway"]
+    },
+    "msigdb_human_h_hallmark_geneset": {
+        "name": "MSigDB Human H Hallmark Geneset",
+        "description": "Hallmark gene sets from MSigDB.",
+        "allosteric_category": ["Functional annotation", "Pathway"]
+    },
+    "kg": {
+        "name": "Precision Medicine Knowledge Graph",
+        "description": "Knowledge graph with 17,080 diseases and 4+ million relationships across biological scales.",
+        "allosteric_category": ["Functional annotation", "Pathway", "Regulatory"]
+    }
+}
