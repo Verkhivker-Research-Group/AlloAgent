@@ -488,5 +488,36 @@ allosteric_data_lake = {
         "name": "Precision Medicine Knowledge Graph",
         "description": "Knowledge graph with 17,080 diseases and 4+ million relationships across biological scales.",
         "allosteric_category": ["Functional annotation", "Pathway", "Regulatory"]
+    },
+    "ASD_Release_201909_AM": {
+        "name": "Allosteric Mutations (AM)",
+        "description": "Contains experimentally identified mutations that affect allosteric regulation of proteins, useful for linking sequence changes to functional effects.",
+        "allosteric_category": ["Mutation", "Functional", "Structural"]
+    },
+    "ASD_Release_201909_DR": {
+        "name": "Allosteric Drugs (DR)",
+        "description": "Lists allosteric modulators and drugs characterized in ASD, including their targets and functional annotations, suitable for pharmacological studies.",
+        "allosteric_category": ["Ligand", "Functional", "Pharmacological"]
+    },
+    "ASD_Release_202306_AP": {
+        "name": "AlloSite-Potential (AP)",
+        "description": "Predicted potential allosteric sites for human proteins, derived from computational models, providing candidates for experimental validation.",
+        "allosteric_category": ["Site Prediction", "Structural", "Functional"]
+    },
+    "ASD_Release_202306_HL": {
+        "name": "Hit-to-Lead Records (HL)",
+        "description": "Contains hit-to-lead optimization data for allosteric modulators, useful for medicinal chemistry and lead development.",
+        "allosteric_category": ["Ligand", "Functional", "Drug Discovery"]
+    },
+    "ASD_Release_202208_AS_Filtered": {
+        "name": "Allosteric Sites (AS)",
+        "description": "Comprehensive experimentally determined allosteric sites of proteins, providing residue-level information on binding pockets and ligand interactions.",
+        "allosteric_category": ["Site", "Structural", "Functional"]
+    },
+    "ASD_Release_202309_PP": {
+        "name": "Allosteric Protein-Protein Interactions (PP)",
+        "description": "Allosteric modulators affecting protein-protein interactions, detailing targets and functional effects relevant to signaling and complex formation.",
+        "allosteric_category": ["PPI", "Functional", "Structural"]
     }
+
 }
