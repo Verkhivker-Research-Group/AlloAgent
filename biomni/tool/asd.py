@@ -6,7 +6,7 @@ from collections import Counter
 from typing import Dict, List, Any, Optional
 import logging
 
-from asd_index import asd_index
+from .asd_index import asd_index
 
 # Set up logging
 logging.basicConfig(level=logging.INFO)
