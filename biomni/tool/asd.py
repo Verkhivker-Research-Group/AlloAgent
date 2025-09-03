@@ -6,19 +6,21 @@ from collections import Counter
 from typing import Dict, List, Any, Optional
 import logging
 
-from asd_index import asd_index
+from biomni.tool.asd_index import asd_index
 
 # Set up logging
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
 
-# Hard-coded file paths
-ASD_XF_PATH = "../../data/biomni_data/asd/ASD_Release_202306_XF"  # XML files directory
-ASD_2D_PATH = "../../data/biomni_data/asd/ASD_Release_202306_2D"  # MOL files directory  
-ASD_3D_PATH = "../../data/biomni_data/asd/ASD_Release_202306_3D"  # MOL2 files directory
-ASD_AM_PATH = "../../data/biomni_data/data_lake/ASD_Release_201909_AM.csv"  # Mutation CSV
-ASD_DR_PATH = "../../data/biomni_data/data_lake/ASD_Release_201909_DR.csv"  # Drug CSV
-ASD_AP_PATH = "../../data/biomni_data/data_lake/ASD_Release_202306_AP.csv"  # Predicted sites CSV
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+DATA_DIR = os.path.join(BASE_DIR, "../../data/biomni_data")
+
+ASD_XF_PATH = os.path.join(DATA_DIR, "asd/ASD_Release_202306_XF")
+ASD_2D_PATH = os.path.join(DATA_DIR, "asd/ASD_Release_202306_2D")
+ASD_3D_PATH = os.path.join(DATA_DIR, "asd/ASD_Release_202306_3D")
+ASD_AM_PATH = os.path.join(DATA_DIR, "data_lake/ASD_Release_201909_AM.csv")
+ASD_DR_PATH = os.path.join(DATA_DIR, "data_lake/ASD_Release_201909_DR.csv")
+ASD_AP_PATH = os.path.join(DATA_DIR, "data_lake/ASD_Release_202306_AP.csv")
 
 def parse_asd_xf(
     target_proteins: Optional[List[str]] = None
@@ -38,12 +40,13 @@ def parse_asd_xf(
     target_set = set(target_proteins) if target_proteins else set(asd_index.keys())
 
     for protein_id in target_set:
-        xml_file = asd_index.get(protein_id)
+        xml_filename = asd_index.get(protein_id)
         if not xml_file:
             # Skip if protein not in index
             print("Not in asd_index")
             continue
-
+        xml_file = os.path.join(ASD_XF_PATH, xml_filename + ".xml")
+        
         try:
             tree = ET.parse(xml_file)
             root = tree.getroot()
@@ -110,11 +113,13 @@ def load_asd_2d(protein_ids: List[str], modulator_ids: Optional[List[str]] = Non
 
     for protein_id in protein_ids:
         # Lookup protein metadata in asd_index
-        xml_path = asd_index.get(protein_id)
-        if not xml_path or not os.path.exists(xml_path):
-            logger.warning(f"XML file not found for protein {protein_id}: {xml_path}")
+        xml_filename = asd_index.get(protein_id)
+        
+        if not xml_filename or not os.path.exists(xml_filename):
+            logger.warning(f"XML file not found for protein {protein_id}: {xml_filename}")
             continue
-
+        xml_path = os.path.join(ASD_XF_PATH, xml_filename + ".xml")
+        
         try:
             tree = ET.parse(xml_path)
             root = tree.getroot()
@@ -201,11 +206,14 @@ def load_asd_3d(protein_ids: List[str], modulator_ids: Optional[List[str]] = Non
     target_mods = set(modulator_ids) if modulator_ids else None
 
     for protein_id in protein_ids:
-        xml_path = asd_index.get(protein_id)
-        if not xml_path or not os.path.exists(xml_path):
-            logger.warning(f"XML file not found for protein {protein_id}: {xml_path}")
+        xml_filename = asd_index.get(protein_id)
+        
+        if not xml_filename or not os.path.exists(xml_filename):
+            logger.warning(f"XML file not found for protein {protein_id}: {xml_filename}")
             continue
-
+        xml_path = os.path.join(ASD_XF_PATH, xml_filename + ".xml")
+        
+        
         try:
             tree = ET.parse(xml_path)
             root = tree.getroot()
@@ -515,59 +523,3 @@ def load_asd_ap(target_proteins: List[str] = None) -> Dict[str, List[Dict[str, A
     return result
 
 
-def test_asd_functions():
-    """Minimal test function for all ASD data loading functions."""
-    
-    # Sample test data
-    test_proteins = ["P10636", "P04637", "P42336"]
-    test_modulators = ["ASD01140224", "ASD03930089", "ASD07150007"]
-    
-    print("Testing ASD Data Loading Functions")
-    print("=" * 40)
-    
-    # Test 1: XML protein data
-    try:
-        xf_data = parse_asd_xf(test_proteins)
-        print(f"✓ XML data: {len(xf_data)} proteins loaded")
-    except Exception as e:
-        print(f"✗ XML data failed: {e}")
-    
-    # Test 2: 2D structures
-    try:
-        struct_2d = load_asd_2d(test_proteins)
-        print(f"✓ 2D structures: {len(struct_2d)} modulators loaded")
-    except Exception as e:
-        print(f"✗ 2D structures failed: {e}")
-    
-    # Test 3: 3D structures
-    try:
-        struct_3d = load_asd_3d(test_proteins)
-        print(f"✓ 3D structures: {len(struct_3d)} modulators loaded")
-    except Exception as e:
-        print(f"✗ 3D structures failed: {e}")
-    
-    # Test 4: Mutations
-    try:
-        mutations = load_asd_am(test_proteins)
-        for protein_id, mut_list in mutations.items():
-            print(f"{protein_id}: {len(mut_list)} mutations")
-    except Exception as e:
-        print(f"✗ Mutations failed: {e}")
-    
-    
-    # Test 5: Drug data
-    try:
-        drugs = load_asd_dr(test_modulators)
-        print(f"✓ Drug data: {len(drugs)} modulators loaded")
-    except Exception as e:
-        print(f"✗ Drug data failed: {e}")
-
-    # Test 6: Predicted sites
-    try:
-        predicted = load_asd_ap(test_proteins)
-        print(f"✓ Predicted sites: {len(predicted)} proteins loaded")
-    except Exception as e:
-        print(f"✗ Predicted sites failed: {e}")
-    
-
-test_asd_functions()
