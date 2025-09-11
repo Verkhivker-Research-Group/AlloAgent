@@ -519,8 +519,8 @@ def test_asd_functions():
     """Minimal test function for all ASD data loading functions."""
     
     # Sample test data
-    test_proteins = ["P10636", "P04637", "P42336"]
-    test_modulators = ["ASD01140224", "ASD03930089", "ASD07150007"]
+    test_proteins = ["P0AB91"]
+    test_modulators = ["ASD00020000_1"]
     
     print("Testing ASD Data Loading Functions")
     print("=" * 40)

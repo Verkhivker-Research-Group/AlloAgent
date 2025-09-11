@@ -495,11 +495,12 @@ def _integrate_energy_landscape(landscape_data: Dict) -> Dict[str, Any]:
         }
         
         # Summary
+        total_states = len(integrated["nodes"]["energy_levels"])
         integrated["summary"] = {
-            "total_states": len(integrated["nodes"]["energy_levels"]),
+            "total_states": total_states,
             "total_transitions": len(integrated["edges"]["conformational_transitions"]),
             "mechanism_type": integrated["dynamics"]["mechanisms"],
-            "complexity": "high" if integrated["summary"]["total_states"] > 3 else "medium"
+            "complexity": "high" if total_states > 3 else "medium"
         }
         
     except Exception as e:
@@ -870,70 +871,6 @@ if __name__ == "__main__":
 
 
 
-'''
-
-def build_energy_landscape(protein_id: str) -> Dict[str, Any]:
-    """
-    Build a structured dataset for energy landscape theory in allostery.
-    
-    Combines conformational states (PDB), allosteric modulators (ASD),
-    and molecular dynamics ensembles (MoDEL/Dynameomics).
-    
-    Args:
-        protein_id (str): UniProt or PDB identifier of the protein.
-        
-    Returns:
-        Dict[str, Any]: Structured JSON with provenance for citation.
-    """
-    landscape_data = {"protein_id": protein_id, "sources": {}}
-
-    try:
-        # Step 1: PDB conformations
-        pdb_data = query_pdb(protein_id)
-        landscape_data["sources"]["PDB"] = {
-            "provenance": "RCSB Protein Data Bank",
-            "conformations": pdb_data.get("conformations", []),
-            "ligand_bound_states": pdb_data.get("ligand_states", []),
-        }
-
-        # Step 2: Allosteric modulators (ASD)
-        asd_data = query_asd(protein_id)
-        landscape_data["sources"]["ASD"] = {
-            "provenance": "Allosteric Database (ASD)",
-            "allosteric_sites": asd_data.get("sites", []),
-            "modulators": asd_data.get("modulators", []),
-        }
-
-        # Step 3: Dynamics (MoDEL/Dynameomics)
-        dynamics_data = query_dynamics(protein_id)
-        landscape_data["sources"]["Dynamics"] = {
-            "provenance": "MoDEL / Dynameomics",
-            "trajectories": dynamics_data.get("trajectories", []),
-            "states": dynamics_data.get("states", []),
-        }
-
-        # Integrate into a draft "energy landscape"
-        landscape_data["energy_landscape"] = {
-            "nodes": {
-                "apo": pdb_data.get("apo_structures", []),
-                "holo": pdb_data.get("holo_structures", []),
-                "intermediates": dynamics_data.get("states", []),
-            },
-            "edges": dynamics_data.get("transitions", []),
-            "perturbations": {
-                "allosteric_ligands": asd_data.get("modulators", []),
-                "binding_site_shifts": asd_data.get("sites", []),
-            },
-        }
-
-    except Exception as e:
-        logging.error(f"Error building energy landscape for {protein_id}: {e}")
-        landscape_data["error"] = str(e)
-
-    return landscape_data
-
-    
-'''
 
 
 

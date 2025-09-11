@@ -9,10 +9,11 @@ agent = A1(path="/data", llm="gpt-4o", allosteric=True, api_key=os.environ["OPEN
 
 
 # We can store different prompts for testing
-prompt1 = """Plan a CRISPR screen to identify genes that regulate T cell exhaustion,
-measured by the change in T cell receptor (TCR) signaling between acute
-(interleukin-2 [IL-2] only) and chronic (anti-CD3 and IL-2) stimulation conditions.
-Generate 32 genes that maximize the perturbation effect."""
+prompt1 = """Describe energy landscape theory in the context of allostery for hemoglobin. 
+Build a comprehensive energy landscape that shows how conformational changes in hemoglobin 
+affect oxygen binding and allosteric regulation. Include specific structural details, 
+energy barriers, and the role of key residues like His146 and Asp94 in the allosteric mechanism
+Specifiy what methods within our databse that you used to get this information."""
 
 prompt2 = """Plan a cellular assay to detect allosteric modulation of receptor R in T cells.
  Measure calcium flux in response to ligand binding with and without a candidate allosteric inhibitor. 
