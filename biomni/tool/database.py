@@ -453,6 +453,7 @@ def query_uniprot(
     api_key=None,
     model="claude-3-5-haiku-20241022",
     max_results=5,
+    provider="claude",
 ):
     """Query the UniProt REST API using either natural language or a direct endpoint.
 
@@ -461,9 +462,13 @@ def query_uniprot(
     prompt (str, required): Natural language query about proteins (e.g., "Find information about human insulin")
     endpoint (str, optional): Full or partial UniProt API endpoint URL to query directly
                             (e.g., "https://rest.uniprot.org/uniprotkb/P01308")
-    api_key (str, optional): Anthropic API key. If None, will use ANTHROPIC_API_KEY env variable
-    model (str): Anthropic model to use for natural language processing
+    api_key (str, optional): API key for the chosen provider. If None, will use appropriate env variable
+                           (ANTHROPIC_API_KEY for Claude, OPENAI_API_KEY for OpenAI)
+    model (str): Model to use for natural language processing
+                Default: "claude-3-5-haiku-20241022" for Claude
+                Examples for OpenAI: "gpt-4", "gpt-3.5-turbo"
     max_results (int): Maximum number of results to return
+    provider (str): LLM provider to use ("claude" or "openai")
 
     Returns
     -------
@@ -471,18 +476,29 @@ def query_uniprot(
 
     Examples
     --------
-    - Natural language: query_uniprot(prompt="Find information about human insulin protein")
-    - Direct endpoint: query_uniprot(endpoint="https://rest.uniprot.org/uniprotkb/P01308")
+    - Natural language with Claude: 
+      query_uniprot(prompt="Find information about human insulin protein", provider="claude")
+    - Natural language with OpenAI: 
+      query_uniprot(prompt="Find information about human insulin protein", provider="openai", model="gpt-4")
+    - Direct endpoint: 
+      query_uniprot(endpoint="https://rest.uniprot.org/uniprotkb/P01308")
 
     """
+    import os
+    import pickle
+    
     # Base URL for UniProt API
     base_url = "https://rest.uniprot.org"
+
+    # Validate provider
+    if provider not in ["claude", "openai"]:
+        return {"error": "Provider must be either 'claude' or 'openai'"}
 
     # Ensure we have either a prompt or an endpoint
     if prompt is None and endpoint is None:
         return {"error": "Either a prompt or an endpoint must be provided"}
 
-    # If using prompt, parse with Claude
+    # If using prompt, parse with LLM
     if prompt:
         # Load UniProt schema
         schema_path = os.path.join(os.path.dirname(__file__), "schema_db", "uniprot.pkl")
@@ -513,27 +529,40 @@ def query_uniprot(
         Return ONLY the JSON object with no additional text.
         """
 
-        # Query Claude to generate the API call
-        claude_result = _query_claude_for_api(
-            prompt=prompt,
-            schema=uniprot_schema,
-            system_template=system_template,
-            api_key=api_key,
-            model=model,
-        )
+        # Query LLM to generate the API call
+        if provider == "claude":
+            llm_result = _query_claude_for_api(
+                prompt=prompt,
+                schema=uniprot_schema,
+                system_template=system_template,
+                api_key=api_key,
+                model=model,
+            )
+        elif provider == "openai":
+            llm_result = _query_openai_for_api(
+                prompt=prompt,
+                schema=uniprot_schema,
+                system_template=system_template,
+                api_key=api_key,
+                model=model,
+            )
+        else:
+            return {
+                "error": "Invalid model type"
+            }
 
-        if not claude_result["success"]:
-            return claude_result
+        if not llm_result["success"]:
+            return llm_result
 
-        # Get the full URL from Claude's response
-        query_info = claude_result["data"]
+        # Get the full URL from LLM's response
+        query_info = llm_result["data"]
         endpoint = query_info.get("full_url", "")
         description = query_info.get("description", "")
 
         if not endpoint:
             return {
                 "error": "Failed to generate a valid endpoint from the prompt",
-                "claude_response": claude_result.get("raw_response", "No response"),
+                "llm_response": llm_result.get("raw_response", "No response"),
             }
     else:
         # Use provided endpoint directly
@@ -547,6 +576,137 @@ def query_uniprot(
     api_result = _query_rest_api(endpoint=endpoint, method="GET", description=description)
 
     return api_result
+
+
+def _query_openai_for_api(prompt, schema, system_template, api_key=None, model="gpt-4"):
+    """Query OpenAI API to generate UniProt API call."""
+    import json
+    import os
+    try:
+        import openai
+    except ImportError:
+        return {
+            "success": False,
+            "error": "OpenAI library not installed. Install with: pip install openai"
+        }
+    
+    # Get API key
+    if api_key is None:
+        api_key = os.getenv("OPENAI_API_KEY")
+    
+    if not api_key:
+        return {
+            "success": False,
+            "error": "OpenAI API key not provided and OPENAI_API_KEY environment variable not set"
+        }
+    
+    try:
+        # Initialize OpenAI client
+        client = openai.OpenAI(api_key=api_key)
+        
+        # Format the system prompt with schema
+        system_prompt = system_template.format(schema=schema)
+        
+        # Make the API call
+        response = client.chat.completions.create(
+            model=model,
+            messages=[
+                {"role": "system", "content": system_prompt},
+                {"role": "user", "content": prompt}
+            ],
+            temperature=0.1,
+            max_tokens=1000
+        )
+        
+        # Extract the response content
+        raw_response = response.choices[0].message.content.strip()
+        
+        # Try to parse the JSON response
+        try:
+            parsed_response = json.loads(raw_response)
+            return {
+                "success": True,
+                "data": parsed_response,
+                "raw_response": raw_response
+            }
+        except json.JSONDecodeError as e:
+            return {
+                "success": False,
+                "error": f"Failed to parse JSON response: {e}",
+                "raw_response": raw_response
+            }
+            
+    except Exception as e:
+        return {
+            "success": False,
+            "error": f"OpenAI API error: {str(e)}"
+        }
+
+
+# Note: You'll also need to keep your existing _query_claude_for_api function
+def _query_claude_for_api(prompt, schema, system_template, api_key=None, model="claude-3-5-haiku-20241022"):
+    """Query Claude API to generate UniProt API call."""
+    import json
+    import os
+    try:
+        import anthropic
+    except ImportError:
+        return {
+            "success": False,
+            "error": "Anthropic library not installed. Install with: pip install anthropic"
+        }
+    
+    # Get API key
+    if api_key is None:
+        api_key = os.getenv("ANTHROPIC_API_KEY")
+    
+    if not api_key:
+        return {
+            "success": False,
+            "error": "Anthropic API key not provided and ANTHROPIC_API_KEY environment variable not set"
+        }
+    
+    try:
+        # Initialize Anthropic client
+        client = anthropic.Anthropic(api_key=api_key)
+        
+        # Format the system prompt with schema
+        system_prompt = system_template.format(schema=schema)
+        
+        # Make the API call
+        response = client.messages.create(
+            model=model,
+            max_tokens=1000,
+            temperature=0.1,
+            system=system_prompt,
+            messages=[
+                {"role": "user", "content": prompt}
+            ]
+        )
+        
+        # Extract the response content
+        raw_response = response.content[0].text.strip()
+        
+        # Try to parse the JSON response
+        try:
+            parsed_response = json.loads(raw_response)
+            return {
+                "success": True,
+                "data": parsed_response,
+                "raw_response": raw_response
+            }
+        except json.JSONDecodeError as e:
+            return {
+                "success": False,
+                "error": f"Failed to parse JSON response: {e}",
+                "raw_response": raw_response
+            }
+            
+    except Exception as e:
+        return {
+            "success": False,
+            "error": f"Anthropic API error: {str(e)}"
+        }
 
 
 def query_alphafold(
