@@ -140,7 +140,84 @@ def test_cross_reference_ligands(uniprot_id="P41240"):
         asd_found = 'asd' in cross_ref['cross_refs']
         print(f"  {cross_ref['ligand_code']}: ASD match = {asd_found}")
 
-test_cross_reference_ligands()
+'''Test area'''
+
+from chembl_webresource_client.new_client import new_client
+import pubchempy as pcp
+
+def cross_reference_covalent_probes(uniprot_id: str, ligands: list):
+    """
+    Cross-reference ligands against ChEMBL (bioactivity, covalent annotations)
+    and PubChem (structural identifiers, synonyms).
+    
+    Designed to strengthen Biomni's handling of covalent probes (Prompt 107).
+    
+    Args:
+        uniprot_id (str): UniProt accession ID for the target protein.
+        ligands (list): List of ligand dicts, must contain at least {"ligand_name": str}.
+    
+    Returns:
+        dict: Cross-referenced ligand data with provenance tags.
+    """
+    results = {
+        "protein_id": uniprot_id,
+        "covalent_probe_refs": []
+    }
+
+    try:
+        chembl_molecule = new_client.molecule
+        chembl_activity = new_client.activity
+
+        for ligand in ligands:
+            ligand_name = ligand.get("ligand_name")
+            cross_ref = {
+                "ligand_name": ligand_name,
+                "from_input": ligand,
+                "cross_refs": {},
+                "provenance": []
+            }
+
+            # --- Query ChEMBL ---
+            try:
+                mols = chembl_molecule.filter(pref_name__icontains=ligand_name)
+                mols = list(mols)
+                if mols:
+                    cross_ref["cross_refs"]["chembl"] = mols
+                    cross_ref["provenance"].append("ChEMBL")
+
+                    # Check activities for covalent annotations
+                    chembl_id = mols[0]["molecule_chembl_id"]
+                    activities = list(chembl_activity.filter(molecule_chembl_id=chembl_id))
+                    covalent_hits = [a for a in activities if "covalent" in str(a).lower()]
+                    if covalent_hits:
+                        cross_ref["cross_refs"]["chembl_covalent"] = covalent_hits
+                        cross_ref["provenance"].append("ChEMBL-Covalent")
+            except Exception as e:
+                cross_ref["cross_refs"]["chembl_error"] = str(e)
+
+            # --- Query PubChem ---
+            try:
+                compounds = pcp.get_compounds(ligand_name, "name")
+                if compounds:
+                    cross_ref["cross_refs"]["pubchem"] = [c.to_dict() for c in compounds]
+                    cross_ref["provenance"].append("PubChem")
+            except Exception as e:
+                cross_ref["cross_refs"]["pubchem_error"] = str(e)
+
+            results["covalent_probe_refs"].append(cross_ref)
+
+    except Exception as e:
+        results["error"] = str(e)
+
+    return results
+
+ligands = [
+    {"ligand_name": "afatinib"},   # known covalent EGFR inhibitor
+    {"ligand_name": "ibrutinib"}   # covalent BTK inhibitor
+]
+
+data = cross_reference_covalent_probes("P00533", ligands)  # EGFR UniProt ID
+print(data)
 
 
 
@@ -212,6 +289,7 @@ def build_energy_landscape(protein_id: str) -> Dict[str, Any]:
 
     
 '''
+
 
 
 
