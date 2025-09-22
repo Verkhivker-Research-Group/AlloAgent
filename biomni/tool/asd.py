@@ -22,8 +22,13 @@ ASD_AM_PATH = os.path.join(DATA_DIR, "data_lake/ASD_Release_201909_AM.csv")
 ASD_DR_PATH = os.path.join(DATA_DIR, "data_lake/ASD_Release_201909_DR.csv")
 ASD_AP_PATH = os.path.join(DATA_DIR, "data_lake/ASD_Release_202306_AP.csv")
 
+# number of proteins that overlap between XF and AP datasets
+#df = pd.read_csv(ASD_AP_PATH)
+#print(df[df["uniprot_id"].isin(asd_index.keys())].drop_duplicates(subset="uniprot_id").shape)
+
+
 def parse_asd_xf(
-    target_proteins: Optional[List[str]] = None
+    target_proteins: List[str] = None
 ) -> Dict[str, Dict[str, Any]]:
     """
     Parse ASD_Release_202306_XF XML files to extract
@@ -41,12 +46,12 @@ def parse_asd_xf(
 
     for protein_id in target_set:
         xml_filename = asd_index.get(protein_id)
-        if not xml_file:
+        if not xml_filename:
             # Skip if protein not in index
             print("Not in asd_index")
             continue
         xml_file = os.path.join(ASD_XF_PATH, xml_filename + ".xml")
-        
+        print(xml_file)
         try:
             tree = ET.parse(xml_file)
             root = tree.getroot()

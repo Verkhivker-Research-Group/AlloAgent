@@ -22,13 +22,14 @@ def parse_biolip_interactions(pdb_id=None, chain=None):
         df = pickle.load(f)
 
     pdb_id = pdb_id.lower()
+    if pdb_id == "":
+        return df
     
     if chain is None:
         return df[df["PDB"] == pdb_id]
     else:
         return df[df[df["PDB"] == pdb_id]["Chain"] == chain]
     
-    return df
 
 
 def biolip_dna(pdb_id, chain=None):

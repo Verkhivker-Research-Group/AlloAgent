@@ -686,5 +686,13 @@ allosteric_tools = [
         "Allosteric Function": "Indirect",
         "Allosteric Relevance": "Detects skeletal effects",
         "Allosteric Research Area": "Physiological Modeling"
+    },
+    {
+    "Name": "validate_allosteric_sites_with_biolip",
+    "Source File": "allosteric.py",
+    "Short Description": "Validates computationally predicted allosteric binding sites by comparing against known catalytic sites in BioLiP database",
+    "Allosteric Function": "Direct",
+    "Allosteric Relevance": "Site validation and druggability assessment",
+    "Allosteric Research Area": "Computational Drug Discovery"
     }
 ]
