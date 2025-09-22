@@ -112,7 +112,7 @@ def test_cross_reference_ligands(pdb_id, uniprot_id):
     return results
 
 
-test_cross_reference_ligands("1I09", "P49841")
+#test_cross_reference_ligands("1I09", "P49841")
 
 
 # STILL IN TEST PHASES
