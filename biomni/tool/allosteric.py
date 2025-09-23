@@ -1,8 +1,10 @@
 from biomni.tool.database import query_uniprot, query_pdb
 from biomni.tool.biolip import parse_biolip_interactions, biolip_ligands
 from biomni.tool.asd import parse_asd_xf, load_asd_ap, load_asd_dr
+from chembl_webresource_client.new_client import new_client
 
 
+import pubchempy as pcp
 import pandas as pd
 import json
 import logging
@@ -787,5 +789,79 @@ def run_test_cases():
         })
     
     return results
+
+'''Prompt 107'''
+def cross_reference_covalent_probes(uniprot_id: str, ligands: list, detail_level: str = "slim"):
+    """
+    Cross-reference ligands against ChEMBL + PubChem and return a structured output.
+    
+    Args:
+        uniprot_id (str): UniProt identifier for the target protein.
+        ligands (list): List of dicts with ligand metadata (e.g., {"ligand_name": "Gefitinib"}).
+        detail_level (str): "slim" for cleaned output, "full" for raw ChEMBL/PubChem dumps.
+    """
+    molecule = new_client.molecule
+    results = {"protein_id": uniprot_id, "ligands": []}
+
+    for ligand in ligands:
+        ligand_name = ligand.get("ligand_name")
+        cross_ref = {"name": ligand_name}
+
+        try:
+            # --- ChEMBL query ---
+            chembl_match = molecule.filter(pref_name__icontains=ligand_name)
+            if chembl_match:
+                chembl_data = chembl_match[0]  # take best match
+                if detail_level == "slim":
+                    cross_ref.update({
+                        "chembl_id": chembl_data.get("molecule_chembl_id"),
+                        "synonyms": chembl_data.get("molecule_synonyms", [])[:3],  # top 3 synonyms
+                        "properties": {
+                            "formula": chembl_data.get("molecule_properties", {}).get("full_molformula"),
+                            "molecular_weight": chembl_data.get("molecule_properties", {}).get("full_mwt"),
+                            "alogp": chembl_data.get("molecule_properties", {}).get("alogp"),
+                            "psa": chembl_data.get("molecule_properties", {}).get("psa")
+                        },
+                        "structure": {
+                            "smiles": chembl_data.get("molecule_structures", {}).get("canonical_smiles"),
+                            "inchi_key": chembl_data.get("molecule_structures", {}).get("standard_inchi_key")
+                        },
+                        "classification": {
+                            "atc": chembl_data.get("atc_classifications", []),
+                            "usan_stem": chembl_data.get("usan_stem")
+                        },
+                        "approval": {
+                            "first_approval": chembl_data.get("first_approval"),
+                            "max_phase": chembl_data.get("max_phase")
+                        }
+                    })
+                else:
+                    cross_ref["chembl_raw"] = chembl_data
+
+            # --- PubChem query ---
+            pubchem_matches = pcp.get_compounds(ligand_name, "name")
+            if pubchem_matches:
+                compound = pubchem_matches[0]
+                if detail_level == "slim":
+                    cross_ref["pubchem_cid"] = compound.cid
+                else:
+                    cross_ref["pubchem_raw"] = compound.to_dict()
+
+        except Exception as e:
+            cross_ref["error"] = str(e)
+
+        results["ligands"].append(cross_ref)
+
+    return results
+
+
+# ---------------- TEST CASE ----------------
+if __name__ == "__main__":
+    results = cross_reference_covalent_probes(
+        uniprot_id="P00533",  # EGFR
+        ligands=[{"ligand_name": "Gefitinib"}],
+        detail_level="slim"   # try "full" for raw JSON
+    )
+    print(json.dumps(results, indent=2))
 
 #print(run_test_cases())
