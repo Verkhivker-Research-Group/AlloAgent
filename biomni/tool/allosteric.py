@@ -10,7 +10,7 @@ import json
 import logging
 from typing import Dict, Any
 import os
-from typing import Dict, List, Tuple, Any, Optional
+from typing import Set, Dict, List, Tuple, Any, Optional
 import re
 from dataclasses import dataclass
 from dotenv import load_dotenv
@@ -865,3 +865,208 @@ if __name__ == "__main__":
     print(json.dumps(results, indent=2))
 
 #print(run_test_cases())
+
+#107 Updated
+
+def map_covalent_probes_to_allosteric(uniprot_id: str,
+                                      dataset_path: str = "/app/data/biomni_data/CovInDB/CovInDB_All.csv"
+                                     ) -> pd.DataFrame:
+    """
+    Steps:
+    1. Load and filter by UniProt ID
+    2. Extract site information with better parsing
+    3. Use protein family-specific knowledge to identify catalytic/orthosteric sites
+    4. Apply intelligent filtering based on residue patterns and context
+    """
+
+    try:
+        df = pd.read_csv(dataset_path)
+    except FileNotFoundError:
+        print(f"Dataset not found at {dataset_path}")
+        return pd.DataFrame()
+
+    df = df[df["Target"].str.contains(uniprot_id, case=False, na=False)]
+    if df.empty:
+        print(f"No entries found for UniProt {uniprot_id}")
+        return df
+
+    cols = [
+        "Inhibitor_Name", "Target_Name", "Target_Gene", "Target", 
+        "Site", "War_head", "Reaction_type", "Method", "Assay", "Reference"
+    ]
+    available_cols = [col for col in cols if col in df.columns]
+    subset = df[available_cols].copy()
+
+    def parse_site(site_str):
+        """Parse site string into individual residues"""
+        if pd.isna(site_str):
+            return []
+        
+        site_str = str(site_str).strip()
+        if site_str in ["NT", "N-term", "N-terminal"]:
+            return ["NT"]
+        if "cofactor" in site_str.lower() or "enzyme" in site_str.lower():
+            return ["COFACTOR"]
+        
+        sites = []
+        for part in re.split(r'[，,;]', site_str):
+            part = part.strip()
+            if not part:
+                continue
+            match = re.match(r'([A-Z]+)[-\s]*(\d+)', part)
+            if match:
+                residue, number = match.groups()
+                sites.append(f"{residue}-{number}")
+            elif part in ["NT", "N-term"]:
+                sites.append("NT")
+            else:
+                sites.append(part)
+        return sites
+
+    def is_orthosteric_site(site: str, target_gene: str) -> bool:
+        """Determine if a site is likely orthosteric based on protein family knowledge"""
+        if site in ["NT", "COFACTOR"]:
+            return False
+        
+        match = re.match(r'([A-Z]+)-(\d+)', site)
+        if not match:
+            return False
+        
+        residue, number = match.groups()
+        number = int(number)
+        
+
+        orthosteric_sites = {
+            'EGFR': ['CYS-797'],  
+            'KRAS': ['CYS-12'],   
+            'BTK': ['CYS-481'],   
+            'JAK': ['CYS-909'],   
+            
+            'SERINE_PROTEASE': ['SER-195', 'HIS-57', 'ASP-102'],
+            'CYSTEINE_PROTEASE': ['CYS-25', 'HIS-159'],
+            
+   
+            'GENERAL_CATALYTIC': [
+                'CYS-25', 'CYS-145', 'SER-195', 'HIS-41', 'HIS-57', 
+                'ASP-102', 'LYS-72', 'ASP-189', 'SER-221', 'CYS-481'
+            ]
+        }
+        
+        target_upper = str(target_gene).upper() if pd.notna(target_gene) else ""
+
+        for gene_pattern, sites in orthosteric_sites.items():
+            if gene_pattern in target_upper:
+                if site in sites:
+                    return True
+
+        if site in orthosteric_sites['GENERAL_CATALYTIC']:
+            return True
+
+        if residue in ['SER', 'CYS', 'HIS', 'ASP', 'GLU', 'LYS']:
+            return True
+        
+        return False
+
+    def is_allosteric_candidate(site_str, target_gene):
+        """Determine if site is a potential allosteric candidate"""
+        sites = parse_site(site_str)
+        if not sites:
+            return True
+        
+        for site in sites:
+            if is_orthosteric_site(site, target_gene):
+                return False
+        
+        allosteric_indicators = [
+            'NT', 'COFACTOR', 
+            'CYS-', 'SER-', 'LYS-', 
+        ]
+        
+        for site in sites:
+            if any(indicator in site for indicator in allosteric_indicators):
+                return True
+        
+        return True
+
+    # classify
+    subset["Parsed_Sites"] = subset["Site"].apply(parse_site)
+    subset["Allosteric_Candidate"] = subset.apply(
+        lambda row: is_allosteric_candidate(row["Site"], row.get("Target_Gene", "")), 
+        axis=1
+    )
+    
+    subset["Site_Count"] = subset["Parsed_Sites"].apply(len)
+    
+    def get_confidence_level(sites, is_allosteric):
+        if not is_allosteric:
+            return "High (Orthosteric)"
+        
+        site_str = '|'.join(sites) if sites else str(sites)
+        
+        # high confidence allosteric indicators
+        high_conf_indicators = ['NT', 'COFACTOR', 'CYS-1', 'CYS-2']
+        if any(indicator in site_str for indicator in high_conf_indicators):
+            return "High (Allosteric)"
+        
+        # medium confidence allosteric indicators
+        medium_conf_indicators = ['CYS-', 'SER-', 'LYS-']
+        if any(indicator in site_str for indicator in medium_conf_indicators):
+            return "Medium (Allosteric)"
+        
+        return "Low (Investigate)"
+
+    subset["Confidence"] = subset.apply(
+        lambda row: get_confidence_level(row["Parsed_Sites"], row["Allosteric_Candidate"]), 
+        axis=1
+    )
+
+    return subset.reset_index(drop=True)
+
+
+def analyze_site_patterns(df: pd.DataFrame) -> Dict:
+    """
+    Analyze site patterns in the dataset to help refine classification.
+    """
+    from collections import Counter
+    
+    all_sites = []
+    for sites in df.get("Parsed_Sites", []):
+        all_sites.extend(sites)
+    
+    site_counter = Counter(all_sites)
+    
+    # finds most common sites
+    common_sites = site_counter.most_common(20)
+    
+    # analyzes data extracted by residue type
+    residue_counter = Counter()
+    for site in all_sites:
+        if '-' in site:
+            residue = site.split('-')[0]
+            residue_counter[residue] += 1
+    
+    return {
+        "total_unique_sites": len(site_counter),
+        "most_common_sites": common_sites,
+        "residue_distribution": residue_counter.most_common(),
+        "total_entries": len(df)
+    }
+
+
+# ------------------ TEST CASE ------------------
+if __name__ == "__main__":
+    result = map_covalent_probes_to_allosteric("P00533")
+    print(f"Results for EGFR (P00533):")
+    print(f"Total entries: {len(result)}")
+    print(f"Allosteric candidates: {result['Allosteric_Candidate'].sum()}")
+    
+    if len(result) > 0:
+        print("\nSample entries:")
+        sample_cols = [col for col in ['Inhibitor_Name', 'Site', 'Allosteric_Candidate', 'Confidence'] 
+                      if col in result.columns]
+        print(result[sample_cols].head(10))
+        analysis = analyze_site_patterns(result)
+        print(f"\nSite analysis:")
+        print(f"Unique sites: {analysis['total_unique_sites']}")
+        print(f"Most common sites: {analysis['most_common_sites'][:5]}")
+
