@@ -13,6 +13,7 @@ import os
 from typing import Dict, List, Tuple, Any, Optional
 import re
 from dataclasses import dataclass
+import requests
 from dotenv import load_dotenv
 load_dotenv()
 
@@ -865,3 +866,69 @@ if __name__ == "__main__":
     print(json.dumps(results, indent=2))
 
 #print(run_test_cases())
+
+
+'''Pdb <-> Uniprot function'''
+
+def pdb_to_uniprot(pdb_id: str) -> dict:
+    pdb_id = pdb_id.strip().upper()
+    if len(pdb_id) != 4:
+        raise ValueError("PDB ID must be 4 characters")
+    
+    url = f"https://www.ebi.ac.uk/pdbe/api/mappings/uniprot/{pdb_id}"
+    try:
+        resp = requests.get(url, timeout=10)
+        resp.raise_for_status()
+        data = resp.json()
+        
+        # API returns lowercase key (e.g., "1tim")
+        entry = data.get(pdb_id.lower()) or data.get(pdb_id.upper())
+        if not entry or "UniProt" not in entry:
+            return {}
+        
+        result = {}
+        for uniprot, details in entry["UniProt"].items():
+            for mapping in details.get("mappings", []):
+                chain = mapping.get("chain_id")
+                if chain:
+                    chain = chain.upper()
+                    result.setdefault(chain, []).append(uniprot)
+        return result
+        
+    except Exception:
+        return {}
+
+
+def uniprot_to_pdb(uniprot_id: str) -> list:
+    uniprot_id = uniprot_id.strip().upper()
+    url = f"https://www.ebi.ac.uk/pdbe/api/mappings/all_isoforms/{uniprot_id}"
+    
+    try:
+        resp = requests.get(url, timeout=10)
+        resp.raise_for_status()
+        data = resp.json()
+        
+        entry = data.get(uniprot_id)
+        if not entry or "PDB" not in entry:
+            return []
+        
+        pdb_ids = list(entry["PDB"].keys())
+        return sorted(set(p.upper() for p in pdb_ids if len(p) == 4))
+        
+    except Exception:
+        return []
+
+
+'''test cases'''
+
+def test_pdb_to_uniprot():
+    result = pdb_to_uniprot("1TIM")
+    print(result)
+
+def test_uniprot_to_pdb():
+    result = uniprot_to_pdb("P00940")
+    print(result)
+
+if __name__ == "__main__":
+    test_pdb_to_uniprot()
+    test_uniprot_to_pdb()
