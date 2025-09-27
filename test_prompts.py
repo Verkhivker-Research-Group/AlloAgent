@@ -4,9 +4,19 @@ import os
 
 load_dotenv()
 
-# gpt-3.5-turbo, gpt-4o
-agent = A1(path="/data", llm="gpt-4o", allosteric=True, api_key=os.environ["OPENAI_API_KEY"])
 
+allosteric = False
+# gpt-3.5-turbo, gpt-4o
+agent = A1(path="/data", llm="gpt-4o", allosteric=allosteric, api_key=os.environ["OPENAI_API_KEY"])
+
+agent.add_data(
+    {"ASD_Release_201909_AM.csv": "Allosteric Mutations (AM) - Experimentally identified mutations affecting allosteric regulation, linking sequence changes to functional effects.",
+    "ASD_Release_201909_DR.csv": "Allosteric Drugs (DR) - Allosteric modulators and drugs with targets and functional annotations for pharmacological studies.",
+    "ASD_Release_202306_AP.csv": "AlloSite-Potential (AP) - Predicted potential allosteric sites for human proteins from computational models, candidates for experimental validation.",
+    "ASD_Release_202306_HL.csv": "Hit-to-Lead Records (HL) - Hit-to-lead optimization data for allosteric modulators, supporting medicinal chemistry and lead development.",
+    "ASD_Release_202208_AS.csv": "Allosteric Sites (AS) - Experimentally determined allosteric sites with residue-level binding pocket and ligand interaction data.",
+    "ASD_Release_202309_PP.csv": "Allosteric Protein-Protein Interactions (PP) - Allosteric modulators affecting protein-protein interactions, with targets and functional effects in signaling and complex formation."
+    }) # remember to add to allosteric_file_ids in a1.py too.
 
 # We can store different prompts for testing
 prompt1 = """Plan a CRISPR screen to identify genes that regulate T cell exhaustion,
@@ -50,9 +60,23 @@ Design an allosteric feedback simulation model (differential equations or networ
 Using Biomni’s tools, sketch a pipeline that automates steps 3–5 (site identification, design, validation)."
 Please include citations for definitions and mechanistic claims, and explain how Biomni’s components—tool selection, code execution, literature retrieval—enable these tasks."""
 
+biolip_database_prompt = '''I need information about molecular interactions and bound biomolecules for specific PDB entries from the Biolip Database.
 
+Give me all interactions for the protein with PDB ID 1GG1.
+
+For the structure 1a1k, list all DNA sequences it binds, both per chain (B) and across all chains.
+
+For the structure 4a1g, provide the peptide sequences bound to chain G and to all chains.
+
+For 8q5w, list the proteins bound to chain B and all chains.
+
+For 8a3w, provide RNA sequences bound to chain S1 and all chains.
+Give results clearly, specifying chain where relevant.'''
+
+
+asd_database_prompt = ''' Can you give me all the information for the protein with uniprot id: O94925  from the ASD database. Let me know if you don't have the ASD database. Do not under any circumstances query anything else. Hint: It should be in your datalake'''
 # prompt
-log, final_output = agent.go(prompt1)
+log, final_output = agent.go(asd_database_prompt)
 
 
 # output
@@ -61,7 +85,13 @@ print('Logs: \n')
 for entry in log:
     print(entry)
 
-with open("results.txt", "w") as f:
+if allosteric:
+    output_file = "asd_database_results.txt"
+else:
+    output_file = "biomni_results.txt"
+
+
+with open(output_file, "w") as f:
     f.write("Final Output:\n")
     f.write(str(final_output) + "\n\n")
     f.write("Logs:\n")

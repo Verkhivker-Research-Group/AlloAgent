@@ -1213,7 +1213,8 @@ Each library is listed with its description to help you understand its functiona
                     "msigdb_human_c4_computational_geneset", "msigdb_human_c5_ontology_geneset",
                     "msigdb_human_c6_oncogenic_signature_geneset", "msigdb_human_c7_immunologic_signature_geneset",
                     "msigdb_human_c8_celltype_signature_geneset", "msigdb_human_h_hallmark_geneset",
-                    "kg"
+                    "kg", "ASD_Release_201909_AM", "ASD_Release_201909_DR","ASD_Release_202306_AP", "ASD_Release_202306_HL", 
+                    "ASD_Release_202208_AS", "ASD_Release_202309_PP"
                 }
                 allosteric_data_lake_items = [item for item in data_lake_items if item.split(".")[0] in allosteric_file_ids]
 

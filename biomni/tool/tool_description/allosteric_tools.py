@@ -688,6 +688,54 @@ allosteric_tools = [
         "Allosteric Research Area": "Physiological Modeling"
     },
     {
+        "Name": "parse_biolip_interactions",
+        "Source File": "biolip.py",
+        "Short Description": "Retrieves molecular interaction data from Biolip for a given PDB entry, optionally filtered by chain",
+        "Allosteric Function": "Indirect",
+        "Allosteric Relevance": "Provides interaction context for ligand binding sites",
+        "Allosteric Research Area": "Structural Bioinformatics"
+    },
+    {
+        "Name": "biolip_dna",
+        "Source File": "biolip.py",
+        "Short Description": "Extracts DNA sequences bound to a specific PDB entry, optionally filtered by chain",
+        "Allosteric Function": "Indirect",
+        "Allosteric Relevance": "Identifies DNA interactions that may influence allosteric modulation",
+        "Allosteric Research Area": "Nucleic Acid Interactions"
+    },
+    {
+        "Name": "biolip_peptide",
+        "Source File": "biolip.py",
+        "Short Description": "Fetches peptide sequences bound to a PDB entry, with optional chain-specific selection",
+        "Allosteric Function": "Indirect",
+        "Allosteric Relevance": "Provides peptide binding context relevant to allosteric site analysis",
+        "Allosteric Research Area": "Protein-Peptide Interactions"
+    },
+    {
+        "Name": "biolip_protein",
+        "Source File": "biolip.py",
+        "Short Description": "Retrieves protein sequences interacting with a PDB structure, optionally chain-specific",
+        "Allosteric Function": "Indirect",
+        "Allosteric Relevance": "Identifies protein binding partners that may influence allosteric regulation",
+        "Allosteric Research Area": "Protein-Protein Interactions"
+    },
+    {
+        "Name": "biolip_rna",
+        "Source File": "biolip.py",
+        "Short Description": "Obtains RNA sequences bound to a PDB entry, with optional filtering by chain",
+        "Allosteric Function": "Indirect",
+        "Allosteric Relevance": "Provides RNA binding information potentially affecting allosteric sites",
+        "Allosteric Research Area": "RNA-Protein Interactions"
+    },
+    {
+        "Name": "biolip_ligands",
+        "Source File": "biolip.py",
+        "Short Description": "Lists all ligands bound to a given PDB entry, optionally filtered by chain",
+        "Allosteric Function": "Direct",
+        "Allosteric Relevance": "Directly identifies ligands that may engage allosteric sites",
+        "Allosteric Research Area": "Ligand Binding Analysis"
+    },
+    {
     "Name": "validate_allosteric_sites_with_biolip",
     "Source File": "allosteric.py",
     "Short Description": "Validates computationally predicted allosteric binding sites by comparing against known catalytic sites in BioLiP database",

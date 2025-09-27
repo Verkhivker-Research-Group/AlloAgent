@@ -35,7 +35,8 @@ def parse_biolip_interactions(pdb_id=None, chain=None):
 def biolip_dna(pdb_id, chain=None):
     with open(DNA_FASTA_PATH, "rb") as f:
         df = pickle.load(f)
-    
+    if pdb_id == "":
+        return df
     pdb_lower = pdb_id.lower()
     if chain is None:
         prefix = f"{pdb_lower}_dna_"
@@ -53,7 +54,8 @@ def biolip_peptide(pdb_id, chain=None):
     
     with open(PEPTIDE_FASTA_PATH, "rb") as f:
         df = pickle.load(f)
-    
+    if pdb_id == "":
+        return df
     pdb_lower = pdb_id.lower()
     
     if chain is None:
@@ -72,7 +74,8 @@ def biolip_protein(pdb_id, chain=None):
     
     with open(PROTEIN_FASTA_PATH, "rb") as f:
         df = pickle.load(f)
-    
+    if pdb_id == "":
+        return df
     pdb_lower = pdb_id.lower()
     
     if chain is None:
@@ -91,7 +94,8 @@ def biolip_rna(pdb_id, chain=None):
     
     with open(RNA_FASTA_PATH, "rb") as f:
         df = pickle.load(f)
-    
+    if pdb_id == "":
+        return df
     pdb_lower = pdb_id.lower()
     
     if chain is None:
@@ -135,6 +139,15 @@ rna = biolip_rna("8a3w", "S1")
 rna_all_chains = biolip_rna("8a3w")
 print(f"RNA for single chain: \n{rna}")
 print(f"RNA for all chains: \n{rna_all_chains}")
+'''
 
 '''
+print("parse_biolip_interactions:", pickle.load(open(BIOLIP_TXT_PATH,"rb")).columns)
+print("biolip_dna:", pickle.load(open(DNA_FASTA_PATH,"rb")).columns)
+print("biolip_peptide:", pickle.load(open(PEPTIDE_FASTA_PATH,"rb")).columns)
+print("biolip_protein:", pickle.load(open(PROTEIN_FASTA_PATH,"rb")).columns)
+print("biolip_rna:", pickle.load(open(RNA_FASTA_PATH,"rb")).columns)
+'''
+
+
 

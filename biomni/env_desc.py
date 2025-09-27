@@ -76,7 +76,7 @@ data_lake_dict = {
     "Virus-Host_PPI_P-HIPSTER_2020.parquet": "Virus-host protein-protein interactions from P-HIPSTER.",
     "txgnn_name_mapping.pkl": "Name mapping for TXGNN.",
     "txgnn_prediction.pkl": "Prediction data for TXGNN.",
-}
+    }
 
 # Updated library_content as a dictionary with detailed descriptions
 library_content_dict = {

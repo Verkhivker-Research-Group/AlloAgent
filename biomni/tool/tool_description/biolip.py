@@ -1,5 +1,5 @@
-biolip_functions = {
-    "parse_biolip_interactions": {
+description = [
+    {
         "description": "Parse BioLiP interactions from a preprocessed pickle file, optionally filtering by PDB ID and chain.",
         "name": "parse_biolip_interactions",
         "optional_parameters": [
@@ -19,7 +19,7 @@ biolip_functions = {
             }
         ]
     },
-    "biolip_dna": {
+    {
         "description": "Retrieve DNA sequence data from BioLiP database for a specific PDB structure, optionally filtered by chain.",
         "name": "biolip_dna",
         "optional_parameters": [
@@ -39,7 +39,7 @@ biolip_functions = {
             }
         ]
     },
-    "biolip_peptide": {
+    {
         "description": "Retrieve peptide sequence data from BioLiP database for a specific PDB structure, optionally filtered by chain.",
         "name": "biolip_peptide",
         "optional_parameters": [
@@ -59,7 +59,7 @@ biolip_functions = {
             }
         ]
     },
-    "biolip_protein": {
+    {
         "description": "Retrieve protein sequence data from BioLiP database for a specific PDB structure, optionally filtered by chain.",
         "name": "biolip_protein",
         "optional_parameters": [
@@ -79,7 +79,7 @@ biolip_functions = {
             }
         ]
     },
-    "biolip_rna": {
+    {
         "description": "Retrieve RNA sequence data from BioLiP database for a specific PDB structure, optionally filtered by chain.",
         "name": "biolip_rna",
         "optional_parameters": [
@@ -99,7 +99,7 @@ biolip_functions = {
             }
         ]
     },
-    "biolip_ligands": {
+    {
         "description": "Get unique ligand identifiers for a given PDB structure, optionally filtered by chain.",
         "name": "biolip_ligands",
         "optional_parameters": [
@@ -119,4 +119,4 @@ biolip_functions = {
             }
         ]
     }
-}
+]

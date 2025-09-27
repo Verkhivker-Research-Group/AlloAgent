@@ -313,218 +313,122 @@ def _parse_mol2_file(mol2_content: str) -> Optional[Dict[str, Any]]:
         'bond_count': len(bonds)
     }
 
-def load_asd_am(target_uniprot_ids: List[str] = None) -> Dict[str, List[Dict[str, Any]]]:
-    """
-    Load allosteric mutation data from ASD_Release_201909_AM.csv filtered by UniProt IDs.
-    
-    Args:
-        target_uniprot_ids: List of UniProt IDs to load. If None, loads all.
-        
-    Returns:
-        Dict: {uniprot_id: [{"mutation": ..., "effect": ...}, ...]}
-    """
-    result = {}
-    target_set = set([uid.strip().upper() for uid in target_uniprot_ids]) if target_uniprot_ids else None
-
-    try:
-        df = pd.read_csv(ASD_AM_PATH)
-        
-        if 'uniprot_id' not in df.columns:
-            logger.warning(f"No uniprot_id column found in {ASD_AM_PATH}")
-            return result
-
-        # Normalize CSV IDs
-        df['uniprot_id'] = df['uniprot_id'].astype(str).str.strip().str.upper()
-
-        # Filter for target UniProt IDs if provided
-        if target_set is not None:
-            df = df[df['uniprot_id'].isin(target_set)]
-
-        # Group by UniProt ID
-        for uniprot_id, group in df.groupby('uniprot_id'):
-            mutations = []
-            for _, row in group.iterrows():
-                mutations.append({
-                    'mutation': row.get('mut_info', ''),
-                    'effect': row.get('phenotype', ''),
-                    'position': row.get('mut_site', ''),
-                    'wild_type': '',  # can be filled if available
-                    'mutant': '',     # can be filled if available
-                    'experimental_method': '',  # empty if not in CSV
-                    'reference': row.get('pdb_id', '')  # using PDB ID as reference
-                })
-            result[uniprot_id] = mutations
-
-    except Exception as e:
-        logger.error(f"Error loading mutation data: {e}")
-
-    return result
 
 
 
 
 
-def load_asd_dr(target_modulators: List[str] = None) -> Dict[str, Dict[str, Any]]:
-    """
-    Load allosteric drug/modulator info with expanded target/activity information.
-    
-    Args:
-        target_modulators: List of specific modulator IDs to load. If None, loads all.
-        
-    Returns:
-        Dict: {modulator_id: {"name": ..., "targets": [...], "activities": [...]}}
-    """
-    result = {}
-    target_set = set(target_modulators) if target_modulators else None
+def get_asd_dr_data(target_id: Optional[str] = None,
+                    drug_serial: Optional[str] = None,
+                    drug_all_name: bool = False,
+                    highest_phase: bool = False,
+                    disease_condition: bool = False,
+                    formula: bool = False,
+                    target_name: bool = False,
+                    tr_smiles: bool = False,
+                    modulator_serial: bool = False,
+                    mod_feature: bool = False,
+                    cas_id: bool = False,
+                    basic_patent: bool = False,
+                    drugbank_id: bool = False,
+                    pubmed_id: bool = False,
+                    ref_title: bool = False,
+                    all_columns: bool = False) -> Dict[str, Any]:
+    """Get ASD DR data with column selection."""
     
     try:
         df = pd.read_csv(ASD_DR_PATH)
         
-        modulator_col = 'modulator_serial'
+        # Filter
+        if target_id:
+            df = df[df['target_id'] == target_id]
+        if drug_serial:
+            df = df[df['drug_serial'] == drug_serial]
         
-        if modulator_col not in df.columns:
-            logger.warning(f"Modulator identifier column '{modulator_col}' not found in {ASD_DR_PATH}")
-            logger.info(f"Available columns: {list(df.columns)}")
-            return result
+        # Select columns
+        if all_columns:
+            return {'data': df.to_dict('records'), 'shape': df.shape}
         
-        # Filter dataframe first if we have target modulators
-        if target_set is not None:
-            df = df[df[modulator_col].astype(str).isin(target_set)]
-            
-        for _, row in df.iterrows():
-            modulator_id = str(row[modulator_col])
-            
-            # Parse semicolon-separated values
-            activities = []
-            if pd.notna(row.get('mod_feature', '')):
-                activities = [act.strip() for act in str(row['mod_feature']).split(';')]
-            
-            targets = []
-            if pd.notna(row.get('target_name', '')):
-                targets = [tgt.strip() for tgt in str(row['target_name']).split(';')]
-            
-            target_ids = []
-            if pd.notna(row.get('target_id', '')):
-                target_ids = [tid.strip() for tid in str(row['target_id']).split(';')]
-            
-            # Create target-activity pairs
-            target_info = []
-            max_len = max(len(targets), len(activities), len(target_ids))
-            for i in range(max_len):
-                target_info.append({
-                    'name': targets[i] if i < len(targets) else '',
-                    'id': target_ids[i] if i < len(target_ids) else '',
-                    'activity': activities[i] if i < len(activities) else ''
-                })
-            
-            result[modulator_id] = {
-                'name': str(row.get('drug_all_name', '')),
-                'type': 'Drug',
-                'primary_activity': activities[0] if activities else '',
-                'all_activities': activities,
-                'primary_target': targets[0] if targets else '',
-                'all_targets': targets,
-                'target_info': target_info,
-                'phase': str(row.get('highest_phase', '')),
-                'disease_condition': str(row.get('disease_condition', '')),
-                'formula': str(row.get('formula', '')),
-                'smiles': str(row.get('tr_smiles', '')),
-                'cas_id': str(row.get('cas_id', '')),
-                'drugbank_id': str(row.get('drugbank_id', '')),
-                'pubmed_id': str(row.get('pubmed_id', '')),
-                'reference': str(row.get('ref_title', ''))
-            }
-            
+        selected = []
+        if target_id: selected.append('target_id')
+        if drug_serial: selected.append('drug_serial')
+        if drug_serial: selected.append('drug_serial')
+        if drug_all_name: selected.append('drug_all_name')
+        if highest_phase: selected.append('highest_phase')
+        if disease_condition: selected.append('disease_condition')
+        if formula: selected.append('formula')
+        if target_name: selected.append('target_name')
+        if target_id: selected.append('target_id')
+        if tr_smiles: selected.append('tr_smiles')
+        if modulator_serial: selected.append('modulator_serial')
+        if mod_feature: selected.append('mod_feature')
+        if cas_id: selected.append('cas_id')
+        if basic_patent: selected.append('basic_patent')
+        if drugbank_id: selected.append('drugbank_id')
+        if pubmed_id: selected.append('pubmed_id')
+        if ref_title: selected.append('ref_title')
+        
+        if selected:
+            df = df[selected]
+        
+        return {'data': df.to_dict('records'), 'shape': df.shape}
+        
     except Exception as e:
-        logger.error(f"Error loading drug data: {e}")
-        
-    return result
+        return {'error': str(e)}
+            
 
 
 
 
-def load_asd_ap(target_proteins: List[str] = None) -> Dict[str, List[Dict[str, Any]]]:
-    """
-    Load predicted allosteric sites with detailed site grouping by PDB structure.
-    
-    Args:
-        target_proteins: List of specific protein IDs to load. If None, loads all.
-        
-    Returns:
-        Dict: {protein_id: [{"site": ..., "confidence": ...}, ...]}
-    """
-    result = {}
-    target_set = set(target_proteins) if target_proteins else None
+def get_asd_ap_data(uniprot_id: Optional[str] = None,
+                    pdb_id: Optional[str] = None,
+                    uniprot_entry: bool = False,
+                    protein_class_2: bool = False,
+                    gene_name: bool = False,
+                    no_substrate_site: bool = False,
+                    score: bool = False,
+                    pocket_volume: bool = False,
+                    polar_sasa: bool = False,
+                    total_sasa: bool = False,
+                    drug_score: bool = False,
+                    site_residue: bool = False,
+                    all_columns: bool = False) -> Dict[str, Any]:
+    """Get ASD AP data with column selection."""
     
     try:
         df = pd.read_csv(ASD_AP_PATH)
         
-        protein_col = 'uniprot_id'
+        # Filter
+        if uniprot_id:
+            df = df[df['uniprot_id'] == uniprot_id]
+        if pdb_id:
+            df = df[df['pdb_id'] == pdb_id]
         
-        if protein_col not in df.columns:
-            logger.warning(f"Protein identifier column '{protein_col}' not found in {ASD_AP_PATH}")
-            logger.info(f"Available columns: {list(df.columns)}")
-            return result
+        # Select columns
+        if all_columns:
+            return {'data': df.to_dict('records'), 'shape': df.shape}
         
-        # Filter dataframe first if we have target proteins
-        if target_set is not None:
-            df = df[df[protein_col].astype(str).isin(target_set)]
-            
-        for protein_id, group in df.groupby(protein_col):
-            sites = []
-            
-            # Group by PDB ID to create separate sites for each structure
-            for pdb_id, pdb_group in group.groupby('pdb_id'):
-                for idx, row in pdb_group.iterrows():
-                    # Parse residue information
-                    residues_raw = str(row.get('site_residue', ''))
-                    residues_parsed = []
-                    residues_summary = []
-                    
-                    if pd.notna(row.get('site_residue', '')) and residues_raw != 'nan':
-                        residue_parts = [part.strip() for part in residues_raw.split(';')]
-                        for residue_part in residue_parts:
-                            if residue_part:
-                                try:
-                                    res_info = residue_part.split(',')
-                                    if len(res_info) >= 4:
-                                        parsed_res = {
-                                            'name_full': res_info[0].strip(),
-                                            'name_short': res_info[1].strip(), 
-                                            'position': res_info[2].strip(),
-                                            'chain': res_info[3].strip()
-                                        }
-                                        residues_parsed.append(parsed_res)
-                                        residues_summary.append(f"{res_info[1].strip()}{res_info[2].strip()}:{res_info[3].strip()}")
-                                except:
-                                    continue
-                    
-                    site_data = {
-                        'site': f"{pdb_id}_pocket",
-                        'confidence': float(row.get('score', 0.0)),
-                        'residues': '; '.join(residues_summary),  # Formatted residue list
-                        'residues_raw': residues_raw,  # Original raw string
-                        'residues_parsed': residues_parsed,  # Structured residue data
-                        'prediction_method': 'ASD_cavity_detection',
-                        'score': float(row.get('score', 0.0)),
-                        'cavity_volume': float(row.get('pocket_volume', 0.0)),
-                        'druggability': float(row.get('drug_score', 0.0)),
-                        'pdb_id': str(pdb_id),
-                        'polar_sasa': float(row.get('polar_sasa', 0.0)),
-                        'total_sasa': float(row.get('total_sasa', 0.0)),
-                        'protein_class': str(row.get('protein_class_2', '')),
-                        'gene_name': str(row.get('gene_name', '')),
-                        'uniprot_entry': str(row.get('uniprot_entry', '')),
-                        'has_substrate_site': str(row.get('no_substrate_site', '')).lower() != 'yes',
-                        'residue_count': len(residues_parsed)
-                    }
-                    sites.append(site_data)
-                
-            result[str(protein_id)] = sites
-            
+        selected = []
+        if uniprot_id: selected.append('uniprot_id')
+        if pdb_id: selected.append('pdb_id')
+        if uniprot_entry: selected.append('uniprot_entry')
+        if protein_class_2: selected.append('protein_class_2')
+        if gene_name: selected.append('gene_name')
+        if no_substrate_site: selected.append('no_substrate_site')
+        if score: selected.append('score')
+        if pocket_volume: selected.append('pocket_volume')
+        if polar_sasa: selected.append('polar_sasa')
+        if total_sasa: selected.append('total_sasa')
+        if drug_score: selected.append('drug_score')
+        if site_residue: selected.append('site_residue')
+        
+        if selected:
+            df = df[selected]
+        
+        return {'data': df.to_dict('records'), 'shape': df.shape}
+        
     except Exception as e:
-        logger.error(f"Error loading predicted sites: {e}")
-        
-    return result
+        return {'error': str(e)}
+    
 
 
