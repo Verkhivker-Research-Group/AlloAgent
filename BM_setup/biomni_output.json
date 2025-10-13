@@ -1,0 +1,150 @@
+{
+  "metadata": {
+    "analysis_type": "kras_covalent_inhibitor_analysis",
+    "analysis_timestamp": "2024-12-19",
+    "validation_method": "chembl_pubchem_cross_reference_and_site_classification",
+    "compounds_analyzed": 2,
+    "covalent_inhibitors_classified": 286,
+    "assumptions": [
+      "Chemical data retrieved from ChEMBL and PubChem databases",
+      "Site classification based on CovInDB dataset for KRAS (P01116)",
+      "Orthosteric vs allosteric determination using protein family-specific rules",
+      "Residue frequency analysis performed on all KRAS covalent inhibitor entries"
+    ]
+  },
+
+  "analysis_results": [
+    {
+      "analysis_step": "chemical_information_gathering",
+      "status": "completed",
+      "compounds": [
+        {
+          "compound_name": "Sotorasib",
+          "synonyms": ["AMG-510"],
+          "chembl_id": "CHEMBL4297636",
+          "pubchem_cid": "156588661",
+          "chemical_properties": {
+            "formula": "C30H30F2N6O3",
+            "molecular_weight": 560.61,
+            "alogp": 4.48,
+            "psa": 104.45
+          },
+          "structure": {
+            "smiles": "available",
+            "inchi_key": "available"
+          },
+          "approval_status": {
+            "first_approval": 2021,
+            "max_phase": 4
+          }
+        },
+        {
+          "compound_name": "Adagrasib",
+          "synonyms": ["MRTX849"],
+          "chembl_id": "CHEMBL4297255",
+          "pubchem_cid": "121304016",
+          "chemical_properties": {
+            "formula": "C32H35ClFN7O2",
+            "molecular_weight": 604.13,
+            "alogp": 4.73,
+            "psa": 88.83
+          },
+          "structure": {
+            "smiles": "available",
+            "inchi_key": "available"
+          },
+          "approval_status": {
+            "first_approval": 2022,
+            "max_phase": 4
+          }
+        }
+      ],
+      "overall_assessment": "both_compounds_are_approved_drugs_with_favorable_physicochemical_properties"
+    },
+    {
+      "analysis_step": "binding_site_classification",
+      "status": "completed",
+      "target_protein": {
+        "uniprot_id": "P01116",
+        "protein_name": "KRAS",
+        "gene_name": "KRAS"
+      },
+      "classification_results": {
+        "total_inhibitors_analyzed": 286,
+        "orthosteric_inhibitors": 286,
+        "allosteric_inhibitors": 0,
+        "confidence_distribution": {
+          "high_orthosteric": 286,
+          "high_allosteric": 0,
+          "medium_allosteric": 0,
+          "low_investigate": 0
+        }
+      },
+      "binding_site_details": {
+        "primary_target_site": "CYS-12",
+        "site_type": "orthosteric",
+        "site_context": "switching_region_cysteine"
+      },
+      "overall_assessment": "all_covalent_inhibitors_target_orthosteric_cys12_site"
+    },
+    {
+      "analysis_step": "residue_pattern_analysis",
+      "status": "completed",
+      "site_statistics": {
+        "total_unique_sites": 1,
+        "most_common_sites": [
+          {
+            "residue": "CYS-12",
+            "frequency": 286,
+            "percentage": 100.0
+          }
+        ],
+        "residue_type_distribution": [
+          {
+            "residue_type": "CYS",
+            "count": 286,
+            "percentage": 100.0
+          }
+        ]
+      },
+      "overall_assessment": "exclusive_targeting_of_cys12_hotspot_residue"
+    }
+  ],
+
+  "analysis_summary": {
+    "total_steps_completed": 3,
+    "approved_drugs_identified": 2,
+    "covalent_inhibitors_classified": 286,
+    "orthosteric_binding_percentage": 100.0,
+    "allosteric_binding_percentage": 0.0,
+    "dominant_target_residue": "CYS-12",
+    "residue_targeting_diversity": "monomorphic"
+  },
+
+  "conclusions": [
+    {
+      "finding": "Sotorasib and Adagrasib are both approved drugs with similar physicochemical profiles",
+      "implication": "Both compounds show drug-like properties suitable for oral bioavailability"
+    },
+    {
+      "finding": "All 286 KRAS covalent inhibitors target the orthosteric CYS-12 site",
+      "implication": "CYS-12 represents the dominant and highly druggable hotspot for KRAS G12C inhibition"
+    },
+    {
+      "finding": "No allosteric covalent inhibitors identified in the dataset",
+      "implication": "Opportunity exists for discovering novel allosteric covalent KRAS modulators"
+    },
+    {
+      "finding": "100% targeting of a single cysteine residue (CYS-12)",
+      "implication": "KRAS G12C covalent drug discovery is highly focused on mutation-specific targeting"
+    }
+  ],
+
+  "recommendations": [
+    "Sotorasib and Adagrasib represent validated chemical starting points for KRAS G12C inhibition",
+    "CYS-12 should be prioritized as the primary covalent warhead attachment site for KRAS G12C",
+    "Explore allosteric covalent inhibitor opportunities to diversify KRAS targeting strategies",
+    "Investigate other cysteine residues in KRAS for potential alternative covalent binding sites",
+    "Consider non-G12C KRAS mutants that may have alternative druggable cysteines"
+  ]
+}
