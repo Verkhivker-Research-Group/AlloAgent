@@ -1,79 +1,91 @@
-description = [{
-    "description": "Retrieve ligands associated with a UniProt protein ID, enriched with BioLiP and external provenance information. Uses UniProt → PDB → BioLiP pipeline with ligand filtering and enrichment.",
-    "name": "get_ligand_ids_from_protein",
-    "optional_parameters": [],
+description = [
+{
+    "description": "Map a PDB ID to its corresponding UniProt identifiers using the PDBe API, returning a dictionary of chains to UniProt IDs.",
+    "name": "pdb_to_uniprot",
     "required_parameters": [
         {
             "default": None,
-            "description": "UniProt accession ID of the protein to query.",
-            "name": "uniprot_id",
-            "type": "str",
+            "description": "Four-character PDB identifier (case-insensitive). Must be exactly 4 characters (e.g., '1TIM').",
+            "name": "pdb_id",
+            "type": "str"
         }
     ],
+    "optional_parameters": []
 },
 {
-    "description": "Cross-reference ligands retrieved from BioLiP against UniProt, PDB, and the Allosteric Database (ASD) to build provenance-aware ligand annotations.",
-    "name": "cross_reference_ligands",
-    "optional_parameters": [],
+    "description": "Retrieve all PDB entries associated with a given UniProt ID using the PDBe API, returning a sorted list of 4-character PDB IDs.",
+    "name": "uniprot_to_pdb",
     "required_parameters": [
         {
             "default": None,
-            "description": "UniProt accession ID of the protein to cross-reference.",
+            "description": "UniProt identifier (case-insensitive) for the target protein (e.g., 'P00533').",
             "name": "uniprot_id",
-            "type": "str",
+            "type": "str"
+        }
+    ],
+    "optional_parameters": []
+},
+{
+    "description": "Cross-reference ligands against ChEMBL and PubChem databases to retrieve chemical properties, structures, classifications, and approval status.",
+    "name": "cross_reference_ligands_chembl_pubchem",
+    "required_parameters": [
+        {
+            "default": None,
+            "description": "UniProt identifier for the target protein (e.g., 'P00533')",
+            "name": "uniprot_id",
+            "type": "str"
         },
         {
             "default": None,
-            "description": "List of ligands (from BioLiP or similar) containing ligand codes and source PDB identifiers.",
+            "description": "List of dictionaries containing ligand metadata, each with at least a 'ligand_name' key (e.g., [{'ligand_name': 'Gefitinib'}])",
             "name": "ligands",
-            "type": "list",
+            "type": "list"
         }
     ],
-},
-{
-    "description": "Validate predicted allosteric binding sites against BioLiP catalytic site data to determine if sites are genuinely allosteric or overlap with known active sites.",
-    "name": "validate_allosteric_sites_with_biolip",
     "optional_parameters": [
         {
-            "default": None,
-            "description": "List of ligand types to include in analysis (e.g., ['ATP', 'HEM'])",
-            "name": "ligand_types",
-            "type": "list",
-        },
-        {
-            "default": None,
-            "description": "Maximum resolution cutoff in Angstroms for filtering BioLiP entries",
-            "name": "resolution_cutoff",
-            "type": "float",
-        },
-        {
-            "default": "position",
-            "description": "Residue matching method: 'position' (compare residue numbers only) or 'exact' (compare full residue codes)",
-            "name": "match_type",
-            "type": "str",
+            "default": "slim",
+            "description": "Level of detail in output: 'slim' returns curated chemical properties (molecular weight, LogP, SMILES, drug approval status); 'full' returns raw ChEMBL and PubChem data dumps",
+            "name": "detail_level",
+            "type": "str"
         }
-    ],
+    ]
+},
+{
+    "description": "Classify covalent inhibitor binding sites from CovInDB as allosteric or orthosteric based on protein family knowledge, catalytic residue patterns, and binding site characteristics.",
+    "name": "map_covalent_probes_to_allosteric",
     "required_parameters": [
         {
             "default": None,
-            "description": "Dictionary of predicted sites with residue lists (e.g., {'site1': ['W118', 'A119']})",
-            "name": "user_sites",
-            "type": "dict",
-        },
+            "description": "UniProt identifier for the target protein to filter CovInDB entries",
+            "name": "uniprot_id",
+            "type": "str"
+        }
+    ],
+    "optional_parameters": [
         {
-            "default": None,
-            "description": "Pandas DataFrame containing BioLiP database entries with catalytic site information",
-            "name": "biolip_df",
-            "type": "DataFrame",
-        },
-        {
-            "default": None,
-            "description": "4-character PDB identifier to filter BioLiP data (e.g., '9xim')",
-            "name": "pdb_id",
-            "type": "str",
+            "default": "./data/biomni_data/data_lake/CovInDB_All.csv",
+            "description": "Path to CovInDB dataset file containing covalent inhibitor data with columns: Inhibitor_Name, Target_Name, Target_Gene, Target, Site, War_head, Reaction_type, Method, Assay, Reference",
+            "name": "dataset_path",
+            "type": "str"
         }
     ]
+},
+{
+    "description": "Analyze binding site patterns in covalent inhibitor data to identify most common target residues, residue type distributions, and site frequency statistics.",
+    "name": "analyze_site_patterns",
+    "required_parameters": [
+        {
+            "default": None,
+            "description": "DataFrame output from map_covalent_probes_to_allosteric containing parsed site information in 'Parsed_Sites' column",
+            "name": "df",
+            "type": "pd.DataFrame"
+        }
+    ],
+    "optional_parameters": []
 }
+
+
 
 
 ]

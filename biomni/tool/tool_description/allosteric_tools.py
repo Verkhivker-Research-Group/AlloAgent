@@ -736,11 +736,44 @@ allosteric_tools = [
         "Allosteric Research Area": "Ligand Binding Analysis"
     },
     {
-    "Name": "validate_allosteric_sites_with_biolip",
-    "Source File": "allosteric.py",
-    "Short Description": "Validates computationally predicted allosteric binding sites by comparing against known catalytic sites in BioLiP database",
-    "Allosteric Function": "Direct",
-    "Allosteric Relevance": "Site validation and druggability assessment",
-    "Allosteric Research Area": "Computational Drug Discovery"
+        "Name": "pdb_to_uniprot",
+        "Source File": "allosteric.py",
+        "Short Description": "Maps a PDB structure identifier to its corresponding UniProt protein identifiers using the PDBe API",
+        "Allosteric Function": "Indirect",
+        "Allosteric Relevance": "Protein structure-sequence mapping for target identification",
+        "Allosteric Research Area": "Structural Bioinformatics"
+    },
+    {
+        "Name": "uniprot_to_pdb",
+        "Source File": "allosteric.py",
+        "Short Description": "Retrieves all available PDB structure entries associated with a given UniProt protein identifier",
+        "Allosteric Function": "Indirect",
+        "Allosteric Relevance": "Structure discovery and conformational ensemble analysis",
+        "Allosteric Research Area": "Structural Bioinformatics"
+    },
+    {
+        "Name": "cross_reference_ligands_chembl_pubchem",
+        "Source File": "allosteric.py",
+        "Short Description": "Cross-references ligands against ChEMBL and PubChem to retrieve chemical properties, structures, and drug approval information",
+        "Allosteric Function": "Indirect",
+        "Allosteric Relevance": "Ligand characterization and compound annotation for drug discovery",
+        "Allosteric Research Area": "Chemical Biology and Drug Discovery"
+    },
+    {
+        "Name": "map_covalent_probes_to_allosteric",
+        "Source File": "allosteric.py",
+        "Short Description": "Classifies covalent inhibitor binding sites from CovInDB as allosteric or orthosteric using protein family knowledge and residue patterns",
+        "Allosteric Function": "Direct",
+        "Allosteric Relevance": "Allosteric site identification and covalent inhibitor classification",
+        "Allosteric Research Area": "Covalent Drug Discovery and Site Classification"
+    },
+    {
+        "Name": "analyze_site_patterns",
+        "Source File": "allosteric.py",
+        "Short Description": "Analyzes binding site patterns to identify common target residues and residue type distributions in covalent inhibitor datasets",
+        "Allosteric Function": "Indirect",
+        "Allosteric Relevance": "Site frequency analysis and target residue profiling",
+        "Allosteric Research Area": "Structural Bioinformatics and Pattern Analysis"
     }
+
 ]

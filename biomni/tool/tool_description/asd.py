@@ -77,44 +77,5 @@ description = [
                 "type": "List[str]"
             }
         ]
-    },
-    {
-        "description": "Loads allosteric mutation data from ASD_Release_201909_AM.csv filtered by UniProt IDs.",
-        "name": "load_asd_am",
-        "optional_parameters": [
-            {
-                "default": None,
-                "description": "List of UniProt IDs to load. If None, loads all mutations from the dataset.",
-                "name": "target_uniprot_ids",
-                "type": "List[str]"
-            }
-        ],
-        "required_parameters": []
-    },
-    {
-        "description": "Loads allosteric drug/modulator information with expanded target/activity information from ASD_Release_201909_DR.csv.",
-        "name": "load_asd_dr",
-        "optional_parameters": [
-            {
-                "default": None,
-                "description": "List of specific modulator IDs to load. If None, loads all modulators from the dataset.",
-                "name": "target_modulators",
-                "type": "List[str]"
-            }
-        ],
-        "required_parameters": []
-    },
-    {
-        "description": "Loads predicted allosteric sites with detailed site grouping by PDB structure from ASD_Release_202306_AP.csv.",
-        "name": "load_asd_ap",
-        "optional_parameters": [
-            {
-                "default": None,
-                "description": "List of specific protein IDs (UniProt IDs) to load. If None, loads all predicted sites from the dataset.",
-                "name": "target_proteins",
-                "type": "List[str]"
-            }
-        ],
-        "required_parameters": []
     }
 ]

@@ -1,10 +1,17 @@
 # Data lake dictionary with detailed descriptions
 data_lake_dict = {
+    "ASD_Release_201909_AM.csv": "Allosteric Mutations (AM) - Experimentally identified mutations affecting allosteric regulation, linking sequence changes to functional effects.",
+    "ASD_Release_201909_DR.csv": "Allosteric Drugs (DR) - Allosteric modulators and drugs with targets and functional annotations for pharmacological studies.",
+    "ASD_Release_202306_AP.csv": "AlloSite-Potential (AP) - Predicted potential allosteric sites for human proteins from computational models, candidates for experimental validation.",
+    "ASD_Release_202306_HL.csv": "Hit-to-Lead Records (HL) - Hit-to-lead optimization data for allosteric modulators, supporting medicinal chemistry and lead development.",
+    "ASD_Release_202208_AS.csv": "Allosteric Sites (AS) - Experimentally determined allosteric sites with residue-level binding pocket and ligand interaction data.",
+    "ASD_Release_202309_PP.csv": "Allosteric Protein-Protein Interactions (PP) - Allosteric modulators affecting protein-protein interactions, with targets and functional effects in signaling and complex formation.",
     "affinity_capture-ms.parquet": "Protein-protein interactions detected via affinity capture and mass spectrometry.",
     "affinity_capture-rna.parquet": "Protein-RNA interactions detected by affinity capture.",
     "BindingDB_All_202409.tsv": "Measured binding affinities between proteins and small molecules for drug discovery.",
     "broad_repurposing_hub_molecule_with_smiles.parquet": "Molecules from Broad Institute's Drug Repurposing Hub with SMILES annotations.",
     "broad_repurposing_hub_phase_moa_target_info.parquet": "Drug phases, mechanisms of action, and target information from Broad Institute.",
+    "CovInDB_All.csv": "Covalent inhibitors with reactive warheads, target proteins, and bioactivity data for covalent drug design.",
     "co-fractionation.parquet": "Protein-protein interactions from co-fractionation experiments.",
     "czi_census_datasets_v4.parquet": "Datasets from the Chan Zuckerberg Initiative's Cell Census.",
     "DepMap_CRISPRGeneDependency.csv": "Gene dependency probability estimates for cancer cell lines, including all DepMap models.",
@@ -509,7 +516,7 @@ allosteric_data_lake = {
         "description": "Contains hit-to-lead optimization data for allosteric modulators, useful for medicinal chemistry and lead development.",
         "allosteric_category": ["Ligand", "Functional", "Drug Discovery"]
     },
-    "ASD_Release_202208_AS_Filtered": {
+    "ASD_Release_202208_AS": {
         "name": "Allosteric Sites (AS)",
         "description": "Comprehensive experimentally determined allosteric sites of proteins, providing residue-level information on binding pockets and ligand interactions.",
         "allosteric_category": ["Site", "Structural", "Functional"]
