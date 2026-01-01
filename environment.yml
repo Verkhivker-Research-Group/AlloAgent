@@ -5,15 +5,23 @@ channels:
   - bioconda
 dependencies:
   - python=3.11
+  # Conda-managed core & scientific packages
+  - numpy>=1.24.0
+  - pandas>=2.0.0
+  - matplotlib
+  - scipy
+  - statsmodels
+  - scikit-learn
+  - gradio
+  - tqdm>=4.65.0
+  - jsonschema>=4.17.0
+  - chardet>=5.0.0
+  - pyyaml>=6.0
+  - loguru>=0.7.0
+  - click>=8.1.0
   - pip
   - pip:
-      - numpy==2.1
-      - pandas
-      - matplotlib
-      - scipy
-      - statsmodels
-      - scikit-learn
-      - gradio
+      # LLM / Gemini / langchain
       - langchain
       - langgraph==0.3.18
       - langchain_openai
@@ -21,18 +29,19 @@ dependencies:
       - langchain_community
       - langchain-google-genai
       - langchain_ollama
-      - openai
+      - openai>=1.0.0
+      - google-generativeai>=0.5.0
+      # Utilities
       - beautifulsoup4
       - lxml
-      - tqdm
       - seaborn
       - networkx
       - requests
-      - pyyaml
       - jupyter
       - notebook
       - ipykernel
-      - pytest
+      - pytest>=7.4.0
+      - pytest-asyncio>=0.21.0
       - transformers
       - sentencepiece
       - python-dotenv

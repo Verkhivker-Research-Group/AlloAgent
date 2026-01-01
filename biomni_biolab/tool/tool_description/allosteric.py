@@ -83,6 +83,25 @@ description = [
         }
     ],
     "optional_parameters": []
+},
+{
+    "description": "Retrieve predicted allosteric residues for a specific protein chain using STINGAllo, a computational tool for allosteric site prediction based on protein structure analysis.",
+    "name": "fetch_allosteric_residue_potential",
+    "required_parameters": [
+        {
+            "default": None,
+            "description": "4-character PDB ID of the target protein (e.g., '1A01')",
+            "name": "pdb_id",
+            "type": "str"
+        },
+        {
+            "default": None,
+            "description": "Chain ID of the protein structure (e.g., 'A')",
+            "name": "chain_id",
+            "type": "str"
+        }
+    ],
+    "optional_parameters": []
 }
 
 

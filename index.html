@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agent Prompt Interface</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+        
+        .container {
+            background: white;
+            border-radius: 16px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            max-width: 800px;
+            width: 100%;
+            padding: 40px;
+        }
+        
+        h1 {
+            color: #333;
+            margin-bottom: 30px;
+            font-size: 28px;
+        }
+        
+        .input-group {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 30px;
+        }
+        
+        #promptInput {
+            flex: 1;
+            padding: 15px;
+            font-size: 16px;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            outline: none;
+            transition: border-color 0.3s;
+        }
+        
+        #promptInput:focus {
+            border-color: #667eea;
+        }
+        
+        button {
+            padding: 15px 30px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        
+        button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(102, 126, 234, 0.4);
+        }
+        
+        button:active {
+            transform: translateY(0);
+        }
+        
+        button:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+            transform: none;
+        }
+        
+        .output-section {
+            background: #f8f9fa;
+            border-radius: 8px;
+            padding: 20px;
+            min-height: 200px;
+            max-height: 500px;
+            overflow-y: auto;
+        }
+        
+        .output-section.empty {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #999;
+            font-style: italic;
+        }
+        
+        .output-content {
+            white-space: pre-wrap;
+            word-wrap: break-word;
+            line-height: 1.6;
+            color: #333;
+        }
+        
+        .solution-box {
+            background: linear-gradient(135deg, #667eea15 0%, #764ba215 100%);
+            border-left: 4px solid #667eea;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+        
+        .solution-title {
+            font-weight: 700;
+            color: #667eea;
+            margin-bottom: 12px;
+            font-size: 18px;
+        }
+        
+        .solution-content {
+            white-space: pre-wrap;
+            word-wrap: break-word;
+            line-height: 1.6;
+            color: #333;
+        }
+        
+        .reference-section {
+            border-top: 2px solid #e0e0e0;
+            padding-top: 15px;
+            margin-top: 15px;
+        }
+        
+        .reference-title {
+            font-weight: 600;
+            color: #666;
+            margin-bottom: 10px;
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        
+        .reference-content {
+            white-space: pre-wrap;
+            word-wrap: break-word;
+            line-height: 1.6;
+            color: #666;
+            font-size: 14px;
+        }
+        
+        .loading {
+            display: none;
+            text-align: center;
+            color: #667eea;
+            font-weight: 600;
+            margin: 20px 0;
+        }
+        
+        .loading.active {
+            display: block;
+        }
+        
+        .spinner {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            border: 3px solid #f3f3f3;
+            border-top: 3px solid #667eea;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin-right: 10px;
+        }
+        
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        .error {
+            color: #e74c3c;
+            background: #fce4e4;
+            padding: 15px;
+            border-radius: 8px;
+            margin-top: 10px;
+            display: none;
+        }
+        
+        .error.active {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Biolab Allosteric Agent</h1>
+        
+        <div class="input-group">
+            <textarea 
+                type="text" 
+                id="promptInput" 
+                placeholder="Enter your prompt here..."
+                autocomplete="off"
+            >
+            <button id="submitBtn">Submit</button>
+        </div>
+        
+        <div class="loading" id="loading">
+            <span class="spinner"></span>
+            Processing...
+        </div>
+        
+        <div class="error" id="error"></div>
+        
+        <div class="output-section empty" id="output">
+            <span>Output will appear here...</span>
+        </div>
+    </div>
+
+    <script>
+        const promptInput = document.getElementById('promptInput');
+        const submitBtn = document.getElementById('submitBtn');
+        const outputDiv = document.getElementById('output');
+        const loadingDiv = document.getElementById('loading');
+        const errorDiv = document.getElementById('error');
+
+        async function submitPrompt() {
+            const prompt = promptInput.value.trim();
+            
+            if (!prompt) {
+                showError('Please enter a prompt');
+                return;
+            }
+            
+            // Show loading state
+            submitBtn.disabled = true;
+            loadingDiv.classList.add('active');
+            errorDiv.classList.remove('active');
+            outputDiv.classList.add('empty');
+            outputDiv.innerHTML = '<span>Processing...</span>';
+            
+            try {
+                const response = await fetch('http://localhost:5010/process', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({ prompt: prompt })
+                });
+                
+                const data = await response.json();
+                
+                if (data.success) {
+                    displayOutput(data.output);
+                } else {
+                    showError(data.error || 'An error occurred');
+                }
+            } catch (error) {
+                showError('Failed to connect to server: ' + error.message);
+            } finally {
+                submitBtn.disabled = false;
+                loadingDiv.classList.remove('active');
+            }
+        }
+        
+        function displayOutput(output) {
+            outputDiv.classList.remove('empty');
+            
+            // Extract solution if it exists
+            const solutionMatch = output.match(/<solution>([\s\S]*?)<\/solution>/);
+            
+            if (solutionMatch) {
+                const solutionContent = solutionMatch[1].trim();
+                const restOfOutput = output.replace(/<solution>[\s\S]*?<\/solution>/, '').trim();
+                
+                let html = '';
+                
+                // Display solution prominently
+                if (solutionContent) {
+                    html += `
+                        <div class="solution-box">
+                            <div class="solution-title">Solution</div>
+                            <div class="solution-content">${escapeHtml(solutionContent)}</div>
+                        </div>
+                    `;
+                }
+                
+                // Display rest as reference
+                if (restOfOutput) {
+                    html += `
+                        <div class="reference-section">
+                            <div class="reference-title">Thinking Process</div>
+                            <div class="reference-content">${escapeHtml(restOfOutput)}</div>
+                        </div>
+                    `;
+                }
+                
+                outputDiv.innerHTML = html;
+            } else {
+                // No solution tags, display as normal
+                outputDiv.innerHTML = `<div class="output-content">${escapeHtml(output)}</div>`;
+            }
+        }
+        
+        function showError(message) {
+            errorDiv.textContent = message;
+            errorDiv.classList.add('active');
+            outputDiv.classList.add('empty');
+            outputDiv.innerHTML = '<span>Output will appear here...</span>';
+        }
+        
+        function escapeHtml(text) {
+            const div = document.createElement('div');
+            div.textContent = text;
+            return div.innerHTML;
+        }
+        
+        // Event listeners
+        submitBtn.addEventListener('click', submitPrompt);
+        
+        promptInput.addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') {
+                submitPrompt();
+            }
+        });
+        
+        // Focus input on load
+        promptInput.focus();
+    </script>
+</body>
+</html>

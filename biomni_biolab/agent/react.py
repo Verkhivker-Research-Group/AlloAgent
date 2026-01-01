@@ -14,11 +14,11 @@ from langchain_core.runnables import RunnableConfig
 from langgraph.graph import END, StateGraph
 from langgraph.graph.message import add_messages
 
-from biomni.env_desc import data_lake_dict, library_content_dict
-from biomni.llm import get_llm
-from biomni.model.retriever import ToolRetriever
-from biomni.tool.tool_registry import ToolRegistry
-from biomni.utils import (
+from biomni_biolab.env_desc import data_lake_dict, library_content_dict
+from biomni_biolab.llm import get_llm
+from biomni_biolab.model.retriever import ToolRetriever
+from biomni_biolab.tool.tool_registry import ToolRegistry
+from biomni_biolab.utils import (
     api_schema_to_langchain_tool,
     function_to_api_schema,
     pretty_print,

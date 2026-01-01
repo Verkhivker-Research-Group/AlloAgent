@@ -11,12 +11,12 @@ from langchain_core.prompts import ChatPromptTemplate
 from langgraph.checkpoint.memory import MemorySaver
 from langgraph.graph import END, START, StateGraph
 
-from biomni.env_desc import data_lake_dict, library_content_dict, allosteric_data_lake
-from biomni.llm import get_llm
-from biomni.model.retriever import ToolRetriever
-from biomni.tool.support_tools import run_python_repl
-from biomni.tool.tool_registry import ToolRegistry
-from biomni.utils import (
+from biomni_biolab.env_desc import data_lake_dict, library_content_dict, allosteric_data_lake
+from biomni_biolab.llm import get_llm
+from biomni_biolab.model.retriever import ToolRetriever
+from biomni_biolab.tool.support_tools import run_python_repl
+from biomni_biolab.tool.tool_registry import ToolRegistry
+from biomni_biolab.utils import (
     check_and_download_s3_files,
     download_and_unzip,
     function_to_api_schema,
@@ -38,8 +38,8 @@ class AgentState(TypedDict):
     messages: list[BaseMessage]
     next_step: str | None
 
-
-class A1:
+from biomni.agent import A1 as BiomniA1
+class A1(BiomniA1):
     def __init__(
         self,
         path="./data",
@@ -50,6 +50,15 @@ class A1:
         base_url: str | None = None,
         api_key: str = "EMPTY",
     ):
+        super().__init__(
+            path=path,
+            llm=llm,
+            use_tool_retriever=use_tool_retriever,
+            timeout_seconds=timeout_seconds,
+            base_url=base_url,
+            api_key=api_key,
+        )
+        
         """Initialize the biomni agent.
 
         Args:
@@ -772,6 +781,32 @@ For R code, use the #!R marker at the beginning of your code block to indicate i
 For Bash scripts and commands, use the #!BASH marker at the beginning of your code block. This allows for both simple commands and multi-line scripts with variables, loops, conditionals, loops, and other Bash features.
 
 In each response, you must include EITHER <execute> or <solution> tag. Not both at the same time. Do not respond with messages without any tags. No empty messages.
+---------------------------------------
+Task Completion and Execution Rule
+---------------------------------------
+
+Your job is to EXECUTE tasks using available tools, not just plan them.
+
+When you receive a task:
+1. If you have tools to complete it (design_knockout_sgrna, etc.), USE THEM immediately
+2. Execute all necessary function calls to generate actual results
+3. Provide the complete output in a <solution> block
+
+After providing your final answer in a <solution> block with executed results, decide whether suggesting next steps is necessary:
+
+- If the task is fully solved using your internal tools and all requested outputs are generated, do NOT provide next steps. End with </solution>.
+
+- If the task requires external actions (wet-lab experiments, paid datasets, expert consultation) that you CANNOT execute even with your tools, then append "Recommended Next Steps (Optional)" after </solution>.
+
+CRITICAL: "Planning" is not "Completing". If a tool exists to generate the requested output, you must call that tool and return actual results, not just describe what would be done.
+
+Rules for next-steps section:
+1. Only include if external work is required beyond your tool capabilities
+2. Keep minimal, practical, and non-generic
+3. Clearly separate what was executed vs what requires external work
+4. Present as bullet points after </solution>
+5. Never include next steps inside <solution>
+
 """
 
         # Add self-critic instructions if needed
@@ -1322,7 +1357,7 @@ Each library is listed with its description to help you understand its functiona
 
                 # If still not found, use a default
                 if not module_name:
-                    module_name = "biomni.tool.scRNA_tools"  # Default to scRNA_tools as a fallback
+                    module_name = "biomni_biolab.tool.scRNA_tools"  # Default to scRNA_tools as a fallback
                     tool["module"] = module_name
             else:
                 module_name = getattr(tool, "module_name", None)
@@ -1342,7 +1377,7 @@ Each library is listed with its description to help you understand its functiona
 
                 # If still not found, use a default
                 if not module_name:
-                    module_name = "biomni.tool.scRNA_tools"  # Default to scRNA_tools as a fallback
+                    module_name = "biomni_biolab.tool.scRNA_tools"  # Default to scRNA_tools as a fallback
                     tool.module_name = module_name
 
             if module_name not in tool_desc:
@@ -1432,9 +1467,27 @@ Each library is listed with its description to help you understand its functiona
         """Inject custom functions into the Python REPL execution environment.
         This makes custom tools available during code execution.
         """
+        # Manage import restrictions in the REPL according to the agent settings
+        from biomni_biolab.tool import support_tools
+
+        if not self.allosteric:
+            # Block allosteric-related modules from being imported during REPL code execution
+            restricted_prefixes = [
+                "biomni_biolab.tool.allosteric",
+                "biomni_biolab.tool.asd",
+                "biomni_biolab.tool.cross_reference",
+                "biomni_biolab.tool.tool_description.cross_reference",
+                "biomni_biolab.tool.tool_description.allosteric",
+                "biomni_biolab.tool.tool_description.allosteric_tools",
+            ]
+            support_tools.set_restricted_imports(restricted_prefixes)
+        else:
+            # Clear restrictions when allosteric mode is enabled
+            support_tools.set_restricted_imports([])
+
         if hasattr(self, "_custom_functions") and self._custom_functions:
             # Access the persistent namespace used by run_python_repl
-            from biomni.tool.support_tools import _persistent_namespace
+            from biomni_biolab.tool.support_tools import _persistent_namespace
 
             # Inject all custom functions into the execution namespace
             for name, func in self._custom_functions.items():

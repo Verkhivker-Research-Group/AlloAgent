@@ -9,7 +9,7 @@ from anthropic import Anthropic
 from Bio.Blast import NCBIWWW, NCBIXML
 from Bio.Seq import Seq
 
-from biomni.utils import parse_hpo_obo
+from biomni_biolab.utils import parse_hpo_obo
 
 
 # Function to map HPO terms to names

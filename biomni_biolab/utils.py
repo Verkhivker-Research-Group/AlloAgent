@@ -529,7 +529,7 @@ def safe_execute_decorator(func):
 
 def api_schema_to_langchain_tool(api_schema, mode="generated_tool", module_name=None):
     if mode == "generated_tool":
-        module = importlib.import_module("biomni.tool.generated_tool." + api_schema["tool_name"] + ".api")
+        module = importlib.import_module("biomni_biolab.tool.generated_tool." + api_schema["tool_name"] + ".api")
     elif mode == "custom_tool":
         module = importlib.import_module(module_name)
 
@@ -864,9 +864,9 @@ def read_module2api():
 
     module2api = {}
     for field in fields:
-        module_name = f"biomni.tool.tool_description.{field}"
+        module_name = f"biomni_biolab.tool.tool_description.{field}"
         module = importlib.import_module(module_name)
-        module2api[f"biomni.tool.{field}"] = module.description
+        module2api[f"biomni_biolab.tool.{field}"] = module.description
     return module2api
 
 
@@ -880,7 +880,7 @@ def read_module2api_allosteric(
     include_allosteric_research_area=True,
 ):
     # Import the curated allosteric tool list
-    curated_module = importlib.import_module("biomni.tool.tool_description.allosteric_tools")
+    curated_module = importlib.import_module("biomni_biolab.tool.tool_description.allosteric_tools")
     curated_tools = curated_module.allosteric_tools  # list of dictionaries
 
     module2api = {}
@@ -895,7 +895,7 @@ def read_module2api_allosteric(
 
     # For each field, import the original module and merge metadata
     for field, tools in tools_by_field.items():
-        module_name = f"biomni.tool.tool_description.{field.replace('.py','')}"
+        module_name = f"biomni_biolab.tool.tool_description.{field.replace('.py','')}"
         original_module = importlib.import_module(module_name)
         full_tool_lookup = {t["name"]: t for t in original_module.description}
 
@@ -921,7 +921,7 @@ def read_module2api_allosteric(
             merged_tools.append(full_schema)
 
         # Keep the original namespace style
-        module2api[f"biomni.tool.{field}"] = merged_tools
+        module2api[f"biomni_biolab.tool.{field}"] = merged_tools
     return module2api
 
 

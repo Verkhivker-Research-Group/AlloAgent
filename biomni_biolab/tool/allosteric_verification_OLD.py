@@ -601,6 +601,8 @@ def format_detailed_evidence(check_name: str, evidence: Dict[str, Any]) -> Dict[
     
     return evidence
 
+
+'''
 # Test Cases
 def run_test_cases():
     """Run three test cases to demonstrate system"""
@@ -643,3 +645,4 @@ def run_test_cases():
     return results
 
 #print(run_test_cases())
+'''

@@ -1,6 +1,6 @@
-from biomni.tool.database import query_uniprot, query_pdb
-from biomni.tool.biolip import parse_biolip_interactions, biolip_ligands
-from biomni.tool.asd import parse_asd_xf, load_asd_ap, load_asd_dr
+#from biomni_biolab.tool.database import query_uniprot, query_pdb
+from biomni_biolab.tool.biolip import parse_biolip_interactions, biolip_ligands
+#from biomni_biolab.tool.asd import parse_asd_xf, load_asd_ap, load_asd_dr
 
 
 from chembl_webresource_client.new_client import new_client
@@ -28,7 +28,7 @@ def biolip_ligands(pdb_id, chain=None):
     print(f"Interactions: {interactions}")
     return interactions['Ligand'].unique().tolist()
 
-
+'''
 # STILL IN TEST PHASES
 def cross_reference_ligands(pdb_id: str, uniprot_id: str, ligands: list):
     """
@@ -68,7 +68,8 @@ def cross_reference_ligands(pdb_id: str, uniprot_id: str, ligands: list):
 
             # Add ASD allosteric annotation
             asd_match = None
-            '''
+'''
+'''
             for modulator_id, modulator_data in asd_all_modulators.items():
                 if (ligand_code in modulator_data.get('name', '') or
                     ligand_code in modulator_data.get('cas_id', '') or
@@ -76,6 +77,7 @@ def cross_reference_ligands(pdb_id: str, uniprot_id: str, ligands: list):
                     asd_match = modulator_data
                     break
             '''
+'''
             if asd_match or asd_experimental.get(pdb_id) or asd_predicted_sites.get(pdb_id):
                 cross_ref["cross_refs"]["asd"] = {
                     "modulator_match": asd_match,
@@ -113,7 +115,7 @@ def test_cross_reference_ligands(pdb_id, uniprot_id):
         print(f"  {cross_ref['ligand_code']}: ASD match = {asd_found}")
         
     return results
-
+'''
 
 #test_cross_reference_ligands("1I09", "P49841")
 
@@ -169,7 +171,7 @@ def uniprot_to_pdb(uniprot_id: str) -> list:
 
 
 
-def cross_reference_covalent_probes(uniprot_id: str, ligands: list, detail_level: str = "slim"):
+def cross_reference_ligands_chembl_pubchem(uniprot_id: str, ligands: list, detail_level: str = "slim"):
     """
     Cross-reference ligands against ChEMBL + PubChem and return a structured output.
     
@@ -235,7 +237,7 @@ def cross_reference_covalent_probes(uniprot_id: str, ligands: list, detail_level
 
 
 def map_covalent_probes_to_allosteric(uniprot_id: str,
-                                      dataset_path: str = "/app/data/biomni_data/CovInDB/CovInDB_All.csv"
+                                      dataset_path: str = "./data/biomni_data/data_lake/CovInDB_All.csv"
                                      ) -> pd.DataFrame:
     """
     Steps:
@@ -418,4 +420,16 @@ def analyze_site_patterns(df: pd.DataFrame) -> Dict:
         "total_entries": len(df)
     }
 
+# STINGAllo
+def fetch_allosteric_residue_potential(pdb_id: str, chain_id: str) -> dict:
+    url = "https://stingallo.cbi.cnptia.embrapa.br/api/afrs"
+    params = {"pdb_id": pdb_id, "chain_id": chain_id}
 
+    try:
+        response = requests.get(url, params=params)
+        response.raise_for_status()
+        return response.json()
+    except requests.RequestException as e:
+        # Log or handle error as needed in the agent system
+        print(f"API request failed: {e}")
+        return {}

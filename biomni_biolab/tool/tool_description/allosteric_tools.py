@@ -774,6 +774,55 @@ allosteric_tools = [
         "Allosteric Function": "Indirect",
         "Allosteric Relevance": "Site frequency analysis and target residue profiling",
         "Allosteric Research Area": "Structural Bioinformatics and Pattern Analysis"
+    },
+    {
+        "Name": "structural_distance_tool",
+        "Source File": "allosteric_verification_tools.py",
+        "Short Description": "Quantifies spatial separation between candidate allosteric and catalytic site residues using 3D structural data.",
+        "Allosteric Function": "Direct Evaluation",  # Changed from Indirect
+        "Allosteric Relevance": "Evaluates geometric feasibility of allosteric communication based on residue proximity (optimal 10–30 Å range). USE WHEN: user asks if residues are positioned for allosteric regulation, if a site is far enough from active site, or to assess allosteric communication potential.",
+        "Allosteric Research Area": "Structural Coupling Analysis",
+    },
+    {
+        "Name": "pocket_geometry_tool",
+        "Source File": "allosteric_verification_tools.py",
+        "Short Description": "Analyzes geometric properties of binding pockets including volume, depth, and shape.",
+        "Allosteric Function": "Direct Evaluation",
+        "Allosteric Relevance": "Assesses whether candidate allosteric sites have appropriate pocket geometry for small molecule binding (200-2000 Å³ volume, 8-20 Å depth). USE WHEN: user asks about druggability, pocket characteristics, or if a site can bind allosteric modulators.",
+        "Allosteric Research Area": "Allosteric Site Druggability",
+    },
+    {
+        "Name": "residue_accessibility_tool",
+        "Source File": "allosteric_verification_tools.py",
+        "Short Description": "Calculates solvent-accessible surface area and hydrophobicity profiles.",
+        "Allosteric Function": "Direct Evaluation",
+        "Allosteric Relevance": "Determines if candidate allosteric residues are accessible to small molecules and have favorable chemical properties for drug binding. USE WHEN: user asks about surface exposure, accessibility, hydrophobicity, or druggability of potential allosteric sites.",
+        "Allosteric Research Area": "Allosteric Site Druggability",
+    },
+    {
+        "Name": "evolutionary_conservation_tool",
+        "Source File": "allosteric_verification_tools.py",
+        "Short Description": "Assesses evolutionary conservation of residues across homologous sequences.",
+        "Allosteric Function": "Indirect",
+        "Allosteric Relevance": "Identifies functionally important residues through conservation analysis. Highly conserved allosteric sites indicate strong selective pressure and functional significance. USE WHEN: user asks about conservation, evolutionary importance, functional relevance, or mutation sensitivity of potential allosteric sites.",
+        "Allosteric Research Area": "Functional Validation",
+    },
+    {
+        "Name": "allosteric_evidence_tool",
+        "Source File": "allosteric_verification_tools.py",
+        "Short Description": "Queries Allosteric Database (ASD) for known allosteric sites and modulators.",
+        "Allosteric Function": "Direct Evaluation",
+        "Allosteric Relevance": "Validates candidate sites against experimentally confirmed allosteric regulation. Provides evidence from literature and databases. USE WHEN: user asks if a site is known to be allosteric, if there are documented allosteric modulators, or to validate predictions against experimental data.",
+        "Allosteric Research Area": "Experimental Validation",
+    },
+    {
+        "Name": "fetch_allosteric_residues_stingallo",
+        "Source File": "stingallo_tools.py",
+        "Short Description": "Retrieves predicted allosteric residues for a protein chain using STINGAllo.",
+        "Allosteric Function": "Direct Prediction",
+        "Allosteric Relevance": "Provides computational predictions of allosteric residues based on protein structure. USE WHEN: user wants to identify potential allosteric sites on a protein chain or supplement experimental allosteric data with predicted residues.",
+        "Allosteric Research Area": "Computational Prediction"
     }
 
+    
 ]

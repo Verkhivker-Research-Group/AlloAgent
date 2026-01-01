@@ -11,4 +11,6 @@ services:
     stdin_open: true
     tty: true
     command: conda run -n biomni_e1 tail -f /dev/null
+    ports:
+      - "5010:5010"
 

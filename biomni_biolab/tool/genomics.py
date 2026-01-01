@@ -6,7 +6,7 @@ import numpy as np
 import pandas as pd
 import scanpy as sc
 
-from biomni.llm import get_llm
+from biomni_biolab.llm import get_llm
 
 
 def annotate_celltype_scRNA(
