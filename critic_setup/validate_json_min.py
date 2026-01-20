@@ -5,7 +5,7 @@ from pathlib import Path
 # --- JSON Schema (Draft-07 compatible, embedded) ---
 SCHEMA = {
   "$schema": "http://json-schema.org/draft-07/schema#",
-  "title": "BIOMNI ARA Output",
+  "title": "Allosteric Critic Output",
   "type": "object",
   "required": [
     "metadata","allosteric_sites","communication_pathways",
@@ -261,7 +261,7 @@ def _content_checks(obj):
 
 def main():
     if len(sys.argv) < 2:
-        print("Usage: python validate_biomni_json_min.py /path/to/biomni_output.json")
+        print("Usage: python validate_json_min.py /path/to/critic_output.json")
         sys.exit(2)
     p = Path(sys.argv[1])
     if not p.exists():

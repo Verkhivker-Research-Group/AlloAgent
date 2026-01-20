@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
 """
-Professor-style Gemini audit for Biomni benchmark.
+Professor-style Gemini audit for the critic pipeline.
 - Default model: gemini-1.5-flash (lower quota usage)
-- Appends review to an output file (default: /app/bench_report.txt)
+- Appends review to an output file (default: /app/critic_report.txt)
 """
 
 import os, sys, json, time, argparse
@@ -10,7 +10,7 @@ import google.generativeai as genai
 from dotenv import load_dotenv
 load_dotenv()
 
-PROFESSOR_PROMPT = """You are the **leading allosteric scientist and AI agent auditor**, reviewing a Biomni JSON submission for allosteric site prediction.  
+PROFESSOR_PROMPT = """You are the **leading allosteric scientist and AI agent auditor**, reviewing an agent JSON submission for allosteric site prediction.  
 Your voice should be authoritative, technical, and constructive, as if you were a world expert in computational allostery evaluating a peer’s work.  
 Avoid grades. Focus on scientific rigor, quantitative metrics, and methodological soundness.
 
@@ -41,7 +41,7 @@ A bullet list of computational experiments required (e.g., compute druggability 
 **Closing Scientific Note:**  
 Summarize whether the current submission meets standards for computational allostery.  
 End with:  
-`Recheck: Run: python benchmark_legacy.py /app/biomni_output.json`
+`Recheck: Run: python critic_legacy.py /app/critic_output.json`
 """
 
 def audit(json_text: str, model_name: str, max_retries: int = 5, backoff: float = 8.0) -> str:
@@ -60,16 +60,20 @@ def audit(json_text: str, model_name: str, max_retries: int = 5, backoff: float 
         except Exception as e:
             msg = str(e)
             quota = ("429" in msg) or ("quota" in msg.lower())
-            if not quota or attempt == max_retries:
+            # Fail immediately on quota errors instead of retrying
+            if quota:
+                raise
+            # Only retry on non-quota errors
+            if attempt == max_retries:
                 raise
             time.sleep(backoff)
             backoff *= 1.7
 
 def main():
     ap = argparse.ArgumentParser()
-    ap.add_argument("json_path", help="Path to biomni_output.json")
+    ap.add_argument("json_path", help="Path to critic_output.json")
     ap.add_argument("--model", default="gemini-2.0-flash-lite")
-    ap.add_argument("--out", default="/app/bench_report.txt")
+    ap.add_argument("--out", default="/app/critic_report.txt")
     args = ap.parse_args()
 
     if not os.path.exists(args.json_path):

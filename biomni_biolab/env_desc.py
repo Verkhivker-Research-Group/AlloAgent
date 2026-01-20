@@ -251,30 +251,35 @@ allosteric_data_lake = {
         "description": "Protein complexes reconstituted in vitro.",
         "allosteric_category": ["PPI", "Structural", "Functional"]
     },
-    "virus-host_ppi": {
+    "Virus-Host_PPI_P-HIPSTER_2020": {
         "name": "Virus-Host PPI",
         "description": "Virus-host protein-protein interactions from P-HIPSTER.",
         "allosteric_category": ["PPI", "Structural", "Functional"]
     },
-    "bindingdb": {
+    "BindingDB_All_202409": {
         "name": "BindingDB",
         "description": "Measured binding affinities between proteins and small molecules for drug discovery.",
         "allosteric_category": ["Ligand", "Modulator", "Functional"]
     },
-    "broad_repurposing_molecule": {
+    "broad_repurposing_hub_molecule_with_smiles": {
         "name": "Broad Repurposing Hub Molecules",
         "description": "Molecules from Broad Institute's Drug Repurposing Hub with SMILES annotations.",
         "allosteric_category": ["Ligand", "Modulator"]
     },
-    "broad_repurposing_moa_target": {
+    "broad_repurposing_hub_phase_moa_target_info": {
         "name": "Broad Repurposing MOA & Target Info",
         "description": "Drug phases, mechanisms of action, and target information from Broad Institute.",
         "allosteric_category": ["Ligand", "Modulator", "Target info"]
     },
-    "enamine_cloud_library": {
+    "enamine_cloud_library_smiles": {
         "name": "Enamine Cloud Library",
         "description": "Compounds from Enamine REAL library with SMILES annotations.",
         "allosteric_category": ["Ligand", "Modulator"]
+    },
+    "CovInDB_All": {
+        "name": "CovInDB",
+        "description": "Covalent inhibitors with reactive warheads, target proteins, and bioactivity data for covalent drug design.",
+        "allosteric_category": ["Ligand", "Modulator", "Functional"]
     },
     "evebio_assay_table": {
         "name": "EveBio Assay Table",
@@ -316,22 +321,22 @@ allosteric_data_lake = {
         "description": "Target metadata with common identifiers from EveBio screening.",
         "allosteric_category": ["Target info", "Functional"]
     },
-    "depmap_gene_dependency": {
+    "DepMap_CRISPRGeneDependency": {
         "name": "DepMap Gene Dependency",
         "description": "Gene dependency probability estimates for cancer cell lines, including all DepMap models.",
         "allosteric_category": ["Genetic perturbation", "Functional"]
     },
-    "depmap_gene_effect": {
+    "DepMap_CRISPRGeneEffect": {
         "name": "DepMap Gene Effect",
         "description": "Genome-wide CRISPR gene effect estimates for cancer cell lines.",
         "allosteric_category": ["Genetic perturbation", "Functional"]
     },
-    "sgRNA_KO_mouse": {
+    "sgRNA_KO_SP_mouse": {
         "name": "sgRNA Knockout Mouse",
         "description": "sgRNA knockout data for mouse.",
         "allosteric_category": ["Genetic perturbation", "Functional"]
     },
-    "sgRNA_KO_human": {
+    "sgRNA_KO_SP_human": {
         "name": "sgRNA Knockout Human",
         "description": "sgRNA knockout data for human.",
         "allosteric_category": ["Genetic perturbation", "Functional"]
@@ -376,7 +381,7 @@ allosteric_data_lake = {
         "description": "Gene expression (TPM) across human tissues from GTEx.",
         "allosteric_category": ["Functional annotation", "Target info"]
     },
-    "disgenet": {
+    "DisGeNET": {
         "name": "DisGeNET",
         "description": "Gene-disease associations from multiple sources.",
         "allosteric_category": ["Functional annotation", "Target info"]
@@ -396,17 +401,17 @@ allosteric_data_lake = {
         "description": "Gene ontology data for functional gene annotations.",
         "allosteric_category": ["Functional annotation", "Target info"]
     },
-    "miRDB": {
+    "miRDB_v6.0_results": {
         "name": "miRDB",
         "description": "Predicted microRNA targets from miRDB.",
         "allosteric_category": ["Regulatory", "Functional"]
     },
-    "miRTarBase_interactions": {
+    "miRTarBase_microRNA_target_interaction": {
         "name": "miRTarBase microRNA Target Interactions",
         "description": "Experimentally validated microRNA-target interactions from miRTarBase.",
         "allosteric_category": ["Regulatory", "Functional"]
     },
-    "miRTarBase_sites": {
+    "miRTarBase_MicroRNA_Target_Sites": {
         "name": "miRTarBase MicroRNA Target Sites",
         "description": "Binding sites of microRNAs on target genes from miRTarBase.",
         "allosteric_category": ["Regulatory", "Functional"]
@@ -456,7 +461,7 @@ allosteric_data_lake = {
         "description": "Regulatory target gene sets from MSigDB.",
         "allosteric_category": ["Regulatory", "Functional"]
     },
-    "msigdb_human_c3_subset_tf_targets": {
+    "msigdb_human_c3_subset_transcription_factor_targets_from_GTRD": {
         "name": "MSigDB Human C3 Subset TF Targets",
         "description": "Transcription factor targets from GTRD/MSigDB.",
         "allosteric_category": ["Regulatory", "Functional"]

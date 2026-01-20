@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """
-benchmark_legacy.py
-- Validate a Biomni web-chat JSON output against your schema + content rules
+critic_legacy.py
+- Validate an agent JSON output against your schema + content rules
 - Produce a simple pass/fail + list of issues (for CI or quick checks)
 """
 
@@ -12,22 +12,22 @@ import json
 # Local validator next to this file (the one we created earlier)
 # If you put it elsewhere, adjust the import path or shell out via subprocess.
 try:
-    from validate_biomni_output import load_json  # reuse helper
-    from validate_biomni_output import content_checks
+    from critic_setup.validate_output import load_json  # reuse helper
+    from critic_setup.validate_output import content_checks
     from jsonschema import Draft7Validator  # or Draft202012Validator if you kept 2020-12
 except Exception:
     # Fallback if direct import fails (e.g., different folder): shell out
     import subprocess
     def shell_validate(p):
         r = subprocess.run(
-            [sys.executable, "validate_biomni_output.py", str(p)],
+            [sys.executable, "validate_output.py", str(p)],
             capture_output=True, text=True
         )
         print(r.stdout, end="")
         return r.returncode == 0
     def main():
         if len(sys.argv) < 2:
-            print("Usage: python benchmark_legacy.py path/to/biomni_output.json")
+            print("Usage: python critic_legacy.py path/to/critic_output.json")
             sys.exit(2)
         ok = shell_validate(Path(sys.argv[1]))
         sys.exit(0 if ok else 1)
@@ -35,11 +35,11 @@ except Exception:
         main()
     sys.exit(0)
 
-SCHEMA_PATH = Path(__file__).resolve().parent / "schema_biomni_output.json"
+SCHEMA_PATH = Path(__file__).resolve().parent / "schema_output.json"
 
 def main():
     if len(sys.argv) < 2:
-        print("Usage: python benchmark_legacy.py path/to/biomni_output.json")
+        print("Usage: python critic_legacy.py path/to/critic_output.json")
         sys.exit(2)
 
     output_path = Path(sys.argv[1])
@@ -70,7 +70,7 @@ def main():
             print(f"  - {msg}")
 
     if ok:
-        print("✅ PASS: BIOMNI output passed schema + content checks.")
+        print("✅ PASS: critic output passed schema + content checks.")
         sys.exit(0)
     else:
         print("\nResult: FAILED validation.")

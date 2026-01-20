@@ -204,7 +204,7 @@
                 id="promptInput" 
                 placeholder="Enter your prompt here..."
                 autocomplete="off"
-            >
+            ></textarea>
             <button id="submitBtn">Submit</button>
         </div>
         
@@ -239,11 +239,12 @@
             submitBtn.disabled = true;
             loadingDiv.classList.add('active');
             errorDiv.classList.remove('active');
-            outputDiv.classList.add('empty');
-            outputDiv.innerHTML = '<span>Processing...</span>';
+            outputDiv.classList.remove('empty');
+            outputDiv.innerHTML = '<div class="output-content">Starting agent...</div>';
             
             try {
-                const response = await fetch('http://localhost:5010/process', {
+                // Use fetch with streaming enabled
+                const response = await fetch('http://localhost:5010/process_stream', {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json',
@@ -251,12 +252,34 @@
                     body: JSON.stringify({ prompt: prompt })
                 });
                 
-                const data = await response.json();
+                const reader = response.body.getReader();
+                const decoder = new TextDecoder();
+                let buffer = '';
                 
-                if (data.success) {
-                    displayOutput(data.output);
-                } else {
-                    showError(data.error || 'An error occurred');
+                while (true) {
+                    const { done, value } = await reader.read();
+                    if (done) break;
+                    
+                    buffer += decoder.decode(value, { stream: true });
+                    const lines = buffer.split('\n\n');
+                    buffer = lines.pop(); // Keep incomplete line in buffer
+                    
+                    for (const line of lines) {
+                        if (line.startsWith('data: ')) {
+                            const jsonStr = line.substring(6);
+                            try {
+                                const data = JSON.parse(jsonStr);
+                                
+                                if (data.type === 'log') {
+                                    appendLogEntry(data.content);
+                                } else if (data.type === 'complete') {
+                                    displayFinalOutput(data.output);
+                                }
+                            } catch (e) {
+                                console.error('Failed to parse:', jsonStr, e);
+                            }
+                        }
+                    }
                 }
             } catch (error) {
                 showError('Failed to connect to server: ' + error.message);
@@ -264,6 +287,24 @@
                 submitBtn.disabled = false;
                 loadingDiv.classList.remove('active');
             }
+        }
+        
+        function appendLogEntry(content) {
+            outputDiv.classList.remove('empty');
+            const logDiv = document.createElement('div');
+            logDiv.className = 'output-content';
+            logDiv.style.marginBottom = '10px';
+            logDiv.style.paddingBottom = '10px';
+            logDiv.style.borderBottom = '1px solid #e0e0e0';
+            logDiv.textContent = content;
+            outputDiv.appendChild(logDiv);
+            outputDiv.scrollTop = outputDiv.scrollHeight; // Auto-scroll to bottom
+        }
+        
+        function displayFinalOutput(output) {
+            // Clear streaming logs and show final formatted output
+            outputDiv.innerHTML = '';
+            displayOutput(output);
         }
         
         function displayOutput(output) {
@@ -322,7 +363,8 @@
         submitBtn.addEventListener('click', submitPrompt);
         
         promptInput.addEventListener('keypress', (e) => {
-            if (e.key === 'Enter') {
+            if (e.key === 'Enter' && !e.shiftKey) {
+                e.preventDefault();
                 submitPrompt();
             }
         });

@@ -6,10 +6,8 @@ from typing import Any
 from langchain_core.prompts import ChatPromptTemplate
 from langchain_text_splitters import RecursiveCharacterTextSplitter
 
-from biomni_biolab.agent.base_agent import base_agent
 
-
-class PaperTaskExtractor(base_agent):
+class PaperTaskExtractor:
     """Agent that extracts generalizable tasks/experiments from academic papers.
     It processes papers in chunks and identifies common research tasks that could be shared across papers.
     """
@@ -32,7 +30,9 @@ class PaperTaskExtractor(base_agent):
             chunk_overlap (int): Overlap between chunks
 
         """
-        super().__init__(llm, cheap_llm, tools)
+        self.llm = llm
+        self.cheap_llm = cheap_llm
+        self.tools = tools
         self.chunk_size = chunk_size
         self.chunk_overlap = chunk_overlap
         self.log = []

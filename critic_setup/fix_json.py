@@ -1,7 +1,9 @@
 import json, sys, pathlib
 
-src = pathlib.Path("/app/biomni_output.json")
-dst = pathlib.Path("/app/biomni_output_fixed.json")
+# Inputs: positional arguments (input_path, output_path)
+# Defaults to local files if not provided
+src = pathlib.Path(sys.argv[1]) if len(sys.argv) > 1 else pathlib.Path("critic_output.json")
+dst = pathlib.Path(sys.argv[2]) if len(sys.argv) > 2 else pathlib.Path("critic_output.fixed.json")
 data = json.loads(src.read_text(encoding="utf-8"))
 
 # --- rename fields in simulation_design ---

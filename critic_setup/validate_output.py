@@ -3,7 +3,7 @@ import json, sys
 from pathlib import Path
 from jsonschema import Draft202012Validator
 
-SCHEMA_PATH = Path("schema_biomni_output.json")
+SCHEMA_PATH = Path("schema_output.json")
 
 REQ_NUM_0_1_SITE = ["hydrophobicity_index","druggability_score","confidence"]
 REQ_NUM_0_1_PATH = ["path_score"]
@@ -68,7 +68,7 @@ def content_checks(obj):
 
 def main():
     if len(sys.argv) < 2:
-        print("Usage: python validate_biomni_output.py biomni_output.json")
+        print("Usage: python validate_output.py critic_output.json")
         sys.exit(2)
     in_path = Path(sys.argv[1])
     if not in_path.exists():
@@ -92,7 +92,7 @@ def main():
         for msg in content_errors:
             print(f"  - {msg}")
     if ok:
-        print("✅ BIOMNI output PASSED schema + content checks.")
+        print("✅ Critic output PASSED schema + content checks.")
         sys.exit(0)
     else:
         print("\nResults: FAILED validation.")

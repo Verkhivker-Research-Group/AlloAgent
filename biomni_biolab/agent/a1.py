@@ -46,6 +46,7 @@ class A1(BiomniA1):
         llm="claude-sonnet-4-20250514",
         allosteric=False,
         use_tool_retriever=True,
+        use_vector_search=True,
         timeout_seconds=600,
         base_url: str | None = None,
         api_key: str = "EMPTY",
@@ -126,7 +127,7 @@ class A1(BiomniA1):
 
         if self.use_tool_retriever:
             self.tool_registry = ToolRegistry(module2api)
-            self.retriever = ToolRetriever()
+            self.retriever = ToolRetriever(use_vector_search=use_vector_search)
 
         # Add timeout parameter
         self.timeout_seconds = timeout_seconds  # 10 minutes default timeout
@@ -780,32 +781,35 @@ Otherwise the system will not be able to know what has been done.
 For R code, use the #!R marker at the beginning of your code block to indicate it's R code.
 For Bash scripts and commands, use the #!BASH marker at the beginning of your code block. This allows for both simple commands and multi-line scripts with variables, loops, conditionals, loops, and other Bash features.
 
+---------------------------------------
+CRITICAL: Output Data Inclusion Rules
+---------------------------------------
+
+When presenting results to the user, you MUST include specific numerical and categorical data, not just general statements.
+
+ALWAYS DO THIS when tools return results:
+- Provide a clear explanatory summary of what the results mean in context (mechanistic, structural, network-level, or functional as appropriate).
+- Immediately ground explanations in explicit data, including:
+  - Concrete outputs (e.g., entities, regions, interactions, pathways, ligands, residues).
+  - Quantitative metrics (scores, counts, confidence values, enrichment statistics, rankings).
+- Make the data traceable:
+  - Each major claim or interpretation must be supported by displayed tool output.
+  - When summarizing many results, present a labeled subset (e.g., "Top N of M") and state totals.
+- Preserve structure and scope of results:
+  - Report relational outputs with appropriate metadata (e.g., node count, edge count, clusters).
+  - If multiple output types are returned, report each type separately.
+- Explicitly report missing or sparse results using "No data available for [item]".
+
+NEVER DO THIS:
+- Do not provide explanations without showing the supporting data.
+- Do not list raw data without explaining its relevance.
+- Do not state that an analysis was performed without exposing its outputs.
+- Do not omit numeric detail when it exists.
+- Do not collapse distinct outputs into a single narrative unless explicitly requested.
+
+User expectations: Even for brief requests, provide actual data with context, not generic interpretations.
+
 In each response, you must include EITHER <execute> or <solution> tag. Not both at the same time. Do not respond with messages without any tags. No empty messages.
----------------------------------------
-Task Completion and Execution Rule
----------------------------------------
-
-Your job is to EXECUTE tasks using available tools, not just plan them.
-
-When you receive a task:
-1. If you have tools to complete it (design_knockout_sgrna, etc.), USE THEM immediately
-2. Execute all necessary function calls to generate actual results
-3. Provide the complete output in a <solution> block
-
-After providing your final answer in a <solution> block with executed results, decide whether suggesting next steps is necessary:
-
-- If the task is fully solved using your internal tools and all requested outputs are generated, do NOT provide next steps. End with </solution>.
-
-- If the task requires external actions (wet-lab experiments, paid datasets, expert consultation) that you CANNOT execute even with your tools, then append "Recommended Next Steps (Optional)" after </solution>.
-
-CRITICAL: "Planning" is not "Completing". If a tool exists to generate the requested output, you must call that tool and return actual results, not just describe what would be done.
-
-Rules for next-steps section:
-1. Only include if external work is required beyond your tool capabilities
-2. Keep minimal, practical, and non-generic
-3. Clearly separate what was executed vs what requires external work
-4. Present as bullet points after </solution>
-5. Never include next steps inside <solution>
 
 """
 
@@ -942,7 +946,7 @@ Each library is listed with its description to help you understand its functiona
         # Get data lake content
         data_lake_path = self.path + "/data_lake"
         data_lake_content = glob.glob(data_lake_path + "/*")
-        data_lake_items = [x.split("/")[-1] for x in data_lake_content]
+        data_lake_items = [os.path.basename(x) for x in data_lake_content]
 
         # Store data_lake_dict as instance variable for use in retrieval
         self.data_lake_dict = data_lake_dict
@@ -1224,48 +1228,38 @@ Each library is listed with its description to help you understand its functiona
             # 2. Data lake items with descriptions
             data_lake_path = self.path + "/data_lake"
             data_lake_content = glob.glob(data_lake_path + "/*")
-            data_lake_items = [x.split("/")[-1] for x in data_lake_content]
+            data_lake_items = [os.path.basename(x) for x in data_lake_content]
 
 
             if self.allosteric:
-            # Allosteric datalake file filter
-                allosteric_file_ids = {
-                    "affinity_capture-ms", "co-fractionation", "proximity_label-ms", "two-hybrid",
-                    "reconstituted_complex", "virus-host_ppi", "bindingdb", "broad_repurposing_molecule",
-                    "broad_repurposing_moa_target", "enamine_cloud_library", "evebio_assay_table",
-                    "evebio_bundle_table", "evebio_compound_table", "evebio_control_table",
-                    "evebio_detailed_result_table", "evebio_observed_points_table",
-                    "evebio_summary_result_table", "evebio_target_table", "gene_info", "variant_table",
-                    "proteinatlas", "gtex_tissue_gene_tpm", "disgenet", "omim", "marker_celltype",
-                    "go-plus", "miRDB", "miRTarBase_interactions", "miRTarBase_sites",
-                    "depmap_gene_dependency", "depmap_gene_effect", "sgRNA_KO_mouse", "sgRNA_KO_human",
-                    "synthetic_growth_defect", "synthetic_lethality", "synthetic_rescue",
-                    "genetic_interaction", "mousemine_m1_positional_geneset", "mousemine_m2_curated_geneset",
-                    "mousemine_m3_regulatory_target_geneset", "mousemine_m5_ontology_geneset",
-                    "mousemine_m8_celltype_signature_geneset", "mousemine_mh_hallmark_geneset",
-                    "msigdb_human_c1_positional_geneset", "msigdb_human_c2_curated_geneset",
-                    "msigdb_human_c3_regulatory_target_geneset", "msigdb_human_c3_subset_tf_targets",
-                    "msigdb_human_c4_computational_geneset", "msigdb_human_c5_ontology_geneset",
-                    "msigdb_human_c6_oncogenic_signature_geneset", "msigdb_human_c7_immunologic_signature_geneset",
-                    "msigdb_human_c8_celltype_signature_geneset", "msigdb_human_h_hallmark_geneset",
-                    "kg", "ASD_Release_201909_AM", "ASD_Release_201909_DR","ASD_Release_202306_AP", "ASD_Release_202306_HL", 
-                    "ASD_Release_202208_AS", "ASD_Release_202309_PP"
-                }
-                allosteric_data_lake_items = [item for item in data_lake_items if item.split(".")[0] in allosteric_file_ids]
-
-
+            # Allosteric datalake file filter: robust stem matching so Windows paths and extensions don't drop entries
                 data_lake_descriptions = []
+                allosteric_keys = set(allosteric_data_lake.keys())
 
-                for item in allosteric_data_lake_items:
-                    item_id = item.split(".")[0]  # remove file extension
-                    if item_id in allosteric_data_lake:
-                        # Use the info from the allosteric_data_lake dictionary
-                        entry = allosteric_data_lake[item_id]
-                        data_lake_descriptions.append({
-                            "name": item,  # keep the full filename including extension
-                            "description": entry["description"],
-                            "categories": entry["allosteric_category"]
-                        })
+                for item in data_lake_items:
+                    stem, _ = os.path.splitext(item)
+
+                    key = None
+                    if stem in allosteric_keys:
+                        key = stem
+                    elif item in allosteric_keys:
+                        key = item
+
+                    if not key:
+                        continue
+
+                    entry = allosteric_data_lake[key]
+                    # Ensure downstream prompt building can find the description
+                    self.data_lake_dict[item] = entry.get("description") or self.data_lake_dict.get(item, f"Data lake item: {item}")
+                    data_lake_descriptions.append({
+                        "name": item,  # keep the full filename including extension
+                        "description": entry.get("description") or self.data_lake_dict.get(item, f"Data lake item: {item}"),
+                        "categories": entry.get("allosteric_category", []),
+                    })
+
+                # Debug: surface what the agent can actually see from the data lake in allosteric mode
+                print(f"[allosteric] data_lake_items count={len(data_lake_items)} matched={len(data_lake_descriptions)}")
+                print("[allosteric] matched items:", [d.get("name") for d in data_lake_descriptions])
             else:
 
             # Create data lake descriptions for retrieval
@@ -1298,9 +1292,13 @@ Each library is listed with its description to help you understand its functiona
                 "libraries": library_descriptions,
             }
 
-            # Use prompt-based retrieval with the agent's LLM
-            selected_resources = self.retriever.prompt_based_retrieval(prompt, resources, llm=self.llm)
-            print("Using prompt-based retrieval with the agent's LLM")
+            # Use vector-based or prompt-based retrieval
+            if self.retriever.use_vector_search:
+                selected_resources = self.retriever.vector_based_retrieval(prompt, resources)
+            else:
+                selected_resources = self.retriever.prompt_based_retrieval(prompt, resources, llm=self.llm)
+
+            print(f"Retrieval method: {'Vector-based' if self.retriever.use_vector_search else 'LLM-based'}")
 
             # Extract the names from the selected resources for the system prompt
             selected_resources_names = {
@@ -1312,11 +1310,11 @@ Each library is listed with its description to help you understand its functiona
             # Process data lake items to extract just the names
             for item in selected_resources["data_lake"]:
                 if isinstance(item, dict):
-                    selected_resources_names["data_lake"].append(item["name"])
+                    # Keep both name and description so we don't lose metadata in the prompt
+                    selected_resources_names["data_lake"].append(item)
                 elif isinstance(item, str) and ": " in item:
-                    # If the item already has a description, extract just the name
-                    name = item.split(": ")[0]
-                    selected_resources_names["data_lake"].append(name)
+                    # If the item already has a description, retain it as string
+                    selected_resources_names["data_lake"].append(item)
                 else:
                     selected_resources_names["data_lake"].append(item)
 
@@ -1399,11 +1397,20 @@ Each library is listed with its description to help you understand its functiona
                 }
                 tool_desc[module_name].append(tool_dict)
 
-        # Prepare data lake items with descriptions
+        # Prepare data lake items with descriptions; preserve provided descriptions when available
         data_lake_with_desc = []
         for item in selected_resources["data_lake"]:
-            description = self.data_lake_dict.get(item, f"Data lake item: {item}")
-            data_lake_with_desc.append({"name": item, "description": description})
+            if isinstance(item, dict):
+                name = item.get("name", "")
+                desc = item.get("description") or self.data_lake_dict.get(name, f"Data lake item: {name}")
+                data_lake_with_desc.append({"name": name, "description": desc})
+            elif isinstance(item, str):
+                if ": " in item:
+                    # Already formatted with description
+                    data_lake_with_desc.append(item)
+                else:
+                    description = self.data_lake_dict.get(item, f"Data lake item: {item}")
+                    data_lake_with_desc.append({"name": item, "description": description})
 
         # Prepare custom resources for highlighting
         custom_tools = []
@@ -1427,6 +1434,11 @@ Each library is listed with its description to help you understand its functiona
             for name, info in self._custom_software.items():
                 custom_software.append({"name": name, "description": info["description"]})
 
+        # Debug: confirm what descriptions reach the system prompt builder
+        print(f"\n[DEBUG] data_lake_with_desc (first 5 of {len(data_lake_with_desc)}):")
+        for i, item in enumerate(data_lake_with_desc[:5]):
+            print(f"  {i}: {item}")
+
         self.system_prompt = self._generate_system_prompt(
             tool_desc=tool_desc,
             data_lake_content=data_lake_with_desc,
@@ -1439,8 +1451,16 @@ Each library is listed with its description to help you understand its functiona
         )
 
         # Print the raw system prompt for debugging
-        # print("\n" + "="*20 + " RAW SYSTEM PROMPT FROM AGENT " + "="*20)
-        # print(self.system_prompt)
+        print("\n" + "="*20 + " RAW SYSTEM PROMPT EXCERPT (data lake section) " + "="*20)
+        lines = self.system_prompt.split('\n')
+        start_idx = None
+        for i, line in enumerate(lines):
+            if 'Biological data lake' in line or 'data_lake_content' in line:
+                start_idx = i
+                break
+        if start_idx:
+            print('\n'.join(lines[start_idx:min(start_idx+30, len(lines))]))
+        print("="*80 + "\n")
         # print("="*70 + "\n")
 
     def result_formatting(self, output_class, task_intention):
@@ -1474,10 +1494,15 @@ Each library is listed with its description to help you understand its functiona
             # Block allosteric-related modules from being imported during REPL code execution
             restricted_prefixes = [
                 "biomni_biolab.tool.allosteric",
+                "biomni_biolab.tool.allosteric2",
                 "biomni_biolab.tool.asd",
+                "biomni_biolab.tool.biolip",
                 "biomni_biolab.tool.cross_reference",
+                "biomni_biolab.tool.tool_description.asd",
+                "biomni_biolab.tool.tool_description.biolip",
                 "biomni_biolab.tool.tool_description.cross_reference",
                 "biomni_biolab.tool.tool_description.allosteric",
+                "biomni_biolab.tool.tool_description.allosteric2",
                 "biomni_biolab.tool.tool_description.allosteric_tools",
             ]
             support_tools.set_restricted_imports(restricted_prefixes)

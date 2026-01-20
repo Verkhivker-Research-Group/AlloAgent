@@ -1,0 +1,185 @@
+# Portable Critic Setup
+
+A lightweight, container-agnostic critic pack for validating agent JSON outputs and generating review artifacts. Run it inside your container to sanity-check and audit outputs.
+
+---
+
+## Contents
+
+```
+critic_setup/
+├─ critic_legacy.py
+├─ validate_output.py
+├─ validate_json_min.py
+├─ fix_json.py
+├─ gemini_audit.py
+├─ critic_output.json          # sample JSON (default input)
+├─ schema_output.json          # JSON Schema used by validators
+└─ README
+```
+
+Scripts overview:
+
+* critic_legacy.py – runs the legacy critic suite.
+* validate_output.py – schema and content checks.
+* validate_json_min.py – minimal sanity check (no external deps).
+* fix_json.py – repairs formatting and renames legacy keys.
+* gemini_audit.py – LLM-based expert-style audit.
+
+---
+
+## Wrapper Output Contract
+
+The wrapper must emit a JSON file (critic_output.json by default):
+
+```json
+[
+  {
+    "id": "unique-id",
+    "task": "short description",
+    "model": "model name",
+    "prompt": "input prompt",
+    "response": "LLM output",
+    "metadata": { "extra": "allowed" }
+  }
+]
+```
+
+Extra keys are allowed; validators ignore unknown fields.
+
+---
+
+## Quick Start
+
+Run inside the critic_setup directory:
+
+```bash
+cd critic_setup
+
+# 1. Minimal check
+python validate_json_min.py critic_output.json
+
+# 2. Auto-fix common issues
+python fix_json.py critic_output.json critic_output.fixed.json
+python validate_json_min.py critic_output.fixed.json
+
+# 3. Full validation
+python validate_output.py critic_output.json
+
+# 4. Critic
+python critic_legacy.py critic_output.json
+
+# 5. Audit report
+python gemini_audit.py critic_output.json --out ./out/audit/critic_report.txt
+```
+
+Artifacts go to ./out/.
+
+---
+
+## Docker Usage
+
+### Option A – Copy folder into image
+
+```dockerfile
+COPY critic_setup /app/critic_setup
+WORKDIR /app/critic_setup
+```
+
+### Option B – Mount at runtime (recommended)
+
+```bash
+docker run --rm -it \
+  -v $(pwd)/critic_setup:/app/critic_setup \
+  -v $(pwd)/your-wrapper-out:/app/wrapper_out \
+  -w /app/critic_setup \
+  your_image_name \
+  bash -lc "python validate_json_min.py /app/wrapper_out/critic_output.json && \
+            python validate_output.py /app/wrapper_out/critic_output.json && \
+            python critic_legacy.py /app/wrapper_out/critic_output.json && \
+            python gemini_audit.py /app/wrapper_out/critic_output.json --out ./out/audit/critic_report.txt"
+```
+
+---
+
+## Makefile (optional)
+
+```make
+CRITIC_DIR ?= critic_setup
+WRAP_OUT ?= your-wrapper-out/critic_output.json
+PY ?= python
+
+quick:
+	$(PY) $(CRITIC_DIR)/validate_json_min.py $(WRAP_OUT)
+
+validate:
+	$(PY) $(CRITIC_DIR)/validate_output.py $(WRAP_OUT)
+
+critic:
+	$(PY) $(CRITIC_DIR)/critic_legacy.py $(WRAP_OUT)
+
+audit:
+	$(PY) $(CRITIC_DIR)/gemini_audit.py $(WRAP_OUT) --out $(CRITIC_DIR)/out/audit/critic_report.txt
+
+fix:
+	$(PY) $(CRITIC_DIR)/fix_json.py $(WRAP_OUT) $(CRITIC_DIR)/critic_output.fixed.json
+```
+
+Run with:
+
+```bash
+make quick
+make validate
+make critic
+make audit
+```
+
+---
+
+## Runner Image (if no Python in container)
+
+```bash
+docker run --rm -it \
+  -v $(pwd)/critic_setup:/app/critic_setup \
+  -v $(pwd)/your-wrapper-out:/app/wrapper_out \
+  -w /app/critic_setup \
+  python:3.11-slim \
+  bash -lc "pip install -r requirements.txt || true; \
+            python validate_json_min.py /app/wrapper_out/critic_output.json && \
+            python validate_output.py /app/wrapper_out/critic_output.json && \
+            python critic_legacy.py /app/wrapper_out/critic_output.json && \
+            python gemini_audit.py /app/wrapper_out/critic_output.json --out ./out/audit/critic_report.txt"
+```
+
+---
+
+## CLI Help
+
+```bash
+python validate_json_min.py --help
+python validate_output.py --help
+python critic_legacy.py --help
+python gemini_audit.py --help
+python fix_json.py --help
+```
+
+Common flags:
+
+* --input <path> – JSON file path (default: critic_output.json)
+* --outdir <dir> – output directory
+* --strict – strict mode (when available)
+
+---
+
+## Team Workflow
+
+1. Each member keeps their own container.
+2. Copy or mount critic_setup inside.
+3. Wrapper writes critic_output.json.
+4. Run: quick → validate → critic → audit.
+5. Share out/ artifacts.
+
+---
+
+Maintainer: Fares Alhezaimi
+Purpose: Consistent critic checks across all environments.

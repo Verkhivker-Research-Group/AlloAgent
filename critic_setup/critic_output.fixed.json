@@ -1,0 +1,105 @@
+{
+  "metadata": {
+    "target_protein": "unspecified",
+    "uniprot_id": "unspecified",
+    "pdb_structure": "unspecified",
+    "analysis_timestamp": "2026-01-01T17:24:46.590723Z",
+    "assumptions": [
+      "LLM-generated content; domain details may be missing",
+      "Fields use generic placeholders when not inferred"
+    ],
+    "limits": "The analysis of the most commonly targeted residues across all KRAS covalent inhibitors reveals the following:\n\n- **Total Unique Sites**: 1\n- **Total Unique Sites**: 1\n- **Most Commonly Targeted Site**: Cysteine at position 12 (CYS-12), targeted in all 286 entries.\n- **Residue Distribution**: Cysteine (CYS) is the predominant residue targeted.\n\nThis indicates that CYS-12 is the primary hotspot residue for covalent inhibitors targeting KRAS, consistent with the known mechanism of targeting the G1",
+    "original_prompt": "unspecified",
+    "raw_response_excerpt": "The analysis of the most commonly targeted residues across all KRAS covalent inhibitors reveals the following:\n\n- **Total Unique Sites**: 1\n- **Total Unique Sites**: 1\n- **Most Commonly Targeted Site**: Cysteine at position 12 (CYS-12), targeted in all 286 entries.\n- **Residue Distribution**: Cysteine (CYS) is the predominant residue targeted.\n\nThis indicates that CYS-12 is the primary hotspot residue for covalent inhibitors targeting KRAS, consistent with the known mechanism of targeting the G12C mutation.\n\n### Summary\n\n- **Chemical Information**: Difficulties were encountered in retrieving chemical information for Sotorasib, Adagrasib, and AMG510. Further investigation is needed to obtain this data.\n- **Binding Site Classification**: The majority of KRAS covalent inhibitors are classified as orthosteric.\n- **Residue Targeting**: CYS-12 is the most commonly targeted residue, with no other significant hotspots identified.      \n\n<solution>\n- KRAS covalent inhibitors primarily target th"
+  },
+  "allosteric_sites": [
+    {
+      "site_id": "SITE_GENERIC",
+      "residues": [
+        "unspecified"
+      ],
+      "pocket_volume": 0.0,
+      "hydrophobicity_index": 0.5,
+      "druggability_score": 0.5,
+      "confidence": 0.5,
+      "rationale": "The analysis of the most commonly targeted residues across all KRAS covalent inhibitors reveals the following:\n\n- **Total Unique Sites**: 1\n- **Total Unique Sites**: 1\n- **Most Commonly Targeted Site**: Cysteine at position 12 (CYS-12), targeted in all 286 entries.\n- **Residue Distribution**: Cysteine (CYS) is the predominant residue targeted.\n\nThis indicates that CYS-12 is the primary hotspot residue for covalent inhibitors targeting KRAS, consistent with the known mechanism of targeting the G12C mutation.\n\n### Summary\n\n- **Chemical Information**: Difficulties were encountered in retrieving chemical information for Sotorasib, Adagrasib, and AMG510. Further investigation is needed to obtain this data.\n- **Binding Site Classification**: The majority of KRAS covalent inhibitors are classifie"
+    }
+  ],
+  "communication_pathways": [
+    {
+      "site_id": "SITE_GENERIC",
+      "pathways": [
+        {
+          "pathway_id": "PATH_GENERIC",
+          "residues": [
+            "unspecified"
+          ],
+          "metric": "unspecified",
+          "path_score": 0.5,
+          "hub_residues": [
+            {
+              "residue": "unspecified",
+              "centrality": 0.5
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "simulation_design": {
+    "engine": "unspecified",
+    "length_ns": 0,
+    "temperature_K": 300,
+    "solvent_ions": "unspecified",
+    "enhanced_sampling": "unspecified",
+    "collective_variables": [],
+    "why_these_CVs": "unspecified",
+    "expected_observable_changes": "unspecified"
+  },
+  "mutation_impact": {
+    "mutation": "unspecified",
+    "disruption_score": 0.5,
+    "affected_pathways": [
+      "unspecified"
+    ],
+    "mechanistic_rationale": "The analysis of the most commonly targeted residues across all KRAS covalent inhibitors reveals the following:\n\n- **Total Unique Sites**: 1\n- **Total Unique Sites**: 1\n- **Most Commonly Targeted Site**: Cysteine at position 12 (CYS-12), targeted in all 286 entries.\n- **Residue Distribution**: Cysteine (CYS) is the predominant residue targeted.\n\nThis indicates that CYS-12 is the primary hotspot residue for covalent inhibitors targeting KRAS, consistent with the known mechanism of targeting the G12C mutation.\n\n### Summary\n\n- **Chemical Information**: Difficulties were encountered in retrieving chemical information for Sotorasib, Adagrasib, and AMG510. Further investigation is needed to obtain this data.\n- **Binding Site Classification**: The majority of KRAS covalent inhibitors are classifie"
+  },
+  "modulator_ranking": [
+    {
+      "ligand_id": "ligand_generic_1",
+      "binding_site": "unspecified",
+      "binding_mode": "unspecified",
+      "allosteric_score": 0.5,
+      "rank_reason": "LLM output; details not inferred"
+    },
+    {
+      "ligand_id": "ligand_generic_2",
+      "binding_site": "unspecified",
+      "binding_mode": "unspecified",
+      "allosteric_score": 0.5,
+      "rank_reason": "LLM output; details not inferred"
+    }
+  ],
+  "hypotheses": [
+    {
+      "id": "H1",
+      "statement": "Hypothesis derived from LLM output.",
+      "computational_validation": [
+        "Not provided"
+      ],
+      "experimental_validation": [
+        "Not provided"
+      ]
+    },
+    {
+      "id": "H2",
+      "statement": "Additional hypothesis placeholder.",
+      "computational_validation": [
+        "Not provided"
+      ],
+      "experimental_validation": [
+        "Not provided"
+      ]
+    }
+  ]
+}

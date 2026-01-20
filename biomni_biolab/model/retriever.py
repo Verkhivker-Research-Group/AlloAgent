@@ -7,118 +7,42 @@ from langchain_community.vectorstores import Chroma
 from langchain_core.messages import HumanMessage
 from langchain_openai import ChatOpenAI, OpenAIEmbeddings
 
+from biomni_biolab.model.vector_database import load_vectorstore
+
 
 class ToolRetriever:
     """Retrieve tools from the tool registry using vector search or LLM-based retrieval."""
 
-    def __init__(self, use_vector_search: bool = True, embedding_model: str = "text-embedding-3-small"):
+    def __init__(self, use_vector_search: bool = True, embedding_model: str = "text-embedding-3-small", persist_directory: str = "./data/vectorstore"):
         """Initialize the retriever.
         
         Args:
             use_vector_search: If True, use vector database for retrieval. If False, use LLM-based retrieval.
             embedding_model: The embedding model to use for vector search.
+            persist_directory: Directory where the vector store is persisted.
         """
         self.use_vector_search = use_vector_search
         self.embedding_model = embedding_model
+        self.persist_directory = persist_directory
         self.vectorstore = None
-        self.embeddings = None
         
-        # Only initialize embeddings if vector search is enabled
+        # Load vectorstore from disk if vector search is enabled
         if self.use_vector_search:
             try:
-                self.embeddings = OpenAIEmbeddings(model=embedding_model)
+                self.vectorstore = load_vectorstore(
+                    persist_directory=persist_directory,
+                    embedding_model=embedding_model
+                )
+                if self.vectorstore is None:
+                    print("⚠ Vector store not available. Falling back to LLM-based retrieval.")
+                    print("  Run rebuild_vectorstore() from biomni_biolab.model.vector_database to create it.")
+                    self.use_vector_search = False
             except Exception as e:
-                print(f"Warning: Failed to initialize embeddings, falling back to LLM-based retrieval: {e}")
+                print(f"⚠ Failed to load vector store: {e}")
+                print("  Falling back to LLM-based retrieval")
                 self.use_vector_search = False
 
-    def initialize_vectorstore(self, resources: dict, persist_directory: str = "./data/vectorstore"):
-        """Initialize the vector store with all available resources.
-        
-        Args:
-            resources: Dictionary with 'tools', 'data_lake', and 'libraries'
-            persist_directory: Directory to persist the vector store
-        """
-        if not self.use_vector_search or self.embeddings is None:
-            return
-        
-        try:
-            # Combine all resources into documents
-            documents = []
-            metadatas = []
-            
-            # Add tools
-            for i, tool in enumerate(resources.get("tools", [])):
-                if isinstance(tool, dict):
-                    text = f"Tool: {tool.get('name', '')}\n{tool.get('description', '')}"
-                    metadata = {
-                        "type": "tool",
-                        "index": i,
-                        "name": tool.get("name", ""),
-                        "module": tool.get("module", "")
-                    }
-                else:
-                    text = f"Tool: {getattr(tool, 'name', '')}\n{getattr(tool, 'description', '')}"
-                    metadata = {
-                        "type": "tool",
-                        "index": i,
-                        "name": getattr(tool, "name", "")
-                    }
-                documents.append(text)
-                metadatas.append(metadata)
-            
-            # Add data lake items
-            for i, item in enumerate(resources.get("data_lake", [])):
-                if isinstance(item, dict):
-                    text = f"Dataset: {item.get('name', '')}\n{item.get('description', '')}"
-                    metadata = {
-                        "type": "data_lake",
-                        "index": i,
-                        "name": item.get("name", "")
-                    }
-                else:
-                    text = f"Dataset: {item}"
-                    metadata = {
-                        "type": "data_lake",
-                        "index": i,
-                        "name": str(item)
-                    }
-                documents.append(text)
-                metadatas.append(metadata)
-            
-            # Add libraries
-            for i, lib in enumerate(resources.get("libraries", [])):
-                if isinstance(lib, dict):
-                    text = f"Library: {lib.get('name', '')}\n{lib.get('description', '')}"
-                    metadata = {
-                        "type": "library",
-                        "index": i,
-                        "name": lib.get("name", "")
-                    }
-                else:
-                    text = f"Library: {lib}"
-                    metadata = {
-                        "type": "library",
-                        "index": i,
-                        "name": str(lib)
-                    }
-                documents.append(text)
-                metadatas.append(metadata)
-            
-            # Create vector store
-            os.makedirs(persist_directory, exist_ok=True)
-            self.vectorstore = Chroma.from_texts(
-                texts=documents,
-                embedding=self.embeddings,
-                metadatas=metadatas,
-                persist_directory=persist_directory,
-                collection_name="biomni_resources"
-            )
-            print(f"✓ Vector store initialized with {len(documents)} resources")
-            
-        except Exception as e:
-            print(f"Warning: Failed to initialize vector store, falling back to LLM-based retrieval: {e}")
-            self.use_vector_search = False
-            self.vectorstore = None
+
 
     def vector_based_retrieval(self, query: str, resources: dict, k: int = 30) -> dict:
         """Use vector similarity search to retrieve relevant resources.

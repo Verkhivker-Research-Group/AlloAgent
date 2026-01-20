@@ -4,7 +4,7 @@ This repository provides a containerized development environment for extending a
 
 ---
 
-## 🚀 Quick Start
+## Quick Start
 
 ### Step 1: Clone the Repository
 
@@ -26,12 +26,13 @@ docker compose up -d
 docker exec -it biomni-dev bash
 conda activate biomni_e1
 ```
+Extra: python -m biomni.tool.<file without .py>
 
 This command launches a fully configured Conda environment (`biomni_e1`) inside the container.
 
 ---
 
-## 🔧 Development Environment Features
+## Development Environment Features
 
 * **Python 3.11 (via Miniconda)**
 * **Conda environment:** `biomni_e1`
@@ -45,7 +46,31 @@ This command launches a fully configured Conda environment (`biomni_e1`) inside 
 
 ---
 
-## 🛠️ Common Commands
+## Running the Web Interface
+
+### Start the Flask Server
+
+From inside the container with the Conda environment activated:
+
+```bash
+conda activate biomni_e1
+python app.py
+```
+
+The server will start on `http://localhost:5010`
+
+### Access the Interface
+
+Open your browser and navigate to:
+```
+http://localhost:5010
+```
+
+The web interface provides an interactive prompt system for submitting queries to the Biomni agent.
+
+---
+
+## Common Commands
 
 ### Stop the container
 
@@ -68,7 +93,7 @@ docker compose build --no-cache
 
 ---
 
-## 🧪 Recommended Workflow
+## Recommended Workflow
 
 * Edit and experiment in the `/app` directory (mounted from host)
 * Use `jupyter notebook` or `python` for live development
@@ -76,7 +101,7 @@ docker compose build --no-cache
 
 ---
 
-## 📁 Repository Structure
+## Repository Structure
 
 ```
 Biolab/
@@ -89,11 +114,11 @@ Biolab/
 
 ---
 
-## 🤝 Contributing
+## Contributing
 
 This repository is maintained by the RSMDA AI Development Team. If you encounter issues or want to contribute, please reach out to:
 
-* Fares Alhezaimi (@faresalhezaimi)
+* Will Gatlin (@will-the-g)
 
 ---
 

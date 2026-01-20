@@ -1,6 +1,6 @@
 #from biomni_biolab.tool.database import query_uniprot, query_pdb
 from biomni_biolab.tool.biolip import parse_biolip_interactions, biolip_ligands
-#from biomni_biolab.tool.asd import parse_asd_xf, load_asd_ap, load_asd_dr
+from biomni_biolab.tool.asd import parse_asd_xf, get_asd_ap_data, get_asd_dr_data
 
 
 from chembl_webresource_client.new_client import new_client
@@ -15,6 +15,9 @@ import re
 import requests
 from dataclasses import dataclass
 from dotenv import load_dotenv
+from collections import Counter, defaultdict
+import numpy as np
+
 load_dotenv()
 
 
@@ -28,96 +31,7 @@ def biolip_ligands(pdb_id, chain=None):
     print(f"Interactions: {interactions}")
     return interactions['Ligand'].unique().tolist()
 
-'''
-# STILL IN TEST PHASES
-def cross_reference_ligands(pdb_id: str, uniprot_id: str, ligands: list):
-    """
-    Cross-reference ligands against PDB, BioLiP, and ASD using PDB ID.
-    """
-    pdb_id = pdb_id.lower()
-    results = {
-        "pdb_id": pdb_id,
-        "uniprot_id": uniprot_id,
-        "cross_references": []
-    }
-    try:
-        # ASD data - using Uniprot ID
-        # PDB TO UNIPROT FUNCTION
-        asd_experimental = parse_asd_xf(target_proteins=[])
-        asd_predicted_sites = load_asd_ap(uniprot_id)
-        #asd_all_modulators = load_asd_dr()
 
-        print(f"ASD_EXPERIMENTAL: {asd_experimental}")
-        print(f"ASD PREDICTED: {asd_predicted_sites}")
-        #print(f"MODULATORS: {asd_all_modulators}")
-
-        for ligand in ligands:
-
-            cross_ref = {
-                "ligand_code": ligand,
-                "cross_refs": {},
-                "provenance": []
-            }
-
-            # Add PDB confirmation
-            pdb_info = None
-            #pdb_info = query_pdb(pdb_id)
-            if pdb_info:
-                cross_ref["cross_refs"]["pdb"] = pdb_info
-                cross_ref["provenance"].append("PDB")
-
-            # Add ASD allosteric annotation
-            asd_match = None
-'''
-'''
-            for modulator_id, modulator_data in asd_all_modulators.items():
-                if (ligand_code in modulator_data.get('name', '') or
-                    ligand_code in modulator_data.get('cas_id', '') or
-                    ligand_code in modulator_data.get('drugbank_id', '')):
-                    asd_match = modulator_data
-                    break
-            '''
-'''
-            if asd_match or asd_experimental.get(pdb_id) or asd_predicted_sites.get(pdb_id):
-                cross_ref["cross_refs"]["asd"] = {
-                    "modulator_match": asd_match,
-                    "experimental_sites": asd_experimental.get(pdb_id, {}),
-                    "predicted_sites": asd_predicted_sites.get(pdb_id, [])
-                }
-                cross_ref["provenance"].append("ASD")
-
-            results["cross_references"].append(cross_ref)
-
-    except Exception as e:
-        results["error"] = str(e)
-
-    return results
-
-
-def test_cross_reference_ligands(pdb_id, uniprot_id):
-    """
-    Test for cross_reference_ligands function using PDB ID.
-    """
-    print(f"Testing cross-reference for PDB {pdb_id}...")
-    
-    # Get ligands from PDB
-    ligands = biolip_ligands(pdb_id)
-    print(f"Found {len(ligands)} ligands")
-    
-    # Cross-reference ligands
-    results = cross_reference_ligands(pdb_id, uniprot_id, ligands)
-    print(f"RESULTS: {results}")
-    
-    # Print results
-    print(f"Cross-references: {len(results.get('cross_references', []))}")
-    for i, cross_ref in enumerate(results.get('cross_references', [])):
-        asd_found = 'asd' in cross_ref['cross_refs']
-        print(f"  {cross_ref['ligand_code']}: ASD match = {asd_found}")
-        
-    return results
-'''
-
-#test_cross_reference_ligands("1I09", "P49841")
 
 
 def pdb_to_uniprot(pdb_id: str) -> dict:

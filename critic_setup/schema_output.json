@@ -1,0 +1,159 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Allosteric Critic Output",
+  "type": "object",
+  "required": [
+    "metadata",
+    "allosteric_sites",
+    "communication_pathways",
+    "simulation_design",
+    "mutation_impact",
+    "modulator_ranking",
+    "hypotheses"
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "metadata": {
+      "type": "object",
+      "required": ["target_protein", "assumptions"],
+      "additionalProperties": true,
+      "properties": {
+        "target_protein": { "type": "string" },
+        "uniprot_id": { "type": "string" },
+        "pdb_structure": { "type": "string" },
+        "analysis_timestamp": { "type": "string" },
+        "assumptions": { "type": "array", "items": { "type": "string" } },
+        "limits": { "type": "string" }
+      }
+    },
+    "allosteric_sites": {
+      "type": "array",
+      "maxItems": 3,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "site_id",
+          "residues",
+          "hydrophobicity_index",
+          "druggability_score",
+          "confidence",
+          "rationale"
+        ],
+        "properties": {
+          "site_id": { "type": "string" },
+          "residues": { "type": "array", "items": { "oneOf": [ { "type": "integer" }, { "type": "string" } ] } },
+          "pocket_volume": { "oneOf": [ { "type": "number" }, { "type": "string" } ] },
+          "hydrophobicity_index": { "type": "number" },
+          "druggability_score": { "type": "number" },
+          "confidence": { "type": "number" },
+          "rationale": { "type": "string" }
+        }
+      }
+    },
+    "communication_pathways": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["site_id", "pathways"],
+        "properties": {
+          "site_id": { "type": "string" },
+          "pathways": {
+            "type": "array",
+            "maxItems": 3,
+            "items": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": ["pathway_id", "residues", "metric", "path_score", "hub_residues"],
+              "properties": {
+                "pathway_id": { "type": "string" },
+                "residues": { "type": "array", "items": { "oneOf": [ { "type": "integer" }, { "type": "string" } ] } },
+                "metric": { "type": "string" },
+                "path_score": { "oneOf": [ { "type": "number" }, { "type": "string" } ] },
+                "hub_residues": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "additionalProperties": false,
+                    "required": ["residue", "centrality"],
+                    "properties": {
+                      "residue": { "oneOf": [ { "type": "integer" }, { "type": "string" } ] },
+                      "centrality": { "oneOf": [ { "type": "number" }, { "type": "string" } ] }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "simulation_design": {
+      "type": "object",
+      "additionalProperties": true,
+      "required": [
+        "engine",
+        "length_ns",
+        "temperature_K",
+        "solvent_ions",
+        "enhanced_sampling",
+        "collective_variables",
+        "why_these_CVs",
+        "expected_observable_changes"
+      ],
+      "properties": {
+        "engine": { "type": "string" },
+        "length_ns": { "oneOf": [ { "type": "number" }, { "type": "string" } ] },
+        "temperature_K": { "oneOf": [ { "type": "number" }, { "type": "string" } ] },
+        "solvent_ions": { "type": "string" },
+        "enhanced_sampling": { "type": "string" },
+        "collective_variables": { "type": "array", "items": { "type": "string" } },
+        "why_these_CVs": { "type": "string" },
+        "expected_observable_changes": { "type": "string" }
+      }
+    },
+    "mutation_impact": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["mutation", "disruption_score", "affected_pathways", "mechanistic_rationale"],
+      "properties": {
+        "mutation": { "type": "string" },
+        "disruption_score": { "oneOf": [ { "type": "number" }, { "type": "string" } ] },
+        "affected_pathways": { "type": "array", "items": { "type": "string" } },
+        "mechanistic_rationale": { "type": "string" }
+      }
+    },
+    "modulator_ranking": {
+      "type": "array",
+      "minItems": 2,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["ligand_id", "binding_site", "binding_mode", "allosteric_score", "rank_reason"],
+        "properties": {
+          "ligand_id": { "type": "string" },
+          "binding_site": { "type": "string" },
+          "binding_mode": { "type": "string" },
+          "allosteric_score": { "oneOf": [ { "type": "number" }, { "type": "string" } ] },
+          "rank_reason": { "type": "string" }
+        }
+      }
+    },
+    "hypotheses": {
+      "type": "array",
+      "minItems": 2,
+      "items": {
+        "type": "object",
+        "additionalProperties": true,
+        "required": ["id", "statement", "computational_validation", "experimental_validation"],
+        "properties": {
+          "id": { "type": "string" },
+          "statement": { "type": "string" },
+          "computational_validation": { "type": "array", "items": { "type": "string" } },
+          "experimental_validation": { "type": "array", "items": { "type": "string" } }
+        }
+      }
+    }
+  }
+}
