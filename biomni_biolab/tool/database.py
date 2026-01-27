@@ -451,9 +451,9 @@ def query_uniprot(
     prompt=None,
     endpoint=None,
     api_key=None,
-    model="claude-3-5-haiku-20241022",
+    model="gpt-4o",
     max_results=5,
-    provider="claude",
+    provider="openai",
 ):
     """Query the UniProt REST API using either natural language or a direct endpoint.
 
@@ -463,12 +463,12 @@ def query_uniprot(
     endpoint (str, optional): Full or partial UniProt API endpoint URL to query directly
                             (e.g., "https://rest.uniprot.org/uniprotkb/P01308")
     api_key (str, optional): API key for the chosen provider. If None, will use appropriate env variable
-                           (ANTHROPIC_API_KEY for Claude, OPENAI_API_KEY for OpenAI)
+                           (OPENAI_API_KEY for OpenAI, ANTHROPIC_API_KEY for Claude)
     model (str): Model to use for natural language processing
-                Default: "claude-3-5-haiku-20241022" for Claude
-                Examples for OpenAI: "gpt-4", "gpt-3.5-turbo"
+                Default: "gpt-4" for OpenAI
+                Examples for Claude: "claude-3-5-haiku-20241022"
     max_results (int): Maximum number of results to return
-    provider (str): LLM provider to use ("claude" or "openai")
+    provider (str): LLM provider to use ("openai" or "claude")
 
     Returns
     -------
@@ -476,10 +476,10 @@ def query_uniprot(
 
     Examples
     --------
-    - Natural language with Claude: 
-      query_uniprot(prompt="Find information about human insulin protein", provider="claude")
-    - Natural language with OpenAI: 
-      query_uniprot(prompt="Find information about human insulin protein", provider="openai", model="gpt-4")
+        - Natural language with OpenAI (default):
+            query_uniprot(prompt="Find information about human insulin protein")
+        - Natural language with Claude:
+            query_uniprot(prompt="Find information about human insulin protein", provider="claude", model="claude-3-5-haiku-20241022")
     - Direct endpoint: 
       query_uniprot(endpoint="https://rest.uniprot.org/uniprotkb/P01308")
 
@@ -621,6 +621,14 @@ def _query_openai_for_api(prompt, schema, system_template, api_key=None, model="
         # Extract the response content
         raw_response = response.choices[0].message.content.strip()
         
+        # Strip markdown code blocks if present (e.g., ```json ... ```)
+        if raw_response.startswith('```'):
+            # Remove opening code block marker (e.g., ```json)
+            raw_response = raw_response.lstrip('`').lstrip('json').lstrip('').strip()
+            # Remove closing code block marker
+            if raw_response.endswith('```'):
+                raw_response = raw_response.rstrip('`').strip()
+        
         # Try to parse the JSON response
         try:
             parsed_response = json.loads(raw_response)
@@ -686,6 +694,14 @@ def _query_claude_for_api(prompt, schema, system_template, api_key=None, model="
         
         # Extract the response content
         raw_response = response.content[0].text.strip()
+        
+        # Strip markdown code blocks if present (e.g., ```json ... ```)
+        if raw_response.startswith('```'):
+            # Remove opening code block marker (e.g., ```json)
+            raw_response = raw_response.lstrip('`').lstrip('json').lstrip('').strip()
+            # Remove closing code block marker
+            if raw_response.endswith('```'):
+                raw_response = raw_response.rstrip('`').strip()
         
         # Try to parse the JSON response
         try:
@@ -975,7 +991,8 @@ def query_pdb(
     prompt=None,
     query=None,
     api_key=None,
-    model="claude-3-5-haiku-20241022",
+    model="gpt-4o",
+    provider="openai",
     max_results=3,
 ):
     """Query the RCSB PDB database using natural language or a direct structured query.
@@ -984,8 +1001,11 @@ def query_pdb(
     ----------
     prompt (str, required): Natural language query about protein structures
     query (dict, optional): Direct structured query in RCSB Search API format (overrides prompt)
-    api_key (str, optional): Anthropic API key. If None, will use ANTHROPIC_API_KEY env variable
-    model (str): Anthropic model to use for natural language processing
+    api_key (str, optional): API key for the chosen provider. If None, will use OPENAI_API_KEY for OpenAI or ANTHROPIC_API_KEY for Claude
+    model (str): Model to use for natural language processing
+                 Default: "gpt-4o" for OpenAI
+                 Examples for Claude: "claude-3-5-haiku-20241022"
+    provider (str): LLM provider to use ("openai" or "claude")
     max_results (int): Maximum number of results to return
 
     Returns
@@ -994,11 +1014,16 @@ def query_pdb(
 
     Examples
     --------
-    - Natural language: query_pdb("Find structures of human insulin")
+    - Natural language with OpenAI (default): query_pdb("Find structures of human insulin")
+    - Natural language with Claude: query_pdb("Find structures of human insulin", provider="claude", model="claude-3-5-haiku-20241022")
     - Direct query: query_pdb(query={"query": {"type": "terminal", "service": "full_text",
                            "parameters": {"value": "insulin"}}, "return_type": "entry"})
 
     """
+    # Validate provider
+    if provider not in ["openai", "claude"]:
+        return {"error": "Provider must be either 'openai' or 'claude'"}
+
     # Default parameters
     return_type = "entry"
     search_service = "full_text"
@@ -1039,23 +1064,32 @@ def query_pdb(
         Generate a well-formed Search API query JSON object. Return ONLY the JSON with no additional explanation.
         """
 
-        # Query Claude to generate the search query
-        claude_result = _query_claude_for_api(
-            prompt=prompt,
-            schema=schema,
-            system_template=system_template,
-            api_key=api_key,
-            model=model,
-        )
+        # Query selected provider to generate the search query
+        if provider == "openai":
+            llm_result = _query_openai_for_api(
+                prompt=prompt,
+                schema=schema,
+                system_template=system_template,
+                api_key=api_key,
+                model=model,
+            )
+        else:
+            llm_result = _query_claude_for_api(
+                prompt=prompt,
+                schema=schema,
+                system_template=system_template,
+                api_key=api_key,
+                model=model,
+            )
 
-        if not claude_result["success"]:
+        if not llm_result.get("success"):
             return {
-                "error": claude_result["error"],
-                "claude_response": claude_result.get("raw_response", "No response"),
+                "error": llm_result["error"],
+                "llm_response": llm_result.get("raw_response", "No response"),
             }
 
-        # Get the query from Claude's response
-        query_json = claude_result["data"]
+        # Get the query from LLM's response
+        query_json = llm_result["data"]
     else:
         # Use provided query directly
         query_json = (
