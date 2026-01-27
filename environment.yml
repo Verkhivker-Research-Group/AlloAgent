@@ -53,4 +53,5 @@ dependencies:
       - transformers
       - sentencepiece
       - python-dotenv
+      - chembl-webresource-client
       - biomni
