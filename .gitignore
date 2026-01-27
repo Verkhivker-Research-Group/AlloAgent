@@ -11,6 +11,18 @@
 *.sln.docstates
 *.env
 
+# Project-specific files and folders
+results/
+tests/
+dev_tools/
+allosteric_eval/
+data/
+#test_prompts*.py
+test_prompts*.txt
+Results.zip
+combination_prompt_*.txt
+test.sh
+
 # User-specific files (MonoDevelop/Xamarin Studio)
 *.userprefs
 
