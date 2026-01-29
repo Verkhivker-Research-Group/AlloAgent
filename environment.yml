@@ -55,3 +55,4 @@ dependencies:
       - python-dotenv
       - chembl-webresource-client
       - biomni
+      - pypdf2
