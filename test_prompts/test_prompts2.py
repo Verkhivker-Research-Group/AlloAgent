@@ -10,9 +10,9 @@ load_dotenv()
 
 prompt_items = list(PROMPTS.items())
 # Start with prompt n
-n = 2
+n = 2 - 1 # prompt number - 1 (0 indexed)
 # Process prompts from start to end (set n above)
-for prompt_name, prompt_text in prompt_items[n:n+3]:
+for prompt_name, prompt_text in prompt_items[n:n+2]:
     try:
         print(f"\n{'='*80}")
         print(f"Processing: {prompt_name}")
