@@ -1,0 +1,1 @@
+I’m working on a covalent inhibitor analysis for KRAS G12C (UniProt: P01116) and want a report that helps guide next experiments. Start by comparing Sotorasib and Adagrasib in a small table that highlights key chemical and physicochemical properties that differentiate them. Note any major structural features or warhead differences, if known, and clearly label any uncertainties.

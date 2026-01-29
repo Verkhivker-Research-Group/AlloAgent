@@ -1,0 +1,107 @@
+Final Output:
+Here's a summary of the chemical and physicochemical properties for Sotorasib and Adagrasib based on the query results:
+
+1. [✓] Import the necessary functions and libraries for querying chemical databases.
+2. [✓] Query the ChEMBL and PubChem databases to retrieve the chemical properties of Sotorasib and Adagrasib.
+3. [✓] Compile a table highlighting key differences in chemical and physicochemical properties.
+4. [✓] Identify and note any major structural features or warhead differences.
+5. [ ] Present the table with annotations for any uncertainties or missing data.
+
+I will now present the compiled table with annotations:
+
+<solution>
+### Comparison of Sotorasib and Adagrasib
+
+| Property                | Sotorasib                                | Adagrasib                               |
+|-------------------------|------------------------------------------|-----------------------------------------|
+| ChEMBL ID               | CHEMBL4535757                            | CHEMBL4594350                           |
+| Molecular Formula       | C30H30F2N6O3                             | C32H35ClFN7O2                           |
+| Molecular Weight        | 560.61                                   | 604.13                                  |
+| LogP (AlogP)            | 4.48                                     | 4.73                                    |
+| Polar Surface Area (PSA)| 104.45                                   | 88.83                                   |
+| SMILES                  | C=CC(=O)N1CCN(c2nc(=O)n(-c3c(C)ccnc3C(C)C)c3nc(-c4c(O)cccc4F)c(F)cc23)[C@@H](C)C1 | C=C(F)C(=O)N1CCN(c2nc(OC[C@@H]3CCCN3C)nc3c2CCN(c2cccc4cccc(Cl)c24)C3)C[C@@H]1CC#N |
+| First Approval          | 2021                                     | 2022                                    |
+| ATC Code                | L01XX73                                  | L01XX77                                 |
+| USAN Stem               | -rasib                                   | -rasib                                  |
+
+### Major Structural Features and Warhead Differences
+- **Sotorasib** has a difluorophenyl group, which may contribute to its specific binding properties.
+- **Adagrasib** features a chlorine atom on its phenyl ring, potentially influencing its binding and reactivity.
+
+### Uncertainties
+- The exact nature and reactivity of the warheads used in these inhibitors are complex and often proprietary. The SMILES strings can provide clues, but experimental validation is recommended for definitive characterization.
+</solution>
+
+Logs:
+================================ Human Message =================================
+
+I’m working on a covalent inhibitor analysis for KRAS G12C (UniProt: P01116) and want a report that helps guide next experiments. Start by comparing Sotorasib and Adagrasib in a small table that highlights key chemical and physicochemical properties that differentiate them. Note any major structural features or warhead differences, if known, and clearly label any uncertainties.
+================================ Human Message =================================
+
+Each response must include thinking process followed by either <execute> or <solution> tag. But there are no tags in the current response. Please follow the instruction, fix and regenerate the response again.
+================================== Ai Message ==================================
+
+To compare Sotorasib and Adagrasib, we need to gather detailed chemical and physicochemical properties for both compounds. This includes information such as molecular weight, LogP, SMILES, and any known structural features or reactive warheads. Here's how I plan to proceed:
+
+1. [ ] Import the necessary functions and libraries for querying chemical databases.
+2. [ ] Query the ChEMBL and PubChem databases to retrieve the chemical properties of Sotorasib and Adagrasib.
+3. [ ] Compile a table highlighting key differences in chemical and physicochemical properties.
+4. [ ] Identify and note any major structural features or warhead differences.
+5. [ ] Present the table with annotations for any uncertainties or missing data.
+
+Let's start with the first step. I'll import the necessary functions and libraries.
+
+<execute>
+from biomni_biolab.tool.allosteric import cross_reference_ligands_chembl_pubchem
+
+# Prepare the ligand metadata for Sotorasib and Adagrasib
+ligands = [
+    {'ligand_name': 'Sotorasib'},
+    {'ligand_name': 'Adagrasib'}
+]
+
+# Query chemical databases for the properties of Sotorasib and Adagrasib
+properties = cross_reference_ligands_chembl_pubchem(uniprot_id='P01116', ligands=ligands, detail_level='slim')
+print(properties)
+</execute>
+================================== Ai Message ==================================
+
+<observation>{'protein_id': 'P01116', 'ligands': [{'name': 'Sotorasib', 'chembl_id': 'CHEMBL4535757', 'synonyms': [{'molecule_synonym': 'AMG-510', 'syn_type': 'RESEARCH_CODE', 'synonyms': 'AMG-510'}, {'molecule_synonym': 'AMG510', 'syn_type': 'RESEARCH_CODE', 'synonyms': 'AMG510'}, {'molecule_synonym': 'Kras g12c inhibitor 9', 'syn_type': 'OTHER', 'synonyms': 'KRAS G12C INHIBITOR 9'}], 'properties': {'formula': 'C30H30F2N6O3', 'molecular_weight': '560.61', 'alogp': '4.48', 'psa': '104.45'}, 'structure': {'smiles': 'C=CC(=O)N1CCN(c2nc(=O)n(-c3c(C)ccnc3C(C)C)c3nc(-c4c(O)cccc4F)c(F)cc23)[C@@H](C)C1', 'inchi_key': 'NXQKSXLFSAEQCZ-SFHVURJKSA-N'}, 'classification': {'atc': ['L01XX73'], 'usan_stem': '-rasib'}, 'approval': {'first_approval': 2021, 'max_phase': '4.0'}, 'pubchem_cid': 137278711}, {'name': 'Adagrasib', 'chembl_id': 'CHEMBL4594350', 'synonyms': [{'molecule_synonym': 'Adagrasib', 'syn_type': 'ATC', 'synonyms': 'ADAGRASIB'}, {'molecule_synonym': 'Adagrasib', 'syn_type': 'EMA', 'synonyms': 'ADAGRASIB'}, {'molecule_synonym': 'Adagrasib', 'syn_type': 'FDA', 'synonyms': 'ADAGRASIB'}], 'properties': {'formula': 'C32H35ClFN7O2', 'molecular_weight': '604.13', 'alogp': '4.73', 'psa': '88.83'}, 'structure': {'smiles': 'C=C(F)C(=O)N1CCN(c2nc(OC[C@@H]3CCCN3C)nc3c2CCN(c2cccc4cccc(Cl)c24)C3)C[C@@H]1CC#N', 'inchi_key': 'PEMUGDMSUDYLHU-ZEQRLZLVSA-N'}, 'classification': {'atc': ['L01XX77'], 'usan_stem': '-rasib'}, 'approval': {'first_approval': 2022, 'max_phase': '4.0'}, 'pubchem_cid': 138611145}]}
+</observation>
+================================ Human Message =================================
+
+Each response must include thinking process followed by either <execute> or <solution> tag. But there are no tags in the current response. Please follow the instruction, fix and regenerate the response again.
+================================== Ai Message ==================================
+
+Here's a summary of the chemical and physicochemical properties for Sotorasib and Adagrasib based on the query results:
+
+1. [✓] Import the necessary functions and libraries for querying chemical databases.
+2. [✓] Query the ChEMBL and PubChem databases to retrieve the chemical properties of Sotorasib and Adagrasib.
+3. [✓] Compile a table highlighting key differences in chemical and physicochemical properties.
+4. [✓] Identify and note any major structural features or warhead differences.
+5. [ ] Present the table with annotations for any uncertainties or missing data.
+
+I will now present the compiled table with annotations:
+
+<solution>
+### Comparison of Sotorasib and Adagrasib
+
+| Property                | Sotorasib                                | Adagrasib                               |
+|-------------------------|------------------------------------------|-----------------------------------------|
+| ChEMBL ID               | CHEMBL4535757                            | CHEMBL4594350                           |
+| Molecular Formula       | C30H30F2N6O3                             | C32H35ClFN7O2                           |
+| Molecular Weight        | 560.61                                   | 604.13                                  |
+| LogP (AlogP)            | 4.48                                     | 4.73                                    |
+| Polar Surface Area (PSA)| 104.45                                   | 88.83                                   |
+| SMILES                  | C=CC(=O)N1CCN(c2nc(=O)n(-c3c(C)ccnc3C(C)C)c3nc(-c4c(O)cccc4F)c(F)cc23)[C@@H](C)C1 | C=C(F)C(=O)N1CCN(c2nc(OC[C@@H]3CCCN3C)nc3c2CCN(c2cccc4cccc(Cl)c24)C3)C[C@@H]1CC#N |
+| First Approval          | 2021                                     | 2022                                    |
+| ATC Code                | L01XX73                                  | L01XX77                                 |
+| USAN Stem               | -rasib                                   | -rasib                                  |
+
+### Major Structural Features and Warhead Differences
+- **Sotorasib** has a difluorophenyl group, which may contribute to its specific binding properties.
+- **Adagrasib** features a chlorine atom on its phenyl ring, potentially influencing its binding and reactivity.
+
+### Uncertainties
+- The exact nature and reactivity of the warheads used in these inhibitors are complex and often proprietary. The SMILES strings can provide clues, but experimental validation is recommended for definitive characterization.
+</solution>
