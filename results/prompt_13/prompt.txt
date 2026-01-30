@@ -1,0 +1,1 @@
+I'm looking for known allosteric modulators of ERK2 (P28564). Can you summarize which small molecules have been reported to bind outside the active site and how they influence ERK2 activity or signaling outcomes?
