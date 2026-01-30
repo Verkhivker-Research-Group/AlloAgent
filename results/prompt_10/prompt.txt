@@ -1,0 +1,1 @@
+I've identified some potential allosteric residues in L-lactate dehydrogenase (P0AB91) based on sequence analysis. Now I need to validate whether these residues are actually accessible for ligand binding and understand their structural properties. Can you analyze the 3D structure to determine the accessibility and geometric properties of these candidate sites?

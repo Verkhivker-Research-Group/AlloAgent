@@ -1,0 +1,1 @@
+I found that alcohol dehydrogenase (P00888) has several ligands in the BioLiP database. Can you cross-reference these ligands with ChEMBL and PubChem to tell me which ones might have allosteric properties, and what their pharmacological profiles look like?

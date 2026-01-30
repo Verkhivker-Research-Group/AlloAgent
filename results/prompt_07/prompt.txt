@@ -1,0 +1,1 @@
+Based on an analysis of covalent KRAS G12C inhibitors, including their binding-site groupings and targeted residue hotspots, propose 2–3 concrete, testable follow-up ideas. These may be experimental or computational analyses that would help validate the binding-site classifications and residue hotspot conclusions. Clearly label assumptions and uncertainties rather than guessing.

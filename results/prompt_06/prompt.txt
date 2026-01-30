@@ -1,0 +1,1 @@
+Using a set of covalent inhibitors of KRAS G12C (UniProt: P01116), summarize which protein residues are most commonly targeted by covalent binding. In addition to Cys12, evaluate whether there are any other residues that may represent potential hotspot sites worth paying attention to. Clearly distinguish well-supported conclusions from more speculative observations.

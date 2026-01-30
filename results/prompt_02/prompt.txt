@@ -1,0 +1,1 @@
+I've been looking at covalent inhibitors for EGFR and noticed they seem to target many different residues. Can you analyze the binding site data to show me which residues are most commonly targeted? I want to understand if there are preferred residue types (like cysteines or serines) and see the overall distribution of target sites.
