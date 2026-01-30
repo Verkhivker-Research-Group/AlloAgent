@@ -1,0 +1,1 @@
+I want to explore isoform-selective allosteric modulation in PDPK1 (O15530). Identify candidate allosteric sites and modulators for PDPK1, and discuss how these might differ from the closely related PDPK2. Highlight features that could drive selectivity and the types of assays that would detect isoform-specific allosteric effects.
