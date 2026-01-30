@@ -1,0 +1,1 @@
+I'd like to design a quick validation plan for an allosteric inhibitor of ERK1 (P28565). Propose a concise experimental setup to measure changes in substrate phosphorylation and downstream pathway readouts, and suggest controls to differentiate allosteric from orthosteric effects.
