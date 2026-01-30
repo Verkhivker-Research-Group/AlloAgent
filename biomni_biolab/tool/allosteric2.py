@@ -7,7 +7,7 @@ from collections import defaultdict
 import pandas as pd
 import numpy as np
 
-from biomni_biolab.tool.asd import parse_asd_xf, get_asd_dr_data
+from biomni_biolab.tool.asd import parse_asd_xf
 from biomni_biolab.tool.biolip import parse_biolip_interactions
 from biomni_biolab.tool.asd_index import asd_index
 
@@ -322,25 +322,29 @@ def allosteric_hotspot_detection(
     residue_modulators = defaultdict(list)  # residue -> [modulator names]
     residue_connectivity = defaultdict(int)  # residue -> interaction count
     
-    # 1. Load ASD_DR data for drug/modulator information
+    # 1. Load ASD_DR data for drug/modulator information directly from the data lake
     try:
-        asd_dr_data = get_asd_dr_data(target_id=uniprot_id, all_columns=True)
-        if asd_dr_data and "data" in asd_dr_data:
-            asd_records = asd_dr_data["data"]
-            
-            for record in asd_records:
+        # Determine path to ASD_Release_201909_DR.csv
+        if asd_dr_path is None:
+            # Default to data lake location
+            asd_dr_path = os.path.join(os.path.dirname(__file__), "..", "..", "data", "biomni_data", "data_lake", "ASD_Release_201909_DR.csv")
+            asd_dr_path = os.path.abspath(asd_dr_path)
+        if os.path.exists(asd_dr_path):
+            asd_dr_df = pd.read_csv(asd_dr_path)
+            # Filter for the target protein
+            filtered = asd_dr_df[asd_dr_df["UniProt_ID"] == uniprot_id]
+            for _, record in filtered.iterrows():
                 modulator_name = record.get("drug_all_name", "Unknown")
                 allosteric_residues = record.get("allosteric_site", [])
-                
                 if isinstance(allosteric_residues, str):
                     allosteric_residues = [r.strip() for r in allosteric_residues.split(",") if r.strip()]
-                
                 for res in allosteric_residues:
                     residue_modulators[res].append(modulator_name)
                     residue_connectivity[res] += 1
-            
-            results["data_sources"].append("ASD_DR")
-            
+            if not filtered.empty:
+                results["data_sources"].append("ASD_DR")
+        else:
+            logging.warning(f"ASD_DR file not found at {asd_dr_path}")
     except Exception as e:
         logging.warning(f"Could not load ASD_DR data: {e}")
     

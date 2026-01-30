@@ -822,7 +822,46 @@ allosteric_tools = [
         "Allosteric Function": "Direct Prediction",
         "Allosteric Relevance": "Provides computational predictions of allosteric residues based on protein structure. USE WHEN: user wants to identify potential allosteric sites on a protein chain or supplement experimental allosteric data with predicted residues.",
         "Allosteric Research Area": "Computational Prediction"
+    },
+    {
+        "Name": "convert_uniprot_to_asd",
+        "Source File": "allosteric2.py",
+        "Short Description": "Converts UniProt IDs to Allosteric Database (ASD) IDs for accessing allosteric data.",
+        "Allosteric Function": "Direct",
+        "Allosteric Relevance": "Maps protein identifiers to ASD database entries containing experimental allosteric site and modulator data. Essential for querying ASD resources.",
+        "Allosteric Research Area": "Database Mapping"
+    },
+    {
+        "Name": "convert_asd_to_uniprot",
+        "Source File": "allosteric2.py",
+        "Short Description": "Converts Allosteric Database (ASD) IDs to UniProt IDs for cross-reference with other protein databases.",
+        "Allosteric Function": "Direct",
+        "Allosteric Relevance": "Enables bidirectional mapping between ASD and UniProt identifiers, allowing integration with other protein resources and analysis tools.",
+        "Allosteric Research Area": "Database Mapping"
+    },
+    {
+        "Name": "normalize_protein_id",
+        "Source File": "allosteric2.py",
+        "Short Description": "Auto-detects whether a protein ID is UniProt or ASD format and returns both identifiers.",
+        "Allosteric Function": "Direct",
+        "Allosteric Relevance": "Provides flexible protein ID handling, automatically converting between UniProt and ASD formats for seamless tool integration.",
+        "Allosteric Research Area": "Data Management"
+    },
+    {
+        "Name": "residue_interaction_networks",
+        "Source File": "allosteric2.py",
+        "Short Description": "Constructs residue-residue interaction networks from ASD allosteric sites to map communication pathways between distant regulatory sites.",
+        "Allosteric Function": "Direct",
+        "Allosteric Relevance": "Reveals how allosteric signals propagate through the protein structure by identifying connected residue networks and communication pathways. Provides network metrics including centrality analysis of key relay residues. USE WHEN: user wants to understand how allosteric modulators transmit signals across the protein or identify pathways connecting multiple allosteric sites.",
+        "Allosteric Research Area": "Network Analysis"
+    },
+    {
+        "Name": "allosteric_hotspot_detection",
+        "Source File": "allosteric2.py",
+        "Short Description": "Identifies critical allosteric hotspot residues that appear across multiple modulators and are central to allosteric regulation.",
+        "Allosteric Function": "Direct",
+        "Allosteric Relevance": "Ranks residues by their importance in allosteric transmission based on modulator connectivity, diversity, and biochemical properties. Highlights therapeutic targets for allosteric drug design. USE WHEN: user wants to find the most important allosteric residues for a protein, identify potential therapeutic targets, or understand which residues control allosteric responses.",
+        "Allosteric Research Area": "Hotspot Identification"
     }
-
-    
 ]
+

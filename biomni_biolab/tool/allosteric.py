@@ -1,6 +1,6 @@
 #from biomni_biolab.tool.database import query_uniprot, query_pdb
 from biomni_biolab.tool.biolip import parse_biolip_interactions, biolip_ligands
-from biomni_biolab.tool.asd import parse_asd_xf, get_asd_ap_data, get_asd_dr_data
+from biomni_biolab.tool.asd import parse_asd_xf
 
 
 from chembl_webresource_client.new_client import new_client
