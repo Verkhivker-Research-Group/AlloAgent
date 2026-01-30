@@ -65,7 +65,7 @@ for prompt_name, prompt in prompt_items[n:n+2]:
         # Save results in results folder in current working directory
         results_dir = os.path.join("results", "vdb_results")
         os.makedirs(results_dir, exist_ok=True)
-        output_file = os.path.join(results_dir, f"test_prompts3_results_{prompt_name}.txt")
+        output_file = os.path.join(results_dir, f"{prompt_name}_vdb_results.txt")
         with open(output_file, "w") as f:
             f.write(f"VECTOR DATABASE RETRIEVAL BENCHMARK - {prompt_name}\n")
             f.write("=" * 80 + "\n\n")
@@ -101,7 +101,7 @@ for prompt_name, prompt in prompt_items[n:n+2]:
         # Log error to a file in results folder
         results_dir = os.path.join("results", "vdb_results")
         os.makedirs(results_dir, exist_ok=True)
-        output_file = os.path.join(results_dir, f"test_prompts3_results_{prompt_name}_error.txt")
+        output_file = os.path.join(results_dir, f"{prompt_name}_vdb_error.txt")
         with open(output_file, "w") as f:
             f.write(str(e))
         continue
