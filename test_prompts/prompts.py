@@ -27,7 +27,7 @@ PROMPTS = {
 
     "prompt_10": "I've identified some potential allosteric residues in L-lactate dehydrogenase (P0AB91) based on sequence analysis. Now I need to validate whether these residues are actually accessible for ligand binding and understand their structural properties. Can you analyze the 3D structure to determine the accessibility and geometric properties of these candidate sites?",
 
-    "prompt_11": "I'm interested in understanding how allosteric information flows through the transcription factor p65 (P23979). Can you identify the key allosteric hotspots where modulators bind and trace the communication pathways through the protein structure to the functional sites? Also, let me know which residues show the strongest evidence of being involved in allosteric mechanisms.",
+    "prompt_11": "I'm interested in understanding how allosteric information flows through the transcription factor ERG (P11308). Can you identify the key allosteric hotspots where modulators bind and trace the communication pathways through the protein structure to the functional sites? Also, let me know which residues show the strongest evidence of being involved in allosteric mechanisms.",
 
     "prompt_12": "I'm developing covalent probes for allosteric modulation of acyl-CoA hydrolase (P51639). I need a comprehensive analysis: (1) what are the known allosteric sites and their modulators, (2) where could covalent probes bind based on structural and evolutionary data, (3) which residues are most conserved across species, and (4) how do these sites relate to the active site? Synthesize all this evidence to identify the most promising sites for probe development.",
 
@@ -35,7 +35,7 @@ PROMPTS = {
 
     "prompt_14": "I'd like to design a quick validation plan for an allosteric inhibitor of ERK1 (P28565). Propose a concise experimental setup to measure changes in substrate phosphorylation and downstream pathway readouts, and suggest controls to differentiate allosteric from orthosteric effects.",
 
-    "prompt_15": "I want to explore isoform-selective allosteric modulation in alcohol dehydrogenases (P00887). Identify candidate allosteric sites and modulators for ADH1A , and discuss how these might differ from the closely related ADH1B. Highlight features that could drive selectivity and the types of assays that would detect isoform-specific allosteric effects.",
+    "prompt_15": "I want to explore isoform-selective allosteric modulation in PDPK1 (O15530). Identify candidate allosteric sites and modulators for PDPK1, and discuss how these might differ from the closely related PDPK2. Highlight features that could drive selectivity and the types of assays that would detect isoform-specific allosteric effects.",
 
     "prompt_16": "I’m looking at BRAF kinase (UniProt: P15056) and I keep seeing resistance mutations pop up against ATP-site inhibitors. Are there any experimentally reported allosteric or non-ATP-site binding pockets on BRAF that people have tried to exploit, and how do they mechanistically bypass common resistance mutations?",
 
