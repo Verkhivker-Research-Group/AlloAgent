@@ -12,7 +12,7 @@
 *.env
 
 # Project-specific files and folders
-results/
+results/old_results/
 tests/
 dev_tools/
 allosteric_eval/
