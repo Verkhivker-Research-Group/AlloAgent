@@ -1,0 +1,1 @@
+I'm interested in understanding how allosteric information flows through the transcription factor ERG (P11308). Can you identify the key allosteric hotspots where modulators bind and trace the communication pathways through the protein structure to the functional sites? Also, let me know which residues show the strongest evidence of being involved in allosteric mechanisms.
