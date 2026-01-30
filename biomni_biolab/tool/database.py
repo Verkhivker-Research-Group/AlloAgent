@@ -3608,7 +3608,7 @@ def query_gtopdb(
     prompt=None,
     endpoint=None,
     api_key=None,
-    model="claude-3-5-haiku-20241022",
+    model="gpt-4o",
     verbose=True,
 ):
     """Query the Guide to PHARMACOLOGY database (GtoPdb) using natural language or a direct endpoint.
@@ -3638,7 +3638,7 @@ def query_gtopdb(
     if prompt is None and endpoint is None:
         return {"error": "Either a prompt or an endpoint must be provided"}
 
-    # If using prompt, parse with Claude
+    # If using prompt, parse with OpenAI GPT-4o
     if prompt:
         # Load GtoPdb schema
         schema_path = os.path.join(os.path.dirname(__file__), "schema_db", "gtopdb.pkl")
@@ -3669,8 +3669,8 @@ def query_gtopdb(
         Return ONLY the JSON object with no additional text.
         """
 
-        # Query Claude to generate the API call
-        claude_result = _query_claude_for_api(
+        # Query OpenAI to generate the API call
+        openai_result = _query_openai_for_api(
             prompt=prompt,
             schema=gtopdb_schema,
             system_template=system_template,
@@ -3678,18 +3678,18 @@ def query_gtopdb(
             model=model,
         )
 
-        if not claude_result["success"]:
-            return claude_result
+        if not openai_result["success"]:
+            return openai_result
 
-        # Get the endpoint and parameters from Claude's response
-        query_info = claude_result["data"]
+        # Get the endpoint and parameters from OpenAI's response
+        query_info = openai_result["data"]
         endpoint = query_info.get("endpoint", "")
         description = query_info.get("description", "")
 
         if not endpoint:
             return {
                 "error": "Failed to generate a valid endpoint from the prompt",
-                "claude_response": claude_result.get("raw_response", "No response"),
+                "openai_response": openai_result.get("raw_response", "No response"),
             }
     else:
         # Process provided endpoint
