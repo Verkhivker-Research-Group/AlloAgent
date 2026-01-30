@@ -10,16 +10,16 @@ load_dotenv()
 
 prompt_items = list(PROMPTS.items())
 # Start with prompt n
-n = 2 - 1 # prompt number - 1 (0 indexed)
+n = 15 - 1 # prompt number - 1 (0 indexed)
 # Process prompts from start to end (set n above)
-for prompt_name, prompt_text in prompt_items[n:n+2]:
+for prompt_name, prompt_text in prompt_items[n:n+1]:
     try:
         print(f"\n{'='*80}")
         print(f"Processing: {prompt_name}")
         print(f"{'='*80}\n")
 
         # Create folder for this prompt inside 'results'
-        results_dir = os.path.join("results")
+        results_dir = os.path.join("results", "comparison_results")
         os.makedirs(results_dir, exist_ok=True)
         folder_name = os.path.join(results_dir, prompt_name)
         os.makedirs(folder_name, exist_ok=True)
@@ -67,7 +67,7 @@ for prompt_name, prompt_text in prompt_items[n:n+2]:
     except Exception as e:
         print(f"Error processing {prompt_name}: {e}")
         # Log error to a file in the prompt's folder
-        results_dir = os.path.join("results")
+        results_dir = os.path.join("results", "comparison_results")
         folder_name = os.path.join(results_dir, prompt_name)
         os.makedirs(folder_name, exist_ok=True)
         error_path = os.path.join(folder_name, "error.txt")
