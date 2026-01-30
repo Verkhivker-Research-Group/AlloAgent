@@ -10,6 +10,8 @@
 *.userosscache
 *.sln.docstates
 *.env
+*.csv
+*.pdb
 
 # Project-specific files and folders
 results/old_results/
@@ -18,7 +20,6 @@ dev_tools/
 allosteric_eval/
 data/
 #test_prompts*.py
-test_prompts*.txt
 Results.zip
 combination_prompt_*.txt
 test.sh
