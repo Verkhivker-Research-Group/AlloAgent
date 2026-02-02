@@ -1,0 +1,45 @@
+TOOL SELECTION BENCHMARK - prompt_01
+================================================================================
+
+Prompt tested:
+I'm developing a covalent drug discovery pipeline for KRAS G12C (UniProt ID: P01116). Here's what I need: First, I want to gather detailed chemical information on three known KRAS inhibitors: Sotorasib, Adagrasib, and AMG510. I need their molecular properties and structures for comparison. Second, I want to understand the landscape of covalent inhibitors targeting KRAS. Specifically, I need to know which inhibitors bind to allosteric sites versus the active site, since G12C is in a switching region. Can you classify the available KRAS covalent inhibitors by their binding site type? Finally, I'd like to see an analysis of which residues are most commonly targeted across all KRAS covalent inhibitors. This will help me understand if there are hotspot residues beyond Cys12 that might be worth investigating. Can you help me with this complete analysis.
+
+================================================================================
+TOOL SELECTION RESULTS
+================================================================================
+
+Vector Database (tool selection):  0.5176 seconds
+LLM-based (tool selection):       1.6210 seconds
+
+Speed improvement: 3.13x faster with vector database
+Time saved: 1.1034 seconds
+
+SELECTED TOOLS
+================================================================================
+Vector Database selection:
+- detect_and_annotate_somatic_mutations
+- analyze_cell_senescence_and_apoptosis
+- query_pdb
+- convert_asd_to_uniprot
+- query_clinvar
+- query_arxiv
+- analyze_atac_seq_differential_accessibility
+- residue_interaction_networks
+- normalize_protein_id
+- query_gnomad
+- allosteric_hotspot_detection
+- quantify_cell_cycle_phases_from_microscopy
+- perform_chipseq_peak_calling_with_macs2
+
+LLM-based selection:
+- query_pdb
+- query_pdb_identifiers
+- query_uniprot
+- query_pubmed
+- query_scholar
+- cross_reference_ligands_chembl_pubchem
+- map_covalent_probes_to_allosteric
+- analyze_site_patterns
+
+================================================================================
+================================================================================
