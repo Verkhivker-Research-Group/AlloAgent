@@ -1,0 +1,48 @@
+TOOL SELECTION BENCHMARK - prompt_03
+================================================================================
+
+Prompt tested:
+I’m working on a covalent inhibitor analysis for KRAS G12C (UniProt: P01116) and I want a report that’s useful for guiding next experiments. Start by comparing Sotorasib and Adagrasib with a small table of key chemical/physicochemical details that help differentiate them (and note any major structural/warhead differences if known). Then identify several additional covalent KRAS inhibitors (pick ones you can support with evidence) and group them by binding-site type (for example, binding in a switching-region pocket vs a more “active/functional-site” region). For each group, explain the reasoning briefly. Across the covalent KRAS inhibitors you used, summarize which residues are most commonly targeted and whether there are any potential hotspot residues beyond Cys12 worth paying attention to. End with 2–3 testable follow-up ideas (either experiments or analyses) that would validate the binding-site grouping and residue hotspot conclusions. Please clearly label anything that’s uncertain instead of guessing.
+
+================================================================================
+TOOL SELECTION RESULTS
+================================================================================
+
+Vector Database (tool selection):  0.4145 seconds
+LLM-based (tool selection):       1.7998 seconds
+
+Speed improvement: 4.34x faster with vector database
+Time saved: 1.3853 seconds
+
+SELECTED TOOLS
+================================================================================
+Vector Database selection:
+- detect_and_annotate_somatic_mutations
+- analyze_cell_senescence_and_apoptosis
+- query_arxiv
+- normalize_protein_id
+- query_pdb
+- convert_asd_to_uniprot
+- query_clinvar
+- analyze_atac_seq_differential_accessibility
+- quantify_cell_cycle_phases_from_microscopy
+- query_gnomad
+- quantify_and_cluster_cell_motility
+- residue_interaction_networks
+- allosteric_hotspot_detection
+- analyze_cns_lesion_histology
+
+LLM-based selection:
+- query_pdb
+- query_pdb_identifiers
+- query_alphafold
+- query_gtopdb
+- query_uniprot
+- query_pubmed
+- query_arxiv
+- query_scholar
+- map_covalent_probes_to_allosteric
+- analyze_site_patterns
+
+================================================================================
+================================================================================

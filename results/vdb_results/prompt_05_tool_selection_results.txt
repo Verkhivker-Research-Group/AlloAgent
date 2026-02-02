@@ -1,0 +1,48 @@
+TOOL SELECTION BENCHMARK - prompt_05
+================================================================================
+
+Prompt tested:
+For KRAS G12C (UniProt: P01116), identify several additional covalent KRAS inhibitors beyond Sotorasib and Adagrasib that you can support with evidence (for example, published literature or structural data). Group these inhibitors by binding-site type (such as binding in a switching-region pocket versus a more active or functional-site region). For each group, briefly explain the reasoning behind the binding-site classification, and clearly label any uncertainty.
+
+================================================================================
+TOOL SELECTION RESULTS
+================================================================================
+
+Vector Database (tool selection):  1.6692 seconds
+LLM-based (tool selection):       1.7784 seconds
+
+Speed improvement: 1.07x faster with vector database
+Time saved: 0.1092 seconds
+
+SELECTED TOOLS
+================================================================================
+Vector Database selection:
+- detect_and_annotate_somatic_mutations
+- query_arxiv
+- analyze_atac_seq_differential_accessibility
+- perform_chipseq_peak_calling_with_macs2
+- convert_asd_to_uniprot
+- normalize_protein_id
+- query_clinvar
+- query_gnomad
+- analyze_cell_senescence_and_apoptosis
+- query_pdb
+- find_enriched_motifs_with_homer
+- extract_pdf_content
+- residue_interaction_networks
+- query_gtopdb
+- allosteric_hotspot_detection
+- analyze_cns_lesion_histology
+
+LLM-based selection:
+- query_pdb
+- query_pdb_identifiers
+- query_alphafold
+- query_emdb
+- query_gtopdb
+- query_uniprot
+- query_pubmed
+- query_scholar
+
+================================================================================
+================================================================================

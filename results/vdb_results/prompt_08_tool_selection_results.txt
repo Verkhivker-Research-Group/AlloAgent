@@ -1,0 +1,43 @@
+TOOL SELECTION BENCHMARK - prompt_08
+================================================================================
+
+Prompt tested:
+I'm studying hexokinase 1 (P19327) and I want to understand what allosteric sites have been experimentally verified for this protein. Can you help me find that information?
+
+================================================================================
+TOOL SELECTION RESULTS
+================================================================================
+
+Vector Database (tool selection):  1.0212 seconds
+LLM-based (tool selection):       1.0996 seconds
+
+Speed improvement: 1.08x faster with vector database
+Time saved: 0.0784 seconds
+
+SELECTED TOOLS
+================================================================================
+Vector Database selection:
+- detect_and_annotate_somatic_mutations
+- analyze_cell_senescence_and_apoptosis
+- normalize_protein_id
+- perform_chipseq_peak_calling_with_macs2
+- extract_pdf_content
+- query_pdb
+- analyze_cfse_cell_proliferation
+- structural_distance_tool
+- find_enriched_motifs_with_homer
+- convert_asd_to_uniprot
+- residue_accessibility_tool
+- quantify_cell_cycle_phases_from_microscopy
+- get_gene_coding_sequence
+
+LLM-based selection:
+- query_pdb
+- query_pdb_identifiers
+- query_uniprot
+- allosteric_evidence_tool
+- convert_uniprot_to_asd
+- convert_asd_to_uniprot
+
+================================================================================
+================================================================================
