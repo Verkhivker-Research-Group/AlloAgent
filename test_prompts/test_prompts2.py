@@ -32,7 +32,7 @@ for prompt_name, prompt_text in prompt_items[n:n+1]:
 
         # Run with allosteric=True
         print(f"\nRunning {prompt_name} with allosteric=True...")
-        agent_allosteric = A1(llm="gpt-4o", allosteric=True, api_key=os.environ["OPENAI_API_KEY"])
+        agent_allosteric = A1(llm="gpt-4o", allosteric=True, use_vector_search=False, api_key=os.environ["OPENAI_API_KEY"])
         agent_allosteric.add_data(ALLOSTERIC_DATA)  # remember to add to allosteric_file_ids in a1.py too.
 
         log_allosteric, final_output_allosteric = agent_allosteric.go(prompt_text)
@@ -48,7 +48,7 @@ for prompt_name, prompt_text in prompt_items[n:n+1]:
 
         # Run with allosteric=False
         print(f"\nRunning {prompt_name} with allosteric=False...")
-        agent_nonallosteric = A1(llm="gpt-4o", allosteric=False, api_key=os.environ["OPENAI_API_KEY"])
+        agent_nonallosteric = A1(llm="gpt-4o", allosteric=False, use_vector_search=False, api_key=os.environ["OPENAI_API_KEY"])
 
         log_nonallosteric, final_output_nonallosteric = agent_nonallosteric.go(prompt_text)
 
