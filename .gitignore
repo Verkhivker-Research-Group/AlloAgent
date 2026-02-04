@@ -12,6 +12,9 @@
 *.env
 *.csv
 *.pdb
+*.ent
+*.toml
+*.env
 
 # Project-specific files and folders
 results/old_results/
@@ -19,6 +22,7 @@ tests/
 dev_tools/
 allosteric_eval/
 data/
+Paper/
 #test_prompts*.py
 Results.zip
 combination_prompt_*.txt

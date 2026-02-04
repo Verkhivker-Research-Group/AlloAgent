@@ -1,0 +1,46 @@
+TOOL SELECTION BENCHMARK - prompt_02
+================================================================================
+
+Prompt tested:
+I've been looking at covalent inhibitors for EGFR and noticed they seem to target many different residues. Can you analyze the binding site data to show me which residues are most commonly targeted? I want to understand if there are preferred residue types (like cysteines or serines) and see the overall distribution of target sites.
+
+================================================================================
+TOOL SELECTION RESULTS
+================================================================================
+
+Vector Database (tool selection):  0.3020 seconds
+LLM-based (tool selection):       1.8716 seconds
+
+Speed improvement: 6.20x faster with vector database
+Time saved: 1.5696 seconds
+
+SELECTED TOOLS
+================================================================================
+Vector Database selection:
+- analyze_cell_senescence_and_apoptosis
+- query_arxiv
+- detect_and_annotate_somatic_mutations
+- convert_asd_to_uniprot
+- perform_chipseq_peak_calling_with_macs2
+- normalize_protein_id
+- quantify_cell_cycle_phases_from_microscopy
+- quantify_and_cluster_cell_motility
+- extract_pdf_content
+- find_enriched_motifs_with_homer
+- query_pdb
+- analyze_cell_morphology_and_cytoskeleton
+- query_clinvar
+
+LLM-based selection:
+- query_pdb
+- query_pdb_identifiers
+- query_gtopdb
+- query_uniprot
+- query_pubmed
+- query_arxiv
+- query_scholar
+- map_covalent_probes_to_allosteric
+- analyze_site_patterns
+
+================================================================================
+================================================================================

@@ -1,0 +1,38 @@
+TOOL SELECTION BENCHMARK - prompt_09
+================================================================================
+
+Prompt tested:
+I found that alcohol dehydrogenase (P00888) has several ligands in the BioLiP database. Can you cross-reference these ligands with ChEMBL and PubChem to tell me which ones might have allosteric properties, and what their pharmacological profiles look like?
+
+================================================================================
+TOOL SELECTION RESULTS
+================================================================================
+
+Vector Database (tool selection):  1.9861 seconds
+LLM-based (tool selection):       5.2604 seconds
+
+Speed improvement: 2.65x faster with vector database
+Time saved: 3.2744 seconds
+
+SELECTED TOOLS
+================================================================================
+Vector Database selection:
+- convert_asd_to_uniprot
+- detect_and_annotate_somatic_mutations
+- normalize_protein_id
+- allosteric_hotspot_detection
+- convert_uniprot_to_asd
+- query_pdb
+- quantify_cell_cycle_phases_from_microscopy
+- perform_pcr_and_gel_electrophoresis
+- analyze_cell_senescence_and_apoptosis
+
+LLM-based selection:
+- query_gtopdb
+- query_uniprot
+- cross_reference_ligands_chembl_pubchem
+- allosteric_evidence_tool
+- convert_uniprot_to_asd
+
+================================================================================
+================================================================================
