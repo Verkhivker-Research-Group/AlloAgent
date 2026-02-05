@@ -47,7 +47,6 @@ class A1(BiomniA1):
         llm="claude-sonnet-4-20250514",
         allosteric=False,
         use_tool_retriever=True,
-        use_vector_search=True,
         timeout_seconds=600,
         base_url: str | None = None,
         api_key: str = "EMPTY",
@@ -129,7 +128,7 @@ class A1(BiomniA1):
 
         if self.use_tool_retriever:
             self.tool_registry = ToolRegistry(module2api)
-            self.retriever = ToolRetriever(use_vector_search=use_vector_search)
+            self.retriever = ToolRetriever()
 
         # Add timeout parameter
         self.timeout_seconds = timeout_seconds  # 10 minutes default timeout
@@ -1348,13 +1347,7 @@ Each library is listed with its description to help you understand its functiona
                 "libraries": library_descriptions,
             }
 
-            # Use vector-based or prompt-based retrieval
-            if self.retriever.use_vector_search:
-                selected_resources = self.retriever.vector_based_retrieval(prompt, resources)
-            else:
-                selected_resources = self.retriever.prompt_based_retrieval(prompt, resources, llm=self.llm)
-
-            print(f"Retrieval method: {'Vector-based' if self.retriever.use_vector_search else 'LLM-based'}")
+            selected_resources = self.retriever.prompt_based_retrieval(prompt, resources, llm=self.llm)
 
             # Extract the names from the selected resources for the system prompt
             selected_resources_names = {

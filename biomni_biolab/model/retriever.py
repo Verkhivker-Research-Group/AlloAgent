@@ -1,125 +1,16 @@
 import contextlib
-import os
 import re
-from typing import Optional
 
-from langchain_community.vectorstores import Chroma
 from langchain_core.messages import HumanMessage
-from langchain_openai import ChatOpenAI, OpenAIEmbeddings
-
-from biomni_biolab.model.vector_database import load_vectorstore
+from langchain_openai import ChatOpenAI
 
 
 class ToolRetriever:
-    """Retrieve tools from the tool registry using vector search or LLM-based retrieval."""
+    """Retrieve tools from the tool registry using LLM-based retrieval."""
 
-    def __init__(self, use_vector_search: bool = True, embedding_model: str = "text-embedding-3-small", persist_directory: str = "./data/vectorstore"):
-        """Initialize the retriever.
-        
-        Args:
-            use_vector_search: If True, use vector database for retrieval. If False, use LLM-based retrieval.
-            embedding_model: The embedding model to use for vector search.
-            persist_directory: Directory where the vector store is persisted.
-        """
-        self.use_vector_search = use_vector_search
-        self.embedding_model = embedding_model
-        self.persist_directory = persist_directory
-        self.vectorstore = None
-        
-        # Load vectorstore from disk if vector search is enabled
-        if self.use_vector_search:
-            try:
-                self.vectorstore = load_vectorstore(
-                    persist_directory=persist_directory,
-                    embedding_model=embedding_model
-                )
-                if self.vectorstore is None:
-                    print("⚠ Vector store not available. Falling back to LLM-based retrieval.")
-                    print("  Run rebuild_vectorstore() from biomni_biolab.model.vector_database to create it.")
-                    self.use_vector_search = False
-            except Exception as e:
-                print(f"⚠ Failed to load vector store: {e}")
-                print("  Falling back to LLM-based retrieval")
-                self.use_vector_search = False
-
-
-
-    def vector_based_retrieval(self, query: str, resources: dict, k: int = 30) -> dict:
-        """Use vector similarity search to retrieve relevant resources.
-        
-        Args:
-            query: The user's query
-            resources: The full resource dictionary
-            k: Number of results to retrieve per category
-            
-        Returns:
-            Dictionary with selected resources
-        """
-        # Initialize vectorstore if not already done
-        if self.vectorstore is None:
-            self.initialize_vectorstore(resources)
-        
-        if self.vectorstore is None:
-            # Fallback to LLM-based retrieval
-            print("Falling back to LLM-based retrieval")
-            return self.prompt_based_retrieval(query, resources)
-        
-        try:
-            # Perform similarity search
-            results = self.vectorstore.similarity_search(query, k=k)
-            
-            # Organize results by type
-            selected_indices = {
-                "tools": [],
-                "data_lake": [],
-                "libraries": []
-            }
-            
-            for result in results:
-                metadata = result.metadata
-                result_type = metadata.get("type")
-                index = metadata.get("index")
-                
-                if result_type == "tool":
-                    selected_indices["tools"].append(index)
-                elif result_type == "data_lake":
-                    selected_indices["data_lake"].append(index)
-                elif result_type == "library":
-                    selected_indices["libraries"].append(index)
-            
-            # Get unique indices (preserve order)
-            selected_indices["tools"] = list(dict.fromkeys(selected_indices["tools"]))
-            selected_indices["data_lake"] = list(dict.fromkeys(selected_indices["data_lake"]))
-            selected_indices["libraries"] = list(dict.fromkeys(selected_indices["libraries"]))
-            
-            # Retrieve actual resources
-            selected_resources = {
-                "tools": [
-                    resources["tools"][i] 
-                    for i in selected_indices["tools"] 
-                    if i < len(resources.get("tools", []))
-                ],
-                "data_lake": [
-                    resources["data_lake"][i]
-                    for i in selected_indices["data_lake"]
-                    if i < len(resources.get("data_lake", []))
-                ],
-                "libraries": [
-                    resources["libraries"][i]
-                    for i in selected_indices["libraries"]
-                    if i < len(resources.get("libraries", []))
-                ],
-            }
-            
-            print(f"✓ Vector retrieval: {len(selected_resources['tools'])} tools, "
-                  f"{len(selected_resources['data_lake'])} datasets, "
-                  f"{len(selected_resources['libraries'])} libraries")
-            
-            return selected_resources
-            
-        except Exception as e:
-            print(f"Error in vector retrieval, falling back to LLM-based: {e}")
-            return self.prompt_based_retrieval(query, resources)
+    def __init__(self):
+        """Initialize the LLM-based retriever."""
+        pass
 
     def prompt_based_retrieval(self, query: str, resources: dict, llm=None) -> dict:
         """Use a prompt-based approach to retrieve the most relevant resources for a query.
