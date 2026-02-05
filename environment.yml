@@ -56,3 +56,4 @@ dependencies:
       - chembl-webresource-client
       - biomni
       - pypdf2
+      - googlesearch-python
