@@ -8,27 +8,22 @@ I'm interested in understanding how allosteric information flows through the tra
 TOOL SELECTION RESULTS
 ================================================================================
 
-Vector Database (tool selection):  1.2246 seconds
-LLM-based (tool selection):       1.2872 seconds
+Vector Database (tool selection):  7.4094 seconds
+LLM-based (tool selection):       13.8298 seconds
 
-Speed improvement: 1.05x faster with vector database
-Time saved: 0.0626 seconds
+Speed improvement: 1.87x faster with vector database
+Time saved: 6.4204 seconds
 
 SELECTED TOOLS
 ================================================================================
 Vector Database selection:
-- extract_pdf_content
-- detect_and_annotate_somatic_mutations
-- get_gene_coding_sequence
-- analyze_cell_senescence_and_apoptosis
-- find_sequence_mutations
-- perform_chipseq_peak_calling_with_macs2
-- find_enriched_motifs_with_homer
-- quantify_and_cluster_cell_motility
-- analyze_cns_lesion_histology
-- query_gtopdb
-- normalize_protein_id
-- query_reactome
+- query_pdb
+- query_pdb_identifiers
+- query_alphafold
+- query_uniprot
+- allosteric_evidence_tool
+- residue_interaction_networks
+- allosteric_hotspot_detection
 
 LLM-based selection:
 - query_pdb
@@ -36,7 +31,6 @@ LLM-based selection:
 - query_alphafold
 - query_uniprot
 - allosteric_evidence_tool
-- residue_interaction_networks
 - allosteric_hotspot_detection
 
 ================================================================================

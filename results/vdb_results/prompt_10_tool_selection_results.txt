@@ -8,43 +8,36 @@ I've identified some potential allosteric residues in L-lactate dehydrogenase (P
 TOOL SELECTION RESULTS
 ================================================================================
 
-Vector Database (tool selection):  1.8621 seconds
-LLM-based (tool selection):       2.0253 seconds
+Vector Database (tool selection):  2.7552 seconds
+LLM-based (tool selection):       2.4486 seconds
 
-Speed improvement: 1.09x faster with vector database
-Time saved: 0.1633 seconds
+Speed improvement: 0.89x faster with vector database
+Time saved: -0.3065 seconds
 
 SELECTED TOOLS
 ================================================================================
 Vector Database selection:
-- detect_and_annotate_somatic_mutations
-- analyze_cell_senescence_and_apoptosis
-- quantify_and_cluster_cell_motility
-- normalize_protein_id
-- convert_asd_to_uniprot
+- query_pdb
+- query_pdb_identifiers
+- query_alphafold
+- parse_biolip_interactions
+- biolip_ligands
+- pdb_to_uniprot
+- uniprot_to_pdb
+- pocket_geometry_tool
+- residue_accessibility_tool
 - structural_distance_tool
-- get_golden_gate_assembly_protocol
-- identify_transcription_factor_binding_sites
-- analyze_ddr_network_in_cancer
-- quantify_cell_cycle_phases_from_microscopy
-- analyze_cell_morphology_and_cytoskeleton
-- query_kegg
-- query_gtopdb
-- perform_pcr_and_gel_electrophoresis
-- count_bacterial_colonies
+- evolutionary_conservation_tool
 
 LLM-based selection:
 - query_pdb
 - query_pdb_identifiers
 - query_alphafold
-- query_gtopdb
-- query_uniprot
-- residue_accessibility_tool
 - structural_distance_tool
 - pocket_geometry_tool
+- residue_accessibility_tool
 - evolutionary_conservation_tool
-- residue_interaction_networks
-- allosteric_hotspot_detection
+- allosteric_evidence_tool
 
 ================================================================================
 ================================================================================

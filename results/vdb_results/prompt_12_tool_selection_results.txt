@@ -8,37 +8,18 @@ I'm developing covalent probes for allosteric modulation of acyl-CoA hydrolase (
 TOOL SELECTION RESULTS
 ================================================================================
 
-Vector Database (tool selection):  1.5647 seconds
-LLM-based (tool selection):       2.3573 seconds
+Vector Database (tool selection):  14.7269 seconds
+LLM-based (tool selection):       18.1066 seconds
 
-Speed improvement: 1.51x faster with vector database
-Time saved: 0.7926 seconds
+Speed improvement: 1.23x faster with vector database
+Time saved: 3.3797 seconds
 
 SELECTED TOOLS
 ================================================================================
 Vector Database selection:
-- detect_and_annotate_somatic_mutations
-- analyze_cell_senescence_and_apoptosis
-- quantify_and_cluster_cell_motility
-- convert_asd_to_uniprot
-- analyze_cns_lesion_histology
-- normalize_protein_id
-- get_gene_coding_sequence
-- perform_chipseq_peak_calling_with_macs2
-- extract_pdf_content
-- track_immune_cells_under_flow
-- identify_transcription_factor_binding_sites
-- analyze_cfse_cell_proliferation
-- find_enriched_motifs_with_homer
-- analyze_cytokine_production_in_cd4_tcells
-- design_primer
-- query_arxiv
-
-LLM-based selection:
 - query_pdb
 - query_pdb_identifiers
 - query_alphafold
-- query_gtopdb
 - query_uniprot
 - map_covalent_probes_to_allosteric
 - analyze_site_patterns
@@ -47,6 +28,24 @@ LLM-based selection:
 - residue_accessibility_tool
 - evolutionary_conservation_tool
 - allosteric_evidence_tool
+- residue_interaction_networks
+- allosteric_hotspot_detection
+
+LLM-based selection:
+- query_pdb
+- query_pdb_identifiers
+- query_alphafold
+- query_uniprot
+- map_covalent_probes_to_allosteric
+- analyze_site_patterns
+- structural_distance_tool
+- pocket_geometry_tool
+- residue_accessibility_tool
+- evolutionary_conservation_tool
+- allosteric_evidence_tool
+- convert_uniprot_to_asd
+- normalize_protein_id
+- residue_interaction_networks
 - allosteric_hotspot_detection
 
 ================================================================================

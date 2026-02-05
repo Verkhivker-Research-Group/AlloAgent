@@ -1,0 +1,1 @@
+For PPARγ, list any non-canonical ligand sites (like alternate/allosteric pockets). For each site: key residues + example ligands + confidence.

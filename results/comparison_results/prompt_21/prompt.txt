@@ -1,0 +1,1 @@
+I heard MEK inhibitors can be allosteric. For MEK1, what’s the known allosteric pocket, which residues define it, and what ligands bind there?.

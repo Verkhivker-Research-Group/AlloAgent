@@ -10,7 +10,7 @@ load_dotenv()
 
 prompt_items = list(PROMPTS.items())
 # Start with prompt n
-n = 16 - 1 # prompt number - 1 (0 indexed)
+n = 28 - 1 # prompt number -1 (0 indexed)
 # Process prompts from start to end (set n above)
 for prompt_name, prompt_text in prompt_items[n:n+3]:
     try:
