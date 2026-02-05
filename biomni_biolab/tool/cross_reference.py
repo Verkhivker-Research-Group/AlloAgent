@@ -10,6 +10,7 @@ from typing import List, Optional, Dict, Any
 import json
 import os
 from pathlib import Path
+import pandas as pd
 
 # Local dataset helpers
 from biomni_biolab.tool import biolip
@@ -20,7 +21,7 @@ try:
 except Exception:
     cross_reference_ligands_chembl_pubchem = None
 
-__all__ = ["cross_reference_ligands"]
+__all__ = ["cross_reference_ligands", "retrieve_and_filter_large_dataset"]
 
 VERSION = "0.2"
 
@@ -239,4 +240,94 @@ def cross_reference_ligands(
     }
 
     return json.dumps(output, indent=2, ensure_ascii=False)
+
+
+def retrieve_and_filter_large_dataset(
+    filepath: str,
+    columns_to_load: Optional[List[str]] = None,
+    filter_column: Optional[str] = None,
+    filter_value: Optional[str] = None,
+    return_format: str = "dataframe"
+) -> Dict[str, Any]:
+    """Efficiently loads and filters large CSV datasets with memory optimization.
+    
+    This function provides agent-friendly access to load large datasets without memory
+    issues by:
+    - Loading only required columns
+    - Converting categorical columns to memory-efficient types
+    - Filtering rows before full load when possible
+    - Supporting both DataFrame and JSON output formats
+    
+    Args:
+        filepath (str): Path to the CSV file (e.g., './data/biomni_data/data_lake/CovInDB_All.csv')
+        columns_to_load (Optional[List[str]]): List of specific columns to load. 
+                                              If None, loads all columns.
+        filter_column (Optional[str]): Column name to filter on (e.g., 'Target' for UniProt ID filtering)
+        filter_value (Optional[str]): Value to match in filter_column (e.g., 'P01116')
+        return_format (str): Output format - 'dataframe' or 'json'. Default: 'dataframe'
+    
+    Returns:
+        If return_format='dataframe': pd.DataFrame with loaded and filtered data
+        If return_format='json': Dict with keys 'data', 'metadata', 'filter_summary'
+    """
+    from biomni_biolab.utils import load_large_csv_optimized
+    
+    try:
+        # Use optimized loader with UniProt ID filtering
+        df = load_large_csv_optimized(
+            filepath=filepath,
+            usecols=columns_to_load,
+            uniprot_filter=filter_value if filter_column == 'Target' else None,
+            category_cols=['Target', 'War_head', 'Reaction_type', 'Method'] if columns_to_load is None else None
+        )
+        
+        # If filtering on other columns
+        if filter_column and filter_column != 'Target' and filter_value:
+            if filter_column in df.columns:
+                df = df[df[filter_column].astype(str).str.contains(filter_value, case=False, na=False)]
+        
+        if df.empty:
+            return {
+                "data": [],
+                "metadata": {
+                    "filepath": filepath,
+                    "columns_requested": columns_to_load,
+                    "filter_applied": {"column": filter_column, "value": filter_value},
+                    "rows_returned": 0,
+                    "status": "no_matches"
+                },
+                "filter_summary": f"No matches found for {filter_column}={filter_value}"
+            } if return_format == "json" else df
+        
+        if return_format == "json":
+            return {
+                "data": df.to_dict(orient='records'),
+                "metadata": {
+                    "filepath": filepath,
+                    "columns_loaded": list(df.columns),
+                    "columns_requested": columns_to_load,
+                    "filter_applied": {"column": filter_column, "value": filter_value},
+                    "rows_returned": len(df),
+                    "memory_usage_mb": round(df.memory_usage(deep=True).sum() / 1024**2, 2),
+                    "status": "success"
+                },
+                "filter_summary": f"Loaded {len(df)} rows with {len(df.columns)} columns"
+            }
+        else:
+            return df
+    
+    except FileNotFoundError as e:
+        error_msg = f"Dataset not found at {filepath}"
+        return {
+            "data": [],
+            "metadata": {"filepath": filepath, "status": "error", "error": error_msg},
+            "filter_summary": error_msg
+        } if return_format == "json" else pd.DataFrame()
+    except Exception as e:
+        error_msg = f"Error loading dataset: {str(e)}"
+        return {
+            "data": [],
+            "metadata": {"filepath": filepath, "status": "error", "error": error_msg},
+            "filter_summary": error_msg
+        } if return_format == "json" else pd.DataFrame()
 

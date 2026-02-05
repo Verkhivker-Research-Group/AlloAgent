@@ -862,6 +862,14 @@ allosteric_tools = [
         "Allosteric Function": "Direct",
         "Allosteric Relevance": "Ranks residues by their importance in allosteric transmission based on modulator connectivity, diversity, and biochemical properties. Highlights therapeutic targets for allosteric drug design. USE WHEN: user wants to find the most important allosteric residues for a protein, identify potential therapeutic targets, or understand which residues control allosteric responses.",
         "Allosteric Research Area": "Hotspot Identification"
+    },
+    {
+        "Name": "retrieve_and_filter_large_dataset",
+        "Source File": "cross_reference.py",
+        "Short Description": "Efficiently loads and filters large CSV datasets with memory optimization, useful for querying large covalent inhibitor and allosteric modulator databases",
+        "Allosteric Function": "Direct",
+        "Allosteric Relevance": "Enables fast retrieval of allosteric modulators and covalent inhibitors from large databases by UniProt ID, warhead type, or other criteria without memory overflow",
+        "Allosteric Research Area": "Data Retrieval and Filtering"
     }
 ]
 
