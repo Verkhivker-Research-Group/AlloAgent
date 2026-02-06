@@ -1,0 +1,1 @@
+I want a map of allosteric sites for HIV-1 integrase, the ligands that bind them, and the key residues per site. Then explain whether any sites look ‘druggable’ based on how many ligands share the same residue contacts.

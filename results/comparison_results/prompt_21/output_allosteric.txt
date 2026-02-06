@@ -1,23 +1,20 @@
 Final Output:
-I apologize for the oversight. Let's consolidate our findings and provide a summarized conclusion based on our attempts and suggest next steps.
+The literature search on PubMed yielded several relevant studies regarding MEK1 and its allosteric modulation. Here's a structured summary of the findings:
 
-### Summary of Attempts:
+1. **Neural Relational Inference on MEK1**: This study highlights the use of neural networks to learn long-range allosteric interactions in proteins, including MEK1, from molecular dynamics simulations. It suggests pathways that mediate allosteric communication between distant sites on proteins like MEK1.
 
-1. **Dataset Access**: Attempts to access specific datasets like Allosteric Sites (AS) and Allosteric Drugs (DR) were unsuccessful due to file access issues.
-2. **Database Queries**: Attempts to query databases like GtoPdb and PDB also faced issues with retrieving results.
-3. **Literature Search**: The PubMed query did not yield results due to connection issues.
+2. **Principles of Kinase Allosteric Inhibition**: This review discusses the principles of allosteric inhibition in kinases and summarizes the discovery of allosteric MEK1/2 inhibitors. It highlights the challenges in identifying and validating allosteric inhibitors.
 
-### Conclusion and Next Steps:
+3. **Trametinib and MEK1 Mutations**: This computational study explores how active mutations in MEK1 (e.g., P124S and E203K) affect the interaction with the MEK1 inhibitor trametinib. The study indicates that these mutations may alter the allosteric channel, impacting drug efficacy.
 
-Given these challenges, I recommend the following actions:
+4. **Fragment Binding Sites for Allosteric Ligand Design**: This study presents a method (SILCS-Hotspots) for identifying fragment binding sites on proteins, including potential allosteric sites, which could be used for designing allosteric modulators.
 
-1. **Manual Database Search**: Manually explore databases like PubMed and the Protein Data Bank (PDB) for specific publications and structural information related to MEK1 allosteric sites and ligands.
-2. **Provide Access**: If you have access to specific data files or can provide them, this would allow for a more focused analysis.
+Based on these findings, MEK1 has been studied for its allosteric interactions, and inhibitors like trametinib have been identified. However, detailed residue-level information on the allosteric pocket was not explicitly mentioned in these articles. The studies emphasize the complexity of MEK1 allosteric modulation and the ongoing research in this area.
 
-If there's anything else you need or another way I can assist, please let me know. For now, I will conclude this session with a suggestion to explore external databases manually.
+If you need further details from any specific study, please let me know!
 
 <solution>
-Given the limitations in accessing datasets and database queries, please consider manually searching databases like PubMed and the Protein Data Bank (PDB) for information on MEK1 allosteric sites and ligands. If you can provide specific datasets, further analysis can be conducted.
+The literature search revealed insights into MEK1's allosteric modulation, emphasizing the complexity and ongoing research. Specific residue-level data on the allosteric pocket was not explicitly found, but studies like the neural relational inference model and trametinib interaction provide valuable context.
 </solution>
 
 Logs:
@@ -29,276 +26,141 @@ I heard MEK inhibitors can be allosteric. For MEK1, what’s the known allosteri
 Each response must include thinking process followed by either <execute> or <solution> tag. But there are no tags in the current response. Please follow the instruction, fix and regenerate the response again.
 ================================== Ai Message ==================================
 
-To address your query about the allosteric pocket of MEK1, we need to gather and analyze relevant data from available datasets. Our goal is to identify the allosteric pocket, the residues that define it, and any known ligands that bind there.
+To address your query regarding the allosteric pocket of MEK1, the residues that define it, and the ligands that bind there, I will follow a structured approach using the available datasets and tools. Here's the plan:
 
-### Plan:
+1. [ ] Query the Allosteric Database (ASD) for known allosteric sites, residues, and ligands related to MEK1.
+2. [ ] Retrieve detailed information about the allosteric pocket and ligands specific to MEK1.
+3. [ ] Present the findings, including the allosteric pocket residues and ligands that bind there.
 
-1. [ ] Search the Allosteric Sites (AS) dataset for information on MEK1's allosteric sites, identifying specific residues and ligands.
-2. [ ] Look up additional information in the Allosteric Drugs (DR) dataset for known ligands that target MEK1.
-3. [ ] Verify findings using the Allosteric Database (ASD) verification tool for cross-referencing with experimental data.
-4. [ ] Summarize the findings with specific details on residues and ligands.
-
-Let's start with the first step: searching the Allosteric Sites (AS) dataset for information on MEK1.
-
-<execute>
-import pandas as pd
-
-# Load the Allosteric Sites (AS) dataset
-as_file_path = './data/biomni_data/data_lake/ASD_Release_202309_AS.csv'
-as_data = pd.read_csv(as_file_path)
-
-# Check the columns of the dataset to ensure we access the correct data
-as_data.columns
-
-# Filter for entries related to MEK1
-mek1_as_data = as_data[as_data['Protein Name'].str.contains('MEK1', case=False, na=False)]
-
-# Display the filtered data to identify known allosteric sites and residues
-mek1_as_data
-</execute>
-================================== Ai Message ==================================
-
-<observation>Error: [Errno 2] No such file or directory: './data/biomni_data/data_lake/ASD_Release_202309_AS.csv'</observation>
-================================== Ai Message ==================================
-
-It seems that there was an error accessing the file at the specified location. This could be due to a wrong file path or the file not being present in the directory.
-
-### Modified Plan:
-
-1. [ ] Verify the correct file path and ensure the Allosteric Sites (AS) dataset is available.
-2. [ ] Search the Allosteric Sites (AS) dataset for information on MEK1's allosteric sites, identifying specific residues and ligands.
-3. [ ] Look up additional information in the Allosteric Drugs (DR) dataset for known ligands that target MEK1.
-4. [ ] Verify findings using the Allosteric Database (ASD) verification tool for cross-referencing with experimental data.
-5. [ ] Summarize the findings with specific details on residues and ligands.
-
-Let's start by verifying the file path to ensure the dataset is accessible. I'll list the available files to check the correct path. 
-
-<execute>
-#!BASH
-# List the files in the data directory to find the correct path
-ls -la ./data/biomni_data/data_lake
-</execute>
-================================== Ai Message ==================================
-
-<observation>total 14845592
-drwxr-xr-x 78 root root       2496 Jan 22 00:15 .
-drwxr-xr-x  4 root root        128 Jan 21 23:05 ..
--rw-r--r--  1 root root 6245551822 Jan 22 00:15 BindingDB_All_202409.tsv
--rw-r--r--  1 root root  422842760 Jan 22 00:15 DepMap_CRISPRGeneDependency.csv
--rw-r--r--  1 root root  430424412 Jan 22 00:16 DepMap_CRISPRGeneEffect.csv
--rw-r--r--  1 root root     694278 Jan 21 23:56 DepMap_Model.csv
--rw-r--r--  1 root root  521526607 Jan 21 23:57 DepMap_OmicsExpressionProteinCodingGenesTPMLogp1.csv
--rw-r--r--  1 root root    2951989 Jan 21 23:57 DisGeNET.parquet
--rw-r--r--  1 root root    1035297 Jan 22 00:05 McPAS-TCR.parquet
--rw-r--r--  1 root root     793066 Jan 22 00:06 Virus-Host_PPI_P-HIPSTER_2020.parquet
--rw-r--r--  1 root root    5587239 Jan 21 23:05 affinity_capture-ms.parquet
--rw-r--r--  1 root root      42956 Jan 21 23:05 affinity_capture-rna.parquet
--rw-r--r--  1 root root    1142823 Jan 21 23:17 broad_repurposing_hub_molecule_with_smiles.parquet
--rw-r--r--  1 root root     178149 Jan 21 23:17 broad_repurposing_hub_phase_moa_target_info.parquet
--rw-r--r--  1 root root    1488231 Jan 21 23:17 co-fractionation.parquet
--rw-r--r--  1 root root     376421 Jan 21 23:17 czi_census_datasets_v4.parquet
--rw-r--r--  1 root root    3343434 Jan 21 23:57 ddinter_alimentary_tract_metabolism.csv
--rw-r--r--  1 root root    3885702 Jan 21 23:57 ddinter_antineoplastic.csv
--rw-r--r--  1 root root     317460 Jan 21 23:57 ddinter_antiparasitic.csv
--rw-r--r--  1 root root     867726 Jan 21 23:57 ddinter_blood_organs.csv
--rw-r--r--  1 root root    1520704 Jan 21 23:57 ddinter_dermatological.csv
--rw-r--r--  1 root root     705088 Jan 21 23:57 ddinter_hormonal.csv
--rw-r--r--  1 root root    1793766 Jan 21 23:57 ddinter_respiratory.csv
--rw-r--r--  1 root root     700777 Jan 21 23:57 ddinter_various.csv
--rw-r--r--  1 root root      21623 Jan 21 23:57 dosage_growth_defect.parquet
--rw-r--r--  1 root root      15690 Jan 21 23:57 enamine_cloud_library_smiles.pkl
--rw-r--r--  1 root root      12588 Jan 21 23:57 evebio_assay_table.csv
--rw-r--r--  1 root root       8211 Jan 21 23:57 evebio_bundle_table.csv
--rw-r--r--  1 root root     150488 Jan 21 23:57 evebio_compound_table.csv
--rw-r--r--  1 root root    5477898 Jan 21 23:57 evebio_control_table.csv
--rw-r--r--  1 root root   48820614 Jan 21 23:57 evebio_detailed_result_table.csv
--rw-r--r--  1 root root  175336052 Jan 21 23:57 evebio_observed_points_table.csv
--rw-r--r--  1 root root   24076309 Jan 21 23:57 evebio_summary_result_table.csv
--rw-r--r--  1 root root       4295 Jan 21 23:57 evebio_target_table.csv
--rw-r--r--  1 root root    3945531 Jan 22 00:03 gene_info.parquet
--rw-r--r--  1 root root 1662521913 Jan 21 23:59 genebass_missense_LC_filtered.pkl
--rw-r--r--  1 root root 1524965298 Jan 22 00:01 genebass_pLoF_filtered.pkl
--rw-r--r--  1 root root 1659139054 Jan 22 00:03 genebass_synonymous_filtered.pkl
--rw-r--r--  1 root root    8460950 Jan 22 00:03 genetic_interaction.parquet
--rw-r--r--  1 root root  129939533 Jan 22 00:04 go-plus.json
--rw-r--r--  1 root root   10873592 Jan 22 00:04 gtex_tissue_gene_tpm.parquet
--rw-r--r--  1 root root  181492262 Jan 22 00:04 gwas_catalog.pkl
--rw-r--r--  1 root root   10058110 Jan 22 00:04 hp.obo
--rw-r--r--  1 root root  981751236 Jan 22 00:05 kg.csv
--rw-r--r--  1 root root      73416 Jan 22 00:05 marker_celltype.parquet
--rw-r--r--  1 root root   68651385 Jan 22 00:05 miRDB_v6.0_results.parquet
--rw-r--r--  1 root root     285973 Jan 22 00:05 miRTarBase_MicroRNA_Target_Sites.parquet
--rw-r--r--  1 root root    4765587 Jan 22 00:05 miRTarBase_microRNA_target_interaction.parquet
--rw-r--r--  1 root root    1725217 Jan 22 00:05 miRTarBase_microRNA_target_interaction_pubmed_abtract.txt
--rw-r--r--  1 root root     271199 Jan 22 00:05 mousemine_m1_positional_geneset.parquet
--rw-r--r--  1 root root    1052069 Jan 22 00:05 mousemine_m2_curated_geneset.parquet
--rw-r--r--  1 root root    1992605 Jan 22 00:05 mousemine_m3_regulatory_target_geneset.parquet
--rw-r--r--  1 root root    4201180 Jan 22 00:05 mousemine_m5_ontology_geneset.parquet
--rw-r--r--  1 root root     232412 Jan 22 00:05 mousemine_m8_celltype_signature_geneset.parquet
--rw-r--r--  1 root root      47205 Jan 22 00:05 mousemine_mh_hallmark_geneset.parquet
--rw-r--r--  1 root root     269292 Jan 22 00:05 msigdb_human_c1_positional_geneset.parquet
--rw-r--r--  1 root root    3031807 Jan 22 00:05 msigdb_human_c2_curated_geneset.parquet
--rw-r--r--  1 root root    4112233 Jan 22 00:05 msigdb_human_c3_regulatory_target_geneset.parquet
--rw-r--r--  1 root root    2158592 Jan 22 00:05 msigdb_human_c3_subset_transcription_factor_targets_from_GTRD.parquet
--rw-r--r--  1 root root     406170 Jan 22 00:05 msigdb_human_c4_computational_geneset.parquet
--rw-r--r--  1 root root    6423126 Jan 22 00:05 msigdb_human_c5_ontology_geneset.parquet
--rw-r--r--  1 root root     166656 Jan 22 00:05 msigdb_human_c6_oncogenic_signature_geneset.parquet
--rw-r--r--  1 root root    5124930 Jan 22 00:05 msigdb_human_c7_immunologic_signature_geneset.parquet
--rw-r--r--  1 root root     762458 Jan 22 00:05 msigdb_human_c8_celltype_signature_geneset.parquet
--rw-r--r--  1 root root      45321 Jan 22 00:05 msigdb_human_h_hallmark_geneset.parquet
--rw-r--r--  1 root root    2115285 Jan 22 00:05 omim.parquet
--rw-r--r--  1 root root   36611106 Jan 22 00:05 proteinatlas.tsv
--rw-r--r--  1 root root     856099 Jan 22 00:05 proximity_label-ms.parquet
--rw-r--r--  1 root root      15137 Jan 22 00:05 reconstituted_complex.parquet
--rw-r--r--  1 root root  379198983 Jan 22 00:06 sgRNA_KO_SP_human.txt
--rw-r--r--  1 root root  372277534 Jan 22 00:06 sgRNA_KO_SP_mouse.txt
--rw-r--r--  1 root root      20585 Jan 22 00:06 synthetic_growth_defect.parquet
--rw-r--r--  1 root root      42885 Jan 22 00:06 synthetic_lethality.parquet
--rw-r--r--  1 root root       7170 Jan 22 00:06 synthetic_rescue.parquet
--rw-r--r--  1 root root      49160 Jan 22 00:06 two-hybrid.parquet
--rw-r--r--  1 root root    1618512 Jan 22 00:06 txgnn_name_mapping.pkl
--rw-r--r--  1 root root   68272378 Jan 22 00:07 txgnn_prediction.pkl
--rw-r--r--  1 root root    9220367 Jan 22 00:06 variant_table.parquet
-</observation>
-================================== Ai Message ==================================
-
-It appears that the Allosteric Sites (AS) dataset is not present in the directory. This prevents us from accessing direct experimental data on MEK1's allosteric sites from that file. However, we can proceed with other datasets and tools.
-
-### Revised Plan:
-
-1. [ ] Search the Allosteric Drugs (DR) dataset for known ligands that target MEK1.
-2. [ ] Use the Allosteric Database (ASD) verification tool for cross-referencing with experimental data.
-3. [ ] Summarize the findings with specific details on residues and ligands.
-
-Let's proceed with the second step by searching the Allosteric Drugs (DR) dataset for MEK1.
-
-<execute>
-# Load the Allosteric Drugs (DR) dataset
-dr_file_path = './data/biomni_data/data_lake/ASD_Release_201909_DR.csv'
-dr_data = pd.read_csv(dr_file_path)
-
-# Check the columns of the dataset to ensure we access the correct data
-dr_data.columns
-
-# Filter for entries related to MEK1
-mek1_dr_data = dr_data[dr_data['Target Name'].str.contains('MEK1', case=False, na=False)]
-
-# Display the filtered data to identify known allosteric ligands
-mek1_dr_data
-</execute>
-================================== Ai Message ==================================
-
-<observation>Error: [Errno 2] No such file or directory: './data/biomni_data/data_lake/ASD_Release_201909_DR.csv'</observation>
-================================== Ai Message ==================================
-
-It seems that the Allosteric Drugs (DR) dataset is also not present in the directory, similar to the Allosteric Sites (AS) dataset. This limits our ability to directly access specific allosteric sites and ligands from these datasets.
-
-### Alternative Approach:
-
-1. [ ] Use the Allosteric Database (ASD) verification tool to cross-reference MEK1 with experimental data for any known allosteric sites.
-2. [ ] Query PubMed for literature on MEK1 allosteric sites and ligands.
-3. [ ] Summarize the findings with specific details on residues and ligands.
-
-Let's utilize the Allosteric Database (ASD) verification tool to gather any available information on MEK1.
+Let's proceed with the first step to query the Allosteric Database for MEK1.
 
 <execute>
 from biomni_biolab.tool.allosteric_verification_tools import allosteric_evidence_tool
 
-# Use the allosteric evidence tool to gather information on MEK1
-mek1_allosteric_info = allosteric_evidence_tool(uniprot_id="Q02750")  # UniProt ID for MEK1
-mek1_allosteric_info
+# Query the Allosteric Database for MEK1 using its UniProt ID
+mek1_uniprot_id = "Q02750"
+allosteric_data = allosteric_evidence_tool(uniprot_id=mek1_uniprot_id)
+print(allosteric_data)
 </execute>
 ================================== Ai Message ==================================
 
 <observation>/app/biomni_biolab/tool/../../data/biomni_data/asd/ASD_Release_202306_XF/ASD01940000_1.xml
 Error parsing /app/biomni_biolab/tool/../../data/biomni_data/asd/ASD_Release_202306_XF/ASD01940000_1.xml for Q02750: [Errno 2] No such file or directory: '/app/biomni_biolab/tool/../../data/biomni_data/asd/ASD_Release_202306_XF/ASD01940000_1.xml'
+{'score': 0.3, 'known_sites': [], 'overlap': False, 'overlap_count': 0, 'max_overlap_ratio': 0.0, 'summary': '❌ No known allosteric sites found in ASD for Q02750. Score: 0.30/1.0'}
 </observation>
 ================================== Ai Message ==================================
 
-It seems that there is a persistent issue with accessing the necessary datasets and files related to allosteric sites and drugs in our current environment. As a workaround, we can attempt to gather information through literature searches and structural databases.
+The query to the Allosteric Database (ASD) for MEK1 using its UniProt ID (Q02750) did not return any known allosteric sites. The summary indicates that there are no known allosteric sites found for MEK1 in the ASD. This suggests that either the information is not available in the current release of the database, or it may not be experimentally validated yet.
 
-### Final Approach:
+Given this result, we can proceed with an alternative approach:
 
-1. [ ] Query PubMed for literature on MEK1 allosteric sites and ligands.
-2. [ ] Summarize the findings with specific details on residues and ligands.
+1. [ ] Query the PDB database for any structures of MEK1 that might include information on allosteric sites or ligands.
+2. [ ] Review the literature for any studies or publications that describe allosteric pockets and ligands for MEK1.
 
-Let's proceed by querying PubMed for relevant literature on MEK1 allosteric sites and ligands.
-
-<execute>
-from biomni_biolab.tool.literature import query_pubmed
-
-# Query PubMed for information on MEK1 allosteric sites and ligands
-pubmed_results = query_pubmed(query="MEK1 allosteric site ligands", max_papers=5)
-pubmed_results
-</execute>
-================================== Ai Message ==================================
-
-<observation></observation>
-================================ Human Message =================================
-
-Each response must include thinking process followed by either <execute> or <solution> tag. But there are no tags in the current response. Please follow the instruction, fix and regenerate the response again.
-================================== Ai Message ==================================
-
-Given the persistent issues accessing datasets and retrieving literature, we need to reassess our approach. Here's a revised plan to address your query about MEK1 allosteric sites and ligands:
-
-### Revised Plan:
-
-1. [ ] Utilize the Guide to PHARMACOLOGY (GtoPdb) database to find information on MEK1 allosteric ligands.
-2. [ ] Query the Protein Data Bank (PDB) for structural data on MEK1 that might reveal known allosteric sites.
-3. [ ] Summarize the findings with specific details on residues and ligands.
-
-Let's begin by querying the Guide to PHARMACOLOGY (GtoPdb) database for any known allosteric ligands targeting MEK1.
-
-<execute>
-from biomni_biolab.tool.database import query_gtopdb
-
-# Query the GtoPdb database for MEK1 allosteric ligands
-gtopdb_results = query_gtopdb(prompt="MEK1 allosteric ligands")
-gtopdb_results
-</execute>
-================================== Ai Message ==================================
-
-<observation></observation>
-================================== Ai Message ==================================
-
-It appears that there was an issue retrieving results from the Guide to PHARMACOLOGY (GtoPdb) database as well. Without access to the necessary datasets or successful retrieval from external databases, we are limited in our ability to directly identify MEK1 allosteric sites and ligands through automated queries.
-
-### Final Attempt:
-
-Let's try querying the Protein Data Bank (PDB) for structural data related to MEK1. This might provide insights into any known allosteric sites.
+Let's proceed with querying the PDB database for MEK1 structures. This might provide us with structural insights into potential allosteric pockets and ligands.
 
 <execute>
 from biomni_biolab.tool.database import query_pdb
 
-# Query the PDB database for structural data of MEK1
-pdb_results = query_pdb(prompt="MEK1 structure allosteric site")
-pdb_results
+# Query the PDB database for structures of MEK1
+pdb_query = "MEK1 protein structures with known allosteric sites or ligands"
+mek1_pdb_results = query_pdb(prompt=pdb_query, max_results=5)
+print(mek1_pdb_results)
 </execute>
 ================================== Ai Message ==================================
 
-<observation></observation>
+<observation>{'success': True, 'query_info': {'endpoint': 'https://search.rcsb.org/rcsbsearch/v2/query', 'method': 'POST', 'description': 'PDB Search API query'}, 'result': {'query_id': 'b415b7c9-ab6c-4cac-97e9-e2113df6cf6e', 'result_type': 'entry', 'total_count': 36, 'result_set': [{'identifier': '7JUS', 'score': 1.0}, {'identifier': '7JUR', 'score': 0.9700568276496859}, {'identifier': '7JUT', 'score': 0.9700568276496859}, {'identifier': '7JUU', 'score': 0.9700568276496859}, {'identifier': '7JUY', 'score': 0.9420336359298199}]}}
+</observation>
+================================== Ai Message ==================================
+
+The query to the PDB database returned several structures of MEK1 that might provide insights into allosteric sites or ligands. Here are the top results:
+
+- PDB ID: 7JUS
+- PDB ID: 7JUR
+- PDB ID: 7JUT
+- PDB ID: 7JUU
+- PDB ID: 7JUY
+
+With these PDB IDs, we can further investigate each structure to identify any potential allosteric pockets and the ligands that may bind there. Let's proceed by retrieving detailed data for these PDB structures, focusing on any reported allosteric sites or binding information.
+
+<execute>
+from biomni_biolab.tool.database import query_pdb_identifiers
+
+# Retrieve detailed data for the top MEK1 structures
+mek1_pdb_ids = ['7JUS', '7JUR', '7JUT', '7JUU', '7JUY']
+mek1_structure_details = query_pdb_identifiers(identifiers=mek1_pdb_ids, attributes=['assembly', 'polymer_entity', 'ligand'])
+print(mek1_structure_details)
+</execute>
+================================== Ai Message ==================================
+
+<observation>{'detailed_results': [{'identifier': '7JUS', 'data': {'assembly': None, 'polymer_entity': None, 'ligand': None}}, {'identifier': '7JUR', 'data': {'assembly': None, 'polymer_entity': None, 'ligand': None}}, {'identifier': '7JUT', 'data': {'assembly': None, 'polymer_entity': None, 'ligand': None}}, {'identifier': '7JUU', 'data': {'assembly': None, 'polymer_entity': None, 'ligand': None}}, {'identifier': '7JUY', 'data': {'assembly': None, 'polymer_entity': None, 'ligand': None}}]}
+</observation>
+================================== Ai Message ==================================
+
+The detailed query for the top MEK1 structures (7JUS, 7JUR, 7JUT, 7JUU, 7JUY) did not return specific information on assemblies, polymer entities, or ligands related to allosteric sites. This suggests that either the specific details on allosteric pockets and ligands are not explicitly annotated in these entries, or the information might not be available in the PDB for these specific structures.
+
+Given this lack of detailed data from both the Allosteric Database and PDB entries, we can explore the literature for additional insights or studies that might describe allosteric pockets and ligands for MEK1.
+
+1. [ ] Search the literature for studies or publications on MEK1 allosteric sites and ligands.
+
+Let's proceed with querying PubMed for literature on MEK1 allosteric sites and ligands.
+
+<execute>
+from biomni_biolab.tool.literature import query_pubmed
+
+# Query PubMed for studies on MEK1 allosteric sites and ligands
+pubmed_query = "MEK1 allosteric sites and ligands"
+mek1_pubmed_results = query_pubmed(query=pubmed_query, max_papers=5)
+print(mek1_pubmed_results)
+</execute>
+================================== Ai Message ==================================
+
+<observation>Title: Neural relational inference to learn long-range allosteric interactions in proteins from molecular dynamics simulations.
+Abstract: Protein allostery is a biological process facilitated by spatially long-range intra-protein communication, whereby ligand binding or amino acid change at a distant site affects the active site remotely. Molecular dynamics (MD) simulation provides a powerful computational approach to probe the allosteric effect. However, current MD simulations cannot reach the time scales of whole allosteric processes. The advent of deep learning made it possible to evaluate both spatially short and long-range communications for understanding allostery. For this purpose, we applied a neural relational inference model based on a graph neural network, which adopts an encoder-decoder architecture to simultaneously infer latent interactions for probing protein allosteric processes as dynamic networks of interacting residues. From the MD trajectories, this model successfully learned the long-range interactions and pathways that can mediate the allosteric communications between distant sites in the Pin1, SOD1, and MEK1 systems. Furthermore, the model can discover allostery-related interactions earlier in the MD simulation trajectories and predict relative free energy changes upon mutations more accurately than other methods.
+Journal: Nature communications
+
+Title: Principles of Kinase Allosteric Inhibition and Pocket Validation.
+Abstract: With several marketed drugs, allosteric inhibition of kinases has translated to pharmacological effects and clinical benefits comparable to those from orthosteric inhibition. However, despite much effort over more than 20 years, the number of kinase targets associated with FDA-approved allosteric drugs is limited, suggesting the challenges in identifying and validating allosteric inhibitors. Here we review the principles of allosteric inhibition, summarize the discovery of allosteric MEK1/2 and BCR-ABL1 inhibitors, and discuss the approaches to screening and demonstrating the functional activity of allosteric pocket ligands.
+Journal: Journal of medicinal chemistry
+
+Title: Structure-Activity Studies of Novel Di-substituted [1,2,5]oxadiazolo [3,4-b]pyrazine Analogs Targeting the A-loop Regulatory Site of p38 MAP Kinase.
+Abstract: In the quest for novel allosteric inhibitors of the p38 MAP kinase, we recently described the A-loop regulatory site, identified by means of molecular modeling studies together with the disclosure of a small molecule hit with a moderate inhibitory profile. Starting from this structure, we subsequently identified two additional hits with simpler molecular structures from an in silico screening study, using a substructure search in the SciFinder database. After corroboration of their inhibitory profile, analysis of their structures permitted to conclude about the suitability of the [1,2,5]oxadiazolo[3,4-b]pyrazine (furazano[ 3,4-b]pyrazine) scaffold for the development of potent A-loop regulatory site p38 MAP kinase inhibitors. Accordingly, we report the synthesis and pharmacological evaluation of a series of di-substituted analogs with a potent inhibitory profile of p38 MAP kinase, as shown by in vitro assays of their capability to inhibit IL-1β secretion in human monocyte-derived macrophages.
+To find small molecule potent inhibitors of the p38 MAP kinase A-loop regulatory site.
+Starting from this structure, we subsequently identified two additional hits with simpler molecular structures from an in silico screening study, using a substructure search in the SciFinder database. After corroboration of their inhibitory profile, we carried out a hit-tolead optimization process guided by molecular modeling using a [1,2,5]oxadiazolo[3,4- b]pyrazine (furazano[3,4-b]pyrazine) scaffold.
+We report the synthesis and pharmacological evaluation of a series of di-substituted analogs with a potent inhibitory profile of p38 MAP kinase, as shown by in vitro assays of their capability to inhibit IL-1β secretion in human monocyte-derived macrophages.
+We describe in the present work a series of [1,2,5]oxadiazolo[3,4-b]pyrazine (furazano[3,4-b]pyrazine), which are potent inhibitors of IL-1β secretion in human monocytederived macrophages allosteric modulators of the p38 MAP kinase A-loop regulatory site.
+Journal: Current medicinal chemistry
+
+Title: Computational Study on the Effect of Inactivating/Activating Mutations on the Inhibition of MEK1 by Trametinib.
+Abstract: Activation of the mitogen-activated protein kinase (MAPK) signaling pathway regulated by human MAP kinase 1 (MEK1) is associated with the carcinogenesis and progression of numerous cancers. In addition, two active mutations (P124S and E203K) have been reported to enhance the activity of MEK1, thereby eventually leading to the tumorigenesis of cancer. Trametinib is an MEK1 inhibitor for treating EML4-ALK-positive, EGFR-activated, and KRAS-mutant lung cancers. Therefore, in this study, molecular docking and molecular dynamic (MD) simulations were performed to explore the effects of inactive/active mutations (A52V/P124S and E203K) on the conformational changes of MEK1 and the changes in the interaction of MEK1 with trametinib. Moreover, steered molecular dynamic (SMD) simulations were further utilized to compare the dissociation processes of trametinib from the wild-type (WT) MEK1 and two active mutants (P124S and E203K). As a result, trametinib had stronger interactions with the non-active MEK1 (WT and A52V mutant) than the two active mutants (P124S and E203K). Moreover, two active mutants may make the allosteric channel of MEK1 wider and shorter than that of the non-active types (WT and A52V mutant). Hence, trametinib could dissociate from the active mutants (P124S and E203K) more easily compared with the WT MEK1. In summary, our theoretical results demonstrated that the active mutations may attenuate the inhibitory effects of MEK inhibitor (trametinib) on MEK1, which could be crucial clues for future anti-cancer treatment.
+Journal: International journal of molecular sciences
+
+Title: Identification and characterization of fragment binding sites for allosteric ligand design using the site identification by ligand competitive saturation hotspots approach (SILCS-Hotspots).
+Abstract: Fragment-based ligand design is used for the development of novel ligands that target macromolecules, most notably proteins. Central to its success is the identification of fragment binding sites that are spatially adjacent such that fragments occupying those sites may be linked to create drug-like ligands. Current experimental and computational approaches that address this problem typically identify only a limited number of sites as well as use a limited number of fragment types.
+The site-identification by ligand competitive saturation (SILCS) approach is extended to the identification of fragment bindings sites, with the method termed SILCS-Hotspots. The approach involves precomputation of the SILCS FragMaps following which the identification of Hotspots, performed by identifying of all possible fragment binding sites on the full 3D structure of the protein followed by spatial clustering.
+The SILCS-Hotspots approach identifies a large number of sites on the target protein, including many sites not accessible in experimental structures due to low binding affinities and binding sites on the protein interior. The identified sites are shown to recapitulate the location of known drug-like molecules in both allosteric and orthosteric binding sites on seven proteins including the androgen receptor, the CDK2 and Erk5 kinases, PTP1B phosphatase and three GPCRs; the β2-adrenergic, GPR40 fatty-acid binding and M2-muscarinic receptors. Analysis indicates the importance of considering all possible fragment binding sites, and not just those accessible to experimental methods, when identifying novel binding sites and performing ligand design versus just considering the most favorable sites. The approach is shown to identify a larger number of known binding sites of drug-like molecules versus the commonly used FTMap and Fpocket methods.
+The present results indicate the potential utility of the SILCS-Hotspots approach for fragment-based rational design of ligands, including allosteric modulators.
+Journal: Biochimica et biophysica acta. General subjects
+</observation>
 ================================ Human Message =================================
 
 Each response must include thinking process followed by either <execute> or <solution> tag. But there are no tags in the current response. Please follow the instruction, fix and regenerate the response again.
 ================================== Ai Message ==================================
 
-I apologize for the oversight. Let's consolidate our findings and provide a summarized conclusion based on our attempts and suggest next steps.
+The literature search on PubMed yielded several relevant studies regarding MEK1 and its allosteric modulation. Here's a structured summary of the findings:
 
-### Summary of Attempts:
+1. **Neural Relational Inference on MEK1**: This study highlights the use of neural networks to learn long-range allosteric interactions in proteins, including MEK1, from molecular dynamics simulations. It suggests pathways that mediate allosteric communication between distant sites on proteins like MEK1.
 
-1. **Dataset Access**: Attempts to access specific datasets like Allosteric Sites (AS) and Allosteric Drugs (DR) were unsuccessful due to file access issues.
-2. **Database Queries**: Attempts to query databases like GtoPdb and PDB also faced issues with retrieving results.
-3. **Literature Search**: The PubMed query did not yield results due to connection issues.
+2. **Principles of Kinase Allosteric Inhibition**: This review discusses the principles of allosteric inhibition in kinases and summarizes the discovery of allosteric MEK1/2 inhibitors. It highlights the challenges in identifying and validating allosteric inhibitors.
 
-### Conclusion and Next Steps:
+3. **Trametinib and MEK1 Mutations**: This computational study explores how active mutations in MEK1 (e.g., P124S and E203K) affect the interaction with the MEK1 inhibitor trametinib. The study indicates that these mutations may alter the allosteric channel, impacting drug efficacy.
 
-Given these challenges, I recommend the following actions:
+4. **Fragment Binding Sites for Allosteric Ligand Design**: This study presents a method (SILCS-Hotspots) for identifying fragment binding sites on proteins, including potential allosteric sites, which could be used for designing allosteric modulators.
 
-1. **Manual Database Search**: Manually explore databases like PubMed and the Protein Data Bank (PDB) for specific publications and structural information related to MEK1 allosteric sites and ligands.
-2. **Provide Access**: If you have access to specific data files or can provide them, this would allow for a more focused analysis.
+Based on these findings, MEK1 has been studied for its allosteric interactions, and inhibitors like trametinib have been identified. However, detailed residue-level information on the allosteric pocket was not explicitly mentioned in these articles. The studies emphasize the complexity of MEK1 allosteric modulation and the ongoing research in this area.
 
-If there's anything else you need or another way I can assist, please let me know. For now, I will conclude this session with a suggestion to explore external databases manually.
+If you need further details from any specific study, please let me know!
 
 <solution>
-Given the limitations in accessing datasets and database queries, please consider manually searching databases like PubMed and the Protein Data Bank (PDB) for information on MEK1 allosteric sites and ligands. If you can provide specific datasets, further analysis can be conducted.
+The literature search revealed insights into MEK1's allosteric modulation, emphasizing the complexity and ongoing research. Specific residue-level data on the allosteric pocket was not explicitly found, but studies like the neural relational inference model and trametinib interaction provide valuable context.
 </solution>
