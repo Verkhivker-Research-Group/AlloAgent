@@ -57,3 +57,4 @@ dependencies:
       - biomni
       - pypdf2
       - googlesearch-python
+      - biotite
