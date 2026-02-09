@@ -1,0 +1,188 @@
+Final Output:
+The UniProt query did not return specific entries for classical protein tyrosine phosphatases with annotated allosteric sites. This suggests that while allosteric mechanisms are discussed in the literature, they may not be explicitly annotated in database entries for these proteins.
+
+Given the findings from the literature review and the lack of specific annotations in UniProt, it appears that allosteric sites and mechanisms are indeed explored across various classical PTPs. However, such mechanisms are not uniquely annotated in databases, indicating the need for continued research and annotation efforts.
+
+Based on the gathered information, we can conclude the following:
+
+<solution>
+The literature review indicates that while PTP1B is known for its allosteric druggability through diverse molecular inhibitors, similar allosteric mechanisms are explored in other classical PTPs. Studies have identified allosteric sites across different PTPs, such as non-conserved cysteines and cryptic sites, which can be targeted for selective inhibition. However, these sites are not yet widely annotated in databases like UniProt, emphasizing the ongoing nature of research in this area. Thus, while PTP1B is a well-studied example, other classical PTPs also hold potential for allosteric inhibition, suggesting that PTP1B is not uniquely "allosterically druggable."
+</solution>
+
+Logs:
+================================ Human Message =================================
+
+I’ve seen allosteric inhibitors reported for protein tyrosine phosphatase 1B (PTP1B, UniProt: P18031) that bind far from the catalytic site. Do similar allosteric mechanisms or pocket architectures appear in other classical PTPs, or does PTP1B seem unusually “allosterically druggable”?
+================================ Human Message =================================
+
+Each response must include thinking process followed by either <execute> or <solution> tag. But there are no tags in the current response. Please follow the instruction, fix and regenerate the response again.
+================================== Ai Message ==================================
+
+To address the question of whether PTP1B is uniquely "allosterically druggable" or if similar mechanisms are present in other classical PTPs, we need to conduct a thorough literature review and database analysis. Here's the plan:
+
+1. [ ] Query Google Scholar for recent papers discussing allosteric inhibition in PTP1B to establish a baseline understanding of what has been reported.
+2. [ ] Query Google Scholar for papers discussing allosteric mechanisms in other classical PTPs to compare with PTP1B.
+3. [ ] Query UniProt and InterPro databases for structural insights or annotations on allosteric sites in classical PTPs.
+4. [ ] Analyze the literature and database findings to determine if PTP1B has unique allosteric properties or if similar mechanisms exist in other classical PTPs.
+5. [ ] Formulate a conclusion based on the gathered information.
+
+Let's begin by querying Google Scholar for recent papers discussing allosteric inhibition in PTP1B.
+
+<execute>
+from biomni_biolab.tool.literature import query_scholar
+
+# Query Google Scholar for recent papers on allosteric inhibition in PTP1B
+result_ptp1b = query_scholar(query="allosteric inhibition PTP1B")
+print(result_ptp1b)
+</execute>
+================================== Ai Message ==================================
+
+<observation>Error: No module named 'scholarly'</observation>
+================================== Ai Message ==================================
+
+It seems that there is an issue with the module used for querying Google Scholar. We will need to adjust our approach by using a different method or resource available in our environment. Let's use the `query_arxiv` function to find relevant papers on arXiv regarding allosteric inhibition in PTP1B.
+
+1. [ ] Query arXiv for recent papers discussing allosteric inhibition in PTP1B.
+2. [ ] Query arXiv for papers discussing allosteric mechanisms in other classical PTPs.
+3. [ ] Query UniProt and InterPro databases for structural insights or annotations on allosteric sites in classical PTPs.
+4. [ ] Analyze the literature and database findings to determine if PTP1B has unique allosteric properties or if similar mechanisms exist in other classical PTPs.
+5. [ ] Formulate a conclusion based on the gathered information.
+
+Let's begin with querying arXiv for papers on PTP1B.
+
+<execute>
+from biomni_biolab.tool.literature import query_arxiv
+
+# Query arXiv for recent papers on allosteric inhibition in PTP1B
+result_ptp1b_arxiv = query_arxiv(query="allosteric inhibition PTP1B")
+print(result_ptp1b_arxiv)
+</execute>
+================================== Ai Message ==================================
+
+<observation>Error: No module named 'arxiv'</observation>
+================================== Ai Message ==================================
+
+The errors indicate that the necessary modules for querying literature like Google Scholar or arXiv are not available in this environment. As an alternative, we will use the `query_pubmed` function to search for papers on PubMed, which is a reliable source for biomedical literature.
+
+1. [ ] Query PubMed for recent papers discussing allosteric inhibition in PTP1B.
+2. [ ] Query PubMed for papers discussing allosteric mechanisms in other classical PTPs.
+3. [ ] Query UniProt and InterPro databases for structural insights or annotations on allosteric sites in classical PTPs.
+4. [ ] Analyze the literature and database findings to determine if PTP1B has unique allosteric properties or if similar mechanisms exist in other classical PTPs.
+5. [ ] Formulate a conclusion based on the gathered information.
+
+Let's begin by querying PubMed for papers on PTP1B.
+
+<execute>
+from biomni_biolab.tool.literature import query_pubmed
+
+# Query PubMed for recent papers on allosteric inhibition in PTP1B
+result_ptp1b_pubmed = query_pubmed(query="allosteric inhibition PTP1B")
+print(result_ptp1b_pubmed)
+</execute>
+================================== Ai Message ==================================
+
+<observation>The output is too long to be added to context. Here are the first 10K characters...
+Title: Polyphenols from the aerial parts of Lespedeza cuneata and their inhibitory effects on PTP1B and α-glucosidase: insights from in vitro and in Silico analyses.
+Abstract: A comprehensive phytochemical investigation of the methanol extract from the aerial parts of Lespedeza cuneata resulted in the isolation of 36 compounds, including three new C-glycosyl flavonoids (8, 9, and 11). Their structures were elucidated using HRFAB-MS, as well as 1D and 2D nuclear magnetic resonance spectroscopy, and the isolated compounds were evaluated for inhibitory activity against protein tyrosine phosphatase 1B (PTP1B) and α-glucosidase. Flavonoids 1, 17, and 21 exhibited potent PTP1B inhibition (IC
+Journal: Journal of natural medicines
+
+Title: Mechanism-Based Allosteric Inhibition of PTP1B by Prenylated Flavonoids from Glycyrrhiza echinata: In Vitro Experiments and in Silico Validation.
+Abstract: A phytochemical investigation of Glycyrrhiza echinata led to the isolation and structural characterization of twelve phenolic compounds. An in silico target fishing analysis identified protein tyrosine phosphatase 1B (PTP1B) as a potential biological target for these phytochemicals, prompting an in vitro evaluation of their PTP1B inhibitory activities. Gancaonin Q and licoflavone C exhibited notably low IC₅₀ values (1.61 ± 0.32 µM and 1.39 ± 0.33 µM, respectively), outperforming the reference inhibitor ursolic acid (IC₅₀ = 7.17 ± 0.69 µM), while norartocarpetin showed moderate activity (IC₅₀ = 42.41 ± 2.12 µM). Enzyme kinetic studies revealed that gancaonin Q and licoflavone C act as noncompetitive inhibitors of PTP1B. Subsequent in silico analyses supported these findings and provided mechanistic insights. Molecular docking confirmed robust binding interactions for gancaonin Q and licoflavone C at the PTP1B allosteric site. Free energy landscape (FEL) calculations indicated that both compounds stabilized the enzyme within low-energy conformations, and MM/PBSA estimations corroborated their favorable binding free energies. Molecular dynamics simulations further demonstrated the stability of the ligand-enzyme complexes, characterized by reduced structural fluctuations in comparison with the free enzyme and norartocarpetin-bound states. Finally, ADMET assessments indicated promising pharmacokinetic and toxicity profiles, with some scope for structural refinement. Overall, these results highlight gancaonin Q and licoflavone C as promising lead compounds for the development of PTP1B inhibitors with therapeutic potential.
+Journal: The protein journal
+
+Title: Mining and characterization of novel peptides from soy protein hydrolysates that ameliorate insulin resistance based on molecular docking, molecular dynamics simulations and mechanism validation.
+Abstract: Inhibition of protein tyrosine phosphatase 1B (PTP1B) holds promise for ameliorating insulin resistance (IR). Through enzymatic bioconversion of soy protein-a major agro-industrial byproduct-we identified four PTP1B-inhibitory peptides (D-8-N, K-8-F, K-11-M, D-10-E) using cell hypoglycemic activity-guided purification and in silico screening. Molecular dynamics and docking suggested allosteric inhibition via hydrogen bonding, electrostatic interactions, and hydrophobic forces. Meanwhile, FTIR and AFM analysis suggested that there might be an interaction between PTP1B and peptide. Lineweaver-Burk plots demonstrated that all four peptides exhibited characteristics of non-competitive inhibitors. Based on molecular predictions and experimental validation, K-8-F exhibited the strongest inhibitory activity against PTP1B (IC
+Journal: International journal of biological macromolecules
+
+Title: Coumarin-Based Allosteric Inhibition of PTP1B: A Potential Strategy for Metabolic Regulation.
+Abstract: Protein Tyrosine Phosphatase 1B (PTP1B) is a key metabolic regulator and a promising therapeutic target for type 2 diabetes and obesity. This study evaluated the inhibitory potential of four coumarins-Bergapten, Imperatorin, Xanthotoxol, and Isopimpinellin, isolated from Ammi majus-through in silico and in vitro approaches. Molecular docking and molecular dynamics (MD) simulations identified Bergapten and Imperatorin as the most stable binders, forming key π-π stacking interactions with Phe280 and Phe196. Principal Energy Landscape (PEL) analysis further confirmed their stable binding conformations, while MM/PBSA calculations ranked Bergapten (-17.21 ± 0.80 kcal/mol) and Imperatorin (-12.76 ± 2.99 kcal/mol) as the strongest binders. ADMET analysis indicated high gastrointestinal absorption, blood-brain barrier permeability, and favorable drug-like properties for all compounds. In vitro PTP1B inhibition assays validated these findings, with Bergapten (IC
+Journal: Journal of molecular recognition : JMR
+
+Title: Phenolic-based allosteric inhibition of PTP1B: unlocking new therapeutic potential for metabolic disorders.
+Abstract: Protein tyrosine phosphatase 1B (PTP1B) plays a critical role in insulin signaling and is associated with various metabolic diseases, including type 2 diabetes. In this study, we investigated the inhibitory potential of five phenolic compounds isolated from Tamarix aphylla against PTP1B. Using molecular docking, molecular dynamics (MD) simulations, and ADMET analysis, we assessed the binding modes, stability, and pharmacokinetic properties of these compounds. The findings from in silico studies were validated by experimental in vitro enzyme activity assays, which showed that 3,3'-di-O-methylellagic acid and scutellarein exhibited the strongest inhibitory activities with IC
+Journal: Journal of computer-aided molecular design
+
+Title: Watercress-derived glucosinolates as potential allosteric PTP1B inhibitors: a dual in silico and in vitro study on insulin signaling modulation.
+Abstract: This study investigates the inhibitory potential of four glucosinolates-glucoerucin, glucoiberin, gluconasturtiin, and glucotropaeolin-isolated from watercress (Nasturtium officinale) against Protein Tyrosine Phosphatase 1B (PTP1B), a key regulator of insulin signaling. Molecular docking, molecular dynamics (MD) simulations, and MM/PBSA free energy calculations identified glucoerucin (-17.18 ± 3.51 kcal/mol) and gluconasturtiin (-13.54 ± 1.79 kcal/mol) as the strongest binders, with stable interactions involving Phe280 and Phe196 through π-π stacking. Potential Energy Landscape (PEL) analysis further confirmed that these two compounds occupied the most stable low-energy conformational states, reinforcing their favorable binding to PTP1B. In vitro enzyme inhibition assays provided experimental validation that glucoerucin (IC₅₀ = 6.07 ± 0.69 µM) and gluconasturtiin (IC₅₀ = 7.65 ± 0.45 µM) demonstrated the strongest inhibitory effects, comparable to ursolic acid (IC₅₀ = 7.11 ± 0.95 µM). Enzyme kinetics revealed a non-competitive inhibition mechanism, with K
+Journal: BMC chemistry
+
+Title: Repurposing dual-C-prenylated flavonoids as potent allosteric inhibitors of PTP1B: Integrated phytochemical, enzymological, and in silico evidence.
+Abstract: Protein-tyrosine phosphatase 1B (PTP1B) is a master negative regulator of insulin and leptin signaling, yet clinically useful inhibitors remain elusive. Guided by a repurposing strategy, we investigated Tephrosia villosa as a natural source of PTP1B modulators. Chromatographic fractionation of the aerial parts afforded nine flavonoids and related phenolics, whose structures were elucidated by spectroscopic tools. Enzymatic screening revealed that the diprenylated isoflavonoids 6,8-diprenylgenistein and 6,8-diprenylnaringenin inhibit recombinant PTP1B with sub-micromolar potency (IC₅₀ ≈ 1 μM) and non-competitive kinetics, outperforming the reference inhibitor ursolic acid six-fold. Molecular docking and 200 ns molecular dynamics simulations located both ligands in the hydrophobic α3/α7 allosteric pocket, where dual C-prenyl chains engage an aromatic clamp formed by Phe196 and Phe280; MM/PBSA binding energies (≈ -30 kcal mol
+Journal: International journal of biological macromolecules
+
+Title: The effects of ondansetron on diabetes and high-fat diet-induced liver disease: a critical role for protein tyrosine phosphatase 1B.
+Abstract: The escalating prevalence of diabetes and non-alcoholic fatty liver disease (NAFLD) has intensified the search for effective therapeutic interventions. The current study investigates the potential of ondansetron, a Food and Drug Administration (FDA)-approved drug for conditions like nausea and vomiting, as a novel treatment option for these metabolic disorders.
+A multifaceted approach, encompassing computational analyses, in vitro enzyme inhibition assays, and in vivo experiments in a high-fat diet (HFD)-induced disease model in rats were employed.
+Computational studies, including pharmacophore modeling, molecular docking, and molecular dynamics (MD) simulations, revealed the strong binding affinity of ondansetron to the allosteric site of protein tyrosine phosphatase 1B (PTP1B), a key regulator of insulin and lipid homeostasis. The in vitro enzyme inhibition assay further confirmed ondansetron's ability to directly inhibit PTP1B activity. Animal experiments demonstrated ondansetron's antihyperglycemic effects, reducing blood glucose levels and improving insulin sensitivity in HFD-fed rats. The drug also exhibited hepatoprotective properties, mitigating liver damage and improving tissue architecture. Additionally, ondansetron's anti-inflammatory and antioxidant activities were evident in its ability to reduce pro-inflammatory markers and oxidative stress in the liver.
+These therapeutic effects position ondansetron as a promising candidate for further investigation in clinical settings for the treatment of diabetes and NAFLD and, hence, support the use of the drug repurposing approach for addressing the growing burden of metabolic diseases.
+Journal: Frontiers in pharmacology
+
+Title: Allosteric inhibition of PTP1B by bromocatechol-chalcon</observation>
+================================== Ai Message ==================================
+
+The PubMed query provided several relevant papers on allosteric inhibition in PTP1B. These studies highlight various compounds that act as allosteric inhibitors, often identified through in vitro and in silico analyses. The findings generally indicate that PTP1B can be inhibited allosterically by a diverse array of molecules, suggesting a degree of structural flexibility in its allosteric inhibition.
+
+Next, we need to investigate whether similar allosteric mechanisms exist in other classical PTPs. This will help us determine if PTP1B's allosteric druggability is unique.
+
+Let's proceed to the next step: querying PubMed for papers discussing allosteric mechanisms in other classical PTPs.
+
+<execute>
+# Query PubMed for recent papers on allosteric mechanisms in other classical PTPs
+result_other_ptps_pubmed = query_pubmed(query="allosteric inhibition classical protein tyrosine phosphatases")
+print(result_other_ptps_pubmed)
+</execute>
+================================== Ai Message ==================================
+
+<observation>The output is too long to be added to context. Here are the first 10K characters...
+Title: Targeting Nonconserved and Pathogenic Cysteines of Protein Tyrosine Phosphatases with Small Molecules.
+Abstract: Protein tyrosine phosphatases (PTPs) are important therapeutic targets for a range of human pathologies. However, the common architecture of PTP active sites impedes the discovery of selective PTP inhibitors. Our laboratory has recently developed methods to inhibit PTPs allosterically by targeting cysteine residues that either (i) are not conserved in the PTP family or (ii) result from pathogenic mutations. Here, we describe screening protocols for the identification of selective inhibitors that covalently engage such "rare" cysteines in target PTPs. Moreover, to elucidate the breadth of possible applications of our cysteine-directed screening protocols, we provide a brief overview of the nonconserved cysteines present in all human classical PTP domains.
+Journal: Methods in molecular biology (Clifton, N.J.)
+
+Title: A New Paradigm for KIM-PTP Drug Discovery: Identification of Allosteric Sites with Potential for Selective Inhibition Using Virtual Screening and LEI Analysis.
+Abstract: The kinase interaction motif protein tyrosine phosphatases (KIM-PTPs), HePTP, PTPSL and STEP, are involved in the negative regulation of mitogen-activated protein kinase (MAPK) signalling pathways and are important therapeutic targets for a number of diseases. We have used VSpipe, a virtual screening pipeline, to identify a ligand cluster distribution that is unique to this subfamily of PTPs. Several clusters map onto KIM-PTP specific sequence motifs in contrast to the cluster distribution obtained for PTP1B, a classic PTP that mapped to general PTP motifs. Importantly, the ligand clusters coincide with previously reported functional and substrate binding sites in KIM-PTPs. Assessment of the KIM-PTP specific clusters, using ligand efficiency index (LEI) plots generated by the VSpipe, ascertained that the binders in these clusters reside in a more drug-like chemical-biological space than those at the active site. LEI analysis showed differences between clusters across all KIM-PTPs, highlighting a distinct and specific profile for each phosphatase. The most druggable cluster sites are unexplored allosteric functional sites unique to each target. Exploiting these sites may facilitate the delivery of inhibitors with improved drug-like properties, with selectivity amongst the KIM-PTPs and over other classical PTPs.
+Journal: International journal of molecular sciences
+
+Title: Characterization of the inhibitory activity of natural tanshinones from Salvia miltiorrhiza roots on protein tyrosine phosphatase 1B.
+Abstract: Protein tyrosine phosphatase 1B (PTP1B) is a negative regulator that plays an important role in many signaling pathways, especially those associated with insulin resistance. In this study, we investigated the anti-diabetic potential of 12 natural tanshinones isolated from Salvia miltiorrhiza (S. miltiorrhiza) Bunge (Lamiaceae), deoxyneocryptotanshinone (1), grandifolia F (2), ferruginol (3), cryptotanshinone (4), tanshinone IIA (5), tanshinol B (6), tanshinone IIB (7), tanshinonal (8), methyl tanshinonate (9), 15,16-dihydrotanshinone I (10), tanshinone I (11), and dehydrodanshenol A (12) and evaluated their inhibitory activity against PTP1B. Tanshinones 4, 6 and 12 exhibited potent PTP1B inhibitory activity with IC
+Journal: Chemico-biological interactions
+
+Title: Rational design of allosteric-inhibition sites in classical protein tyrosine phosphatases.
+Abstract: Protein tyrosine phosphatases (PTPs), which catalyze the dephosphorylation of phosphotyrosine in protein substrates, are critical regulators of metazoan cell signaling and have emerged as potential drug targets for a range of human diseases. Strategies for chemically targeting the function of individual PTPs selectively could serve to elucidate the signaling roles of these enzymes and would potentially expedite validation of the therapeutic promise of PTP inhibitors. Here we report a novel strategy for the design of non-natural allosteric-inhibition sites in PTPs; these sites, which can be introduced into target PTPs through protein engineering, serve to sensitize target PTPs to potent and selective inhibition by a biarsenical small molecule. Building on the recent discovery of a naturally occurring cryptic allosteric site in wild-type Src-homology-2 domain containing PTP (Shp2) that can be targeted by biarsenical compounds, we hypothesized that Shp2's unusual sensitivity to biarsenicals could be strengthened through rational design and that the Shp2-specific site could serve as a blueprint for the introduction of non-natural inhibitor sensitivity in other PTPs. Indeed, we show here that the strategic introduction of a cysteine residue at a position removed from the Shp2 active site can serve to increase the potency and selectivity of the interaction between Shp2's allosteric site and the biarsenical inhibitor. Moreover, we find that 'Shp2-like' allosteric sites can be installed de novo in PTP enzymes that do not possess naturally occurring sensitivity to biarsenical compounds. Using primary-sequence alignments to guide our enzyme engineering, we have successfully introduced allosteric-inhibition sites in four classical PTPs-PTP1B, PTPH-1, FAP-1, and HePTP-from four different PTP subfamilies, suggesting that our sensitization approach can likely be applied widely across the classical PTP family to generate biarsenical-responsive PTPs.
+Journal: Bioorganic & medicinal chemistry
+
+Title: Targeting a cryptic allosteric site for selective inhibition of the oncogenic protein tyrosine phosphatase Shp2.
+Abstract: Protein tyrosine phosphatases (PTPs) have been the subject of considerable pharmaceutical-design efforts because of the ubiquitous connections between misregulation of PTP activity and human disease. PTP-inhibitor discovery has been hampered, however, by the difficulty in identifying cell-permeable compounds that can selectively target PTP active sites, and no PTP inhibitors have progressed to the clinic. The identification of allosteric sites on target PTPs therefore represents a potentially attractive solution to the druggability problem of PTPs. Here we report that the oncogenic PTP Shp2 contains an allosteric-inhibition site that renders the enzyme sensitive to potent and selective inhibition by cell-permeable biarsenical compounds. Because Shp2 contains no canonical tetracysteine biarsenical-binding motif, the enzyme's inhibitor-binding site is not readily predictable from its primary or three-dimensional structure. Intriguingly, however, Shp2's PTP domain does contain a cysteine residue (C333) at a position that is removed from the active site and is occupied by proline in other classical PTPs. We show that Shp2's unusual cysteine residue constitutes part of a Shp2-specific allosteric-inhibition site, and that Shp2's sensitivity to biarsenicals is dependent on the presence of the naturally occurring C333. The determinative role of this residue in conferring inhibitor sensitivity is surprising because C333's side chain is inaccessible to solvent in Shp2 crystal structures. The discovery of this cryptic Shp2 allosteric site may provide a means for targeting Shp2 activity with high specificity and suggests that buried-yet-targetable allosteric sites could be similarly uncovered in other protein families.
+Journal: Biochemistry
+
+Title: Insulin and the stimulation of glycogen synthesis. The road from glycogen structure to glycogen synthase to cyclic AMP-dependent protein kinase to insulin mediators.
+Abstract: The enhanced phosphorylations via cAMP, Ca2+ mobilization, and diacyl glycerol formation via the activation of the respective kinases is now classical. The decreased phosphorylation via inhibition of adenylate cyclase via the alpha adrenergic receptor is also becoming understood. What the insulin studies on the control of glycogen synthesis have taught us is that the rate limiting enzyme glycogen synthase is regulated by multiple covalent phosphorylation in an elegant but complex manner. The overall pattern of dephosphorylation is influenced by effecting both phosphatase and kinase activities in a set of interrelated mechanisms. In the presence of glucose, in muscle, fat, and liver under physiological conditions G-6-P acts as a signal to stimulate the phosphatase. An additional stimulation could occur via a novel insulin phosphatase stimulatory mediator. The phosphatase is also stimulated by at least three covalent mechanisms involving altered phosphorylation state. In one there is a decreased phosphorylation of the phosphatase inhibitor 1 potentially related to decreased cAMP-dependent protein kinase activity. In the second, there is decreased phosphorylation of the deinhibitor also potentially related to decreased cAMP-dependent protein kinase phosphorylation. In the third, an increased activity of casein kinase 2 could activate the ATP-Mg dependent phosphatase by an increased phosphorylation of phosphatase inhibitor 2 (modulatory subunit). In the liver, allosteric control of the phosphatase by G-6-P and nucleotides is of great importance. Insulin also stimulates the phosphatase in long-term experiments via increased protein synthesis. It is clear that future work will be required to determine which species of the various classes of phosphatases are regulated in short-term and long-term regulation by insulin. In terms of kinases, the effects of insulin to inactivate and desensitize the cAMP-dependent protein kinase are established. The molecular mechanisms of this effect remain to be worked out. The enhanced activity of MAP and S-6 kinase would appear to be part of a cascade of reactions perhaps originating in the autophosphorylation and activation of the insulin receptor tyrosine kinase. The mechanism of the short-term activation of casein kinase 2 remains to be elucidated. A cAMP-dependent protein kinase inhibitory mediator, which also inhi</observation>
+================================== Ai Message ==================================
+
+The PubMed query has provided insights into allosteric inhibition across various protein tyrosine phosphatases (PTPs), indicating that allosteric sites and mechanisms are indeed explored and utilized in other classical PTPs beyond PTP1B. Specifically, the studies highlight strategies for identifying and targeting allosteric sites in PTPs, including non-conserved cysteines and cryptic sites unique to certain PTPs like Shp2.
+
+Next, we need to gain structural insights from databases like UniProt and InterPro to complement our literature findings and further explore the presence of allosteric sites or architectures in classical PTPs.
+
+Let's proceed with querying the UniProt database for structural insights or annotations on allosteric sites in classical PTPs.
+
+<execute>
+from biomni_biolab.tool.database import query_uniprot
+
+# Query UniProt for information on allosteric sites in classical PTPs
+result_uniprot_ptps = query_uniprot(prompt="allosteric sites in classical protein tyrosine phosphatases")
+print(result_uniprot_ptps)
+</execute>
+================================== Ai Message ==================================
+
+<observation>{'success': True, 'query_info': {'endpoint': 'https://rest.uniprot.org/uniprotkb/search?query=protein_name:"classical protein tyrosine phosphatase"+ft_site:allosteric&format=json&fields=accession,id,protein_name,ft_site', 'method': 'GET', 'description': 'Search for UniProtKB entries of classical protein tyrosine phosphatases that have allosteric sites annotated.'}, 'result': {'results': []}}
+</observation>
+================================== Ai Message ==================================
+
+The UniProt query did not return specific entries for classical protein tyrosine phosphatases with annotated allosteric sites. This suggests that while allosteric mechanisms are discussed in the literature, they may not be explicitly annotated in database entries for these proteins.
+
+Given the findings from the literature review and the lack of specific annotations in UniProt, it appears that allosteric sites and mechanisms are indeed explored across various classical PTPs. However, such mechanisms are not uniquely annotated in databases, indicating the need for continued research and annotation efforts.
+
+Based on the gathered information, we can conclude the following:
+
+<solution>
+The literature review indicates that while PTP1B is known for its allosteric druggability through diverse molecular inhibitors, similar allosteric mechanisms are explored in other classical PTPs. Studies have identified allosteric sites across different PTPs, such as non-conserved cysteines and cryptic sites, which can be targeted for selective inhibition. However, these sites are not yet widely annotated in databases like UniProt, emphasizing the ongoing nature of research in this area. Thus, while PTP1B is a well-studied example, other classical PTPs also hold potential for allosteric inhibition, suggesting that PTP1B is not uniquely "allosterically druggable."
+</solution>

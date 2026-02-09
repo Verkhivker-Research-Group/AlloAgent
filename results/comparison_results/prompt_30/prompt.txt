@@ -1,0 +1,1 @@
+For PDE5A, compile allosteric sites and modulators. Build a confidence table that marks each site as: verified structurally, verified functionally, both, or uncertain. Include the residues used to define each site.

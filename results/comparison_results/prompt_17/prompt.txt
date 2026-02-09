@@ -1,0 +1,1 @@
+For pyruvate kinase M2 (PKM2, UniProt: P14618), I know it’s regulated by metabolites like fructose-1,6-bisphosphate. Can you explain where these allosteric regulators bind, how they shift PKM2’s conformational state, and whether those sites have been targeted by small-molecule modulators?

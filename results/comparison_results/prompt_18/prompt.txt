@@ -1,0 +1,1 @@
+I’m studying Hsp90-alpha (UniProt: P07900) and want to understand whether conformational dynamics reveal allosteric opportunities beyond the N-terminal ATP pocket. Based on known structures and dynamics studies, are there regions that act as conformational control points, even if no strong ligands are known yet?

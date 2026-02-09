@@ -1,0 +1,1 @@
+I’m looking at BRAF kinase (UniProt: P15056) and I keep seeing resistance mutations pop up against ATP-site inhibitors. Are there any experimentally reported allosteric or non-ATP-site binding pockets on BRAF that people have tried to exploit, and how do they mechanistically bypass common resistance mutations?

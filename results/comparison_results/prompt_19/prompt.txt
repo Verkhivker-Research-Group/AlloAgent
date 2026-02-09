@@ -1,0 +1,1 @@
+I’ve seen allosteric inhibitors reported for protein tyrosine phosphatase 1B (PTP1B, UniProt: P18031) that bind far from the catalytic site. Do similar allosteric mechanisms or pocket architectures appear in other classical PTPs, or does PTP1B seem unusually “allosterically druggable”?

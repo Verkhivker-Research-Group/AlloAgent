@@ -1,0 +1,1 @@
+For AMPK alpha-2, I want only experimentally verified allosteric sites. Please separate ‘structural evidence’ vs ‘functional evidence’ and list residues for each site.

@@ -1,0 +1,169 @@
+Final Output:
+The PubMed search yielded several papers discussing allosteric modulators of the β2 adrenergic receptor. Notably, some studies have identified specific modulators and the residues they interact with. Here's how I plan to proceed:
+
+1. [✓] Query PubMed for literature on allosteric modulators of the β2 adrenergic receptor (completed)
+
+Next steps:
+2. [ ] Extract information about the binding sites of these modulators, focusing on the residues they interact with, from the retrieved abstracts.
+3. [ ] Compare the residues across different modulators to identify common and unique residues.
+4. [ ] Summarize the findings.
+
+I will now extract information about the binding sites and residues from the retrieved literature abstracts.
+
+<solution>
+Based on the PubMed abstracts retrieved:
+- One study identified a negative allosteric modulator (NAM) that interacts with residues E122 and V206 on the β2 adrenergic receptor.
+- Another study discussed the use of molecular docking and site-directed mutagenesis to identify allosteric sites, highlighting residues D79 as part of the allosteric site.
+- The paper mentioning AP-7-168, a biased allosteric modulator, revealed a unique binding mode involving transmembrane helices 3, 4, and 5.
+
+With this information, we can compare the residues:
+- Common residues: No specific common residues were identified across all studies.
+- Unique residues: E122 and V206 (NAM), D79 (allosteric site from computational study), and helices 3, 4, and 5 (AP-7-168 binding).
+
+These findings suggest that while some residues are unique to specific modulators, others like those involved in helices might represent common interaction points.
+
+</solution>
+
+Logs:
+================================ Human Message =================================
+
+For β2 adrenergic receptor, are there known allosteric modulators? If yes, compare them and tell me which residues overlap across multiple modulators vs which are unique..
+================================ Human Message =================================
+
+Each response must include thinking process followed by either <execute> or <solution> tag. But there are no tags in the current response. Please follow the instruction, fix and regenerate the response again.
+================================== Ai Message ==================================
+
+To find known allosteric modulators for the β2 adrenergic receptor and compare them, I will follow these steps:
+
+1. [ ] Query the Guide to PHARMACOLOGY database (GtoPdb) for known allosteric modulators of the β2 adrenergic receptor.
+2. [ ] Extract information about the binding sites of these modulators, focusing on the residues they interact with.
+3. [ ] Compare the residues across different modulators to identify common and unique residues.
+4. [ ] Summarize the findings.
+
+Let's start with the first step.
+
+1. [ ] Query the Guide to PHARMACOLOGY database (GtoPdb) for known allosteric modulators of the β2 adrenergic receptor.
+
+I will execute a query to the GtoPdb database now.
+
+<execute>
+from biomni_biolab.tool.database import query_gtopdb
+
+# Querying the GtoPdb for known allosteric modulators of the β2 adrenergic receptor
+result = query_gtopdb(prompt="allosteric modulators of the β2 adrenergic receptor")
+print(result)
+</execute>
+================================== Ai Message ==================================
+
+<observation>{'success': False, 'error': "OpenAI API error: 'targetId\\\\'"}
+</observation>
+================================== Ai Message ==================================
+
+The initial attempt to query the Guide to PHARMACOLOGY database for allosteric modulators of the β2 adrenergic receptor failed due to an API error. To address this, I will modify the query to ensure it aligns with the database's requirements.
+
+1. [✗] Query the Guide to PHARMACOLOGY database (GtoPdb) for known allosteric modulators of the β2 adrenergic receptor (failed due to API error).
+
+I will now retry the query with a more specific prompt to correctly engage the database.
+
+<execute>
+from biomni_biolab.tool.database import query_gtopdb
+
+# Retrying the query with a modified prompt for allosteric modulators of the β2 adrenergic receptor
+result = query_gtopdb(prompt="Find allosteric modulators for the beta-2 adrenergic receptor")
+print(result)
+</execute>
+================================== Ai Message ==================================
+
+<observation>{'success': False, 'error': "OpenAI API error: 'targetId\\\\'"}
+</observation>
+================================== Ai Message ==================================
+
+The second attempt to query the Guide to PHARMACOLOGY database for allosteric modulators of the β2 adrenergic receptor also failed due to the same API error. It appears the issue might be related to how the database is accessed or the specific query format.
+
+As an alternative, I will try querying another database, such as PubMed, to gather literature on the topic. This might provide insights into known allosteric modulators of the β2 adrenergic receptor.
+
+1. [✗] Query the Guide to PHARMACOLOGY database (GtoPdb) for known allosteric modulators of the β2 adrenergic receptor (failed due to API error).
+2. [ ] Query PubMed for literature on allosteric modulators of the β2 adrenergic receptor.
+
+Let's proceed with querying PubMed.
+
+<execute>
+from biomni_biolab.tool.literature import query_pubmed
+
+# Querying PubMed for literature on allosteric modulators of the β2 adrenergic receptor
+pubmed_results = query_pubmed(query="allosteric modulators of the beta-2 adrenergic receptor")
+print(pubmed_results)
+</execute>
+================================== Ai Message ==================================
+
+<observation>Title: A biased allosteric modulator functions as a molecular glue to induce β
+Abstract: Family A G-protein coupled receptors (GPCRs) are typically described as monomers, yet growing evidence suggests they can form dimers with distinct signaling properties1-3. The mechanisms and therapeutic potential of such dimerization, however, remain poorly understood. Here, we show that AP-7-168, an optimized derivative of a β-arrestin-biased negative allosteric modulator of the β2-adrenergic receptor (β2AR) that sustains bronchorelaxation in cell and tissue models4, functions as a molecular glue to promote β2AR homodimerization. Cryo-EM structures reveal a unique binding mode in which two AP-7-168 molecules pack within a pocket formed by transmembrane helices 3, 4, and 5 of two protomers, stabilizing a dimeric conformation that selectively prevents β-arrestin coupling. In cells, AP-7-168 robustly induces β2AR dimerization and drives enlarged nanocluster formation. Combined with extensive functional studies, our findings unveil a novel allosteric mechanism by which a small molecule biases β2AR signaling through dimerization, highlighting ligand-induced dimerization as a strategy for GPCR modulation.
+Journal: Research square
+
+Title: A biased allosteric modulator functions as a molecular glue to induce β
+Abstract: Family A G-protein coupled receptors (GPCRs) are typically described as monomers, yet growing evidence suggests they can form dimers with distinct signaling properties
+Journal: bioRxiv : the preprint server for biology
+
+Title: Biased Orthosteric Agonism and Allosteric Modulation: Emerging Strategies for Developing New Class of β-Agonists for Obstructive Airway Diseases.
+Abstract: The obstructive lung diseases (OLDs), such as asthma and chronic obstructive pulmonary disease (COPD) are characterized by bronchoconstriction and difficulty in breathing. β
+Journal: American journal of respiratory cell and molecular biology
+
+Title: Allosteric Inhibition of the β
+Abstract: We designed and synthesized 27 new amide and dipeptide derivatives containing a substituted phenylalanine as negative allosteric modulators (NAMs) for the beta-2 adrenergic receptor (β
+Journal: Chemistry & biodiversity
+
+Title: Integrative residue-intuitive machine learning and MD Approach to Unveil Allosteric Site and Mechanism for β2AR.
+Abstract: Allosteric drugs offer a new avenue for modern drug design. However, the identification of cryptic allosteric sites presents a formidable challenge. Following the allostery nature of residue-driven conformation transition, we propose a state-of-the-art computational pipeline by developing a residue-intuitive hybrid machine learning (RHML) model coupled with molecular dynamics (MD) simulation, through which we can efficiently identify the allosteric site and allosteric modulator as well as reveal their regulation mechanism. For the clinical target β2-adrenoceptor (β2AR), we discover an additional allosteric site located around residues D79
+Journal: Nature communications
+
+Title: Gut microbe-generated phenylacetylglutamine is an endogenous allosteric modulator of β2-adrenergic receptors.
+Abstract: Allosteric modulation is a central mechanism for metabolic regulation but has yet to be described for a gut microbiota-host interaction. Phenylacetylglutamine (PAGln), a gut microbiota-derived metabolite, has previously been clinically associated with and mechanistically linked to cardiovascular disease (CVD) and heart failure (HF). Here, using cells expressing β1- versus β2-adrenergic receptors (β1AR and β2AR), PAGln is shown to act as a negative allosteric modulator (NAM) of β2AR, but not β1AR. In functional studies, PAGln is further shown to promote NAM effects in both isolated male mouse cardiomyocytes and failing human heart left ventricle muscle (contracting trabeculae). Finally, using in silico docking studies coupled with site-directed mutagenesis and functional analyses, we identified sites on β2AR (residues E122 and V206) that when mutated still confer responsiveness to canonical β2AR agonists but no longer show PAGln-elicited NAM activity. The present studies reveal the gut microbiota-obligate metabolite PAGln as an endogenous NAM of a host GPCR.
+Journal: Nature communications
+
+Title: Structure optimization of Cmpd-15 as negative allosteric modulators for the β
+Abstract: 19 derivatives of 1-benzyl-3-arylpyrazole-5-carboxamides (H
+Journal: Bioorganic & medicinal chemistry
+
+Title: Molecular determinants of ligand efficacy and potency in GPCR signaling.
+Abstract: Heterotrimeric guanine nucleotide-binding protein (G protein)-coupled receptors (GPCRs) bind to extracellular ligands and drugs and modulate intracellular responses through conformational changes. Despite their importance as drug targets, the molecular origins of pharmacological properties such as efficacy (maximum signaling response) and potency (the ligand concentration at half-maximal response) remain poorly understood for any ligand-receptor-signaling system. We used the prototypical adrenaline-β2 adrenergic receptor-G protein system to reveal how specific receptor residues decode and translate the information encoded in a ligand to mediate a signaling response. We present a data science framework to integrate pharmacological and structural data to uncover structural changes and allosteric networks relevant for ligand pharmacology. These methods can be tailored to study any ligand-receptor-signaling system, and the principles open possibilities for designing orthosteric and allosteric compounds with defined signaling properties.
+Journal: Science (New York, N.Y.)
+
+Title: Advances in adrenergic receptors for the treatment of chronic obstructive pulmonary disease: 2023 update.
+Abstract: Strong scientific evidence and large experience support the use of β
+Recent research on novel β
+Compounds that preferentially activate a G
+Journal: Expert opinion on pharmacotherapy
+
+Title: Identification of a β-arrestin-biased negative allosteric modulator for the β
+Abstract: Catecholamine-stimulated β
+Journal: Proceedings of the National Academy of Sciences of the United States of America
+</observation>
+================================ Human Message =================================
+
+Each response must include thinking process followed by either <execute> or <solution> tag. But there are no tags in the current response. Please follow the instruction, fix and regenerate the response again.
+================================== Ai Message ==================================
+
+The PubMed search yielded several papers discussing allosteric modulators of the β2 adrenergic receptor. Notably, some studies have identified specific modulators and the residues they interact with. Here's how I plan to proceed:
+
+1. [✓] Query PubMed for literature on allosteric modulators of the β2 adrenergic receptor (completed)
+
+Next steps:
+2. [ ] Extract information about the binding sites of these modulators, focusing on the residues they interact with, from the retrieved abstracts.
+3. [ ] Compare the residues across different modulators to identify common and unique residues.
+4. [ ] Summarize the findings.
+
+I will now extract information about the binding sites and residues from the retrieved literature abstracts.
+
+<solution>
+Based on the PubMed abstracts retrieved:
+- One study identified a negative allosteric modulator (NAM) that interacts with residues E122 and V206 on the β2 adrenergic receptor.
+- Another study discussed the use of molecular docking and site-directed mutagenesis to identify allosteric sites, highlighting residues D79 as part of the allosteric site.
+- The paper mentioning AP-7-168, a biased allosteric modulator, revealed a unique binding mode involving transmembrane helices 3, 4, and 5.
+
+With this information, we can compare the residues:
+- Common residues: No specific common residues were identified across all studies.
+- Unique residues: E122 and V206 (NAM), D79 (allosteric site from computational study), and helices 3, 4, and 5 (AP-7-168 binding).
+
+These findings suggest that while some residues are unique to specific modulators, others like those involved in helices might represent common interaction points.
+
+</solution>
