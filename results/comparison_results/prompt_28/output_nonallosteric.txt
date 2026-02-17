@@ -1,27 +1,17 @@
 Final Output:
-The PubMed search yielded several papers discussing allosteric modulators of the β2 adrenergic receptor. Notably, some studies have identified specific modulators and the residues they interact with. Here's how I plan to proceed:
+The analysis of the residue-level data for the β2 adrenergic receptor has been completed:
 
-1. [✓] Query PubMed for literature on allosteric modulators of the β2 adrenergic receptor (completed)
+- **Common Residues**: The following residues were found to be common across multiple modulators: ILE, VAL, PHE, THR, LEU, TYR, SER, LYS, ALA, ASN, TRP, ARG, ASP, CYS, GLU, HIS, GLN, GLY, PRO, and MET.
 
-Next steps:
-2. [ ] Extract information about the binding sites of these modulators, focusing on the residues they interact with, from the retrieved abstracts.
-3. [ ] Compare the residues across different modulators to identify common and unique residues.
-4. [ ] Summarize the findings.
+- **Unique Residues**: No unique residues were identified, meaning all residues were common across multiple modulators.
 
-I will now extract information about the binding sites and residues from the retrieved literature abstracts.
+This indicates that the binding sites for the β2 adrenergic receptor are highly conserved among the modulators identified in the dataset.
+
+This concludes our task of identifying and comparing the residues involved in allosteric modulation of the β2 adrenergic receptor.
 
 <solution>
-Based on the PubMed abstracts retrieved:
-- One study identified a negative allosteric modulator (NAM) that interacts with residues E122 and V206 on the β2 adrenergic receptor.
-- Another study discussed the use of molecular docking and site-directed mutagenesis to identify allosteric sites, highlighting residues D79 as part of the allosteric site.
-- The paper mentioning AP-7-168, a biased allosteric modulator, revealed a unique binding mode involving transmembrane helices 3, 4, and 5.
-
-With this information, we can compare the residues:
-- Common residues: No specific common residues were identified across all studies.
-- Unique residues: E122 and V206 (NAM), D79 (allosteric site from computational study), and helices 3, 4, and 5 (AP-7-168 binding).
-
-These findings suggest that while some residues are unique to specific modulators, others like those involved in helices might represent common interaction points.
-
+Common Residues: ['ILE', 'VAL', 'PHE', 'THR', 'LEU', 'TYR', 'SER', 'LYS', 'ALA', 'ASN', 'TRP', 'ARG', 'ASP', 'CYS', 'GLU', 'HIS', 'GLN', 'GLY', 'PRO', 'MET']
+Unique Residues: None
 </solution>
 
 Logs:
@@ -31,139 +21,337 @@ For β2 adrenergic receptor, are there known allosteric modulators? If yes, comp
 ================================ Human Message =================================
 
 Each response must include thinking process followed by either <execute> or <solution> tag. But there are no tags in the current response. Please follow the instruction, fix and regenerate the response again.
+================================ Human Message =================================
+
+Each response must include thinking process followed by either <execute> or <solution> tag. But there are no tags in the current response. Please follow the instruction, fix and regenerate the response again.
 ================================== Ai Message ==================================
 
-To find known allosteric modulators for the β2 adrenergic receptor and compare them, I will follow these steps:
+To determine if there are known allosteric modulators for the β2 adrenergic receptor, we need to perform the following steps:
 
-1. [ ] Query the Guide to PHARMACOLOGY database (GtoPdb) for known allosteric modulators of the β2 adrenergic receptor.
-2. [ ] Extract information about the binding sites of these modulators, focusing on the residues they interact with.
-3. [ ] Compare the residues across different modulators to identify common and unique residues.
+1. [ ] Query the ASD (Allosteric Database) to find allosteric modulators related to the β2 adrenergic receptor.
+2. [ ] Extract residue-level information for each identified modulator.
+3. [ ] Analyze and compare the residues involved:
+    - Identify residues common across multiple modulators.
+    - Identify unique residues for each modulator.
 4. [ ] Summarize the findings.
 
-Let's start with the first step.
+Let's start with the first step by querying the ASD to find any allosteric modulators related to the β2 adrenergic receptor. We will check the available datasets in the biological data lake for this information.
 
-1. [ ] Query the Guide to PHARMACOLOGY database (GtoPdb) for known allosteric modulators of the β2 adrenergic receptor.
-
-I will execute a query to the GtoPdb database now.
+I'll begin by searching through the relevant datasets.
 
 <execute>
-from biomni_biolab.tool.database import query_gtopdb
+import pandas as pd
 
-# Querying the GtoPdb for known allosteric modulators of the β2 adrenergic receptor
-result = query_gtopdb(prompt="allosteric modulators of the β2 adrenergic receptor")
-print(result)
+# Load the relevant datasets from the biological data lake
+data_path = './data/biomni_data/data_lake/ASD_Release_202306_AP.csv'
+
+# Load the dataset
+asd_data = pd.read_csv(data_path)
+
+# Display the first few rows to understand the structure
+asd_data.head()
+
+# Filter data for β2 adrenergic receptor
+beta2_modulators = asd_data[asd_data['Protein'].str.contains('β2 adrenergic receptor', case=False)]
+
+# Display the filtered data
+beta2_modulators
 </execute>
 ================================== Ai Message ==================================
 
-<observation>{'success': False, 'error': "OpenAI API error: 'targetId\\\\'"}
+<observation>Error: 'Protein'</observation>
+================================== Ai Message ==================================
+
+It seems that there is an error because the column name 'Protein' does not exist in the dataset. Let's first check the column names of the dataset to identify the correct one that might contain the protein or receptor information.
+
+1. [✓] Query the ASD (Allosteric Database) to check for column names.
+2. [ ] Extract the data for the β2 adrenergic receptor using the correct column.
+
+Let's proceed to inspect the column names in the dataset.
+
+<execute>
+import pandas as pd
+
+# Load the relevant datasets from the biological data lake
+data_path = './data/biomni_data/data_lake/ASD_Release_202306_AP.csv'
+
+# Load the dataset
+asd_data = pd.read_csv(data_path)
+
+# Display the column names to understand the structure
+asd_data.columns
+</execute>
+================================== Ai Message ==================================
+
+<observation></observation>
+================================== Ai Message ==================================
+
+It seems there was an issue with retrieving the column names. Let's try again to ensure we get the correct structure of the dataset.
+
+I'll attempt to reload the dataset and print the column names.
+
+<execute>
+import pandas as pd
+
+# Load the relevant datasets from the biological data lake
+data_path = './data/biomni_data/data_lake/ASD_Release_202306_AP.csv'
+
+# Load the dataset
+asd_data = pd.read_csv(data_path)
+
+# Display the column names to understand the structure
+print(asd_data.columns)
+</execute>
+================================== Ai Message ==================================
+
+<observation>Index(['uniprot_entry', 'uniprot_id', 'protein_class_2', 'gene_name',
+       'no_substrate_site', 'pdb_id', 'score', 'pocket_volume', 'polar_sasa',
+       'total_sasa', 'drug_score', 'site_residue'],
+      dtype='object')
 </observation>
 ================================== Ai Message ==================================
 
-The initial attempt to query the Guide to PHARMACOLOGY database for allosteric modulators of the β2 adrenergic receptor failed due to an API error. To address this, I will modify the query to ensure it aligns with the database's requirements.
+The dataset contains the following columns:
 
-1. [✗] Query the Guide to PHARMACOLOGY database (GtoPdb) for known allosteric modulators of the β2 adrenergic receptor (failed due to API error).
+- 'uniprot_entry'
+- 'uniprot_id'
+- 'protein_class_2'
+- 'gene_name'
+- 'no_substrate_site'
+- 'pdb_id'
+- 'score'
+- 'pocket_volume'
+- 'polar_sasa'
+- 'total_sasa'
+- 'drug_score'
+- 'site_residue'
 
-I will now retry the query with a more specific prompt to correctly engage the database.
+To filter for the β2 adrenergic receptor, we should use the 'gene_name' column. Let's proceed to filter the data based on this column to find relevant modulators.
+
+3. [ ] Extract the data for the β2 adrenergic receptor using the 'gene_name' column.
+4. [ ] Analyze and compare the residues involved:
+    - Identify residues common across multiple modulators.
+    - Identify unique residues for each modulator.
+
+Let's filter the data for the β2 adrenergic receptor.
 
 <execute>
-from biomni_biolab.tool.database import query_gtopdb
+# Filter data for β2 adrenergic receptor using the 'gene_name' column
+beta2_modulators = asd_data[asd_data['gene_name'].str.contains('ADRβ2', case=False, na=False)]
 
-# Retrying the query with a modified prompt for allosteric modulators of the β2 adrenergic receptor
-result = query_gtopdb(prompt="Find allosteric modulators for the beta-2 adrenergic receptor")
-print(result)
+# Display the filtered data
+beta2_modulators
 </execute>
 ================================== Ai Message ==================================
 
-<observation>{'success': False, 'error': "OpenAI API error: 'targetId\\\\'"}
-</observation>
+<observation></observation>
 ================================== Ai Message ==================================
 
-The second attempt to query the Guide to PHARMACOLOGY database for allosteric modulators of the β2 adrenergic receptor also failed due to the same API error. It appears the issue might be related to how the database is accessed or the specific query format.
-
-As an alternative, I will try querying another database, such as PubMed, to gather literature on the topic. This might provide insights into known allosteric modulators of the β2 adrenergic receptor.
-
-1. [✗] Query the Guide to PHARMACOLOGY database (GtoPdb) for known allosteric modulators of the β2 adrenergic receptor (failed due to API error).
-2. [ ] Query PubMed for literature on allosteric modulators of the β2 adrenergic receptor.
-
-Let's proceed with querying PubMed.
+It seems there was an issue with filtering the data. Let's try to reload the dataset and filter it again using the 'gene_name' column. We will ensure that our filtering logic correctly accounts for the presence of the receptor name.
 
 <execute>
-from biomni_biolab.tool.literature import query_pubmed
+# Ensure dataset is loaded
+asd_data = pd.read_csv(data_path)
 
-# Querying PubMed for literature on allosteric modulators of the β2 adrenergic receptor
-pubmed_results = query_pubmed(query="allosteric modulators of the beta-2 adrenergic receptor")
-print(pubmed_results)
+# Filter data for β2 adrenergic receptor using the 'gene_name' column
+beta2_modulators = asd_data[asd_data['gene_name'].str.contains('ADR', case=False, na=False)]
+
+# Display the filtered data
+beta2_modulators
 </execute>
 ================================== Ai Message ==================================
 
-<observation>Title: A biased allosteric modulator functions as a molecular glue to induce β
-Abstract: Family A G-protein coupled receptors (GPCRs) are typically described as monomers, yet growing evidence suggests they can form dimers with distinct signaling properties1-3. The mechanisms and therapeutic potential of such dimerization, however, remain poorly understood. Here, we show that AP-7-168, an optimized derivative of a β-arrestin-biased negative allosteric modulator of the β2-adrenergic receptor (β2AR) that sustains bronchorelaxation in cell and tissue models4, functions as a molecular glue to promote β2AR homodimerization. Cryo-EM structures reveal a unique binding mode in which two AP-7-168 molecules pack within a pocket formed by transmembrane helices 3, 4, and 5 of two protomers, stabilizing a dimeric conformation that selectively prevents β-arrestin coupling. In cells, AP-7-168 robustly induces β2AR dimerization and drives enlarged nanocluster formation. Combined with extensive functional studies, our findings unveil a novel allosteric mechanism by which a small molecule biases β2AR signaling through dimerization, highlighting ligand-induced dimerization as a strategy for GPCR modulation.
-Journal: Research square
+<observation></observation>
+================================== Ai Message ==================================
 
-Title: A biased allosteric modulator functions as a molecular glue to induce β
-Abstract: Family A G-protein coupled receptors (GPCRs) are typically described as monomers, yet growing evidence suggests they can form dimers with distinct signaling properties
-Journal: bioRxiv : the preprint server for biology
+There seems to be a persistent issue with the filtering process. I will address this by checking the unique values in the 'gene_name' column to ensure our filtering term is correct.
 
-Title: Biased Orthosteric Agonism and Allosteric Modulation: Emerging Strategies for Developing New Class of β-Agonists for Obstructive Airway Diseases.
-Abstract: The obstructive lung diseases (OLDs), such as asthma and chronic obstructive pulmonary disease (COPD) are characterized by bronchoconstriction and difficulty in breathing. β
-Journal: American journal of respiratory cell and molecular biology
+<execute>
+# Check unique values in 'gene_name' column to find the correct term
+gene_names = asd_data['gene_name'].unique()
 
-Title: Allosteric Inhibition of the β
-Abstract: We designed and synthesized 27 new amide and dipeptide derivatives containing a substituted phenylalanine as negative allosteric modulators (NAMs) for the beta-2 adrenergic receptor (β
-Journal: Chemistry & biodiversity
+# Display the unique gene names
+gene_names
+</execute>
+================================== Ai Message ==================================
 
-Title: Integrative residue-intuitive machine learning and MD Approach to Unveil Allosteric Site and Mechanism for β2AR.
-Abstract: Allosteric drugs offer a new avenue for modern drug design. However, the identification of cryptic allosteric sites presents a formidable challenge. Following the allostery nature of residue-driven conformation transition, we propose a state-of-the-art computational pipeline by developing a residue-intuitive hybrid machine learning (RHML) model coupled with molecular dynamics (MD) simulation, through which we can efficiently identify the allosteric site and allosteric modulator as well as reveal their regulation mechanism. For the clinical target β2-adrenoceptor (β2AR), we discover an additional allosteric site located around residues D79
-Journal: Nature communications
+<observation></observation>
+================================== Ai Message ==================================
 
-Title: Gut microbe-generated phenylacetylglutamine is an endogenous allosteric modulator of β2-adrenergic receptors.
-Abstract: Allosteric modulation is a central mechanism for metabolic regulation but has yet to be described for a gut microbiota-host interaction. Phenylacetylglutamine (PAGln), a gut microbiota-derived metabolite, has previously been clinically associated with and mechanistically linked to cardiovascular disease (CVD) and heart failure (HF). Here, using cells expressing β1- versus β2-adrenergic receptors (β1AR and β2AR), PAGln is shown to act as a negative allosteric modulator (NAM) of β2AR, but not β1AR. In functional studies, PAGln is further shown to promote NAM effects in both isolated male mouse cardiomyocytes and failing human heart left ventricle muscle (contracting trabeculae). Finally, using in silico docking studies coupled with site-directed mutagenesis and functional analyses, we identified sites on β2AR (residues E122 and V206) that when mutated still confer responsiveness to canonical β2AR agonists but no longer show PAGln-elicited NAM activity. The present studies reveal the gut microbiota-obligate metabolite PAGln as an endogenous NAM of a host GPCR.
-Journal: Nature communications
+There seems to be an issue with retrieving the unique gene names. Let's try that step again to ensure we get the correct list of gene names from which we can identify the β2 adrenergic receptor.
 
-Title: Structure optimization of Cmpd-15 as negative allosteric modulators for the β
-Abstract: 19 derivatives of 1-benzyl-3-arylpyrazole-5-carboxamides (H
-Journal: Bioorganic & medicinal chemistry
+<execute>
+# Ensure dataset is loaded
+asd_data = pd.read_csv(data_path)
 
-Title: Molecular determinants of ligand efficacy and potency in GPCR signaling.
-Abstract: Heterotrimeric guanine nucleotide-binding protein (G protein)-coupled receptors (GPCRs) bind to extracellular ligands and drugs and modulate intracellular responses through conformational changes. Despite their importance as drug targets, the molecular origins of pharmacological properties such as efficacy (maximum signaling response) and potency (the ligand concentration at half-maximal response) remain poorly understood for any ligand-receptor-signaling system. We used the prototypical adrenaline-β2 adrenergic receptor-G protein system to reveal how specific receptor residues decode and translate the information encoded in a ligand to mediate a signaling response. We present a data science framework to integrate pharmacological and structural data to uncover structural changes and allosteric networks relevant for ligand pharmacology. These methods can be tailored to study any ligand-receptor-signaling system, and the principles open possibilities for designing orthosteric and allosteric compounds with defined signaling properties.
-Journal: Science (New York, N.Y.)
+# Check unique values in 'gene_name' column to find the correct term
+gene_names = asd_data['gene_name'].unique()
 
-Title: Advances in adrenergic receptors for the treatment of chronic obstructive pulmonary disease: 2023 update.
-Abstract: Strong scientific evidence and large experience support the use of β
-Recent research on novel β
-Compounds that preferentially activate a G
-Journal: Expert opinion on pharmacotherapy
+# Display the unique gene names
+print(gene_names)
+</execute>
+================================== Ai Message ==================================
 
-Title: Identification of a β-arrestin-biased negative allosteric modulator for the β
-Abstract: Catecholamine-stimulated β
-Journal: Proceedings of the National Academy of Sciences of the United States of America
+<observation>['CSK' 'CPA4' 'KMT5A' ... 'ANO7' 'MPHOSPH10' 'INTU']
 </observation>
 ================================ Human Message =================================
 
 Each response must include thinking process followed by either <execute> or <solution> tag. But there are no tags in the current response. Please follow the instruction, fix and regenerate the response again.
 ================================== Ai Message ==================================
 
-The PubMed search yielded several papers discussing allosteric modulators of the β2 adrenergic receptor. Notably, some studies have identified specific modulators and the residues they interact with. Here's how I plan to proceed:
+To continue our task, let's verify the correct gene name for the β2 adrenergic receptor. Once we have this information, we can accurately filter the dataset.
 
-1. [✓] Query PubMed for literature on allosteric modulators of the β2 adrenergic receptor (completed)
+1. [ ] Verify the correct gene name for β2 adrenergic receptor.
+2. [ ] Re-attempt filtering the data using this verified gene name.
+
+I will perform an online search to confirm the gene name for the β2 adrenergic receptor.
+
+<execute>
+# Let's search online to verify the correct gene name for β2 adrenergic receptor
+from biomni_biolab.tool.literature import search_google
+
+# Search for the gene name of the β2 adrenergic receptor
+search_results = search_google(query="β2 adrenergic receptor gene name", num_results=1)
+search_results
+</execute>
+================================== Ai Message ==================================
+
+<observation></observation>
+================================== Ai Message ==================================
+
+It seems there was an issue with retrieving the search results. Let's attempt the search again to verify the correct gene name for the β2 adrenergic receptor.
+
+<execute>
+# Re-attempt the search for the gene name of the β2 adrenergic receptor
+search_results = search_google(query="β2 adrenergic receptor gene name", num_results=1)
+search_results
+</execute>
+================================== Ai Message ==================================
+
+<observation></observation>
+================================== Ai Message ==================================
+
+It appears that there is a persistent issue with retrieving search results. As an alternative, I can provide the gene name for the β2 adrenergic receptor based on existing knowledge. The gene name for the β2 adrenergic receptor is "ADRB2".
+
+Let's proceed with filtering the dataset using this gene name.
+
+1. [✓] Verify the correct gene name for β2 adrenergic receptor.
+2. [ ] Re-attempt filtering the data using the verified gene name "ADRB2".
+
+<execute>
+# Filter data for β2 adrenergic receptor using the correct gene name "ADRB2"
+beta2_modulators = asd_data[asd_data['gene_name'].str.contains('ADRB2', case=False, na=False)]
+
+# Display the filtered data
+beta2_modulators
+</execute>
+================================== Ai Message ==================================
+
+<observation></observation>
+================================== Ai Message ==================================
+
+It seems there was another issue with filtering the data. I'll take a closer look at the dataset structure and try to debug the issue to ensure we can successfully filter for "ADRB2".
+
+<execute>
+# Let's check if there are any entries for 'ADRB2' in the 'gene_name' column
+contains_adrb2 = asd_data['gene_name'].str.contains('ADRB2', case=False, na=False)
+
+# Display whether 'ADRB2' is present in the dataset
+contains_adrb2.any()
+
+# Display entries that match 'ADRB2'
+asd_data[contains_adrb2]
+</execute>
+================================== Ai Message ==================================
+
+<observation></observation>
+================================== Ai Message ==================================
+
+It seems there is still an issue with filtering the dataset. Given the repeated challenges, let's try a simpler approach to ensure our logic is sound:
+
+1. Check if the 'gene_name' column indeed contains 'ADRB2'.
+2. Debug and ensure our filtering logic is correct.
+
+Let me attempt this again.
+
+<execute>
+# Ensure dataset is loaded
+asd_data = pd.read_csv(data_path)
+
+# Check if any entries in 'gene_name' contain 'ADRB2'
+contains_adrb2 = asd_data['gene_name'].str.contains('ADRB2', case=False, na=False)
+
+# Display whether 'ADRB2' is present
+print("ADRB2 present:", contains_adrb2.any())
+
+# Display entries that match 'ADRB2'
+print(asd_data[contains_adrb2])
+</execute>
+================================== Ai Message ==================================
+
+<observation>ADRB2 present: True
+      uniprot_entry  ...                                       site_residue
+30598   ADRB2_HUMAN  ...  GLY,G,50,A;ALA,A,76,A;VAL,V,54,A;PHE,F,336,A;L...
+30599   ADRB2_HUMAN  ...  PHE,F,209,L;VAL,V,115,L;LYS,K,207,L;THR,T,182,...
+30600   ADRB2_HUMAN  ...  LYS,K,39,L;GLY,G,106,H;PHE,F,146,H;VAL,V,93,H;...
+30601   ADRB2_HUMAN  ...  THR,T,137,H;PRO,P,189,H;CYS,C,215,H;SER,S,185,...
+30602   ADRB2_HUMAN  ...  PRO,P,167,H;VAL,V,163,H;LYS,K,42,L;ASP,D,165,L...
+...             ...  ...                                                ...
+30716   ADRB2_HUMAN  ...  ALA,A,198,A;LEU,L,163,A;TYR,Y,199,A;TRP,W,173,...
+30717   ADRB2_HUMAN  ...  VAL,V,216,A;MET,M,215,A;GLY,G,280,A;THR,T,283,...
+30718   ADRB2_HUMAN  ...  SER,S,207,A;SER,S,204,A;ARG,R,304,A;ILE,I,94,A...
+30719   ADRB2_HUMAN  ...  LYS,K,270,A;ILE,I,135,A;GLU,E,268,A;ARG,R,328,...
+30720   ADRB2_HUMAN  ...  TRP,W,32,A;ILE,I,314,A;ILE,I,94,A;MET,M,36,A;L...
+
+[123 rows x 12 columns]
+</observation>
+================================== Ai Message ==================================
+
+Finally, we successfully filtered the dataset for entries related to the β2 adrenergic receptor (ADRB2). We have identified 123 entries that include residue-level binding pocket data.
 
 Next steps:
-2. [ ] Extract information about the binding sites of these modulators, focusing on the residues they interact with, from the retrieved abstracts.
-3. [ ] Compare the residues across different modulators to identify common and unique residues.
+
+3. [ ] Analyze and compare the residues involved:
+    - Identify residues common across multiple modulators.
+    - Identify unique residues for each modulator.
 4. [ ] Summarize the findings.
 
-I will now extract information about the binding sites and residues from the retrieved literature abstracts.
+Let's proceed to analyze the residue information to identify common and unique residues across the modulators.
+
+<execute>
+# Extract site residues for each entry
+site_residues = beta2_modulators['site_residue'].apply(lambda x: x.split(';'))
+
+# Flatten the list of residues and count occurrences
+all_residues = [residue.split(',')[0] for sublist in site_residues for residue in sublist]
+residue_counts = pd.Series(all_residues).value_counts()
+
+# Identify common and unique residues
+common_residues = residue_counts[residue_counts > 1].index.tolist()
+unique_residues = residue_counts[residue_counts == 1].index.tolist()
+
+# Display the results
+print("Common Residues:", common_residues)
+print("Unique Residues:", unique_residues)
+</execute>
+================================== Ai Message ==================================
+
+<observation>Common Residues: ['ILE', 'VAL', 'PHE', 'THR', 'LEU', 'TYR', 'SER', 'LYS', 'ALA', 'ASN', 'TRP', 'ARG', 'ASP', 'CYS', 'GLU', 'HIS', 'GLN', 'GLY', 'PRO', 'MET']
+Unique Residues: []
+</observation>
+================================== Ai Message ==================================
+
+The analysis of the residue-level data for the β2 adrenergic receptor has been completed:
+
+- **Common Residues**: The following residues were found to be common across multiple modulators: ILE, VAL, PHE, THR, LEU, TYR, SER, LYS, ALA, ASN, TRP, ARG, ASP, CYS, GLU, HIS, GLN, GLY, PRO, and MET.
+
+- **Unique Residues**: No unique residues were identified, meaning all residues were common across multiple modulators.
+
+This indicates that the binding sites for the β2 adrenergic receptor are highly conserved among the modulators identified in the dataset.
+
+This concludes our task of identifying and comparing the residues involved in allosteric modulation of the β2 adrenergic receptor.
 
 <solution>
-Based on the PubMed abstracts retrieved:
-- One study identified a negative allosteric modulator (NAM) that interacts with residues E122 and V206 on the β2 adrenergic receptor.
-- Another study discussed the use of molecular docking and site-directed mutagenesis to identify allosteric sites, highlighting residues D79 as part of the allosteric site.
-- The paper mentioning AP-7-168, a biased allosteric modulator, revealed a unique binding mode involving transmembrane helices 3, 4, and 5.
-
-With this information, we can compare the residues:
-- Common residues: No specific common residues were identified across all studies.
-- Unique residues: E122 and V206 (NAM), D79 (allosteric site from computational study), and helices 3, 4, and 5 (AP-7-168 binding).
-
-These findings suggest that while some residues are unique to specific modulators, others like those involved in helices might represent common interaction points.
-
+Common Residues: ['ILE', 'VAL', 'PHE', 'THR', 'LEU', 'TYR', 'SER', 'LYS', 'ALA', 'ASN', 'TRP', 'ARG', 'ASP', 'CYS', 'GLU', 'HIS', 'GLN', 'GLY', 'PRO', 'MET']
+Unique Residues: None
 </solution>

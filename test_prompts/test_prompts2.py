@@ -1,4 +1,3 @@
-
 import sys, os
 sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 
@@ -8,9 +7,19 @@ from prompts import PROMPTS, ALLOSTERIC_DATA
 
 load_dotenv()
 
+import inspect
+
+def make_agent(allosteric_flag: bool):
+    kwargs = dict(llm="gpt-4o", allosteric=allosteric_flag, api_key=os.environ["OPENAI_API_KEY"])
+    sig = inspect.signature(A1.__init__)
+    if "use_vector_search" in sig.parameters:
+        kwargs["use_vector_search"] = False
+    return A1(**kwargs)
+
+
 prompt_items = list(PROMPTS.items())
 # Start with prompt n
-n = 21 - 1 # prompt number -1 (0 indexed)
+n = 25 - 1 # prompt number - 1 (0 indexed)
 # Process prompts from start to end (set n above)
 for prompt_name, prompt_text in prompt_items[n:n+3]:
     try:
@@ -32,7 +41,7 @@ for prompt_name, prompt_text in prompt_items[n:n+3]:
 
         # Run with allosteric=True
         print(f"\nRunning {prompt_name} with allosteric=True...")
-        agent_allosteric = A1(llm="gpt-4o", allosteric=True, use_vector_search=False, api_key=os.environ["OPENAI_API_KEY"])
+        agent_allosteric = make_agent(True)
         agent_allosteric.add_data(ALLOSTERIC_DATA)  # remember to add to allosteric_file_ids in a1.py too.
 
         log_allosteric, final_output_allosteric = agent_allosteric.go(prompt_text)
@@ -48,7 +57,7 @@ for prompt_name, prompt_text in prompt_items[n:n+3]:
 
         # Run with allosteric=False
         print(f"\nRunning {prompt_name} with allosteric=False...")
-        agent_nonallosteric = A1(llm="gpt-4o", allosteric=False, use_vector_search=False, api_key=os.environ["OPENAI_API_KEY"])
+        agent_nonallosteric = make_agent(False)
 
         log_nonallosteric, final_output_nonallosteric = agent_nonallosteric.go(prompt_text)
 
