@@ -1,0 +1,33 @@
+# syntax=docker/dockerfile:1.7
+#
+# alloagent-eval:v4 - the final image of the capability-gate phase.
+#
+# It is the frozen eval image alloagent-eval:v3 (sha256:56225150e138,
+# baked commit ca0179f) plus:
+#   * the two GPU conda envs that were installed in throwaway containers
+#     from that image, as committed base images:
+#       alloagent-gpu-boltz2:v1  -> /opt/conda/envs/boltz2_env
+#       alloagent-gpu-bioemu:v1  -> /opt/conda/envs/bioemu_env
+#     (torch 2.14.1+cu130, boltz 2.2.1, bioemu 1.4.1)
+#   * the current repository, installed editable into alloagent_e1.
+#
+# The GPU envs are COPYed rather than re-installed so that the exact
+# resolved versions are reused.  The envs are NOT in the main env and NOT
+# in pocketminer_env.
+#
+# Build:
+#   docker build -f Dockerfile.v4 -t alloagent-eval:v4 .
+FROM alloagent-gpu-boltz2:v1
+
+USER root
+COPY --from=alloagent-gpu-bioemu:v1 --chown=appuser:appuser \
+     /opt/conda/envs/bioemu_env /opt/conda/envs/bioemu_env
+COPY --chown=appuser:appuser . /workspace
+RUN /opt/conda/envs/alloagent_e1/bin/pip install --no-cache-dir -e /workspace
+RUN /opt/conda/envs/boltz2_env/bin/python -c \
+    "import torch, boltz; print('boltz2 env ok', torch.__version__, torch.cuda.is_available())"
+RUN /opt/conda/envs/bioemu_env/bin/python -c \
+    "import torch, bioemu; print('bioemu env ok', torch.__version__, torch.cuda.is_available())"
+USER appuser
+WORKDIR /workspace
+CMD ["/opt/conda/envs/alloagent_e1/bin/python", "-m", "pytest", "tests/", "--no-header", "--no-summary", "-q"]

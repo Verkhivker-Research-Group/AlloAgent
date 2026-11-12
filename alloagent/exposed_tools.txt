@@ -1,0 +1,94 @@
+# Arm D exposed tool list.
+#
+# One tool name per line. `#` comments are ignored, blank lines are
+# skipped. This file is the FROZEN list of tools arm D may call: the
+# agent's tool registry and system prompt are filtered down to exactly
+# these names by `biomni.tool._registration.apply_exposed_tools`.
+#
+# Everything else stays REGISTERED (so it is discoverable, testable and
+# callable by an explicit import) but is not EXPOSED to arm D.
+#
+# Rules applied when this list was frozen:
+#   * T1-T10 and B1-B3 are the verified allosteric evaluation tools.
+#   * B2 (dock_ligand_vina) states in its docstring that the returned
+#     poses are hypotheses.
+#   * The ported allosteric-domain functions are exposed only where
+#     their known-answer test passes.
+#   * literature (search_google / query_scholar) scrapes a search
+#     engine, so it is NOT exposed to arm D.
+#   * query_opentarget_genetics is NOT exposed: the OpenTargets
+#     Genetics API host no longer resolves.
+#   * query_chatnt (transformers) and the genomics tools that need
+#     scanpy are registered but NOT exposed.
+
+# --- T1 map residues to PDB structures ---
+map_residues_uniprot_pdb
+map_pdb_to_best_structures
+# --- T2 UniProt variants ---
+get_uniprot_variants
+# --- T3 STINGAllo allosteric residues ---
+get_stingallo_allosteric_residues
+# --- T4 fpocket pockets ---
+detect_pockets_fpocket
+# --- T5 P2Rank pockets ---
+detect_pockets_p2rank
+# --- T6 normal modes ---
+normal_mode_analysis
+# --- T7 residue contact network ---
+residue_contact_network
+# --- T8 search PDB by UniProt and ligand ---
+search_pdb_by_uniprot_and_ligand
+# --- T9 ClinVar variants ---
+get_clinvar_variants
+# --- T10 AlphaMissense score ---
+get_alphamissense_score
+# --- B1 ChEMBL bioactivity ---
+get_chembl_bioactivity
+# --- B2 Vina docking (poses are hypotheses) ---
+dock_ligand_vina
+# --- B3 PocketMiner ---
+pocketminer_score
+# --- P32 ligand contacts (geometric proximity, not binding energy) ---
+get_ligand_contacts
+# --- P33 allosteric site workflow (exposed 2026-10-26: W1, W2 and W3 of
+#     docs/2_allosteric_site_workflow_criteria.md all pass) ---
+allosteric_site_workflow
+
+# --- ported: structure / target mapping ---
+pdb_to_uniprot
+uniprot_to_pdb
+# --- ported: ligand cross-referencing ---
+cross_reference_ligands_chembl_pubchem
+cross_reference_ligands
+# --- ported: covalent probes and site statistics ---
+map_covalent_probes_to_allosteric
+analyze_site_patterns
+# --- ported: BioLiP ---
+parse_biolip_interactions
+biolip_ligands
+biolip_protein
+biolip_dna
+biolip_rna
+biolip_peptide
+# --- ported: Allosteric Database ---
+parse_asd_xf
+load_asd_2d
+load_asd_3d
+# --- ported: large dataset access ---
+retrieve_and_filter_large_dataset
+# --- ported: allosteric id conversion and network analysis ---
+convert_uniprot_to_asd
+convert_asd_to_uniprot
+normalize_protein_id
+allosteric_hotspot_detection
+residue_interaction_networks
+# --- ported: allosteric evidence verification ---
+allosteric_evidence
+load_pdb
+structural_distance
+pocket_geometry
+residue_accessibility
+evolutionary_conservation
+# --- ported: REPL import policy ---
+set_restricted_imports
+run_python_repl

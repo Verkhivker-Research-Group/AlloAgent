@@ -1,0 +1,12 @@
+[
+  {
+    "id": "D2",
+    "prompt": "For PDB entry 1KV2 (human p38 alpha MAP kinase, UniProt Q16539), what does BioLiP record: which ligand, in which protein chain, what are its binding-site residues, and what is the catalytic site?",
+    "source": "benchmark/dev_prompts_smoke.md (D2)"
+  },
+  {
+    "id": "D5",
+    "prompt": "For human fructose-1,6-bisphosphatase 1 (UniProt P09467): report the ClinVar classification and the AlphaMissense score of the variants G164S and A177D, and the distance from each of those residues to the AMP allosteric site of PDB entry 1FTA (chain A). Are the two residues part of the AMP site?",
+    "source": "benchmark/dev_prompts_smoke.md (D5)"
+  }
+]

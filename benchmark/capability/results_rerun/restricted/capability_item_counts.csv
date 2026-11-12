@@ -1,0 +1,12 @@
+prompt_id,item_key,correct,incorrect,missing,not_applicable
+X02,asd_activity_type_records_EC50,5,4,0,0
+X02,asd_activity_type_records_IC50,6,3,0,0
+X02,asd_activity_types_P35557,6,3,0,0
+X02,asd_distinct_modulators_P35557,5,4,0,0
+X02,asd_modulator_records_P35557,5,4,0,0
+X06,x06_clinvar_ids,6,10,0,0
+X06,x06_distance_statement,0,0,16,0
+X06,x06_distances_A,6,10,0,0
+X06,x06_positions,6,10,0,0
+X06,x06_scores,6,10,0,0
+X06,x06_variant_count,6,10,0,0

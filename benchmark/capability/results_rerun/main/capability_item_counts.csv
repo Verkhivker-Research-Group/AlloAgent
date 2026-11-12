@@ -1,0 +1,7 @@
+prompt_id,item_key,correct,incorrect,missing,not_applicable
+X06,x06_clinvar_ids,6,1,0,0
+X06,x06_distance_statement,0,0,7,0
+X06,x06_distances_A,6,1,0,0
+X06,x06_positions,6,1,0,0
+X06,x06_scores,6,1,0,0
+X06,x06_variant_count,6,1,0,0

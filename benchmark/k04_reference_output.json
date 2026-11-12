@@ -1,0 +1,409 @@
+{
+  "generated_utc": "2026-11-04T05:54:07Z",
+  "what_this_file_is": "the reference output of the K04 prompt (the residue contact network of KRAS in 6OIM chain A): the residues within 4 A of the covalent inhibitor and of GDP, and the shortest path between them",
+  "prompt_id": "K04",
+  "pdb_id": "6OIM",
+  "chain": "A",
+  "uniprot_accession": "P01116",
+  "numbering_note": "the PDB numbering of 6OIM and the UniProt numbering of P01116 are the same (the SIFTS offset is 0); the reference lists both",
+  "ligands": {
+    "covalent_inhibitor": {
+      "id": "MOV",
+      "chain": "A",
+      "pdb_number": 303,
+      "name": "the covalent inhibitor (AMG 510)"
+    },
+    "nucleotide": {
+      "id": "GDP",
+      "chain": "A",
+      "pdb_number": 302
+    },
+    "magnesium": {
+      "id": "MG",
+      "chain": "A",
+      "pdb_number": 301
+    },
+    "ligand_ids_present": [
+      "GDP",
+      "MG",
+      "MOV"
+    ]
+  },
+  "ligand_contact_cutoff_angstrom": 4.0,
+  "measurement": {
+    "image": "alloagent-eval:v6",
+    "tools": [
+      "get_ligand_contacts",
+      "residue_contact_network"
+    ],
+    "structure": "data/structures_cache/6oim.cif (the benchmark structure cache)",
+    "how": "get_ligand_contacts for the ligand contacts (the same tool the agent uses) and residue_contact_network for the network; the graph was rebuilt with the wrapper's own functions to enumerate every shortest path"
+  },
+  "mov_contacts": [
+    {
+      "pdb_number": 9,
+      "residue_name": "VAL",
+      "uniprot_number": 9,
+      "min_distance": 3.45
+    },
+    {
+      "pdb_number": 10,
+      "residue_name": "GLY",
+      "uniprot_number": 10,
+      "min_distance": 3.5
+    },
+    {
+      "pdb_number": 12,
+      "residue_name": "CYS",
+      "uniprot_number": 12,
+      "min_distance": 1.81
+    },
+    {
+      "pdb_number": 16,
+      "residue_name": "LYS",
+      "uniprot_number": 16,
+      "min_distance": 2.77
+    },
+    {
+      "pdb_number": 34,
+      "residue_name": "PRO",
+      "uniprot_number": 34,
+      "min_distance": 3.48
+    },
+    {
+      "pdb_number": 58,
+      "residue_name": "THR",
+      "uniprot_number": 58,
+      "min_distance": 3.94
+    },
+    {
+      "pdb_number": 59,
+      "residue_name": "ALA",
+      "uniprot_number": 59,
+      "min_distance": 3.15
+    },
+    {
+      "pdb_number": 60,
+      "residue_name": "GLY",
+      "uniprot_number": 60,
+      "min_distance": 3.16
+    },
+    {
+      "pdb_number": 61,
+      "residue_name": "GLN",
+      "uniprot_number": 61,
+      "min_distance": 3.52
+    },
+    {
+      "pdb_number": 62,
+      "residue_name": "GLU",
+      "uniprot_number": 62,
+      "min_distance": 3.63
+    },
+    {
+      "pdb_number": 63,
+      "residue_name": "GLU",
+      "uniprot_number": 63,
+      "min_distance": 3.22
+    },
+    {
+      "pdb_number": 68,
+      "residue_name": "ARG",
+      "uniprot_number": 68,
+      "min_distance": 3.16
+    },
+    {
+      "pdb_number": 72,
+      "residue_name": "MET",
+      "uniprot_number": 72,
+      "min_distance": 3.28
+    },
+    {
+      "pdb_number": 95,
+      "residue_name": "HIS",
+      "uniprot_number": 95,
+      "min_distance": 3.55
+    },
+    {
+      "pdb_number": 96,
+      "residue_name": "TYR",
+      "uniprot_number": 96,
+      "min_distance": 3.27
+    },
+    {
+      "pdb_number": 99,
+      "residue_name": "GLN",
+      "uniprot_number": 99,
+      "min_distance": 3.51
+    },
+    {
+      "pdb_number": 103,
+      "residue_name": "VAL",
+      "uniprot_number": 103,
+      "min_distance": 3.36
+    }
+  ],
+  "gdp_contacts": [
+    {
+      "pdb_number": 11,
+      "residue_name": "ALA",
+      "uniprot_number": 11,
+      "min_distance": 3.88
+    },
+    {
+      "pdb_number": 12,
+      "residue_name": "CYS",
+      "uniprot_number": 12,
+      "min_distance": 3.96
+    },
+    {
+      "pdb_number": 13,
+      "residue_name": "GLY",
+      "uniprot_number": 13,
+      "min_distance": 2.89
+    },
+    {
+      "pdb_number": 14,
+      "residue_name": "VAL",
+      "uniprot_number": 14,
+      "min_distance": 3.42
+    },
+    {
+      "pdb_number": 15,
+      "residue_name": "GLY",
+      "uniprot_number": 15,
+      "min_distance": 3.07
+    },
+    {
+      "pdb_number": 16,
+      "residue_name": "LYS",
+      "uniprot_number": 16,
+      "min_distance": 2.79
+    },
+    {
+      "pdb_number": 17,
+      "residue_name": "SER",
+      "uniprot_number": 17,
+      "min_distance": 2.98
+    },
+    {
+      "pdb_number": 18,
+      "residue_name": "ALA",
+      "uniprot_number": 18,
+      "min_distance": 2.82
+    },
+    {
+      "pdb_number": 28,
+      "residue_name": "PHE",
+      "uniprot_number": 28,
+      "min_distance": 3.39
+    },
+    {
+      "pdb_number": 30,
+      "residue_name": "ASP",
+      "uniprot_number": 30,
+      "min_distance": 2.84
+    },
+    {
+      "pdb_number": 32,
+      "residue_name": "TYR",
+      "uniprot_number": 32,
+      "min_distance": 3.89
+    },
+    {
+      "pdb_number": 116,
+      "residue_name": "ASN",
+      "uniprot_number": 116,
+      "min_distance": 3.11
+    },
+    {
+      "pdb_number": 117,
+      "residue_name": "LYS",
+      "uniprot_number": 117,
+      "min_distance": 3.11
+    },
+    {
+      "pdb_number": 119,
+      "residue_name": "ASP",
+      "uniprot_number": 119,
+      "min_distance": 2.72
+    },
+    {
+      "pdb_number": 120,
+      "residue_name": "LEU",
+      "uniprot_number": 120,
+      "min_distance": 3.44
+    },
+    {
+      "pdb_number": 145,
+      "residue_name": "SER",
+      "uniprot_number": 145,
+      "min_distance": 3.39
+    },
+    {
+      "pdb_number": 146,
+      "residue_name": "ALA",
+      "uniprot_number": 146,
+      "min_distance": 2.75
+    },
+    {
+      "pdb_number": 147,
+      "residue_name": "LYS",
+      "uniprot_number": 147,
+      "min_distance": 3.4
+    }
+  ],
+  "mg_contacts": [
+    {
+      "pdb_number": 17,
+      "residue_name": "SER",
+      "uniprot_number": 17,
+      "min_distance": 2.16
+    },
+    {
+      "pdb_number": 57,
+      "residue_name": "ASP",
+      "uniprot_number": 57,
+      "min_distance": 3.97
+    }
+  ],
+  "shared_contact_residues": [
+    12,
+    16
+  ],
+  "network": {
+    "contact_cutoff_angstrom": 4.5,
+    "definition": "one node per (chain, residue number) of the polymer residues of the entry; an edge when the minimum heavy-atom distance between the two residues is at or below the cutoff",
+    "n_residues": 167,
+    "n_edges": 787,
+    "chains": [
+      "A"
+    ]
+  },
+  "shortest_path": {
+    "length_edges": 1,
+    "the_pairs_at_that_length": [
+      {
+        "source": 16,
+        "target": 15,
+        "source_name": "LYS",
+        "target_name": "GLY",
+        "n_shortest_paths": 1
+      },
+      {
+        "source": 16,
+        "target": 17,
+        "source_name": "LYS",
+        "target_name": "SER",
+        "n_shortest_paths": 1
+      },
+      {
+        "source": 16,
+        "target": 18,
+        "source_name": "LYS",
+        "target_name": "ALA",
+        "n_shortest_paths": 1
+      },
+      {
+        "source": 34,
+        "target": 30,
+        "source_name": "PRO",
+        "target_name": "ASP",
+        "n_shortest_paths": 1
+      },
+      {
+        "source": 34,
+        "target": 32,
+        "source_name": "PRO",
+        "target_name": "TYR",
+        "n_shortest_paths": 1
+      },
+      {
+        "source": 63,
+        "target": 14,
+        "source_name": "GLU",
+        "target_name": "VAL",
+        "n_shortest_paths": 1
+      },
+      {
+        "source": 63,
+        "target": 15,
+        "source_name": "GLU",
+        "target_name": "GLY",
+        "n_shortest_paths": 1
+      },
+      {
+        "source": 63,
+        "target": 16,
+        "source_name": "GLU",
+        "target_name": "LYS",
+        "n_shortest_paths": 1
+      },
+      {
+        "source": 63,
+        "target": 18,
+        "source_name": "GLU",
+        "target_name": "ALA",
+        "n_shortest_paths": 1
+      },
+      {
+        "source": 68,
+        "target": 18,
+        "source_name": "ARG",
+        "target_name": "ALA",
+        "n_shortest_paths": 1
+      },
+      {
+        "source": 72,
+        "target": 30,
+        "source_name": "MET",
+        "target_name": "ASP",
+        "n_shortest_paths": 1
+      },
+      {
+        "source": 95,
+        "target": 28,
+        "source_name": "HIS",
+        "target_name": "PHE",
+        "n_shortest_paths": 1
+      },
+      {
+        "source": 95,
+        "target": 30,
+        "source_name": "HIS",
+        "target_name": "ASP",
+        "n_shortest_paths": 1
+      },
+      {
+        "source": 96,
+        "target": 28,
+        "source_name": "TYR",
+        "target_name": "PHE",
+        "n_shortest_paths": 1
+      },
+      {
+        "source": 103,
+        "target": 28,
+        "source_name": "VAL",
+        "target_name": "PHE",
+        "n_shortest_paths": 1
+      }
+    ],
+    "the_zero_edge_case": "LYS16 and CYS12 are within 4 A of both ligands, so the same residue can serve both roles and the path has zero edges",
+    "the_minimum_length_by_contact_cutoff": {
+      "4.0": 1,
+      "4.5": 1,
+      "5.0": 1,
+      "6.0": 1,
+      "8.0": 1
+    },
+    "the_n_pairs_at_the_minimum_by_contact_cutoff": {
+      "4.0": 11,
+      "4.5": 15,
+      "5.0": 16,
+      "6.0": 17,
+      "8.0": 32
+    },
+    "several_shortest_paths": "fifteen residue pairs are one edge apart at a 4.5 A contact cutoff (eleven at 4.0 A, thirty-two at 8.0 A); the shortest path is not unique and the answer may report any of them"
+  }
+}

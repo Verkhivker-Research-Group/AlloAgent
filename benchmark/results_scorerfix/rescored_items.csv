@@ -1,0 +1,974 @@
+# PROVENANCE: this file was produced on 2026-11-06 by re-running benchmark/analyze_benchmark.py with the scorer of benchmark/score_scripted.py fixed AFTER the data existed (the fpocket_top3 method condition and the chain+number token reading). The run records (2026-10-28 to 2026-11-04) and the judge outputs (2026-11-03 to 2026-11-05) predate both the fix and this analysis. The results of the unfixed scorer are in benchmark/results/.
+arm,prompt_id,repeat,record_name,item_key,kind,verdict_before,verdict_after,changed,caused_by,reason_before,reason_after
+alloagent,S01,1,S01_r1,accession_P18031,exact,FAIL,FAIL,False,,accession_P18031.name: 'Tyrosine-protein phosphatase non-receptor type 1'; accession_P18031.gene: 'PTPN1'; accession_P18031.organism: 'Homo sapiens',accession_P18031.name: 'Tyrosine-protein phosphatase non-receptor type 1'; accession_P18031.gene: 'PTPN1'; accession_P18031.organism: 'Homo sapiens'
+alloagent,S01,1,S01_r1,ligand_1T4J_FRJ,exact,PASS,PASS,False,,,
+alloagent,S01,1,S01_r1,contacts_1T4J_FRJ_4A,set,PASS,PASS,False,,,
+alloagent,S01,1,S01_r1,contact_count_1T4J_FRJ_4A,number,PASS,PASS,False,,,
+baseline,S01,1,S01_r1,accession_P18031,exact,FAIL,FAIL,False,,accession_P18031.name: 'Tyrosine-protein phosphatase non-receptor type 1'; accession_P18031.gene: 'PTPN1'; accession_P18031.organism: 'Homo sapiens',accession_P18031.name: 'Tyrosine-protein phosphatase non-receptor type 1'; accession_P18031.gene: 'PTPN1'; accession_P18031.organism: 'Homo sapiens'
+baseline,S01,1,S01_r1,ligand_1T4J_FRJ,exact,PASS,PASS,False,,,
+baseline,S01,1,S01_r1,contacts_1T4J_FRJ_4A,set,PASS,PASS,False,,,
+baseline,S01,1,S01_r1,contact_count_1T4J_FRJ_4A,number,PASS,PASS,False,,,
+alloagent,S01,2,S01_r2,accession_P18031,exact,FAIL,FAIL,False,,accession_P18031.name: 'Tyrosine-protein phosphatase non-receptor type 1'; accession_P18031.gene: 'PTPN1'; accession_P18031.organism: 'Homo sapiens',accession_P18031.name: 'Tyrosine-protein phosphatase non-receptor type 1'; accession_P18031.gene: 'PTPN1'; accession_P18031.organism: 'Homo sapiens'
+alloagent,S01,2,S01_r2,ligand_1T4J_FRJ,exact,FAIL,FAIL,False,,ligand_1T4J_FRJ[0].pdb_number: 299,ligand_1T4J_FRJ[0].pdb_number: 299
+alloagent,S01,2,S01_r2,contacts_1T4J_FRJ_4A,set,PASS,PASS,False,,,
+alloagent,S01,2,S01_r2,contact_count_1T4J_FRJ_4A,number,PASS,PASS,False,,,
+baseline,S01,2,S01_r2,accession_P18031,exact,FAIL,FAIL,False,,accession_P18031.name: 'Tyrosine-protein phosphatase non-receptor type 1'; accession_P18031.gene: 'PTPN1'; accession_P18031.organism: 'Homo sapiens',accession_P18031.name: 'Tyrosine-protein phosphatase non-receptor type 1'; accession_P18031.gene: 'PTPN1'; accession_P18031.organism: 'Homo sapiens'
+baseline,S01,2,S01_r2,ligand_1T4J_FRJ,exact,PASS,PASS,False,,,
+baseline,S01,2,S01_r2,contacts_1T4J_FRJ_4A,set,PASS,PASS,False,,,
+baseline,S01,2,S01_r2,contact_count_1T4J_FRJ_4A,number,PASS,PASS,False,,,
+alloagent,S01,3,S01_r3,accession_P18031,exact,FAIL,FAIL,False,,accession_P18031.name: 'Tyrosine-protein phosphatase non-receptor type 1'; accession_P18031.organism: 'Homo sapiens',accession_P18031.name: 'Tyrosine-protein phosphatase non-receptor type 1'; accession_P18031.organism: 'Homo sapiens'
+alloagent,S01,3,S01_r3,ligand_1T4J_FRJ,exact,FAIL,FAIL,False,,ligand_1T4J_FRJ[0].pdb_number: 299,ligand_1T4J_FRJ[0].pdb_number: 299
+alloagent,S01,3,S01_r3,contacts_1T4J_FRJ_4A,set,PASS,PASS,False,,,
+alloagent,S01,3,S01_r3,contact_count_1T4J_FRJ_4A,number,PASS,PASS,False,,,
+baseline,S01,3,S01_r3,accession_P18031,exact,FAIL,FAIL,False,,accession_P18031.name: 'Tyrosine-protein phosphatase non-receptor type 1'; accession_P18031.gene: 'PTPN1'; accession_P18031.organism: 'Homo sapiens',accession_P18031.name: 'Tyrosine-protein phosphatase non-receptor type 1'; accession_P18031.gene: 'PTPN1'; accession_P18031.organism: 'Homo sapiens'
+baseline,S01,3,S01_r3,ligand_1T4J_FRJ,exact,PASS,PASS,False,,,
+baseline,S01,3,S01_r3,contacts_1T4J_FRJ_4A,set,PASS,PASS,False,,,
+baseline,S01,3,S01_r3,contact_count_1T4J_FRJ_4A,number,PASS,PASS,False,,,
+alloagent,S02,1,S02_r1,accession_P00519,exact,FAIL,FAIL,False,,accession_P00519.name: 'Tyrosine-protein kinase ABL1'; accession_P00519.organism: 'Homo sapiens',accession_P00519.name: 'Tyrosine-protein kinase ABL1'; accession_P00519.organism: 'Homo sapiens'
+alloagent,S02,1,S02_r1,ligand_1OPK_MYR,exact,PASS,PASS,False,,,
+alloagent,S02,1,S02_r1,ligand_1OPK_P16,exact,FAIL,FAIL,False,,ligand_1OPK_P16[0].pdb_number: 2,ligand_1OPK_P16[0].pdb_number: 2
+alloagent,S02,1,S02_r1,contacts_1OPK_MYR_4A,set,PASS,PASS,False,,,
+baseline,S02,1,S02_r1,accession_P00519,exact,FAIL,FAIL,False,,accession_P00519.name: 'Tyrosine-protein kinase ABL1'; accession_P00519.organism: 'Homo sapiens',accession_P00519.name: 'Tyrosine-protein kinase ABL1'; accession_P00519.organism: 'Homo sapiens'
+baseline,S02,1,S02_r1,ligand_1OPK_MYR,exact,PASS,PASS,False,,,
+baseline,S02,1,S02_r1,ligand_1OPK_P16,exact,PASS,PASS,False,,,
+baseline,S02,1,S02_r1,contacts_1OPK_MYR_4A,set,PASS,PASS,False,,,
+alloagent,S02,2,S02_r2,accession_P00519,exact,FAIL,FAIL,False,,accession_P00519.name: 'Tyrosine-protein kinase ABL1'; accession_P00519.organism: 'Homo sapiens',accession_P00519.name: 'Tyrosine-protein kinase ABL1'; accession_P00519.organism: 'Homo sapiens'
+alloagent,S02,2,S02_r2,ligand_1OPK_MYR,exact,PASS,PASS,False,,,
+alloagent,S02,2,S02_r2,ligand_1OPK_P16,exact,PASS,PASS,False,,,
+alloagent,S02,2,S02_r2,contacts_1OPK_MYR_4A,set,PASS,PASS,False,,,
+baseline,S02,2,S02_r2,accession_P00519,exact,FAIL,FAIL,False,,accession_P00519.name: 'Tyrosine-protein kinase ABL1'; accession_P00519.organism: 'Homo sapiens',accession_P00519.name: 'Tyrosine-protein kinase ABL1'; accession_P00519.organism: 'Homo sapiens'
+baseline,S02,2,S02_r2,ligand_1OPK_MYR,exact,PASS,PASS,False,,,
+baseline,S02,2,S02_r2,ligand_1OPK_P16,exact,PASS,PASS,False,,,
+baseline,S02,2,S02_r2,contacts_1OPK_MYR_4A,set,PASS,PASS,False,,,
+alloagent,S02,3,S02_r3,accession_P00519,exact,FAIL,FAIL,False,,accession_P00519.name: 'Tyrosine-protein kinase ABL1'; accession_P00519.organism: 'Homo sapiens',accession_P00519.name: 'Tyrosine-protein kinase ABL1'; accession_P00519.organism: 'Homo sapiens'
+alloagent,S02,3,S02_r3,ligand_1OPK_MYR,exact,PASS,PASS,False,,,
+alloagent,S02,3,S02_r3,ligand_1OPK_P16,exact,PASS,PASS,False,,,
+alloagent,S02,3,S02_r3,contacts_1OPK_MYR_4A,set,PASS,PASS,False,,,
+baseline,S02,3,S02_r3,accession_P00519,exact,FAIL,FAIL,False,,accession_P00519.name: 'Tyrosine-protein kinase ABL1'; accession_P00519.organism: 'Homo sapiens',accession_P00519.name: 'Tyrosine-protein kinase ABL1'; accession_P00519.organism: 'Homo sapiens'
+baseline,S02,3,S02_r3,ligand_1OPK_MYR,exact,PASS,PASS,False,,,
+baseline,S02,3,S02_r3,ligand_1OPK_P16,exact,PASS,PASS,False,,,
+baseline,S02,3,S02_r3,contacts_1OPK_MYR_4A,set,PASS,PASS,False,,,
+alloagent,S03,1,S03_r1,accession_P35557,exact,FAIL,FAIL,False,,accession_P35557.name: 'Hexokinase-4'; accession_P35557.organism: 'Homo sapiens',accession_P35557.name: 'Hexokinase-4'; accession_P35557.organism: 'Homo sapiens'
+alloagent,S03,1,S03_r1,ligand_1V4S_MRK,exact,PASS,PASS,False,,,
+alloagent,S03,1,S03_r1,ligand_1V4S_GLC,exact,PASS,PASS,False,,,
+alloagent,S03,1,S03_r1,contacts_1V4S_MRK_4A,set,PASS,PASS,False,,,
+alloagent,S03,1,S03_r1,min_distance_MRK_GLC_1V4S,number,PASS,PASS,False,,,
+baseline,S03,1,S03_r1,accession_P35557,exact,FAIL,FAIL,False,,accession_P35557.name: 'Hexokinase-4'; accession_P35557.organism: 'Homo sapiens',accession_P35557.name: 'Hexokinase-4'; accession_P35557.organism: 'Homo sapiens'
+baseline,S03,1,S03_r1,ligand_1V4S_MRK,exact,PASS,PASS,False,,,
+baseline,S03,1,S03_r1,ligand_1V4S_GLC,exact,PASS,PASS,False,,,
+baseline,S03,1,S03_r1,contacts_1V4S_MRK_4A,set,PASS,PASS,False,,,
+baseline,S03,1,S03_r1,min_distance_MRK_GLC_1V4S,number,PASS,PASS,False,,,
+alloagent,S03,2,S03_r2,accession_P35557,exact,FAIL,FAIL,False,,accession_P35557.name: 'Hexokinase-4'; accession_P35557.gene: 'GCK'; accession_P35557.organism: 'Homo sapiens',accession_P35557.name: 'Hexokinase-4'; accession_P35557.gene: 'GCK'; accession_P35557.organism: 'Homo sapiens'
+alloagent,S03,2,S03_r2,ligand_1V4S_MRK,exact,PASS,PASS,False,,,
+alloagent,S03,2,S03_r2,ligand_1V4S_GLC,exact,PASS,PASS,False,,,
+alloagent,S03,2,S03_r2,contacts_1V4S_MRK_4A,set,PASS,PASS,False,,,
+alloagent,S03,2,S03_r2,min_distance_MRK_GLC_1V4S,number,PASS,PASS,False,,,
+baseline,S03,2,S03_r2,accession_P35557,exact,FAIL,FAIL,False,,accession_P35557.name: 'Hexokinase-4'; accession_P35557.organism: 'Homo sapiens',accession_P35557.name: 'Hexokinase-4'; accession_P35557.organism: 'Homo sapiens'
+baseline,S03,2,S03_r2,ligand_1V4S_MRK,exact,PASS,PASS,False,,,
+baseline,S03,2,S03_r2,ligand_1V4S_GLC,exact,PASS,PASS,False,,,
+baseline,S03,2,S03_r2,contacts_1V4S_MRK_4A,set,PASS,PASS,False,,,
+baseline,S03,2,S03_r2,min_distance_MRK_GLC_1V4S,number,PASS,PASS,False,,,
+alloagent,S03,3,S03_r3,accession_P35557,exact,FAIL,FAIL,False,,accession_P35557.name: 'Hexokinase-4'; accession_P35557.gene: 'GCK'; accession_P35557.organism: 'Homo sapiens',accession_P35557.name: 'Hexokinase-4'; accession_P35557.gene: 'GCK'; accession_P35557.organism: 'Homo sapiens'
+alloagent,S03,3,S03_r3,ligand_1V4S_MRK,exact,PASS,PASS,False,,,
+alloagent,S03,3,S03_r3,ligand_1V4S_GLC,exact,PASS,PASS,False,,,
+alloagent,S03,3,S03_r3,contacts_1V4S_MRK_4A,set,PASS,PASS,False,,,
+alloagent,S03,3,S03_r3,min_distance_MRK_GLC_1V4S,number,PASS,PASS,False,,,
+baseline,S03,3,S03_r3,accession_P35557,exact,FAIL,FAIL,False,,accession_P35557.name: 'Hexokinase-4'; accession_P35557.organism: 'Homo sapiens',accession_P35557.name: 'Hexokinase-4'; accession_P35557.organism: 'Homo sapiens'
+baseline,S03,3,S03_r3,ligand_1V4S_MRK,exact,PASS,PASS,False,,,
+baseline,S03,3,S03_r3,ligand_1V4S_GLC,exact,PASS,PASS,False,,,
+baseline,S03,3,S03_r3,contacts_1V4S_MRK_4A,set,PASS,PASS,False,,,
+baseline,S03,3,S03_r3,min_distance_MRK_GLC_1V4S,number,PASS,PASS,False,,,
+alloagent,S04,1,S04_r1,accession_P31749,exact,FAIL,FAIL,False,,accession_P31749.name: 'RAC-alpha serine/threonine-protein kinase'; accession_P31749.organism: 'Homo sapiens',accession_P31749.name: 'RAC-alpha serine/threonine-protein kinase'; accession_P31749.organism: 'Homo sapiens'
+alloagent,S04,1,S04_r1,ligand_3O96_IQO,exact,FAIL,FAIL,False,,ligand_3O96_IQO[0].pdb_number: 444,ligand_3O96_IQO[0].pdb_number: 444
+alloagent,S04,1,S04_r1,contacts_3O96_IQO_4A,set,PASS,PASS,False,,,
+alloagent,S04,1,S04_r1,akt1_domains,qualitative,DEFERRED,DEFERRED,False,,judged,judged
+baseline,S04,1,S04_r1,accession_P31749,exact,FAIL,FAIL,False,,accession_P31749.name: 'RAC-alpha serine/threonine-protein kinase'; accession_P31749.organism: 'Homo sapiens',accession_P31749.name: 'RAC-alpha serine/threonine-protein kinase'; accession_P31749.organism: 'Homo sapiens'
+baseline,S04,1,S04_r1,ligand_3O96_IQO,exact,PASS,PASS,False,,,
+baseline,S04,1,S04_r1,contacts_3O96_IQO_4A,set,PASS,PASS,False,,,
+baseline,S04,1,S04_r1,akt1_domains,qualitative,DEFERRED,DEFERRED,False,,judged,judged
+alloagent,S04,2,S04_r2,accession_P31749,exact,FAIL,FAIL,False,,accession_P31749.name: 'RAC-alpha serine/threonine-protein kinase'; accession_P31749.organism: 'Homo sapiens',accession_P31749.name: 'RAC-alpha serine/threonine-protein kinase'; accession_P31749.organism: 'Homo sapiens'
+alloagent,S04,2,S04_r2,ligand_3O96_IQO,exact,FAIL,FAIL,False,,ligand_3O96_IQO[0].pdb_number: 444,ligand_3O96_IQO[0].pdb_number: 444
+alloagent,S04,2,S04_r2,contacts_3O96_IQO_4A,set,PASS,PASS,False,,,
+alloagent,S04,2,S04_r2,akt1_domains,qualitative,DEFERRED,DEFERRED,False,,judged,judged
+baseline,S04,2,S04_r2,accession_P31749,exact,FAIL,FAIL,False,,accession_P31749.name: 'RAC-alpha serine/threonine-protein kinase'; accession_P31749.organism: 'Homo sapiens',accession_P31749.name: 'RAC-alpha serine/threonine-protein kinase'; accession_P31749.organism: 'Homo sapiens'
+baseline,S04,2,S04_r2,ligand_3O96_IQO,exact,PASS,PASS,False,,,
+baseline,S04,2,S04_r2,contacts_3O96_IQO_4A,set,PASS,PASS,False,,,
+baseline,S04,2,S04_r2,akt1_domains,qualitative,DEFERRED,DEFERRED,False,,judged,judged
+alloagent,S04,3,S04_r3,accession_P31749,exact,FAIL,FAIL,False,,accession_P31749.name: 'RAC-alpha serine/threonine-protein kinase'; accession_P31749.organism: 'Homo sapiens',accession_P31749.name: 'RAC-alpha serine/threonine-protein kinase'; accession_P31749.organism: 'Homo sapiens'
+alloagent,S04,3,S04_r3,ligand_3O96_IQO,exact,PASS,PASS,False,,,
+alloagent,S04,3,S04_r3,contacts_3O96_IQO_4A,set,PASS,PASS,False,,,
+alloagent,S04,3,S04_r3,akt1_domains,qualitative,DEFERRED,DEFERRED,False,,judged,judged
+baseline,S04,3,S04_r3,accession_P31749,exact,FAIL,FAIL,False,,accession_P31749.organism: 'Homo sapiens',accession_P31749.organism: 'Homo sapiens'
+baseline,S04,3,S04_r3,ligand_3O96_IQO,exact,PASS,PASS,False,,,
+baseline,S04,3,S04_r3,contacts_3O96_IQO_4A,set,PASS,PASS,False,,,
+baseline,S04,3,S04_r3,akt1_domains,qualitative,DEFERRED,DEFERRED,False,,judged,judged
+alloagent,S05,1,S05_r1,accession_Q06124,exact,FAIL,FAIL,False,,accession_Q06124.name: 'Tyrosine-protein phosphatase non-receptor type 11'; accession_Q06124.gene: 'PTPN11'; accession_Q06124.organism: 'Homo sapiens',accession_Q06124.name: 'Tyrosine-protein phosphatase non-receptor type 11'; accession_Q06124.gene: 'PTPN11'; accession_Q06124.organism: 'Homo sapiens'
+alloagent,S05,1,S05_r1,ligand_5EHR_5OD,exact,FAIL,PASS,True,fix 2 (the chain+number tokens),ligand_5EHR_5OD[0].pdb_number: 601,
+alloagent,S05,1,S05_r1,contacts_5EHR_5OD_4A,set,PASS,PASS,False,,,
+alloagent,S05,1,S05_r1,shp2_domains,qualitative,DEFERRED,DEFERRED,False,,judged,judged
+baseline,S05,1,S05_r1,accession_Q06124,exact,FAIL,FAIL,False,,accession_Q06124.name: 'Tyrosine-protein phosphatase non-receptor type 11'; accession_Q06124.organism: 'Homo sapiens',accession_Q06124.name: 'Tyrosine-protein phosphatase non-receptor type 11'; accession_Q06124.organism: 'Homo sapiens'
+baseline,S05,1,S05_r1,ligand_5EHR_5OD,exact,FAIL,FAIL,False,,ligand_5EHR_5OD[0].pdb_number: 601,ligand_5EHR_5OD[0].pdb_number: 601
+baseline,S05,1,S05_r1,contacts_5EHR_5OD_4A,set,PASS,PASS,False,,,
+baseline,S05,1,S05_r1,shp2_domains,qualitative,DEFERRED,DEFERRED,False,,judged,judged
+alloagent,S05,2,S05_r2,accession_Q06124,exact,FAIL,FAIL,False,,accession_Q06124.name: 'Tyrosine-protein phosphatase non-receptor type 11'; accession_Q06124.gene: 'PTPN11'; accession_Q06124.organism: 'Homo sapiens',accession_Q06124.name: 'Tyrosine-protein phosphatase non-receptor type 11'; accession_Q06124.gene: 'PTPN11'; accession_Q06124.organism: 'Homo sapiens'
+alloagent,S05,2,S05_r2,ligand_5EHR_5OD,exact,PASS,PASS,False,,,
+alloagent,S05,2,S05_r2,contacts_5EHR_5OD_4A,set,PASS,PASS,False,,,
+alloagent,S05,2,S05_r2,shp2_domains,qualitative,DEFERRED,DEFERRED,False,,judged,judged
+baseline,S05,2,S05_r2,accession_Q06124,exact,FAIL,FAIL,False,,accession_Q06124.name: 'Tyrosine-protein phosphatase non-receptor type 11'; accession_Q06124.gene: 'PTPN11'; accession_Q06124.organism: 'Homo sapiens',accession_Q06124.name: 'Tyrosine-protein phosphatase non-receptor type 11'; accession_Q06124.gene: 'PTPN11'; accession_Q06124.organism: 'Homo sapiens'
+baseline,S05,2,S05_r2,ligand_5EHR_5OD,exact,PASS,PASS,False,,,
+baseline,S05,2,S05_r2,contacts_5EHR_5OD_4A,set,PASS,PASS,False,,,
+baseline,S05,2,S05_r2,shp2_domains,qualitative,DEFERRED,DEFERRED,False,,judged,judged
+alloagent,S05,3,S05_r3,accession_Q06124,exact,FAIL,FAIL,False,,accession_Q06124.name: 'Tyrosine-protein phosphatase non-receptor type 11'; accession_Q06124.organism: 'Homo sapiens',accession_Q06124.name: 'Tyrosine-protein phosphatase non-receptor type 11'; accession_Q06124.organism: 'Homo sapiens'
+alloagent,S05,3,S05_r3,ligand_5EHR_5OD,exact,FAIL,FAIL,False,,ligand_5EHR_5OD[0].pdb_number: 601,ligand_5EHR_5OD[0].pdb_number: 601
+alloagent,S05,3,S05_r3,contacts_5EHR_5OD_4A,set,PASS,PASS,False,,,
+alloagent,S05,3,S05_r3,shp2_domains,qualitative,DEFERRED,DEFERRED,False,,judged,judged
+baseline,S05,3,S05_r3,accession_Q06124,exact,FAIL,FAIL,False,,accession_Q06124.name: 'Tyrosine-protein phosphatase non-receptor type 11'; accession_Q06124.organism: 'Homo sapiens',accession_Q06124.name: 'Tyrosine-protein phosphatase non-receptor type 11'; accession_Q06124.organism: 'Homo sapiens'
+baseline,S05,3,S05_r3,ligand_5EHR_5OD,exact,PASS,PASS,False,,,
+baseline,S05,3,S05_r3,contacts_5EHR_5OD_4A,set,PASS,PASS,False,,,
+baseline,S05,3,S05_r3,shp2_domains,qualitative,DEFERRED,DEFERRED,False,,judged,judged
+alloagent,S06,1,S06_r1,accession_P62593,exact,FAIL,FAIL,False,,accession_P62593.name: 'Beta-lactamase TEM'; accession_P62593.gene: 'bla'; accession_P62593.organism: 'Escherichia coli',accession_P62593.name: 'Beta-lactamase TEM'; accession_P62593.gene: 'bla'; accession_P62593.organism: 'Escherichia coli'
+alloagent,S06,1,S06_r1,ligand_1PZO_CBT,exact,PASS,PASS,False,,,
+alloagent,S06,1,S06_r1,contacts_1PZO_CBT_4A,set,PASS,PASS,False,,,
+alloagent,S06,1,S06_r1,cbt_copies,exact,PASS,PASS,False,,,
+baseline,S06,1,S06_r1,accession_P62593,exact,FAIL,FAIL,False,,accession_P62593.name: 'Beta-lactamase TEM'; accession_P62593.gene: 'bla'; accession_P62593.organism: 'Escherichia coli',accession_P62593.name: 'Beta-lactamase TEM'; accession_P62593.gene: 'bla'; accession_P62593.organism: 'Escherichia coli'
+baseline,S06,1,S06_r1,ligand_1PZO_CBT,exact,PASS,PASS,False,,,
+baseline,S06,1,S06_r1,contacts_1PZO_CBT_4A,set,PASS,PASS,False,,,
+baseline,S06,1,S06_r1,cbt_copies,exact,PASS,PASS,False,,,
+alloagent,S06,2,S06_r2,accession_P62593,exact,FAIL,FAIL,False,,accession_P62593.name: 'Beta-lactamase TEM'; accession_P62593.gene: 'bla'; accession_P62593.organism: 'Escherichia coli',accession_P62593.name: 'Beta-lactamase TEM'; accession_P62593.gene: 'bla'; accession_P62593.organism: 'Escherichia coli'
+alloagent,S06,2,S06_r2,ligand_1PZO_CBT,exact,PASS,PASS,False,,,
+alloagent,S06,2,S06_r2,contacts_1PZO_CBT_4A,set,PASS,PASS,False,,,
+alloagent,S06,2,S06_r2,cbt_copies,exact,PASS,PASS,False,,,
+baseline,S06,2,S06_r2,accession_P62593,exact,FAIL,FAIL,False,,accession_P62593.name: 'Beta-lactamase TEM'; accession_P62593.gene: 'bla'; accession_P62593.organism: 'Escherichia coli',accession_P62593.name: 'Beta-lactamase TEM'; accession_P62593.gene: 'bla'; accession_P62593.organism: 'Escherichia coli'
+baseline,S06,2,S06_r2,ligand_1PZO_CBT,exact,PASS,PASS,False,,,
+baseline,S06,2,S06_r2,contacts_1PZO_CBT_4A,set,PASS,PASS,False,,,
+baseline,S06,2,S06_r2,cbt_copies,exact,PASS,PASS,False,,,
+alloagent,S06,3,S06_r3,accession_P62593,exact,FAIL,FAIL,False,,accession_P62593.name: 'Beta-lactamase TEM'; accession_P62593.gene: 'bla'; accession_P62593.organism: 'Escherichia coli',accession_P62593.name: 'Beta-lactamase TEM'; accession_P62593.gene: 'bla'; accession_P62593.organism: 'Escherichia coli'
+alloagent,S06,3,S06_r3,ligand_1PZO_CBT,exact,PASS,PASS,False,,,
+alloagent,S06,3,S06_r3,contacts_1PZO_CBT_4A,set,PASS,PASS,False,,,
+alloagent,S06,3,S06_r3,cbt_copies,exact,PASS,PASS,False,,,
+baseline,S06,3,S06_r3,accession_P62593,exact,FAIL,FAIL,False,,accession_P62593.name: 'Beta-lactamase TEM'; accession_P62593.gene: 'bla'; accession_P62593.organism: 'Escherichia coli',accession_P62593.name: 'Beta-lactamase TEM'; accession_P62593.gene: 'bla'; accession_P62593.organism: 'Escherichia coli'
+baseline,S06,3,S06_r3,ligand_1PZO_CBT,exact,PASS,PASS,False,,,
+baseline,S06,3,S06_r3,contacts_1PZO_CBT_4A,set,PASS,PASS,False,,,
+baseline,S06,3,S06_r3,cbt_copies,exact,PASS,PASS,False,,,
+alloagent,S07,1,S07_r1,accession_P00519,exact,FAIL,FAIL,False,,accession_P00519.name: 'Tyrosine-protein kinase ABL1'; accession_P00519.organism: 'Homo sapiens',accession_P00519.name: 'Tyrosine-protein kinase ABL1'; accession_P00519.organism: 'Homo sapiens'
+alloagent,S07,1,S07_r1,ligand_5MO4_AY7,exact,PASS,PASS,False,,,
+alloagent,S07,1,S07_r1,ligand_5MO4_NIL,exact,PASS,PASS,False,,,
+alloagent,S07,1,S07_r1,contacts_5MO4_AY7_4A,set,PASS,PASS,False,,,
+alloagent,S07,1,S07_r1,contacts_5MO4_NIL_4A,set,PASS,PASS,False,,,
+alloagent,S07,1,S07_r1,ay7_nil_overlap,number,PASS,PASS,False,,,
+alloagent,S07,1,S07_r1,numbering_offset_5MO4,number,FAIL,FAIL,False,,sifts_label_to_uniprot: 20,sifts_label_to_uniprot: 20
+baseline,S07,1,S07_r1,accession_P00519,exact,FAIL,FAIL,False,,accession_P00519.name: 'Tyrosine-protein kinase ABL1'; accession_P00519.organism: 'Homo sapiens',accession_P00519.name: 'Tyrosine-protein kinase ABL1'; accession_P00519.organism: 'Homo sapiens'
+baseline,S07,1,S07_r1,ligand_5MO4_AY7,exact,PASS,PASS,False,,,
+baseline,S07,1,S07_r1,ligand_5MO4_NIL,exact,PASS,PASS,False,,,
+baseline,S07,1,S07_r1,contacts_5MO4_AY7_4A,set,PASS,PASS,False,,,
+baseline,S07,1,S07_r1,contacts_5MO4_NIL_4A,set,PASS,PASS,False,,,
+baseline,S07,1,S07_r1,ay7_nil_overlap,number,FAIL,FAIL,False,,expected 0,expected 0
+baseline,S07,1,S07_r1,numbering_offset_5MO4,number,FAIL,FAIL,False,,sifts_label_to_uniprot: 20,sifts_label_to_uniprot: 20
+alloagent,S07,2,S07_r2,accession_P00519,exact,FAIL,FAIL,False,,accession_P00519.name: 'Tyrosine-protein kinase ABL1'; accession_P00519.organism: 'Homo sapiens',accession_P00519.name: 'Tyrosine-protein kinase ABL1'; accession_P00519.organism: 'Homo sapiens'
+alloagent,S07,2,S07_r2,ligand_5MO4_AY7,exact,FAIL,PASS,True,fix 2 (the chain+number tokens),ligand_5MO4_AY7[0].pdb_number: 602,
+alloagent,S07,2,S07_r2,ligand_5MO4_NIL,exact,FAIL,PASS,True,fix 2 (the chain+number tokens),ligand_5MO4_NIL[0].pdb_number: 601,
+alloagent,S07,2,S07_r2,contacts_5MO4_AY7_4A,set,PASS,PASS,False,,,
+alloagent,S07,2,S07_r2,contacts_5MO4_NIL_4A,set,PASS,PASS,False,,,
+alloagent,S07,2,S07_r2,ay7_nil_overlap,number,FAIL,FAIL,False,,expected 0,expected 0
+alloagent,S07,2,S07_r2,numbering_offset_5MO4,number,FAIL,FAIL,False,,sifts_label_to_uniprot: 20; auth_T334_to_uniprot_T315: -19,sifts_label_to_uniprot: 20; auth_T334_to_uniprot_T315: -19
+baseline,S07,2,S07_r2,accession_P00519,exact,FAIL,FAIL,False,,accession_P00519.name: 'Tyrosine-protein kinase ABL1'; accession_P00519.organism: 'Homo sapiens',accession_P00519.name: 'Tyrosine-protein kinase ABL1'; accession_P00519.organism: 'Homo sapiens'
+baseline,S07,2,S07_r2,ligand_5MO4_AY7,exact,PASS,PASS,False,,,
+baseline,S07,2,S07_r2,ligand_5MO4_NIL,exact,PASS,PASS,False,,,
+baseline,S07,2,S07_r2,contacts_5MO4_AY7_4A,set,PASS,PASS,False,,,
+baseline,S07,2,S07_r2,contacts_5MO4_NIL_4A,set,PASS,PASS,False,,,
+baseline,S07,2,S07_r2,ay7_nil_overlap,number,FAIL,FAIL,False,,expected 0,expected 0
+baseline,S07,2,S07_r2,numbering_offset_5MO4,number,FAIL,FAIL,False,,sifts_label_to_uniprot: 20; auth_T334_to_uniprot_T315: -19,auth_T334_to_uniprot_T315: -19
+alloagent,S07,3,S07_r3,accession_P00519,exact,FAIL,FAIL,False,,accession_P00519.name: 'Tyrosine-protein kinase ABL1'; accession_P00519.organism: 'Homo sapiens',accession_P00519.name: 'Tyrosine-protein kinase ABL1'; accession_P00519.organism: 'Homo sapiens'
+alloagent,S07,3,S07_r3,ligand_5MO4_AY7,exact,PASS,PASS,False,,,
+alloagent,S07,3,S07_r3,ligand_5MO4_NIL,exact,PASS,PASS,False,,,
+alloagent,S07,3,S07_r3,contacts_5MO4_AY7_4A,set,PASS,PASS,False,,,
+alloagent,S07,3,S07_r3,contacts_5MO4_NIL_4A,set,PASS,PASS,False,,,
+alloagent,S07,3,S07_r3,ay7_nil_overlap,number,FAIL,FAIL,False,,expected 0,expected 0
+alloagent,S07,3,S07_r3,numbering_offset_5MO4,number,FAIL,FAIL,False,,auth_T334_to_uniprot_T315: -19,auth_T334_to_uniprot_T315: -19
+baseline,S07,3,S07_r3,accession_P00519,exact,FAIL,FAIL,False,,accession_P00519.name: 'Tyrosine-protein kinase ABL1'; accession_P00519.organism: 'Homo sapiens',accession_P00519.name: 'Tyrosine-protein kinase ABL1'; accession_P00519.organism: 'Homo sapiens'
+baseline,S07,3,S07_r3,ligand_5MO4_AY7,exact,PASS,PASS,False,,,
+baseline,S07,3,S07_r3,ligand_5MO4_NIL,exact,PASS,PASS,False,,,
+baseline,S07,3,S07_r3,contacts_5MO4_AY7_4A,set,PASS,PASS,False,,,
+baseline,S07,3,S07_r3,contacts_5MO4_NIL_4A,set,PASS,PASS,False,,,
+baseline,S07,3,S07_r3,ay7_nil_overlap,number,PASS,PASS,False,,,
+baseline,S07,3,S07_r3,numbering_offset_5MO4,number,PASS,PASS,False,,,
+alloagent,P01,1,P01_r1,accession_P18031,exact,FAIL,FAIL,False,,accession_P18031.name: 'Tyrosine-protein phosphatase non-receptor type 1'; accession_P18031.gene: 'PTPN1'; accession_P18031.organism: 'Homo sapiens',accession_P18031.name: 'Tyrosine-protein phosphatase non-receptor type 1'; accession_P18031.gene: 'PTPN1'; accession_P18031.organism: 'Homo sapiens'
+alloagent,P01,1,P01_r1,fpocket_top3,exact,FAIL,FAIL,False,,fpocket_top3[0].residues: 9; fpocket_top3[1].residues: 12,fpocket_top3[0].residues: 9; fpocket_top3[1].residues: 12
+alloagent,P01,1,P01_r1,pocket_recovery,qualitative,DEFERRED,DEFERRED,False,,judged,judged
+alloagent,P01,1,P01_r1,method_named_P01,qualitative,DEFERRED,DEFERRED,False,,judged,judged
+alloagent,P01,1,P01_r1,fpocket_reference_P01,exact,PASS,PASS,False,,,
+alloagent,P01,1,P01_r1,p2rank_reference_P01,exact,PASS,PASS,False,,,
+alloagent,P01,1,P01_r1,detector_limit_stated_P01,qualitative,DEFERRED,DEFERRED,False,,judged,judged
+baseline,P01,1,P01_r1,accession_P18031,exact,FAIL,FAIL,False,,accession_P18031.name: 'Tyrosine-protein phosphatase non-receptor type 1'; accession_P18031.gene: 'PTPN1'; accession_P18031.organism: 'Homo sapiens',accession_P18031.name: 'Tyrosine-protein phosphatase non-receptor type 1'; accession_P18031.gene: 'PTPN1'; accession_P18031.organism: 'Homo sapiens'
+baseline,P01,1,P01_r1,fpocket_top3,exact,FAIL,FAIL,False,,fpocket_top3[1].residues: 12; fpocket_top3[2].residues: 15,fpocket_top3[1].residues: 12; fpocket_top3[2].residues: 15
+baseline,P01,1,P01_r1,pocket_recovery,qualitative,DEFERRED,DEFERRED,False,,judged,judged
+baseline,P01,1,P01_r1,method_named_P01,qualitative,DEFERRED,DEFERRED,False,,judged,judged
+baseline,P01,1,P01_r1,fpocket_reference_P01,exact,FAIL,FAIL,False,,rank_of_the_pocket_covering_the_site: 7,rank_of_the_pocket_covering_the_site: 7
+baseline,P01,1,P01_r1,p2rank_reference_P01,exact,PASS,PASS,False,,,
+baseline,P01,1,P01_r1,detector_limit_stated_P01,qualitative,DEFERRED,DEFERRED,False,,judged,judged
+alloagent,P01,2,P01_r2,accession_P18031,exact,FAIL,FAIL,False,,accession_P18031.name: 'Tyrosine-protein phosphatase non-receptor type 1'; accession_P18031.gene: 'PTPN1'; accession_P18031.organism: 'Homo sapiens',accession_P18031.name: 'Tyrosine-protein phosphatase non-receptor type 1'; accession_P18031.gene: 'PTPN1'; accession_P18031.organism: 'Homo sapiens'
+alloagent,P01,2,P01_r2,fpocket_top3,exact,FAIL,FAIL,False,,fpocket_top3[0].residues: 9; fpocket_top3[1].residues: 12; fpocket_top3[2].residues: 15,fpocket_top3[0].residues: 9; fpocket_top3[1].residues: 12; fpocket_top3[2].residues: 15
+alloagent,P01,2,P01_r2,pocket_recovery,qualitative,DEFERRED,DEFERRED,False,,judged,judged
+alloagent,P01,2,P01_r2,method_named_P01,qualitative,DEFERRED,DEFERRED,False,,judged,judged
+alloagent,P01,2,P01_r2,fpocket_reference_P01,exact,PASS,PASS,False,,,
+alloagent,P01,2,P01_r2,p2rank_reference_P01,exact,DEFERRED,DEFERRED,False,,the answer names ['fpocket']; the committed item is judged against the p2rank reference output only when the answer names p2rank,the answer names ['fpocket']; the committed item is judged against the p2rank reference output only when the answer names p2rank
+alloagent,P01,2,P01_r2,detector_limit_stated_P01,qualitative,DEFERRED,DEFERRED,False,,judged,judged
+baseline,P01,2,P01_r2,accession_P18031,exact,FAIL,FAIL,False,,accession_P18031.name: 'Tyrosine-protein phosphatase non-receptor type 1'; accession_P18031.gene: 'PTPN1'; accession_P18031.organism: 'Homo sapiens',accession_P18031.name: 'Tyrosine-protein phosphatase non-receptor type 1'; accession_P18031.gene: 'PTPN1'; accession_P18031.organism: 'Homo sapiens'
+baseline,P01,2,P01_r2,fpocket_top3,exact,FAIL,DEFERRED,True,fix 1 (the fpocket_top3 method condition),fpocket_top3[1].residues: 12,the answer names no method; the committed item is judged against the fpocket reference output only when the answer names fpocket
+baseline,P01,2,P01_r2,pocket_recovery,qualitative,DEFERRED,DEFERRED,False,,judged,judged
+baseline,P01,2,P01_r2,method_named_P01,qualitative,DEFERRED,DEFERRED,False,,judged,judged
+baseline,P01,2,P01_r2,fpocket_reference_P01,exact,DEFERRED,DEFERRED,False,,the answer names no method; the committed item is judged against the fpocket reference output only when the answer names fpocket,the answer names no method; the committed item is judged against the fpocket reference output only when the answer names fpocket
+baseline,P01,2,P01_r2,p2rank_reference_P01,exact,DEFERRED,DEFERRED,False,,the answer names no method; the committed item is judged against the p2rank reference output only when the answer names p2rank,the answer names no method; the committed item is judged against the p2rank reference output only when the answer names p2rank
+baseline,P01,2,P01_r2,detector_limit_stated_P01,qualitative,DEFERRED,DEFERRED,False,,judged,judged
+alloagent,P01,3,P01_r3,accession_P18031,exact,FAIL,FAIL,False,,accession_P18031.name: 'Tyrosine-protein phosphatase non-receptor type 1'; accession_P18031.gene: 'PTPN1'; accession_P18031.organism: 'Homo sapiens',accession_P18031.name: 'Tyrosine-protein phosphatase non-receptor type 1'; accession_P18031.gene: 'PTPN1'; accession_P18031.organism: 'Homo sapiens'
+alloagent,P01,3,P01_r3,fpocket_top3,exact,FAIL,FAIL,False,,fpocket_top3[0].residues: 9; fpocket_top3[1].rank: 2; fpocket_top3[1].residues: 12; fpocket_top3[2].rank: 3; fpocket_top3[2].residues: 15,fpocket_top3[0].residues: 9; fpocket_top3[1].rank: 2; fpocket_top3[1].residues: 12; fpocket_top3[2].rank: 3; fpocket_top3[2].residues: 15
+alloagent,P01,3,P01_r3,pocket_recovery,qualitative,DEFERRED,DEFERRED,False,,judged,judged
+alloagent,P01,3,P01_r3,method_named_P01,qualitative,DEFERRED,DEFERRED,False,,judged,judged
+alloagent,P01,3,P01_r3,fpocket_reference_P01,exact,FAIL,FAIL,False,,rank_of_the_pocket_covering_the_site: 7; overlap_of_the_covering_pocket: 2; top3_ranks[1]: 2; top3_ranks[2]: 3,rank_of_the_pocket_covering_the_site: 7; overlap_of_the_covering_pocket: 2; top3_ranks[1]: 2; top3_ranks[2]: 3
+alloagent,P01,3,P01_r3,p2rank_reference_P01,exact,FAIL,FAIL,False,,top3_ranks[1]: 2; top3_ranks[2]: 3,top3_ranks[1]: 2; top3_ranks[2]: 3
+alloagent,P01,3,P01_r3,detector_limit_stated_P01,qualitative,DEFERRED,DEFERRED,False,,judged,judged
+baseline,P01,3,P01_r3,accession_P18031,exact,FAIL,FAIL,False,,accession_P18031.name: 'Tyrosine-protein phosphatase non-receptor type 1'; accession_P18031.gene: 'PTPN1'; accession_P18031.organism: 'Homo sapiens',accession_P18031.name: 'Tyrosine-protein phosphatase non-receptor type 1'; accession_P18031.gene: 'PTPN1'; accession_P18031.organism: 'Homo sapiens'
+baseline,P01,3,P01_r3,fpocket_top3,exact,FAIL,DEFERRED,True,fix 1 (the fpocket_top3 method condition),fpocket_top3[0].residues: 9; fpocket_top3[1].residues: 12; fpocket_top3[2].residues: 15,the answer names no method; the committed item is judged against the fpocket reference output only when the answer names fpocket
+baseline,P01,3,P01_r3,pocket_recovery,qualitative,DEFERRED,DEFERRED,False,,judged,judged
+baseline,P01,3,P01_r3,method_named_P01,qualitative,DEFERRED,DEFERRED,False,,judged,judged
+baseline,P01,3,P01_r3,fpocket_reference_P01,exact,DEFERRED,DEFERRED,False,,the answer names no method; the committed item is judged against the fpocket reference output only when the answer names fpocket,the answer names no method; the committed item is judged against the fpocket reference output only when the answer names fpocket
+baseline,P01,3,P01_r3,p2rank_reference_P01,exact,DEFERRED,DEFERRED,False,,the answer names no method; the committed item is judged against the p2rank reference output only when the answer names p2rank,the answer names no method; the committed item is judged against the p2rank reference output only when the answer names p2rank
+baseline,P01,3,P01_r3,detector_limit_stated_P01,qualitative,DEFERRED,DEFERRED,False,,judged,judged
+alloagent,P02,1,P02_r1,accession_P01116,exact,FAIL,FAIL,False,,accession_P01116.name: 'GTPase KRas'; accession_P01116.gene: 'KRAS'; accession_P01116.organism: 'Homo sapiens',accession_P01116.name: 'GTPase KRas'; accession_P01116.gene: 'KRAS'; accession_P01116.organism: 'Homo sapiens'
+alloagent,P02,1,P02_r1,fpocket_top3,exact,FAIL,FAIL,False,,fpocket_top3[0].residues: 33; fpocket_top3[1].residues: 9; fpocket_top3[2].rank: 3; fpocket_top3[2].residues: 13,fpocket_top3[0].residues: 33; fpocket_top3[1].residues: 9; fpocket_top3[2].rank: 3; fpocket_top3[2].residues: 13
+alloagent,P02,1,P02_r1,pocket_recovery,qualitative,DEFERRED,DEFERRED,False,,judged,judged
+alloagent,P02,1,P02_r1,method_named_P02,qualitative,DEFERRED,DEFERRED,False,,judged,judged
+alloagent,P02,1,P02_r1,fpocket_reference_P02,exact,FAIL,FAIL,False,,top3_ranks[2]: 3; top3_overlap[1]: 0; top3_overlap[2]: 0,top3_ranks[2]: 3; top3_overlap[1]: 0; top3_overlap[2]: 0
+alloagent,P02,1,P02_r1,p2rank_reference_P02,exact,FAIL,FAIL,False,,overlap_of_the_covering_pocket: 0; top3_overlap[0]: 0; top3_overlap[1]: 0,overlap_of_the_covering_pocket: 0; top3_overlap[0]: 0; top3_overlap[1]: 0
+alloagent,P02,1,P02_r1,detector_limit_stated_P02,qualitative,DEFERRED,DEFERRED,False,,judged,judged
+baseline,P02,1,P02_r1,accession_P01116,exact,FAIL,FAIL,False,,accession_P01116.name: 'GTPase KRas'; accession_P01116.organism: 'Homo sapiens',accession_P01116.name: 'GTPase KRas'; accession_P01116.organism: 'Homo sapiens'
+baseline,P02,1,P02_r1,fpocket_top3,exact,FAIL,DEFERRED,True,fix 1 (the fpocket_top3 method condition),fpocket_top3[0].residues: 33; fpocket_top3[1].residues: 9; fpocket_top3[2].residues: 13,the answer names no method; the committed item is judged against the fpocket reference output only when the answer names fpocket
+baseline,P02,1,P02_r1,pocket_recovery,qualitative,DEFERRED,DEFERRED,False,,judged,judged
+baseline,P02,1,P02_r1,method_named_P02,qualitative,DEFERRED,DEFERRED,False,,judged,judged
+baseline,P02,1,P02_r1,fpocket_reference_P02,exact,DEFERRED,DEFERRED,False,,the answer names no method; the committed item is judged against the fpocket reference output only when the answer names fpocket,the answer names no method; the committed item is judged against the fpocket reference output only when the answer names fpocket
+baseline,P02,1,P02_r1,p2rank_reference_P02,exact,DEFERRED,DEFERRED,False,,the answer names no method; the committed item is judged against the p2rank reference output only when the answer names p2rank,the answer names no method; the committed item is judged against the p2rank reference output only when the answer names p2rank
+baseline,P02,1,P02_r1,detector_limit_stated_P02,qualitative,DEFERRED,DEFERRED,False,,judged,judged
+alloagent,P02,2,P02_r2,accession_P01116,exact,FAIL,FAIL,False,,accession_P01116.name: 'GTPase KRas'; accession_P01116.organism: 'Homo sapiens',accession_P01116.name: 'GTPase KRas'; accession_P01116.organism: 'Homo sapiens'
+alloagent,P02,2,P02_r2,fpocket_top3,exact,FAIL,FAIL,False,,fpocket_top3[0].residues: 33; fpocket_top3[2].residues: 13,fpocket_top3[0].residues: 33; fpocket_top3[2].residues: 13
+alloagent,P02,2,P02_r2,pocket_recovery,qualitative,DEFERRED,DEFERRED,False,,judged,judged
+alloagent,P02,2,P02_r2,method_named_P02,qualitative,DEFERRED,DEFERRED,False,,judged,judged
+alloagent,P02,2,P02_r2,fpocket_reference_P02,exact,FAIL,FAIL,False,,overlap_of_the_covering_pocket: 16; top3_overlap[0]: 16,overlap_of_the_covering_pocket: 16; top3_overlap[0]: 16
+alloagent,P02,2,P02_r2,p2rank_reference_P02,exact,PASS,PASS,False,,,
+alloagent,P02,2,P02_r2,detector_limit_stated_P02,qualitative,DEFERRED,DEFERRED,False,,judged,judged
+baseline,P02,2,P02_r2,accession_P01116,exact,FAIL,FAIL,False,,accession_P01116.name: 'GTPase KRas'; accession_P01116.organism: 'Homo sapiens',accession_P01116.name: 'GTPase KRas'; accession_P01116.organism: 'Homo sapiens'
+baseline,P02,2,P02_r2,fpocket_top3,exact,FAIL,FAIL,False,,fpocket_top3[0].residues: 33; fpocket_top3[1].residues: 9; fpocket_top3[2].residues: 13,fpocket_top3[0].residues: 33; fpocket_top3[1].residues: 9; fpocket_top3[2].residues: 13
+baseline,P02,2,P02_r2,pocket_recovery,qualitative,DEFERRED,DEFERRED,False,,judged,judged
+baseline,P02,2,P02_r2,method_named_P02,qualitative,DEFERRED,DEFERRED,False,,judged,judged
+baseline,P02,2,P02_r2,fpocket_reference_P02,exact,FAIL,FAIL,False,,overlap_of_the_covering_pocket: 16; top3_overlap[0]: 16; top3_overlap[1]: 0; top3_overlap[2]: 0,overlap_of_the_covering_pocket: 16; top3_overlap[0]: 16; top3_overlap[1]: 0; top3_overlap[2]: 0
+baseline,P02,2,P02_r2,p2rank_reference_P02,exact,DEFERRED,DEFERRED,False,,the answer names ['fpocket']; the committed item is judged against the p2rank reference output only when the answer names p2rank,the answer names ['fpocket']; the committed item is judged against the p2rank reference output only when the answer names p2rank
+baseline,P02,2,P02_r2,detector_limit_stated_P02,qualitative,DEFERRED,DEFERRED,False,,judged,judged
+alloagent,P02,3,P02_r3,accession_P01116,exact,FAIL,FAIL,False,,accession_P01116.name: 'GTPase KRas'; accession_P01116.organism: 'Homo sapiens',accession_P01116.name: 'GTPase KRas'; accession_P01116.organism: 'Homo sapiens'
+alloagent,P02,3,P02_r3,fpocket_top3,exact,FAIL,FAIL,False,,fpocket_top3[0].residues: 33; fpocket_top3[2].rank: 3,fpocket_top3[0].residues: 33; fpocket_top3[2].rank: 3
+alloagent,P02,3,P02_r3,pocket_recovery,qualitative,DEFERRED,DEFERRED,False,,judged,judged
+alloagent,P02,3,P02_r3,method_named_P02,qualitative,DEFERRED,DEFERRED,False,,judged,judged
+alloagent,P02,3,P02_r3,fpocket_reference_P02,exact,FAIL,FAIL,False,,top3_ranks[2]: 3; top3_overlap[1]: 0; top3_overlap[2]: 0,top3_ranks[2]: 3; top3_overlap[1]: 0; top3_overlap[2]: 0
+alloagent,P02,3,P02_r3,p2rank_reference_P02,exact,FAIL,FAIL,False,,overlap_of_the_covering_pocket: 0; top3_overlap[0]: 0; top3_overlap[1]: 0,overlap_of_the_covering_pocket: 0; top3_overlap[0]: 0; top3_overlap[1]: 0
+alloagent,P02,3,P02_r3,detector_limit_stated_P02,qualitative,DEFERRED,DEFERRED,False,,judged,judged
+baseline,P02,3,P02_r3,accession_P01116,exact,FAIL,FAIL,False,,accession_P01116.name: 'GTPase KRas'; accession_P01116.organism: 'Homo sapiens',accession_P01116.name: 'GTPase KRas'; accession_P01116.organism: 'Homo sapiens'
+baseline,P02,3,P02_r3,fpocket_top3,exact,FAIL,DEFERRED,True,fix 1 (the fpocket_top3 method condition),fpocket_top3[0].residues: 33; fpocket_top3[2].residues: 13,the answer names no method; the committed item is judged against the fpocket reference output only when the answer names fpocket
+baseline,P02,3,P02_r3,pocket_recovery,qualitative,DEFERRED,DEFERRED,False,,judged,judged
+baseline,P02,3,P02_r3,method_named_P02,qualitative,DEFERRED,DEFERRED,False,,judged,judged
+baseline,P02,3,P02_r3,fpocket_reference_P02,exact,DEFERRED,DEFERRED,False,,the answer names no method; the committed item is judged against the fpocket reference output only when the answer names fpocket,the answer names no method; the committed item is judged against the fpocket reference output only when the answer names fpocket
+baseline,P02,3,P02_r3,p2rank_reference_P02,exact,DEFERRED,DEFERRED,False,,the answer names no method; the committed item is judged against the p2rank reference output only when the answer names p2rank,the answer names no method; the committed item is judged against the p2rank reference output only when the answer names p2rank
+baseline,P02,3,P02_r3,detector_limit_stated_P02,qualitative,DEFERRED,DEFERRED,False,,judged,judged
+alloagent,P03,1,P03_r1,accession_Q06124,exact,FAIL,FAIL,False,,accession_Q06124.name: 'Tyrosine-protein phosphatase non-receptor type 11'; accession_Q06124.gene: 'PTPN11'; accession_Q06124.organism: 'Homo sapiens',accession_Q06124.name: 'Tyrosine-protein phosphatase non-receptor type 11'; accession_Q06124.gene: 'PTPN11'; accession_Q06124.organism: 'Homo sapiens'
+alloagent,P03,1,P03_r1,fpocket_top3,exact,FAIL,FAIL,False,,fpocket_top3[0].residues: 21; fpocket_top3[1].residues: 21; fpocket_top3[2].residues: 22,fpocket_top3[0].residues: 21; fpocket_top3[1].residues: 21; fpocket_top3[2].residues: 22
+alloagent,P03,1,P03_r1,pocket_recovery,qualitative,DEFERRED,DEFERRED,False,,judged,judged
+alloagent,P03,1,P03_r1,method_named_P03,qualitative,DEFERRED,DEFERRED,False,,judged,judged
+alloagent,P03,1,P03_r1,detector_limit_stated_P03,qualitative,DEFERRED,DEFERRED,False,,judged,judged
+baseline,P03,1,P03_r1,accession_Q06124,exact,FAIL,FAIL,False,,accession_Q06124.name: 'Tyrosine-protein phosphatase non-receptor type 11'; accession_Q06124.gene: 'PTPN11'; accession_Q06124.organism: 'Homo sapiens',accession_Q06124.name: 'Tyrosine-protein phosphatase non-receptor type 11'; accession_Q06124.gene: 'PTPN11'; accession_Q06124.organism: 'Homo sapiens'
+baseline,P03,1,P03_r1,fpocket_top3,exact,PASS,PASS,False,,,
+baseline,P03,1,P03_r1,pocket_recovery,qualitative,DEFERRED,DEFERRED,False,,judged,judged
+baseline,P03,1,P03_r1,method_named_P03,qualitative,DEFERRED,DEFERRED,False,,judged,judged
+baseline,P03,1,P03_r1,detector_limit_stated_P03,qualitative,DEFERRED,DEFERRED,False,,judged,judged
+alloagent,P03,2,P03_r2,accession_Q06124,exact,FAIL,FAIL,False,,accession_Q06124.name: 'Tyrosine-protein phosphatase non-receptor type 11'; accession_Q06124.gene: 'PTPN11'; accession_Q06124.organism: 'Homo sapiens',accession_Q06124.name: 'Tyrosine-protein phosphatase non-receptor type 11'; accession_Q06124.gene: 'PTPN11'; accession_Q06124.organism: 'Homo sapiens'
+alloagent,P03,2,P03_r2,fpocket_top3,exact,FAIL,FAIL,False,,fpocket_top3[2].residues: 22,fpocket_top3[2].residues: 22
+alloagent,P03,2,P03_r2,pocket_recovery,qualitative,DEFERRED,DEFERRED,False,,judged,judged
+alloagent,P03,2,P03_r2,method_named_P03,qualitative,DEFERRED,DEFERRED,False,,judged,judged
+alloagent,P03,2,P03_r2,detector_limit_stated_P03,qualitative,DEFERRED,DEFERRED,False,,judged,judged
+baseline,P03,2,P03_r2,accession_Q06124,exact,FAIL,FAIL,False,,accession_Q06124.name: 'Tyrosine-protein phosphatase non-receptor type 11'; accession_Q06124.gene: 'PTPN11'; accession_Q06124.organism: 'Homo sapiens',accession_Q06124.name: 'Tyrosine-protein phosphatase non-receptor type 11'; accession_Q06124.gene: 'PTPN11'; accession_Q06124.organism: 'Homo sapiens'
+baseline,P03,2,P03_r2,fpocket_top3,exact,FAIL,DEFERRED,True,fix 1 (the fpocket_top3 method condition),fpocket_top3[0].residues: 21; fpocket_top3[1].residues: 21; fpocket_top3[2].residues: 22,the answer names no method; the committed item is judged against the fpocket reference output only when the answer names fpocket
+baseline,P03,2,P03_r2,pocket_recovery,qualitative,DEFERRED,DEFERRED,False,,judged,judged
+baseline,P03,2,P03_r2,method_named_P03,qualitative,DEFERRED,DEFERRED,False,,judged,judged
+baseline,P03,2,P03_r2,detector_limit_stated_P03,qualitative,DEFERRED,DEFERRED,False,,judged,judged
+alloagent,P03,3,P03_r3,accession_Q06124,exact,FAIL,FAIL,False,,accession_Q06124.name: 'Tyrosine-protein phosphatase non-receptor type 11'; accession_Q06124.gene: 'PTPN11'; accession_Q06124.organism: 'Homo sapiens',accession_Q06124.name: 'Tyrosine-protein phosphatase non-receptor type 11'; accession_Q06124.gene: 'PTPN11'; accession_Q06124.organism: 'Homo sapiens'
+alloagent,P03,3,P03_r3,fpocket_top3,exact,FAIL,FAIL,False,,fpocket_top3[2].residues: 22,fpocket_top3[2].residues: 22
+alloagent,P03,3,P03_r3,pocket_recovery,qualitative,DEFERRED,DEFERRED,False,,judged,judged
+alloagent,P03,3,P03_r3,method_named_P03,qualitative,DEFERRED,DEFERRED,False,,judged,judged
+alloagent,P03,3,P03_r3,detector_limit_stated_P03,qualitative,DEFERRED,DEFERRED,False,,judged,judged
+baseline,P03,3,P03_r3,accession_Q06124,exact,FAIL,FAIL,False,,accession_Q06124.name: 'Tyrosine-protein phosphatase non-receptor type 11'; accession_Q06124.gene: 'PTPN11'; accession_Q06124.organism: 'Homo sapiens',accession_Q06124.name: 'Tyrosine-protein phosphatase non-receptor type 11'; accession_Q06124.gene: 'PTPN11'; accession_Q06124.organism: 'Homo sapiens'
+baseline,P03,3,P03_r3,fpocket_top3,exact,FAIL,FAIL,False,,fpocket_top3[0].residues: 21; fpocket_top3[1].residues: 21; fpocket_top3[2].residues: 22,fpocket_top3[0].residues: 21; fpocket_top3[1].residues: 21; fpocket_top3[2].residues: 22
+baseline,P03,3,P03_r3,pocket_recovery,qualitative,DEFERRED,DEFERRED,False,,judged,judged
+baseline,P03,3,P03_r3,method_named_P03,qualitative,DEFERRED,DEFERRED,False,,judged,judged
+baseline,P03,3,P03_r3,detector_limit_stated_P03,qualitative,DEFERRED,DEFERRED,False,,judged,judged
+alloagent,P04,1,P04_r1,accession_P62593,exact,FAIL,FAIL,False,,accession_P62593.name: 'Beta-lactamase TEM'; accession_P62593.gene: 'bla'; accession_P62593.organism: 'Escherichia coli',accession_P62593.name: 'Beta-lactamase TEM'; accession_P62593.gene: 'bla'; accession_P62593.organism: 'Escherichia coli'
+alloagent,P04,1,P04_r1,pocketminer_top10_1BTL,exact,PASS,PASS,False,,,
+alloagent,P04,1,P04_r1,pocketminer_scores_for_1PZO_contacts,exact,PASS,PASS,False,,,
+alloagent,P04,1,P04_r1,mapping_stated,qualitative,DEFERRED,DEFERRED,False,,judged,judged
+baseline,P04,1,P04_r1,accession_P62593,exact,FAIL,FAIL,False,,accession_P62593.name: 'Beta-lactamase TEM'; accession_P62593.organism: 'Escherichia coli',accession_P62593.name: 'Beta-lactamase TEM'; accession_P62593.organism: 'Escherichia coli'
+baseline,P04,1,P04_r1,pocketminer_top10_1BTL,exact,FAIL,FAIL,False,,pocketminer_top10_1BTL[1].pdb_number: 246; pocketminer_top10_1BTL[2].pdb_number: 172; pocketminer_top10_1BTL[8].pdb_number: 266; pocketminer_top10_1BTL[9].pdb_number: 66,pocketminer_top10_1BTL[1].pdb_number: 246; pocketminer_top10_1BTL[2].pdb_number: 172; pocketminer_top10_1BTL[8].pdb_number: 266; pocketminer_top10_1BTL[9].pdb_number: 66
+baseline,P04,1,P04_r1,pocketminer_scores_for_1PZO_contacts,exact,FAIL,FAIL,False,,pocketminer_scores_for_1PZO_contacts.219: 0.7866; pocketminer_scores_for_1PZO_contacts.222: 0.2461; pocketminer_scores_for_1PZO_contacts.257: 0.3872; pocketminer_scores_for_1PZO_contacts.279: 0.2419; pocketminer_scores_for_1PZO_contacts.282: 0.3811,pocketminer_scores_for_1PZO_contacts.219: 0.7866; pocketminer_scores_for_1PZO_contacts.222: 0.2461; pocketminer_scores_for_1PZO_contacts.257: 0.3872; pocketminer_scores_for_1PZO_contacts.279: 0.2419; pocketminer_scores_for_1PZO_contacts.282: 0.3811
+baseline,P04,1,P04_r1,mapping_stated,qualitative,DEFERRED,DEFERRED,False,,judged,judged
+alloagent,P04,2,P04_r2,accession_P62593,exact,FAIL,FAIL,False,,accession_P62593.name: 'Beta-lactamase TEM'; accession_P62593.gene: 'bla'; accession_P62593.organism: 'Escherichia coli',accession_P62593.name: 'Beta-lactamase TEM'; accession_P62593.gene: 'bla'; accession_P62593.organism: 'Escherichia coli'
+alloagent,P04,2,P04_r2,pocketminer_top10_1BTL,exact,FAIL,FAIL,False,,pocketminer_top10_1BTL[1].pdb_number: 246; pocketminer_top10_1BTL[8].pdb_number: 266; pocketminer_top10_1BTL[9].pdb_number: 66,pocketminer_top10_1BTL[8].pdb_number: 266; pocketminer_top10_1BTL[9].pdb_number: 66
+alloagent,P04,2,P04_r2,pocketminer_scores_for_1PZO_contacts,exact,PASS,PASS,False,,,
+alloagent,P04,2,P04_r2,mapping_stated,qualitative,DEFERRED,DEFERRED,False,,judged,judged
+baseline,P04,2,P04_r2,accession_P62593,exact,FAIL,FAIL,False,,accession_P62593.name: 'Beta-lactamase TEM'; accession_P62593.gene: 'bla'; accession_P62593.organism: 'Escherichia coli',accession_P62593.name: 'Beta-lactamase TEM'; accession_P62593.gene: 'bla'; accession_P62593.organism: 'Escherichia coli'
+baseline,P04,2,P04_r2,pocketminer_top10_1BTL,exact,FAIL,FAIL,False,,pocketminer_top10_1BTL[0].pdb_number: 234; pocketminer_top10_1BTL[1].pdb_number: 246; pocketminer_top10_1BTL[2].pdb_number: 172; pocketminer_top10_1BTL[3].pdb_number: 244; pocketminer_top10_1BTL[5].pdb_number: 217; pocketminer_top10_1BTL[6].pdb_number: 235; pocketminer_top10_1BTL[7].pdb_number: 220; pocketminer_top10_1BTL[8].pdb_number: 266; pocketminer_top10_1BTL[9].pdb_number: 66,pocketminer_top10_1BTL[0].pdb_number: 234; pocketminer_top10_1BTL[1].pdb_number: 246; pocketminer_top10_1BTL[2].pdb_number: 172; pocketminer_top10_1BTL[3].pdb_number: 244; pocketminer_top10_1BTL[5].pdb_number: 217; pocketminer_top10_1BTL[6].pdb_number: 235; pocketminer_top10_1BTL[7].pdb_number: 220; pocketminer_top10_1BTL[8].pdb_number: 266; pocketminer_top10_1BTL[9].pdb_number: 66
+baseline,P04,2,P04_r2,pocketminer_scores_for_1PZO_contacts,exact,PASS,PASS,False,,,
+baseline,P04,2,P04_r2,mapping_stated,qualitative,DEFERRED,DEFERRED,False,,judged,judged
+alloagent,P04,3,P04_r3,accession_P62593,exact,FAIL,FAIL,False,,accession_P62593.name: 'Beta-lactamase TEM'; accession_P62593.gene: 'bla'; accession_P62593.organism: 'Escherichia coli',accession_P62593.name: 'Beta-lactamase TEM'; accession_P62593.gene: 'bla'; accession_P62593.organism: 'Escherichia coli'
+alloagent,P04,3,P04_r3,pocketminer_top10_1BTL,exact,FAIL,FAIL,False,,pocketminer_top10_1BTL[1].pdb_number: 246; pocketminer_top10_1BTL[2].pdb_number: 172; pocketminer_top10_1BTL[8].pdb_number: 266; pocketminer_top10_1BTL[9].pdb_number: 66,pocketminer_top10_1BTL[1].pdb_number: 246; pocketminer_top10_1BTL[2].pdb_number: 172; pocketminer_top10_1BTL[8].pdb_number: 266; pocketminer_top10_1BTL[9].pdb_number: 66
+alloagent,P04,3,P04_r3,pocketminer_scores_for_1PZO_contacts,exact,PASS,PASS,False,,,
+alloagent,P04,3,P04_r3,mapping_stated,qualitative,DEFERRED,DEFERRED,False,,judged,judged
+baseline,P04,3,P04_r3,accession_P62593,exact,FAIL,FAIL,False,,accession_P62593.name: 'Beta-lactamase TEM'; accession_P62593.gene: 'bla'; accession_P62593.organism: 'Escherichia coli',accession_P62593.name: 'Beta-lactamase TEM'; accession_P62593.gene: 'bla'; accession_P62593.organism: 'Escherichia coli'
+baseline,P04,3,P04_r3,pocketminer_top10_1BTL,exact,FAIL,PASS,True,fix 2 (the chain+number tokens),pocketminer_top10_1BTL[0].pdb_number: 234; pocketminer_top10_1BTL[1].pdb_number: 246; pocketminer_top10_1BTL[3].pdb_number: 244; pocketminer_top10_1BTL[5].pdb_number: 217; pocketminer_top10_1BTL[6].pdb_number: 235; pocketminer_top10_1BTL[7].pdb_number: 220; pocketminer_top10_1BTL[8].pdb_number: 266; pocketminer_top10_1BTL[9].pdb_number: 66,
+baseline,P04,3,P04_r3,pocketminer_scores_for_1PZO_contacts,exact,PASS,PASS,False,,,
+baseline,P04,3,P04_r3,mapping_stated,qualitative,DEFERRED,DEFERRED,False,,judged,judged
+alloagent,P05,1,P05_r1,accession_P00519,exact,FAIL,FAIL,False,,accession_P00519.name: 'Tyrosine-protein kinase ABL1'; accession_P00519.organism: 'Homo sapiens',accession_P00519.name: 'Tyrosine-protein kinase ABL1'; accession_P00519.organism: 'Homo sapiens'
+alloagent,P05,1,P05_r1,fpocket_top3,exact,FAIL,FAIL,False,,fpocket_top3[0].residues: 23; fpocket_top3[1].residues: 23; fpocket_top3[2].residues: 17,fpocket_top3[0].residues: 23; fpocket_top3[1].residues: 23; fpocket_top3[2].residues: 17
+alloagent,P05,1,P05_r1,pocket_recovery,qualitative,DEFERRED,DEFERRED,False,,judged,judged
+alloagent,P05,1,P05_r1,method_named_P05,qualitative,DEFERRED,DEFERRED,False,,judged,judged
+alloagent,P05,1,P05_r1,fpocket_reference_P05,exact,FAIL,FAIL,False,,top3_overlap[0]: 0; top3_overlap[1]: 0,top3_overlap[0]: 0; top3_overlap[1]: 0
+alloagent,P05,1,P05_r1,p2rank_reference_P05,exact,DEFERRED,DEFERRED,False,,the answer names ['fpocket']; the committed item is judged against the p2rank reference output only when the answer names p2rank,the answer names ['fpocket']; the committed item is judged against the p2rank reference output only when the answer names p2rank
+alloagent,P05,1,P05_r1,detector_limit_stated_P05,qualitative,DEFERRED,DEFERRED,False,,judged,judged
+baseline,P05,1,P05_r1,accession_P00519,exact,FAIL,FAIL,False,,accession_P00519.name: 'Tyrosine-protein kinase ABL1'; accession_P00519.organism: 'Homo sapiens',accession_P00519.name: 'Tyrosine-protein kinase ABL1'; accession_P00519.organism: 'Homo sapiens'
+baseline,P05,1,P05_r1,fpocket_top3,exact,FAIL,DEFERRED,True,fix 1 (the fpocket_top3 method condition),fpocket_top3[0].residues: 23; fpocket_top3[1].residues: 23,the answer names no method; the committed item is judged against the fpocket reference output only when the answer names fpocket
+baseline,P05,1,P05_r1,pocket_recovery,qualitative,DEFERRED,DEFERRED,False,,judged,judged
+baseline,P05,1,P05_r1,method_named_P05,qualitative,DEFERRED,DEFERRED,False,,judged,judged
+baseline,P05,1,P05_r1,fpocket_reference_P05,exact,DEFERRED,DEFERRED,False,,the answer names no method; the committed item is judged against the fpocket reference output only when the answer names fpocket,the answer names no method; the committed item is judged against the fpocket reference output only when the answer names fpocket
+baseline,P05,1,P05_r1,p2rank_reference_P05,exact,DEFERRED,DEFERRED,False,,the answer names no method; the committed item is judged against the p2rank reference output only when the answer names p2rank,the answer names no method; the committed item is judged against the p2rank reference output only when the answer names p2rank
+baseline,P05,1,P05_r1,detector_limit_stated_P05,qualitative,DEFERRED,DEFERRED,False,,judged,judged
+alloagent,P05,2,P05_r2,accession_P00519,exact,FAIL,FAIL,False,,accession_P00519.name: 'Tyrosine-protein kinase ABL1'; accession_P00519.organism: 'Homo sapiens',accession_P00519.name: 'Tyrosine-protein kinase ABL1'; accession_P00519.organism: 'Homo sapiens'
+alloagent,P05,2,P05_r2,fpocket_top3,exact,FAIL,FAIL,False,,fpocket_top3[0].residues: 23; fpocket_top3[1].residues: 23; fpocket_top3[2].residues: 17,fpocket_top3[0].residues: 23; fpocket_top3[1].residues: 23; fpocket_top3[2].residues: 17
+alloagent,P05,2,P05_r2,pocket_recovery,qualitative,DEFERRED,DEFERRED,False,,judged,judged
+alloagent,P05,2,P05_r2,method_named_P05,qualitative,DEFERRED,DEFERRED,False,,judged,judged
+alloagent,P05,2,P05_r2,fpocket_reference_P05,exact,FAIL,FAIL,False,,top3_overlap[0]: 0; top3_overlap[1]: 0,top3_overlap[0]: 0; top3_overlap[1]: 0
+alloagent,P05,2,P05_r2,p2rank_reference_P05,exact,DEFERRED,DEFERRED,False,,the answer names ['fpocket']; the committed item is judged against the p2rank reference output only when the answer names p2rank,the answer names ['fpocket']; the committed item is judged against the p2rank reference output only when the answer names p2rank
+alloagent,P05,2,P05_r2,detector_limit_stated_P05,qualitative,DEFERRED,DEFERRED,False,,judged,judged
+baseline,P05,2,P05_r2,accession_P00519,exact,FAIL,FAIL,False,,accession_P00519.name: 'Tyrosine-protein kinase ABL1'; accession_P00519.organism: 'Homo sapiens',accession_P00519.name: 'Tyrosine-protein kinase ABL1'; accession_P00519.organism: 'Homo sapiens'
+baseline,P05,2,P05_r2,fpocket_top3,exact,FAIL,DEFERRED,True,fix 1 (the fpocket_top3 method condition),fpocket_top3[0].residues: 23; fpocket_top3[1].residues: 23; fpocket_top3[2].residues: 17,the answer names no method; the committed item is judged against the fpocket reference output only when the answer names fpocket
+baseline,P05,2,P05_r2,pocket_recovery,qualitative,DEFERRED,DEFERRED,False,,judged,judged
+baseline,P05,2,P05_r2,method_named_P05,qualitative,DEFERRED,DEFERRED,False,,judged,judged
+baseline,P05,2,P05_r2,fpocket_reference_P05,exact,DEFERRED,DEFERRED,False,,the answer names no method; the committed item is judged against the fpocket reference output only when the answer names fpocket,the answer names no method; the committed item is judged against the fpocket reference output only when the answer names fpocket
+baseline,P05,2,P05_r2,p2rank_reference_P05,exact,DEFERRED,DEFERRED,False,,the answer names no method; the committed item is judged against the p2rank reference output only when the answer names p2rank,the answer names no method; the committed item is judged against the p2rank reference output only when the answer names p2rank
+baseline,P05,2,P05_r2,detector_limit_stated_P05,qualitative,DEFERRED,DEFERRED,False,,judged,judged
+alloagent,P05,3,P05_r3,accession_P00519,exact,FAIL,FAIL,False,,accession_P00519.name: 'Tyrosine-protein kinase ABL1'; accession_P00519.organism: 'Homo sapiens',accession_P00519.name: 'Tyrosine-protein kinase ABL1'; accession_P00519.organism: 'Homo sapiens'
+alloagent,P05,3,P05_r3,fpocket_top3,exact,FAIL,FAIL,False,,fpocket_top3[0].rank: 1; fpocket_top3[0].residues: 23; fpocket_top3[1].residues: 23,fpocket_top3[0].rank: 1; fpocket_top3[0].residues: 23; fpocket_top3[1].residues: 23
+alloagent,P05,3,P05_r3,pocket_recovery,qualitative,DEFERRED,DEFERRED,False,,judged,judged
+alloagent,P05,3,P05_r3,method_named_P05,qualitative,DEFERRED,DEFERRED,False,,judged,judged
+alloagent,P05,3,P05_r3,fpocket_reference_P05,exact,FAIL,FAIL,False,,top3_ranks[0]: 1,top3_ranks[0]: 1
+alloagent,P05,3,P05_r3,p2rank_reference_P05,exact,FAIL,FAIL,False,,top3_ranks[0]: 1,top3_ranks[0]: 1
+alloagent,P05,3,P05_r3,detector_limit_stated_P05,qualitative,DEFERRED,DEFERRED,False,,judged,judged
+baseline,P05,3,P05_r3,accession_P00519,exact,FAIL,FAIL,False,,accession_P00519.name: 'Tyrosine-protein kinase ABL1'; accession_P00519.organism: 'Homo sapiens',accession_P00519.name: 'Tyrosine-protein kinase ABL1'; accession_P00519.organism: 'Homo sapiens'
+baseline,P05,3,P05_r3,fpocket_top3,exact,FAIL,DEFERRED,True,fix 1 (the fpocket_top3 method condition),fpocket_top3[0].residues: 23; fpocket_top3[1].residues: 23; fpocket_top3[2].rank: 3; fpocket_top3[2].residues: 17,the answer names ['p2rank']; the committed item is judged against the fpocket reference output only when the answer names fpocket
+baseline,P05,3,P05_r3,pocket_recovery,qualitative,DEFERRED,DEFERRED,False,,judged,judged
+baseline,P05,3,P05_r3,method_named_P05,qualitative,DEFERRED,DEFERRED,False,,judged,judged
+baseline,P05,3,P05_r3,fpocket_reference_P05,exact,DEFERRED,DEFERRED,False,,the answer names ['p2rank']; the committed item is judged against the fpocket reference output only when the answer names fpocket,the answer names ['p2rank']; the committed item is judged against the fpocket reference output only when the answer names fpocket
+baseline,P05,3,P05_r3,p2rank_reference_P05,exact,FAIL,FAIL,False,,top3_ranks[2]: 3,top3_ranks[2]: 3
+baseline,P05,3,P05_r3,detector_limit_stated_P05,qualitative,DEFERRED,DEFERRED,False,,judged,judged
+alloagent,P06,1,P06_r1,accession_P35557,exact,FAIL,FAIL,False,,accession_P35557.name: 'Hexokinase-4'; accession_P35557.gene: 'GCK'; accession_P35557.organism: 'Homo sapiens',accession_P35557.name: 'Hexokinase-4'; accession_P35557.gene: 'GCK'; accession_P35557.organism: 'Homo sapiens'
+alloagent,P06,1,P06_r1,fpocket_top3,exact,FAIL,FAIL,False,,fpocket_top3[0].residues: 11; fpocket_top3[2].residues: 12,fpocket_top3[0].residues: 11; fpocket_top3[2].residues: 12
+alloagent,P06,1,P06_r1,pocket_recovery,qualitative,DEFERRED,DEFERRED,False,,judged,judged
+alloagent,P06,1,P06_r1,method_named_P06,qualitative,DEFERRED,DEFERRED,False,,judged,judged
+alloagent,P06,1,P06_r1,fpocket_reference_P06,exact,PASS,PASS,False,,,
+alloagent,P06,1,P06_r1,p2rank_reference_P06,exact,PASS,PASS,False,,,
+alloagent,P06,1,P06_r1,detector_limit_stated_P06,qualitative,DEFERRED,DEFERRED,False,,judged,judged
+baseline,P06,1,P06_r1,accession_P35557,exact,FAIL,FAIL,False,,accession_P35557.name: 'Hexokinase-4'; accession_P35557.gene: 'GCK'; accession_P35557.organism: 'Homo sapiens',accession_P35557.name: 'Hexokinase-4'; accession_P35557.gene: 'GCK'; accession_P35557.organism: 'Homo sapiens'
+baseline,P06,1,P06_r1,fpocket_top3,exact,FAIL,FAIL,False,,fpocket_top3[0].residues: 11,fpocket_top3[0].residues: 11
+baseline,P06,1,P06_r1,pocket_recovery,qualitative,DEFERRED,DEFERRED,False,,judged,judged
+baseline,P06,1,P06_r1,method_named_P06,qualitative,DEFERRED,DEFERRED,False,,judged,judged
+baseline,P06,1,P06_r1,fpocket_reference_P06,exact,FAIL,FAIL,False,,overlap_of_the_covering_pocket: 14; top3_overlap[0]: 0; top3_overlap[1]: 0; top3_overlap[2]: 0,overlap_of_the_covering_pocket: 14; top3_overlap[0]: 0; top3_overlap[1]: 0; top3_overlap[2]: 0
+baseline,P06,1,P06_r1,p2rank_reference_P06,exact,DEFERRED,DEFERRED,False,,the answer names ['fpocket']; the committed item is judged against the p2rank reference output only when the answer names p2rank,the answer names ['fpocket']; the committed item is judged against the p2rank reference output only when the answer names p2rank
+baseline,P06,1,P06_r1,detector_limit_stated_P06,qualitative,DEFERRED,DEFERRED,False,,judged,judged
+alloagent,P06,2,P06_r2,accession_P35557,exact,FAIL,FAIL,False,,accession_P35557.name: 'Hexokinase-4'; accession_P35557.gene: 'GCK'; accession_P35557.organism: 'Homo sapiens',accession_P35557.name: 'Hexokinase-4'; accession_P35557.gene: 'GCK'; accession_P35557.organism: 'Homo sapiens'
+alloagent,P06,2,P06_r2,fpocket_top3,exact,FAIL,FAIL,False,,fpocket_top3[0].residues: 11; fpocket_top3[1].residues: 24; fpocket_top3[2].residues: 12,fpocket_top3[0].residues: 11; fpocket_top3[1].residues: 24; fpocket_top3[2].residues: 12
+alloagent,P06,2,P06_r2,pocket_recovery,qualitative,DEFERRED,DEFERRED,False,,judged,judged
+alloagent,P06,2,P06_r2,method_named_P06,qualitative,DEFERRED,DEFERRED,False,,judged,judged
+alloagent,P06,2,P06_r2,fpocket_reference_P06,exact,FAIL,FAIL,False,,top3_overlap[0]: 0; top3_overlap[1]: 0; top3_overlap[2]: 0,top3_overlap[0]: 0; top3_overlap[1]: 0; top3_overlap[2]: 0
+alloagent,P06,2,P06_r2,p2rank_reference_P06,exact,FAIL,FAIL,False,,overlap_of_the_covering_pocket: 0; top3_overlap[0]: 0; top3_overlap[1]: 0; top3_overlap[2]: 0,overlap_of_the_covering_pocket: 0; top3_overlap[0]: 0; top3_overlap[1]: 0; top3_overlap[2]: 0
+alloagent,P06,2,P06_r2,detector_limit_stated_P06,qualitative,DEFERRED,DEFERRED,False,,judged,judged
+baseline,P06,2,P06_r2,accession_P35557,exact,FAIL,FAIL,False,,accession_P35557.name: 'Hexokinase-4'; accession_P35557.gene: 'GCK'; accession_P35557.organism: 'Homo sapiens',accession_P35557.name: 'Hexokinase-4'; accession_P35557.gene: 'GCK'; accession_P35557.organism: 'Homo sapiens'
+baseline,P06,2,P06_r2,fpocket_top3,exact,FAIL,FAIL,False,,fpocket_top3[0].residues: 11,fpocket_top3[0].residues: 11
+baseline,P06,2,P06_r2,pocket_recovery,qualitative,DEFERRED,DEFERRED,False,,judged,judged
+baseline,P06,2,P06_r2,method_named_P06,qualitative,DEFERRED,DEFERRED,False,,judged,judged
+baseline,P06,2,P06_r2,fpocket_reference_P06,exact,FAIL,FAIL,False,,overlap_of_the_covering_pocket: 14; top3_overlap[0]: 0; top3_overlap[1]: 0; top3_overlap[2]: 0,overlap_of_the_covering_pocket: 14; top3_overlap[0]: 0; top3_overlap[1]: 0; top3_overlap[2]: 0
+baseline,P06,2,P06_r2,p2rank_reference_P06,exact,DEFERRED,DEFERRED,False,,the answer names ['fpocket']; the committed item is judged against the p2rank reference output only when the answer names p2rank,the answer names ['fpocket']; the committed item is judged against the p2rank reference output only when the answer names p2rank
+baseline,P06,2,P06_r2,detector_limit_stated_P06,qualitative,DEFERRED,DEFERRED,False,,judged,judged
+alloagent,P06,3,P06_r3,accession_P35557,exact,FAIL,FAIL,False,,accession_P35557.name: 'Hexokinase-4'; accession_P35557.gene: 'GCK'; accession_P35557.organism: 'Homo sapiens',accession_P35557.name: 'Hexokinase-4'; accession_P35557.gene: 'GCK'; accession_P35557.organism: 'Homo sapiens'
+alloagent,P06,3,P06_r3,fpocket_top3,exact,FAIL,FAIL,False,,fpocket_top3[0].residues: 11; fpocket_top3[1].residues: 24; fpocket_top3[2].residues: 12,fpocket_top3[0].residues: 11; fpocket_top3[1].residues: 24; fpocket_top3[2].residues: 12
+alloagent,P06,3,P06_r3,pocket_recovery,qualitative,DEFERRED,DEFERRED,False,,judged,judged
+alloagent,P06,3,P06_r3,method_named_P06,qualitative,DEFERRED,DEFERRED,False,,judged,judged
+alloagent,P06,3,P06_r3,fpocket_reference_P06,exact,PASS,PASS,False,,,
+alloagent,P06,3,P06_r3,p2rank_reference_P06,exact,PASS,PASS,False,,,
+alloagent,P06,3,P06_r3,detector_limit_stated_P06,qualitative,DEFERRED,DEFERRED,False,,judged,judged
+baseline,P06,3,P06_r3,accession_P35557,exact,FAIL,FAIL,False,,accession_P35557.name: 'Hexokinase-4'; accession_P35557.organism: 'Homo sapiens',accession_P35557.name: 'Hexokinase-4'; accession_P35557.organism: 'Homo sapiens'
+baseline,P06,3,P06_r3,fpocket_top3,exact,FAIL,FAIL,False,,fpocket_top3[0].residues: 11; fpocket_top3[1].residues: 24,fpocket_top3[0].residues: 11; fpocket_top3[1].residues: 24
+baseline,P06,3,P06_r3,pocket_recovery,qualitative,DEFERRED,DEFERRED,False,,judged,judged
+baseline,P06,3,P06_r3,method_named_P06,qualitative,DEFERRED,DEFERRED,False,,judged,judged
+baseline,P06,3,P06_r3,fpocket_reference_P06,exact,PASS,PASS,False,,,
+baseline,P06,3,P06_r3,p2rank_reference_P06,exact,DEFERRED,DEFERRED,False,,the answer names ['fpocket']; the committed item is judged against the p2rank reference output only when the answer names p2rank,the answer names ['fpocket']; the committed item is judged against the p2rank reference output only when the answer names p2rank
+baseline,P06,3,P06_r3,detector_limit_stated_P06,qualitative,DEFERRED,DEFERRED,False,,judged,judged
+alloagent,P07,1,P07_r1,accession_P18031,exact,FAIL,FAIL,False,,accession_P18031.name: 'Tyrosine-protein phosphatase non-receptor type 1'; accession_P18031.gene: 'PTPN1'; accession_P18031.organism: 'Homo sapiens',accession_P18031.name: 'Tyrosine-protein phosphatase non-receptor type 1'; accession_P18031.gene: 'PTPN1'; accession_P18031.organism: 'Homo sapiens'
+alloagent,P07,1,P07_r1,fpocket_top3,exact,FAIL,FAIL,False,,fpocket_top3[1].residues: 12,fpocket_top3[1].residues: 12
+alloagent,P07,1,P07_r1,pocket_recovery,qualitative,DEFERRED,DEFERRED,False,,judged,judged
+alloagent,P07,1,P07_r1,method_named_P07,qualitative,DEFERRED,DEFERRED,False,,judged,judged
+alloagent,P07,1,P07_r1,fpocket_reference_P07,exact,PASS,PASS,False,,,
+alloagent,P07,1,P07_r1,p2rank_reference_P07,exact,PASS,PASS,False,,,
+alloagent,P07,1,P07_r1,detector_limit_stated_P07,qualitative,DEFERRED,DEFERRED,False,,judged,judged
+baseline,P07,1,P07_r1,accession_P18031,exact,FAIL,FAIL,False,,accession_P18031.name: 'Tyrosine-protein phosphatase non-receptor type 1'; accession_P18031.gene: 'PTPN1'; accession_P18031.organism: 'Homo sapiens',accession_P18031.name: 'Tyrosine-protein phosphatase non-receptor type 1'; accession_P18031.gene: 'PTPN1'; accession_P18031.organism: 'Homo sapiens'
+baseline,P07,1,P07_r1,fpocket_top3,exact,FAIL,FAIL,False,,fpocket_top3[0].residues: 9; fpocket_top3[1].residues: 12; fpocket_top3[2].residues: 15,fpocket_top3[0].residues: 9; fpocket_top3[1].residues: 12; fpocket_top3[2].residues: 15
+baseline,P07,1,P07_r1,pocket_recovery,qualitative,DEFERRED,DEFERRED,False,,judged,judged
+baseline,P07,1,P07_r1,method_named_P07,qualitative,DEFERRED,DEFERRED,False,,judged,judged
+baseline,P07,1,P07_r1,fpocket_reference_P07,exact,PASS,PASS,False,,,
+baseline,P07,1,P07_r1,p2rank_reference_P07,exact,PASS,PASS,False,,,
+baseline,P07,1,P07_r1,detector_limit_stated_P07,qualitative,DEFERRED,DEFERRED,False,,judged,judged
+alloagent,P07,2,P07_r2,accession_P18031,exact,FAIL,FAIL,False,,accession_P18031.name: 'Tyrosine-protein phosphatase non-receptor type 1'; accession_P18031.gene: 'PTPN1'; accession_P18031.organism: 'Homo sapiens',accession_P18031.name: 'Tyrosine-protein phosphatase non-receptor type 1'; accession_P18031.gene: 'PTPN1'; accession_P18031.organism: 'Homo sapiens'
+alloagent,P07,2,P07_r2,fpocket_top3,exact,FAIL,FAIL,False,,fpocket_top3[2].residues: 15,fpocket_top3[2].residues: 15
+alloagent,P07,2,P07_r2,pocket_recovery,qualitative,DEFERRED,DEFERRED,False,,judged,judged
+alloagent,P07,2,P07_r2,method_named_P07,qualitative,DEFERRED,DEFERRED,False,,judged,judged
+alloagent,P07,2,P07_r2,fpocket_reference_P07,exact,PASS,PASS,False,,,
+alloagent,P07,2,P07_r2,p2rank_reference_P07,exact,PASS,PASS,False,,,
+alloagent,P07,2,P07_r2,detector_limit_stated_P07,qualitative,DEFERRED,DEFERRED,False,,judged,judged
+baseline,P07,2,P07_r2,accession_P18031,exact,FAIL,FAIL,False,,accession_P18031.name: 'Tyrosine-protein phosphatase non-receptor type 1'; accession_P18031.gene: 'PTPN1'; accession_P18031.organism: 'Homo sapiens',accession_P18031.name: 'Tyrosine-protein phosphatase non-receptor type 1'; accession_P18031.gene: 'PTPN1'; accession_P18031.organism: 'Homo sapiens'
+baseline,P07,2,P07_r2,fpocket_top3,exact,FAIL,FAIL,False,,fpocket_top3[1].residues: 12; fpocket_top3[2].residues: 15,fpocket_top3[1].residues: 12; fpocket_top3[2].residues: 15
+baseline,P07,2,P07_r2,pocket_recovery,qualitative,DEFERRED,DEFERRED,False,,judged,judged
+baseline,P07,2,P07_r2,method_named_P07,qualitative,DEFERRED,DEFERRED,False,,judged,judged
+baseline,P07,2,P07_r2,fpocket_reference_P07,exact,PASS,PASS,False,,,
+baseline,P07,2,P07_r2,p2rank_reference_P07,exact,PASS,PASS,False,,,
+baseline,P07,2,P07_r2,detector_limit_stated_P07,qualitative,DEFERRED,DEFERRED,False,,judged,judged
+alloagent,P07,3,P07_r3,accession_P18031,exact,FAIL,FAIL,False,,accession_P18031.name: 'Tyrosine-protein phosphatase non-receptor type 1'; accession_P18031.gene: 'PTPN1'; accession_P18031.organism: 'Homo sapiens',accession_P18031.name: 'Tyrosine-protein phosphatase non-receptor type 1'; accession_P18031.gene: 'PTPN1'; accession_P18031.organism: 'Homo sapiens'
+alloagent,P07,3,P07_r3,fpocket_top3,exact,FAIL,FAIL,False,,fpocket_top3[1].residues: 12; fpocket_top3[2].residues: 15,fpocket_top3[1].residues: 12; fpocket_top3[2].residues: 15
+alloagent,P07,3,P07_r3,pocket_recovery,qualitative,DEFERRED,DEFERRED,False,,judged,judged
+alloagent,P07,3,P07_r3,method_named_P07,qualitative,DEFERRED,DEFERRED,False,,judged,judged
+alloagent,P07,3,P07_r3,fpocket_reference_P07,exact,PASS,PASS,False,,,
+alloagent,P07,3,P07_r3,p2rank_reference_P07,exact,PASS,PASS,False,,,
+alloagent,P07,3,P07_r3,detector_limit_stated_P07,qualitative,DEFERRED,DEFERRED,False,,judged,judged
+baseline,P07,3,P07_r3,accession_P18031,exact,FAIL,FAIL,False,,accession_P18031.name: 'Tyrosine-protein phosphatase non-receptor type 1'; accession_P18031.gene: 'PTPN1'; accession_P18031.organism: 'Homo sapiens',accession_P18031.name: 'Tyrosine-protein phosphatase non-receptor type 1'; accession_P18031.gene: 'PTPN1'; accession_P18031.organism: 'Homo sapiens'
+baseline,P07,3,P07_r3,fpocket_top3,exact,FAIL,FAIL,False,,fpocket_top3[1].residues: 12; fpocket_top3[2].residues: 15,fpocket_top3[1].residues: 12; fpocket_top3[2].residues: 15
+baseline,P07,3,P07_r3,pocket_recovery,qualitative,DEFERRED,DEFERRED,False,,judged,judged
+baseline,P07,3,P07_r3,method_named_P07,qualitative,DEFERRED,DEFERRED,False,,judged,judged
+baseline,P07,3,P07_r3,fpocket_reference_P07,exact,PASS,PASS,False,,,
+baseline,P07,3,P07_r3,p2rank_reference_P07,exact,PASS,PASS,False,,,
+baseline,P07,3,P07_r3,detector_limit_stated_P07,qualitative,DEFERRED,DEFERRED,False,,judged,judged
+alloagent,C01,1,C01_r1,accession_P18031,exact,FAIL,FAIL,False,,accession_P18031.name: 'Tyrosine-protein phosphatase non-receptor type 1'; accession_P18031.gene: 'PTPN1'; accession_P18031.organism: 'Homo sapiens',accession_P18031.name: 'Tyrosine-protein phosphatase non-receptor type 1'; accession_P18031.gene: 'PTPN1'; accession_P18031.organism: 'Homo sapiens'
+alloagent,C01,1,C01_r1,analysis_present,qualitative,DEFERRED,DEFERRED,False,,judged,judged
+baseline,C01,1,C01_r1,accession_P18031,exact,FAIL,FAIL,False,,accession_P18031.name: 'Tyrosine-protein phosphatase non-receptor type 1'; accession_P18031.gene: 'PTPN1'; accession_P18031.organism: 'Homo sapiens',accession_P18031.name: 'Tyrosine-protein phosphatase non-receptor type 1'; accession_P18031.gene: 'PTPN1'; accession_P18031.organism: 'Homo sapiens'
+baseline,C01,1,C01_r1,analysis_present,qualitative,DEFERRED,DEFERRED,False,,judged,judged
+alloagent,C01,2,C01_r2,accession_P18031,exact,FAIL,FAIL,False,,accession_P18031.name: 'Tyrosine-protein phosphatase non-receptor type 1'; accession_P18031.gene: 'PTPN1'; accession_P18031.organism: 'Homo sapiens',accession_P18031.name: 'Tyrosine-protein phosphatase non-receptor type 1'; accession_P18031.gene: 'PTPN1'; accession_P18031.organism: 'Homo sapiens'
+alloagent,C01,2,C01_r2,analysis_present,qualitative,DEFERRED,DEFERRED,False,,judged,judged
+baseline,C01,2,C01_r2,accession_P18031,exact,FAIL,FAIL,False,,accession_P18031.name: 'Tyrosine-protein phosphatase non-receptor type 1'; accession_P18031.gene: 'PTPN1'; accession_P18031.organism: 'Homo sapiens',accession_P18031.name: 'Tyrosine-protein phosphatase non-receptor type 1'; accession_P18031.gene: 'PTPN1'; accession_P18031.organism: 'Homo sapiens'
+baseline,C01,2,C01_r2,analysis_present,qualitative,DEFERRED,DEFERRED,False,,judged,judged
+alloagent,C01,3,C01_r3,accession_P18031,exact,FAIL,FAIL,False,,accession_P18031.name: 'Tyrosine-protein phosphatase non-receptor type 1'; accession_P18031.gene: 'PTPN1'; accession_P18031.organism: 'Homo sapiens',accession_P18031.name: 'Tyrosine-protein phosphatase non-receptor type 1'; accession_P18031.gene: 'PTPN1'; accession_P18031.organism: 'Homo sapiens'
+alloagent,C01,3,C01_r3,analysis_present,qualitative,DEFERRED,DEFERRED,False,,judged,judged
+baseline,C01,3,C01_r3,accession_P18031,exact,FAIL,FAIL,False,,accession_P18031.name: 'Tyrosine-protein phosphatase non-receptor type 1'; accession_P18031.gene: 'PTPN1'; accession_P18031.organism: 'Homo sapiens',accession_P18031.name: 'Tyrosine-protein phosphatase non-receptor type 1'; accession_P18031.gene: 'PTPN1'; accession_P18031.organism: 'Homo sapiens'
+baseline,C01,3,C01_r3,analysis_present,qualitative,DEFERRED,DEFERRED,False,,judged,judged
+alloagent,C02,1,C02_r1,accession_P18031,exact,FAIL,FAIL,False,,accession_P18031.name: 'Tyrosine-protein phosphatase non-receptor type 1'; accession_P18031.gene: 'PTPN1'; accession_P18031.organism: 'Homo sapiens',accession_P18031.name: 'Tyrosine-protein phosphatase non-receptor type 1'; accession_P18031.gene: 'PTPN1'; accession_P18031.organism: 'Homo sapiens'
+alloagent,C02,1,C02_r1,analysis_present,qualitative,DEFERRED,DEFERRED,False,,judged,judged
+baseline,C02,1,C02_r1,accession_P18031,exact,FAIL,FAIL,False,,accession_P18031.name: 'Tyrosine-protein phosphatase non-receptor type 1'; accession_P18031.gene: 'PTPN1'; accession_P18031.organism: 'Homo sapiens',accession_P18031.name: 'Tyrosine-protein phosphatase non-receptor type 1'; accession_P18031.gene: 'PTPN1'; accession_P18031.organism: 'Homo sapiens'
+baseline,C02,1,C02_r1,analysis_present,qualitative,DEFERRED,DEFERRED,False,,judged,judged
+alloagent,C02,2,C02_r2,accession_P18031,exact,FAIL,FAIL,False,,accession_P18031.name: 'Tyrosine-protein phosphatase non-receptor type 1'; accession_P18031.gene: 'PTPN1'; accession_P18031.organism: 'Homo sapiens',accession_P18031.name: 'Tyrosine-protein phosphatase non-receptor type 1'; accession_P18031.gene: 'PTPN1'; accession_P18031.organism: 'Homo sapiens'
+alloagent,C02,2,C02_r2,analysis_present,qualitative,DEFERRED,DEFERRED,False,,judged,judged
+baseline,C02,2,C02_r2,accession_P18031,exact,FAIL,FAIL,False,,accession_P18031.name: 'Tyrosine-protein phosphatase non-receptor type 1'; accession_P18031.gene: 'PTPN1'; accession_P18031.organism: 'Homo sapiens',accession_P18031.name: 'Tyrosine-protein phosphatase non-receptor type 1'; accession_P18031.gene: 'PTPN1'; accession_P18031.organism: 'Homo sapiens'
+baseline,C02,2,C02_r2,analysis_present,qualitative,DEFERRED,DEFERRED,False,,judged,judged
+alloagent,C02,3,C02_r3,accession_P18031,exact,FAIL,FAIL,False,,accession_P18031.name: 'Tyrosine-protein phosphatase non-receptor type 1'; accession_P18031.gene: 'PTPN1'; accession_P18031.organism: 'Homo sapiens',accession_P18031.name: 'Tyrosine-protein phosphatase non-receptor type 1'; accession_P18031.gene: 'PTPN1'; accession_P18031.organism: 'Homo sapiens'
+alloagent,C02,3,C02_r3,analysis_present,qualitative,DEFERRED,DEFERRED,False,,judged,judged
+baseline,C02,3,C02_r3,accession_P18031,exact,FAIL,FAIL,False,,accession_P18031.name: 'Tyrosine-protein phosphatase non-receptor type 1'; accession_P18031.gene: 'PTPN1'; accession_P18031.organism: 'Homo sapiens',accession_P18031.name: 'Tyrosine-protein phosphatase non-receptor type 1'; accession_P18031.gene: 'PTPN1'; accession_P18031.organism: 'Homo sapiens'
+baseline,C02,3,C02_r3,analysis_present,qualitative,DEFERRED,DEFERRED,False,,judged,judged
+alloagent,C03,1,C03_r1,accession_Q06124,exact,FAIL,FAIL,False,,accession_Q06124.name: 'Tyrosine-protein phosphatase non-receptor type 11'; accession_Q06124.gene: 'PTPN11'; accession_Q06124.organism: 'Homo sapiens',accession_Q06124.name: 'Tyrosine-protein phosphatase non-receptor type 11'; accession_Q06124.gene: 'PTPN11'; accession_Q06124.organism: 'Homo sapiens'
+alloagent,C03,1,C03_r1,analysis_present,qualitative,DEFERRED,DEFERRED,False,,judged,judged
+baseline,C03,1,C03_r1,accession_Q06124,exact,FAIL,FAIL,False,,accession_Q06124.name: 'Tyrosine-protein phosphatase non-receptor type 11'; accession_Q06124.gene: 'PTPN11'; accession_Q06124.organism: 'Homo sapiens',accession_Q06124.name: 'Tyrosine-protein phosphatase non-receptor type 11'; accession_Q06124.gene: 'PTPN11'; accession_Q06124.organism: 'Homo sapiens'
+baseline,C03,1,C03_r1,analysis_present,qualitative,DEFERRED,DEFERRED,False,,judged,judged
+alloagent,C03,2,C03_r2,accession_Q06124,exact,FAIL,FAIL,False,,accession_Q06124.name: 'Tyrosine-protein phosphatase non-receptor type 11'; accession_Q06124.gene: 'PTPN11'; accession_Q06124.organism: 'Homo sapiens',accession_Q06124.name: 'Tyrosine-protein phosphatase non-receptor type 11'; accession_Q06124.gene: 'PTPN11'; accession_Q06124.organism: 'Homo sapiens'
+alloagent,C03,2,C03_r2,analysis_present,qualitative,DEFERRED,DEFERRED,False,,judged,judged
+baseline,C03,2,C03_r2,accession_Q06124,exact,FAIL,FAIL,False,,accession_Q06124.name: 'Tyrosine-protein phosphatase non-receptor type 11'; accession_Q06124.gene: 'PTPN11'; accession_Q06124.organism: 'Homo sapiens',accession_Q06124.name: 'Tyrosine-protein phosphatase non-receptor type 11'; accession_Q06124.gene: 'PTPN11'; accession_Q06124.organism: 'Homo sapiens'
+baseline,C03,2,C03_r2,analysis_present,qualitative,DEFERRED,DEFERRED,False,,judged,judged
+alloagent,C03,3,C03_r3,accession_Q06124,exact,FAIL,FAIL,False,,accession_Q06124.name: 'Tyrosine-protein phosphatase non-receptor type 11'; accession_Q06124.gene: 'PTPN11'; accession_Q06124.organism: 'Homo sapiens',accession_Q06124.name: 'Tyrosine-protein phosphatase non-receptor type 11'; accession_Q06124.gene: 'PTPN11'; accession_Q06124.organism: 'Homo sapiens'
+alloagent,C03,3,C03_r3,analysis_present,qualitative,DEFERRED,DEFERRED,False,,judged,judged
+baseline,C03,3,C03_r3,accession_Q06124,exact,FAIL,FAIL,False,,accession_Q06124.name: 'Tyrosine-protein phosphatase non-receptor type 11'; accession_Q06124.gene: 'PTPN11'; accession_Q06124.organism: 'Homo sapiens',accession_Q06124.name: 'Tyrosine-protein phosphatase non-receptor type 11'; accession_Q06124.gene: 'PTPN11'; accession_Q06124.organism: 'Homo sapiens'
+baseline,C03,3,C03_r3,analysis_present,qualitative,DEFERRED,DEFERRED,False,,judged,judged
+alloagent,C04,1,C04_r1,accession_P35557,exact,FAIL,FAIL,False,,accession_P35557.name: 'Hexokinase-4'; accession_P35557.gene: 'GCK'; accession_P35557.organism: 'Homo sapiens',accession_P35557.name: 'Hexokinase-4'; accession_P35557.gene: 'GCK'; accession_P35557.organism: 'Homo sapiens'
+alloagent,C04,1,C04_r1,analysis_present,qualitative,DEFERRED,DEFERRED,False,,judged,judged
+baseline,C04,1,C04_r1,accession_P35557,exact,FAIL,FAIL,False,,accession_P35557.name: 'Hexokinase-4'; accession_P35557.gene: 'GCK'; accession_P35557.organism: 'Homo sapiens',accession_P35557.name: 'Hexokinase-4'; accession_P35557.gene: 'GCK'; accession_P35557.organism: 'Homo sapiens'
+baseline,C04,1,C04_r1,analysis_present,qualitative,DEFERRED,DEFERRED,False,,judged,judged
+alloagent,C04,2,C04_r2,accession_P35557,exact,FAIL,FAIL,False,,accession_P35557.name: 'Hexokinase-4'; accession_P35557.gene: 'GCK'; accession_P35557.organism: 'Homo sapiens',accession_P35557.name: 'Hexokinase-4'; accession_P35557.gene: 'GCK'; accession_P35557.organism: 'Homo sapiens'
+alloagent,C04,2,C04_r2,analysis_present,qualitative,DEFERRED,DEFERRED,False,,judged,judged
+baseline,C04,2,C04_r2,accession_P35557,exact,FAIL,FAIL,False,,accession_P35557.name: 'Hexokinase-4'; accession_P35557.gene: 'GCK'; accession_P35557.organism: 'Homo sapiens',accession_P35557.name: 'Hexokinase-4'; accession_P35557.gene: 'GCK'; accession_P35557.organism: 'Homo sapiens'
+baseline,C04,2,C04_r2,analysis_present,qualitative,DEFERRED,DEFERRED,False,,judged,judged
+alloagent,C04,3,C04_r3,accession_P35557,exact,FAIL,FAIL,False,,accession_P35557.name: 'Hexokinase-4'; accession_P35557.gene: 'GCK'; accession_P35557.organism: 'Homo sapiens',accession_P35557.name: 'Hexokinase-4'; accession_P35557.gene: 'GCK'; accession_P35557.organism: 'Homo sapiens'
+alloagent,C04,3,C04_r3,analysis_present,qualitative,DEFERRED,DEFERRED,False,,judged,judged
+baseline,C04,3,C04_r3,accession_P35557,exact,FAIL,FAIL,False,,accession_P35557.name: 'Hexokinase-4'; accession_P35557.organism: 'Homo sapiens',accession_P35557.name: 'Hexokinase-4'; accession_P35557.organism: 'Homo sapiens'
+baseline,C04,3,C04_r3,analysis_present,qualitative,DEFERRED,DEFERRED,False,,judged,judged
+alloagent,C05,1,C05_r1,accession_P69441,exact,FAIL,FAIL,False,,accession_P69441.gene: 'adk'; accession_P69441.organism: 'Escherichia coli (strain K12)',accession_P69441.gene: 'adk'; accession_P69441.organism: 'Escherichia coli (strain K12)'
+alloagent,C05,1,C05_r1,analysis_present,qualitative,DEFERRED,DEFERRED,False,,judged,judged
+baseline,C05,1,C05_r1,accession_P69441,exact,FAIL,FAIL,False,,accession_P69441.organism: 'Escherichia coli (strain K12)',accession_P69441.organism: 'Escherichia coli (strain K12)'
+baseline,C05,1,C05_r1,analysis_present,qualitative,DEFERRED,DEFERRED,False,,judged,judged
+alloagent,C05,2,C05_r2,accession_P69441,exact,FAIL,FAIL,False,,accession_P69441.gene: 'adk'; accession_P69441.organism: 'Escherichia coli (strain K12)',accession_P69441.gene: 'adk'; accession_P69441.organism: 'Escherichia coli (strain K12)'
+alloagent,C05,2,C05_r2,analysis_present,qualitative,DEFERRED,DEFERRED,False,,judged,judged
+baseline,C05,2,C05_r2,accession_P69441,exact,FAIL,FAIL,False,,accession_P69441.organism: 'Escherichia coli (strain K12)',accession_P69441.organism: 'Escherichia coli (strain K12)'
+baseline,C05,2,C05_r2,analysis_present,qualitative,DEFERRED,DEFERRED,False,,judged,judged
+alloagent,C05,3,C05_r3,accession_P69441,exact,FAIL,FAIL,False,,accession_P69441.organism: 'Escherichia coli (strain K12)',accession_P69441.organism: 'Escherichia coli (strain K12)'
+alloagent,C05,3,C05_r3,analysis_present,qualitative,DEFERRED,DEFERRED,False,,judged,judged
+baseline,C05,3,C05_r3,accession_P69441,exact,FAIL,FAIL,False,,accession_P69441.gene: 'adk'; accession_P69441.organism: 'Escherichia coli (strain K12)',accession_P69441.gene: 'adk'; accession_P69441.organism: 'Escherichia coli (strain K12)'
+baseline,C05,3,C05_r3,analysis_present,qualitative,DEFERRED,DEFERRED,False,,judged,judged
+alloagent,C06,1,C06_r1,accession_P18031,exact,FAIL,FAIL,False,,accession_P18031.name: 'Tyrosine-protein phosphatase non-receptor type 1'; accession_P18031.gene: 'PTPN1'; accession_P18031.organism: 'Homo sapiens',accession_P18031.name: 'Tyrosine-protein phosphatase non-receptor type 1'; accession_P18031.gene: 'PTPN1'; accession_P18031.organism: 'Homo sapiens'
+alloagent,C06,1,C06_r1,analysis_present,qualitative,DEFERRED,DEFERRED,False,,judged,judged
+baseline,C06,1,C06_r1,accession_P18031,exact,FAIL,FAIL,False,,accession_P18031.name: 'Tyrosine-protein phosphatase non-receptor type 1'; accession_P18031.gene: 'PTPN1'; accession_P18031.organism: 'Homo sapiens',accession_P18031.name: 'Tyrosine-protein phosphatase non-receptor type 1'; accession_P18031.gene: 'PTPN1'; accession_P18031.organism: 'Homo sapiens'
+baseline,C06,1,C06_r1,analysis_present,qualitative,DEFERRED,DEFERRED,False,,judged,judged
+alloagent,C06,2,C06_r2,accession_P18031,exact,FAIL,FAIL,False,,accession_P18031.name: 'Tyrosine-protein phosphatase non-receptor type 1'; accession_P18031.gene: 'PTPN1'; accession_P18031.organism: 'Homo sapiens',accession_P18031.name: 'Tyrosine-protein phosphatase non-receptor type 1'; accession_P18031.gene: 'PTPN1'; accession_P18031.organism: 'Homo sapiens'
+alloagent,C06,2,C06_r2,analysis_present,qualitative,DEFERRED,DEFERRED,False,,judged,judged
+baseline,C06,2,C06_r2,accession_P18031,exact,FAIL,FAIL,False,,accession_P18031.name: 'Tyrosine-protein phosphatase non-receptor type 1'; accession_P18031.gene: 'PTPN1'; accession_P18031.organism: 'Homo sapiens',accession_P18031.name: 'Tyrosine-protein phosphatase non-receptor type 1'; accession_P18031.gene: 'PTPN1'; accession_P18031.organism: 'Homo sapiens'
+baseline,C06,2,C06_r2,analysis_present,qualitative,DEFERRED,DEFERRED,False,,judged,judged
+alloagent,C06,3,C06_r3,accession_P18031,exact,FAIL,FAIL,False,,accession_P18031.name: 'Tyrosine-protein phosphatase non-receptor type 1'; accession_P18031.gene: 'PTPN1'; accession_P18031.organism: 'Homo sapiens',accession_P18031.name: 'Tyrosine-protein phosphatase non-receptor type 1'; accession_P18031.gene: 'PTPN1'; accession_P18031.organism: 'Homo sapiens'
+alloagent,C06,3,C06_r3,analysis_present,qualitative,DEFERRED,DEFERRED,False,,judged,judged
+baseline,C06,3,C06_r3,accession_P18031,exact,FAIL,FAIL,False,,accession_P18031.name: 'Tyrosine-protein phosphatase non-receptor type 1'; accession_P18031.gene: 'PTPN1'; accession_P18031.organism: 'Homo sapiens',accession_P18031.name: 'Tyrosine-protein phosphatase non-receptor type 1'; accession_P18031.gene: 'PTPN1'; accession_P18031.organism: 'Homo sapiens'
+baseline,C06,3,C06_r3,analysis_present,qualitative,DEFERRED,DEFERRED,False,,judged,judged
+alloagent,V01,1,V01_r1,accession_Q06124,exact,FAIL,FAIL,False,,accession_Q06124.name: 'Tyrosine-protein phosphatase non-receptor type 11'; accession_Q06124.organism: 'Homo sapiens',accession_Q06124.name: 'Tyrosine-protein phosphatase non-receptor type 11'; accession_Q06124.organism: 'Homo sapiens'
+alloagent,V01,1,V01_r1,clinvar_E76K,exact,PASS,PASS,False,,,
+alloagent,V01,1,V01_r1,alphamissense_E76K,number,PASS,PASS,False,,,
+alloagent,V01,1,V01_r1,clinvar_D61Y,exact,PASS,PASS,False,,,
+alloagent,V01,1,V01_r1,alphamissense_D61Y,number,PASS,PASS,False,,,
+alloagent,V01,1,V01_r1,distances,qualitative,DEFERRED,DEFERRED,False,,judged,judged
+baseline,V01,1,V01_r1,accession_Q06124,exact,FAIL,FAIL,False,,accession_Q06124.name: 'Tyrosine-protein phosphatase non-receptor type 11'; accession_Q06124.organism: 'Homo sapiens',accession_Q06124.name: 'Tyrosine-protein phosphatase non-receptor type 11'; accession_Q06124.organism: 'Homo sapiens'
+baseline,V01,1,V01_r1,clinvar_E76K,exact,FAIL,FAIL,False,,clinvar_E76K.variation_id: '28375',clinvar_E76K.variation_id: '28375'
+baseline,V01,1,V01_r1,alphamissense_E76K,number,PASS,PASS,False,,,
+baseline,V01,1,V01_r1,clinvar_D61Y,exact,FAIL,FAIL,False,,clinvar_D61Y.variation_id: '230257',clinvar_D61Y.variation_id: '230257'
+baseline,V01,1,V01_r1,alphamissense_D61Y,number,PASS,PASS,False,,,
+baseline,V01,1,V01_r1,distances,qualitative,DEFERRED,DEFERRED,False,,judged,judged
+alloagent,V01,2,V01_r2,accession_Q06124,exact,FAIL,FAIL,False,,accession_Q06124.name: 'Tyrosine-protein phosphatase non-receptor type 11'; accession_Q06124.organism: 'Homo sapiens',accession_Q06124.name: 'Tyrosine-protein phosphatase non-receptor type 11'; accession_Q06124.organism: 'Homo sapiens'
+alloagent,V01,2,V01_r2,clinvar_E76K,exact,FAIL,FAIL,False,,clinvar_E76K.variation_id: '28375',clinvar_E76K.variation_id: '28375'
+alloagent,V01,2,V01_r2,alphamissense_E76K,number,PASS,PASS,False,,,
+alloagent,V01,2,V01_r2,clinvar_D61Y,exact,FAIL,FAIL,False,,clinvar_D61Y.variation_id: '230257',clinvar_D61Y.variation_id: '230257'
+alloagent,V01,2,V01_r2,alphamissense_D61Y,number,PASS,PASS,False,,,
+alloagent,V01,2,V01_r2,distances,qualitative,DEFERRED,DEFERRED,False,,judged,judged
+baseline,V01,2,V01_r2,accession_Q06124,exact,FAIL,FAIL,False,,accession_Q06124.name: 'Tyrosine-protein phosphatase non-receptor type 11'; accession_Q06124.organism: 'Homo sapiens',accession_Q06124.name: 'Tyrosine-protein phosphatase non-receptor type 11'; accession_Q06124.organism: 'Homo sapiens'
+baseline,V01,2,V01_r2,clinvar_E76K,exact,FAIL,FAIL,False,,clinvar_E76K.variation_id: '28375',clinvar_E76K.variation_id: '28375'
+baseline,V01,2,V01_r2,alphamissense_E76K,number,PASS,PASS,False,,,
+baseline,V01,2,V01_r2,clinvar_D61Y,exact,FAIL,FAIL,False,,clinvar_D61Y.variation_id: '230257',clinvar_D61Y.variation_id: '230257'
+baseline,V01,2,V01_r2,alphamissense_D61Y,number,PASS,PASS,False,,,
+baseline,V01,2,V01_r2,distances,qualitative,DEFERRED,DEFERRED,False,,judged,judged
+alloagent,V01,3,V01_r3,accession_Q06124,exact,FAIL,FAIL,False,,accession_Q06124.name: 'Tyrosine-protein phosphatase non-receptor type 11'; accession_Q06124.organism: 'Homo sapiens',accession_Q06124.name: 'Tyrosine-protein phosphatase non-receptor type 11'; accession_Q06124.organism: 'Homo sapiens'
+alloagent,V01,3,V01_r3,clinvar_E76K,exact,PASS,PASS,False,,,
+alloagent,V01,3,V01_r3,alphamissense_E76K,number,PASS,PASS,False,,,
+alloagent,V01,3,V01_r3,clinvar_D61Y,exact,PASS,PASS,False,,,
+alloagent,V01,3,V01_r3,alphamissense_D61Y,number,PASS,PASS,False,,,
+alloagent,V01,3,V01_r3,distances,qualitative,DEFERRED,DEFERRED,False,,judged,judged
+baseline,V01,3,V01_r3,accession_Q06124,exact,FAIL,FAIL,False,,accession_Q06124.name: 'Tyrosine-protein phosphatase non-receptor type 11'; accession_Q06124.organism: 'Homo sapiens',accession_Q06124.name: 'Tyrosine-protein phosphatase non-receptor type 11'; accession_Q06124.organism: 'Homo sapiens'
+baseline,V01,3,V01_r3,clinvar_E76K,exact,FAIL,FAIL,False,,clinvar_E76K.variation_id: '28375',clinvar_E76K.variation_id: '28375'
+baseline,V01,3,V01_r3,alphamissense_E76K,number,PASS,PASS,False,,,
+baseline,V01,3,V01_r3,clinvar_D61Y,exact,FAIL,FAIL,False,,clinvar_D61Y.variation_id: '230257',clinvar_D61Y.variation_id: '230257'
+baseline,V01,3,V01_r3,alphamissense_D61Y,number,PASS,PASS,False,,,
+baseline,V01,3,V01_r3,distances,qualitative,DEFERRED,DEFERRED,False,,judged,judged
+alloagent,V02,1,V02_r1,accession_P31749,exact,FAIL,FAIL,False,,accession_P31749.name: 'RAC-alpha serine/threonine-protein kinase'; accession_P31749.organism: 'Homo sapiens',accession_P31749.name: 'RAC-alpha serine/threonine-protein kinase'; accession_P31749.organism: 'Homo sapiens'
+alloagent,V02,1,V02_r1,clinvar_E17K,exact,FAIL,FAIL,False,,clinvar_E17K.variation_id: '29022',clinvar_E17K.variation_id: '29022'
+alloagent,V02,1,V02_r1,alphamissense_E17K,number,PASS,PASS,False,,,
+alloagent,V02,1,V02_r1,domain_and_distance,qualitative,DEFERRED,DEFERRED,False,,judged,judged
+baseline,V02,1,V02_r1,accession_P31749,exact,FAIL,FAIL,False,,accession_P31749.name: 'RAC-alpha serine/threonine-protein kinase'; accession_P31749.organism: 'Homo sapiens',accession_P31749.name: 'RAC-alpha serine/threonine-protein kinase'; accession_P31749.organism: 'Homo sapiens'
+baseline,V02,1,V02_r1,clinvar_E17K,exact,FAIL,FAIL,False,,clinvar_E17K.variation_id: '29022',clinvar_E17K.variation_id: '29022'
+baseline,V02,1,V02_r1,alphamissense_E17K,number,PASS,PASS,False,,,
+baseline,V02,1,V02_r1,domain_and_distance,qualitative,DEFERRED,DEFERRED,False,,judged,judged
+alloagent,V02,2,V02_r2,accession_P31749,exact,FAIL,FAIL,False,,accession_P31749.name: 'RAC-alpha serine/threonine-protein kinase'; accession_P31749.organism: 'Homo sapiens',accession_P31749.name: 'RAC-alpha serine/threonine-protein kinase'; accession_P31749.organism: 'Homo sapiens'
+alloagent,V02,2,V02_r2,clinvar_E17K,exact,PASS,PASS,False,,,
+alloagent,V02,2,V02_r2,alphamissense_E17K,number,PASS,PASS,False,,,
+alloagent,V02,2,V02_r2,domain_and_distance,qualitative,DEFERRED,DEFERRED,False,,judged,judged
+baseline,V02,2,V02_r2,accession_P31749,exact,FAIL,FAIL,False,,accession_P31749.name: 'RAC-alpha serine/threonine-protein kinase'; accession_P31749.organism: 'Homo sapiens',accession_P31749.name: 'RAC-alpha serine/threonine-protein kinase'; accession_P31749.organism: 'Homo sapiens'
+baseline,V02,2,V02_r2,clinvar_E17K,exact,FAIL,FAIL,False,,clinvar_E17K.variation_id: '29022',clinvar_E17K.variation_id: '29022'
+baseline,V02,2,V02_r2,alphamissense_E17K,number,PASS,PASS,False,,,
+baseline,V02,2,V02_r2,domain_and_distance,qualitative,DEFERRED,DEFERRED,False,,judged,judged
+alloagent,V02,3,V02_r3,accession_P31749,exact,FAIL,FAIL,False,,accession_P31749.name: 'RAC-alpha serine/threonine-protein kinase'; accession_P31749.organism: 'Homo sapiens',accession_P31749.name: 'RAC-alpha serine/threonine-protein kinase'; accession_P31749.organism: 'Homo sapiens'
+alloagent,V02,3,V02_r3,clinvar_E17K,exact,PASS,PASS,False,,,
+alloagent,V02,3,V02_r3,alphamissense_E17K,number,PASS,PASS,False,,,
+alloagent,V02,3,V02_r3,domain_and_distance,qualitative,DEFERRED,DEFERRED,False,,judged,judged
+baseline,V02,3,V02_r3,accession_P31749,exact,FAIL,FAIL,False,,accession_P31749.name: 'RAC-alpha serine/threonine-protein kinase'; accession_P31749.organism: 'Homo sapiens',accession_P31749.name: 'RAC-alpha serine/threonine-protein kinase'; accession_P31749.organism: 'Homo sapiens'
+baseline,V02,3,V02_r3,clinvar_E17K,exact,FAIL,FAIL,False,,clinvar_E17K.variation_id: '29022',clinvar_E17K.variation_id: '29022'
+baseline,V02,3,V02_r3,alphamissense_E17K,number,PASS,PASS,False,,,
+baseline,V02,3,V02_r3,domain_and_distance,qualitative,DEFERRED,DEFERRED,False,,judged,judged
+alloagent,V03,1,V03_r1,accession_P01116,exact,FAIL,FAIL,False,,accession_P01116.name: 'GTPase KRas'; accession_P01116.organism: 'Homo sapiens',accession_P01116.name: 'GTPase KRas'; accession_P01116.organism: 'Homo sapiens'
+alloagent,V03,1,V03_r1,clinvar_G12C,exact,PASS,PASS,False,,,
+alloagent,V03,1,V03_r1,alphamissense_G12C,number,PASS,PASS,False,,,
+alloagent,V03,1,V03_r1,clinvar_G12D,exact,FAIL,FAIL,False,,clinvar_G12D.variation_id: '27621',clinvar_G12D.variation_id: '27621'
+alloagent,V03,1,V03_r1,alphamissense_G12D,number,PASS,PASS,False,,,
+alloagent,V03,1,V03_r1,clinvar_G12V,exact,PASS,PASS,False,,,
+alloagent,V03,1,V03_r1,alphamissense_G12V,number,PASS,PASS,False,,,
+alloagent,V03,1,V03_r1,distance,qualitative,DEFERRED,DEFERRED,False,,judged,judged
+alloagent,V03,1,V03_r1,resolution,qualitative,DEFERRED,DEFERRED,False,,judged,judged
+baseline,V03,1,V03_r1,accession_P01116,exact,FAIL,FAIL,False,,accession_P01116.name: 'GTPase KRas'; accession_P01116.organism: 'Homo sapiens',accession_P01116.name: 'GTPase KRas'; accession_P01116.organism: 'Homo sapiens'
+baseline,V03,1,V03_r1,clinvar_G12C,exact,FAIL,FAIL,False,,clinvar_G12C.variation_id: '27617',clinvar_G12C.variation_id: '27617'
+baseline,V03,1,V03_r1,alphamissense_G12C,number,PASS,PASS,False,,,
+baseline,V03,1,V03_r1,clinvar_G12D,exact,FAIL,FAIL,False,,clinvar_G12D.variation_id: '27621',clinvar_G12D.variation_id: '27621'
+baseline,V03,1,V03_r1,alphamissense_G12D,number,PASS,PASS,False,,,
+baseline,V03,1,V03_r1,clinvar_G12V,exact,FAIL,FAIL,False,,clinvar_G12V.variation_id: '27622',clinvar_G12V.variation_id: '27622'
+baseline,V03,1,V03_r1,alphamissense_G12V,number,PASS,PASS,False,,,
+baseline,V03,1,V03_r1,distance,qualitative,DEFERRED,DEFERRED,False,,judged,judged
+baseline,V03,1,V03_r1,resolution,qualitative,DEFERRED,DEFERRED,False,,judged,judged
+alloagent,V03,2,V03_r2,accession_P01116,exact,FAIL,FAIL,False,,accession_P01116.name: 'GTPase KRas'; accession_P01116.organism: 'Homo sapiens',accession_P01116.name: 'GTPase KRas'; accession_P01116.organism: 'Homo sapiens'
+alloagent,V03,2,V03_r2,clinvar_G12C,exact,PASS,PASS,False,,,
+alloagent,V03,2,V03_r2,alphamissense_G12C,number,PASS,PASS,False,,,
+alloagent,V03,2,V03_r2,clinvar_G12D,exact,FAIL,FAIL,False,,clinvar_G12D.variation_id: '27621',clinvar_G12D.variation_id: '27621'
+alloagent,V03,2,V03_r2,alphamissense_G12D,number,PASS,PASS,False,,,
+alloagent,V03,2,V03_r2,clinvar_G12V,exact,PASS,PASS,False,,,
+alloagent,V03,2,V03_r2,alphamissense_G12V,number,PASS,PASS,False,,,
+alloagent,V03,2,V03_r2,distance,qualitative,DEFERRED,DEFERRED,False,,judged,judged
+alloagent,V03,2,V03_r2,resolution,qualitative,DEFERRED,DEFERRED,False,,judged,judged
+baseline,V03,2,V03_r2,accession_P01116,exact,FAIL,FAIL,False,,accession_P01116.name: 'GTPase KRas'; accession_P01116.organism: 'Homo sapiens',accession_P01116.name: 'GTPase KRas'; accession_P01116.organism: 'Homo sapiens'
+baseline,V03,2,V03_r2,clinvar_G12C,exact,FAIL,FAIL,False,,clinvar_G12C.variation_id: '27617',clinvar_G12C.variation_id: '27617'
+baseline,V03,2,V03_r2,alphamissense_G12C,number,PASS,PASS,False,,,
+baseline,V03,2,V03_r2,clinvar_G12D,exact,FAIL,FAIL,False,,clinvar_G12D.variation_id: '27621',clinvar_G12D.variation_id: '27621'
+baseline,V03,2,V03_r2,alphamissense_G12D,number,PASS,PASS,False,,,
+baseline,V03,2,V03_r2,clinvar_G12V,exact,FAIL,FAIL,False,,clinvar_G12V.variation_id: '27622',clinvar_G12V.variation_id: '27622'
+baseline,V03,2,V03_r2,alphamissense_G12V,number,PASS,PASS,False,,,
+baseline,V03,2,V03_r2,distance,qualitative,DEFERRED,DEFERRED,False,,judged,judged
+baseline,V03,2,V03_r2,resolution,qualitative,DEFERRED,DEFERRED,False,,judged,judged
+alloagent,V03,3,V03_r3,accession_P01116,exact,FAIL,FAIL,False,,accession_P01116.name: 'GTPase KRas'; accession_P01116.organism: 'Homo sapiens',accession_P01116.name: 'GTPase KRas'; accession_P01116.organism: 'Homo sapiens'
+alloagent,V03,3,V03_r3,clinvar_G12C,exact,PASS,PASS,False,,,
+alloagent,V03,3,V03_r3,alphamissense_G12C,number,PASS,PASS,False,,,
+alloagent,V03,3,V03_r3,clinvar_G12D,exact,FAIL,FAIL,False,,clinvar_G12D.variation_id: '27621',clinvar_G12D.variation_id: '27621'
+alloagent,V03,3,V03_r3,alphamissense_G12D,number,PASS,PASS,False,,,
+alloagent,V03,3,V03_r3,clinvar_G12V,exact,PASS,PASS,False,,,
+alloagent,V03,3,V03_r3,alphamissense_G12V,number,PASS,PASS,False,,,
+alloagent,V03,3,V03_r3,distance,qualitative,DEFERRED,DEFERRED,False,,judged,judged
+alloagent,V03,3,V03_r3,resolution,qualitative,DEFERRED,DEFERRED,False,,judged,judged
+baseline,V03,3,V03_r3,accession_P01116,exact,FAIL,FAIL,False,,accession_P01116.name: 'GTPase KRas'; accession_P01116.organism: 'Homo sapiens',accession_P01116.name: 'GTPase KRas'; accession_P01116.organism: 'Homo sapiens'
+baseline,V03,3,V03_r3,clinvar_G12C,exact,FAIL,FAIL,False,,clinvar_G12C.variation_id: '27617',clinvar_G12C.variation_id: '27617'
+baseline,V03,3,V03_r3,alphamissense_G12C,number,PASS,PASS,False,,,
+baseline,V03,3,V03_r3,clinvar_G12D,exact,FAIL,FAIL,False,,clinvar_G12D.variation_id: '27621',clinvar_G12D.variation_id: '27621'
+baseline,V03,3,V03_r3,alphamissense_G12D,number,PASS,PASS,False,,,
+baseline,V03,3,V03_r3,clinvar_G12V,exact,FAIL,FAIL,False,,clinvar_G12V.variation_id: '27622',clinvar_G12V.variation_id: '27622'
+baseline,V03,3,V03_r3,alphamissense_G12V,number,PASS,PASS,False,,,
+baseline,V03,3,V03_r3,distance,qualitative,DEFERRED,DEFERRED,False,,judged,judged
+baseline,V03,3,V03_r3,resolution,qualitative,DEFERRED,DEFERRED,False,,judged,judged
+alloagent,V04,1,V04_r1,accession_P00519,exact,FAIL,FAIL,False,,accession_P00519.name: 'Tyrosine-protein kinase ABL1'; accession_P00519.organism: 'Homo sapiens',accession_P00519.name: 'Tyrosine-protein kinase ABL1'; accession_P00519.organism: 'Homo sapiens'
+alloagent,V04,1,V04_r1,clinvar_T315I,exact,PASS,PASS,False,,,
+alloagent,V04,1,V04_r1,alphamissense_T315I,number,PASS,PASS,False,,,
+alloagent,V04,1,V04_r1,distances,qualitative,DEFERRED,DEFERRED,False,,judged,judged
+baseline,V04,1,V04_r1,accession_P00519,exact,FAIL,FAIL,False,,accession_P00519.name: 'Tyrosine-protein kinase ABL1'; accession_P00519.organism: 'Homo sapiens',accession_P00519.name: 'Tyrosine-protein kinase ABL1'; accession_P00519.organism: 'Homo sapiens'
+baseline,V04,1,V04_r1,clinvar_T315I,exact,FAIL,FAIL,False,,clinvar_T315I.variation_id: '27663',clinvar_T315I.variation_id: '27663'
+baseline,V04,1,V04_r1,alphamissense_T315I,number,PASS,PASS,False,,,
+baseline,V04,1,V04_r1,distances,qualitative,DEFERRED,DEFERRED,False,,judged,judged
+alloagent,V04,2,V04_r2,accession_P00519,exact,FAIL,FAIL,False,,accession_P00519.name: 'Tyrosine-protein kinase ABL1'; accession_P00519.organism: 'Homo sapiens',accession_P00519.name: 'Tyrosine-protein kinase ABL1'; accession_P00519.organism: 'Homo sapiens'
+alloagent,V04,2,V04_r2,clinvar_T315I,exact,PASS,PASS,False,,,
+alloagent,V04,2,V04_r2,alphamissense_T315I,number,PASS,PASS,False,,,
+alloagent,V04,2,V04_r2,distances,qualitative,DEFERRED,DEFERRED,False,,judged,judged
+baseline,V04,2,V04_r2,accession_P00519,exact,FAIL,FAIL,False,,accession_P00519.name: 'Tyrosine-protein kinase ABL1'; accession_P00519.organism: 'Homo sapiens',accession_P00519.name: 'Tyrosine-protein kinase ABL1'; accession_P00519.organism: 'Homo sapiens'
+baseline,V04,2,V04_r2,clinvar_T315I,exact,FAIL,FAIL,False,,clinvar_T315I.variation_id: '27663',clinvar_T315I.variation_id: '27663'
+baseline,V04,2,V04_r2,alphamissense_T315I,number,PASS,PASS,False,,,
+baseline,V04,2,V04_r2,distances,qualitative,DEFERRED,DEFERRED,False,,judged,judged
+alloagent,V04,3,V04_r3,accession_P00519,exact,FAIL,FAIL,False,,accession_P00519.name: 'Tyrosine-protein kinase ABL1'; accession_P00519.organism: 'Homo sapiens',accession_P00519.name: 'Tyrosine-protein kinase ABL1'; accession_P00519.organism: 'Homo sapiens'
+alloagent,V04,3,V04_r3,clinvar_T315I,exact,PASS,PASS,False,,,
+alloagent,V04,3,V04_r3,alphamissense_T315I,number,PASS,PASS,False,,,
+alloagent,V04,3,V04_r3,distances,qualitative,DEFERRED,DEFERRED,False,,judged,judged
+baseline,V04,3,V04_r3,accession_P00519,exact,FAIL,FAIL,False,,accession_P00519.name: 'Tyrosine-protein kinase ABL1'; accession_P00519.organism: 'Homo sapiens',accession_P00519.name: 'Tyrosine-protein kinase ABL1'; accession_P00519.organism: 'Homo sapiens'
+baseline,V04,3,V04_r3,clinvar_T315I,exact,FAIL,FAIL,False,,clinvar_T315I.variation_id: '27663',clinvar_T315I.variation_id: '27663'
+baseline,V04,3,V04_r3,alphamissense_T315I,number,PASS,PASS,False,,,
+baseline,V04,3,V04_r3,distances,qualitative,DEFERRED,DEFERRED,False,,judged,judged
+alloagent,V05,1,V05_r1,accession_P35557,exact,FAIL,FAIL,False,,accession_P35557.name: 'Hexokinase-4'; accession_P35557.organism: 'Homo sapiens',accession_P35557.name: 'Hexokinase-4'; accession_P35557.organism: 'Homo sapiens'
+alloagent,V05,1,V05_r1,clinvar_variant_count_GCK,number,FAIL,FAIL,False,,expected 2845,expected 2845
+alloagent,V05,1,V05_r1,variant_list,qualitative,DEFERRED,DEFERRED,False,,judged,judged
+baseline,V05,1,V05_r1,accession_P35557,exact,FAIL,FAIL,False,,accession_P35557.name: 'Hexokinase-4'; accession_P35557.organism: 'Homo sapiens',accession_P35557.name: 'Hexokinase-4'; accession_P35557.organism: 'Homo sapiens'
+baseline,V05,1,V05_r1,clinvar_variant_count_GCK,number,FAIL,FAIL,False,,expected 2845,expected 2845
+baseline,V05,1,V05_r1,variant_list,qualitative,DEFERRED,DEFERRED,False,,judged,judged
+alloagent,V05,2,V05_r2,accession_P35557,exact,FAIL,FAIL,False,,accession_P35557.name: 'Hexokinase-4'; accession_P35557.gene: 'GCK'; accession_P35557.organism: 'Homo sapiens',accession_P35557.name: 'Hexokinase-4'; accession_P35557.gene: 'GCK'; accession_P35557.organism: 'Homo sapiens'
+alloagent,V05,2,V05_r2,clinvar_variant_count_GCK,number,PASS,PASS,False,,,
+alloagent,V05,2,V05_r2,variant_list,qualitative,DEFERRED,DEFERRED,False,,judged,judged
+baseline,V05,2,V05_r2,accession_P35557,exact,FAIL,FAIL,False,,accession_P35557.name: 'Hexokinase-4',accession_P35557.name: 'Hexokinase-4'
+baseline,V05,2,V05_r2,clinvar_variant_count_GCK,number,FAIL,FAIL,False,,expected 2845,expected 2845
+baseline,V05,2,V05_r2,variant_list,qualitative,DEFERRED,DEFERRED,False,,judged,judged
+alloagent,V05,3,V05_r3,accession_P35557,exact,FAIL,FAIL,False,,accession_P35557.name: 'Hexokinase-4'; accession_P35557.gene: 'GCK'; accession_P35557.organism: 'Homo sapiens',accession_P35557.name: 'Hexokinase-4'; accession_P35557.gene: 'GCK'; accession_P35557.organism: 'Homo sapiens'
+alloagent,V05,3,V05_r3,clinvar_variant_count_GCK,number,PASS,PASS,False,,,
+alloagent,V05,3,V05_r3,variant_list,qualitative,DEFERRED,DEFERRED,False,,judged,judged
+baseline,V05,3,V05_r3,accession_P35557,exact,FAIL,FAIL,False,,accession_P35557.name: 'Hexokinase-4'; accession_P35557.organism: 'Homo sapiens',accession_P35557.name: 'Hexokinase-4'; accession_P35557.organism: 'Homo sapiens'
+baseline,V05,3,V05_r3,clinvar_variant_count_GCK,number,FAIL,FAIL,False,,expected 2845,expected 2845
+baseline,V05,3,V05_r3,variant_list,qualitative,DEFERRED,DEFERRED,False,,judged,judged
+alloagent,V06,1,V06_r1,accession_P62593,exact,FAIL,FAIL,False,,accession_P62593.name: 'Beta-lactamase TEM'; accession_P62593.gene: 'bla'; accession_P62593.organism: 'Escherichia coli',accession_P62593.name: 'Beta-lactamase TEM'; accession_P62593.gene: 'bla'; accession_P62593.organism: 'Escherichia coli'
+alloagent,V06,1,V06_r1,variant_list,qualitative,DEFERRED,DEFERRED,False,,judged,judged
+baseline,V06,1,V06_r1,accession_P62593,exact,FAIL,FAIL,False,,accession_P62593.name: 'Beta-lactamase TEM'; accession_P62593.gene: 'bla'; accession_P62593.organism: 'Escherichia coli',accession_P62593.name: 'Beta-lactamase TEM'; accession_P62593.gene: 'bla'; accession_P62593.organism: 'Escherichia coli'
+baseline,V06,1,V06_r1,variant_list,qualitative,DEFERRED,DEFERRED,False,,judged,judged
+alloagent,V06,2,V06_r2,accession_P62593,exact,FAIL,FAIL,False,,accession_P62593.name: 'Beta-lactamase TEM'; accession_P62593.gene: 'bla'; accession_P62593.organism: 'Escherichia coli',accession_P62593.name: 'Beta-lactamase TEM'; accession_P62593.gene: 'bla'; accession_P62593.organism: 'Escherichia coli'
+alloagent,V06,2,V06_r2,variant_list,qualitative,DEFERRED,DEFERRED,False,,judged,judged
+baseline,V06,2,V06_r2,accession_P62593,exact,FAIL,FAIL,False,,accession_P62593.name: 'Beta-lactamase TEM'; accession_P62593.gene: 'bla'; accession_P62593.organism: 'Escherichia coli',accession_P62593.name: 'Beta-lactamase TEM'; accession_P62593.gene: 'bla'; accession_P62593.organism: 'Escherichia coli'
+baseline,V06,2,V06_r2,variant_list,qualitative,DEFERRED,DEFERRED,False,,judged,judged
+alloagent,V06,3,V06_r3,accession_P62593,exact,FAIL,FAIL,False,,accession_P62593.name: 'Beta-lactamase TEM'; accession_P62593.gene: 'bla'; accession_P62593.organism: 'Escherichia coli',accession_P62593.name: 'Beta-lactamase TEM'; accession_P62593.gene: 'bla'; accession_P62593.organism: 'Escherichia coli'
+alloagent,V06,3,V06_r3,variant_list,qualitative,DEFERRED,DEFERRED,False,,judged,judged
+baseline,V06,3,V06_r3,accession_P62593,exact,FAIL,FAIL,False,,accession_P62593.name: 'Beta-lactamase TEM'; accession_P62593.gene: 'bla'; accession_P62593.organism: 'Escherichia coli',accession_P62593.name: 'Beta-lactamase TEM'; accession_P62593.gene: 'bla'; accession_P62593.organism: 'Escherichia coli'
+baseline,V06,3,V06_r3,variant_list,qualitative,DEFERRED,DEFERRED,False,,judged,judged
+alloagent,K04,1,K04_r1,accession_P01116,exact,FAIL,FAIL,False,,accession_P01116.name: 'GTPase KRas'; accession_P01116.gene: 'KRAS'; accession_P01116.organism: 'Homo sapiens',accession_P01116.name: 'GTPase KRas'; accession_P01116.gene: 'KRAS'; accession_P01116.organism: 'Homo sapiens'
+alloagent,K04,1,K04_r1,mov_contact_residue_P01116,set,PASS,PASS,False,,,
+alloagent,K04,1,K04_r1,gdp_contact_residue_P01116,set,PASS,PASS,False,,,
+alloagent,K04,1,K04_r1,path_length_edges,number,PASS,PASS,False,,,
+alloagent,K04,1,K04_r1,contact_cutoff_stated,qualitative,DEFERRED,DEFERRED,False,,judged,judged
+alloagent,K04,1,K04_r1,contact_definition_named,qualitative,DEFERRED,DEFERRED,False,,judged,judged
+alloagent,K04,1,K04_r1,path_reported_with_its_residues,qualitative,DEFERRED,DEFERRED,False,,judged,judged
+alloagent,K04,1,K04_r1,several_shortest_paths_stated,qualitative,DEFERRED,DEFERRED,False,,judged,judged
+baseline,K04,1,K04_r1,accession_P01116,exact,FAIL,FAIL,False,,accession_P01116.name: 'GTPase KRas'; accession_P01116.organism: 'Homo sapiens',accession_P01116.name: 'GTPase KRas'; accession_P01116.organism: 'Homo sapiens'
+baseline,K04,1,K04_r1,mov_contact_residue_P01116,set,PASS,PASS,False,,,
+baseline,K04,1,K04_r1,gdp_contact_residue_P01116,set,PASS,PASS,False,,,
+baseline,K04,1,K04_r1,path_length_edges,number,PASS,PASS,False,,,
+baseline,K04,1,K04_r1,contact_cutoff_stated,qualitative,DEFERRED,DEFERRED,False,,judged,judged
+baseline,K04,1,K04_r1,contact_definition_named,qualitative,DEFERRED,DEFERRED,False,,judged,judged
+baseline,K04,1,K04_r1,path_reported_with_its_residues,qualitative,DEFERRED,DEFERRED,False,,judged,judged
+baseline,K04,1,K04_r1,several_shortest_paths_stated,qualitative,DEFERRED,DEFERRED,False,,judged,judged
+alloagent,K04,2,K04_r2,accession_P01116,exact,FAIL,FAIL,False,,accession_P01116.name: 'GTPase KRas'; accession_P01116.organism: 'Homo sapiens',accession_P01116.name: 'GTPase KRas'; accession_P01116.organism: 'Homo sapiens'
+alloagent,K04,2,K04_r2,mov_contact_residue_P01116,set,PASS,PASS,False,,,
+alloagent,K04,2,K04_r2,gdp_contact_residue_P01116,set,PASS,PASS,False,,,
+alloagent,K04,2,K04_r2,path_length_edges,number,PASS,PASS,False,,,
+alloagent,K04,2,K04_r2,contact_cutoff_stated,qualitative,DEFERRED,DEFERRED,False,,judged,judged
+alloagent,K04,2,K04_r2,contact_definition_named,qualitative,DEFERRED,DEFERRED,False,,judged,judged
+alloagent,K04,2,K04_r2,path_reported_with_its_residues,qualitative,DEFERRED,DEFERRED,False,,judged,judged
+alloagent,K04,2,K04_r2,several_shortest_paths_stated,qualitative,DEFERRED,DEFERRED,False,,judged,judged
+baseline,K04,2,K04_r2,accession_P01116,exact,FAIL,FAIL,False,,accession_P01116.name: 'GTPase KRas'; accession_P01116.organism: 'Homo sapiens',accession_P01116.name: 'GTPase KRas'; accession_P01116.organism: 'Homo sapiens'
+baseline,K04,2,K04_r2,mov_contact_residue_P01116,set,PASS,PASS,False,,,
+baseline,K04,2,K04_r2,gdp_contact_residue_P01116,set,PASS,PASS,False,,,
+baseline,K04,2,K04_r2,path_length_edges,number,PASS,PASS,False,,,
+baseline,K04,2,K04_r2,contact_cutoff_stated,qualitative,DEFERRED,DEFERRED,False,,judged,judged
+baseline,K04,2,K04_r2,contact_definition_named,qualitative,DEFERRED,DEFERRED,False,,judged,judged
+baseline,K04,2,K04_r2,path_reported_with_its_residues,qualitative,DEFERRED,DEFERRED,False,,judged,judged
+baseline,K04,2,K04_r2,several_shortest_paths_stated,qualitative,DEFERRED,DEFERRED,False,,judged,judged
+alloagent,K04,3,K04_r3,accession_P01116,exact,FAIL,FAIL,False,,accession_P01116.name: 'GTPase KRas'; accession_P01116.organism: 'Homo sapiens',accession_P01116.name: 'GTPase KRas'; accession_P01116.organism: 'Homo sapiens'
+alloagent,K04,3,K04_r3,mov_contact_residue_P01116,set,PASS,PASS,False,,,
+alloagent,K04,3,K04_r3,gdp_contact_residue_P01116,set,PASS,PASS,False,,,
+alloagent,K04,3,K04_r3,path_length_edges,number,PASS,PASS,False,,,
+alloagent,K04,3,K04_r3,contact_cutoff_stated,qualitative,DEFERRED,DEFERRED,False,,judged,judged
+alloagent,K04,3,K04_r3,contact_definition_named,qualitative,DEFERRED,DEFERRED,False,,judged,judged
+alloagent,K04,3,K04_r3,path_reported_with_its_residues,qualitative,DEFERRED,DEFERRED,False,,judged,judged
+alloagent,K04,3,K04_r3,several_shortest_paths_stated,qualitative,DEFERRED,DEFERRED,False,,judged,judged
+baseline,K04,3,K04_r3,accession_P01116,exact,FAIL,FAIL,False,,accession_P01116.name: 'GTPase KRas'; accession_P01116.organism: 'Homo sapiens',accession_P01116.name: 'GTPase KRas'; accession_P01116.organism: 'Homo sapiens'
+baseline,K04,3,K04_r3,mov_contact_residue_P01116,set,PASS,PASS,False,,,
+baseline,K04,3,K04_r3,gdp_contact_residue_P01116,set,PASS,PASS,False,,,
+baseline,K04,3,K04_r3,path_length_edges,number,PASS,PASS,False,,,
+baseline,K04,3,K04_r3,contact_cutoff_stated,qualitative,DEFERRED,DEFERRED,False,,judged,judged
+baseline,K04,3,K04_r3,contact_definition_named,qualitative,DEFERRED,DEFERRED,False,,judged,judged
+baseline,K04,3,K04_r3,path_reported_with_its_residues,qualitative,DEFERRED,DEFERRED,False,,judged,judged
+baseline,K04,3,K04_r3,several_shortest_paths_stated,qualitative,DEFERRED,DEFERRED,False,,judged,judged
+alloagent,L02,1,L02_r1,accession_Q02750,exact,FAIL,FAIL,False,,accession_Q02750.name: 'Dual specificity mitogen-activated protein kinase kinase 1'; accession_Q02750.organism: 'Homo sapiens',accession_Q02750.name: 'Dual specificity mitogen-activated protein kinase kinase 1'; accession_Q02750.organism: 'Homo sapiens'
+alloagent,L02,1,L02_r1,chembl_trametinib,exact,PASS,PASS,False,,,
+alloagent,L02,1,L02_r1,chembl_cobimetinib,exact,PASS,PASS,False,,,
+baseline,L02,1,L02_r1,accession_Q02750,exact,FAIL,FAIL,False,,accession_Q02750.name: 'Dual specificity mitogen-activated protein kinase kinase 1'; accession_Q02750.organism: 'Homo sapiens',accession_Q02750.name: 'Dual specificity mitogen-activated protein kinase kinase 1'; accession_Q02750.organism: 'Homo sapiens'
+baseline,L02,1,L02_r1,chembl_trametinib,exact,PASS,PASS,False,,,
+baseline,L02,1,L02_r1,chembl_cobimetinib,exact,PASS,PASS,False,,,
+alloagent,L02,2,L02_r2,accession_Q02750,exact,FAIL,FAIL,False,,accession_Q02750.name: 'Dual specificity mitogen-activated protein kinase kinase 1'; accession_Q02750.organism: 'Homo sapiens',accession_Q02750.name: 'Dual specificity mitogen-activated protein kinase kinase 1'; accession_Q02750.organism: 'Homo sapiens'
+alloagent,L02,2,L02_r2,chembl_trametinib,exact,PASS,PASS,False,,,
+alloagent,L02,2,L02_r2,chembl_cobimetinib,exact,PASS,PASS,False,,,
+baseline,L02,2,L02_r2,accession_Q02750,exact,FAIL,FAIL,False,,accession_Q02750.name: 'Dual specificity mitogen-activated protein kinase kinase 1'; accession_Q02750.organism: 'Homo sapiens',accession_Q02750.name: 'Dual specificity mitogen-activated protein kinase kinase 1'; accession_Q02750.organism: 'Homo sapiens'
+baseline,L02,2,L02_r2,chembl_trametinib,exact,PASS,PASS,False,,,
+baseline,L02,2,L02_r2,chembl_cobimetinib,exact,PASS,PASS,False,,,
+alloagent,L02,3,L02_r3,accession_Q02750,exact,FAIL,FAIL,False,,accession_Q02750.name: 'Dual specificity mitogen-activated protein kinase kinase 1'; accession_Q02750.organism: 'Homo sapiens',accession_Q02750.name: 'Dual specificity mitogen-activated protein kinase kinase 1'; accession_Q02750.organism: 'Homo sapiens'
+alloagent,L02,3,L02_r3,chembl_trametinib,exact,PASS,PASS,False,,,
+alloagent,L02,3,L02_r3,chembl_cobimetinib,exact,PASS,PASS,False,,,
+baseline,L02,3,L02_r3,accession_Q02750,exact,FAIL,FAIL,False,,accession_Q02750.name: 'Dual specificity mitogen-activated protein kinase kinase 1'; accession_Q02750.organism: 'Homo sapiens',accession_Q02750.name: 'Dual specificity mitogen-activated protein kinase kinase 1'; accession_Q02750.organism: 'Homo sapiens'
+baseline,L02,3,L02_r3,chembl_trametinib,exact,PASS,PASS,False,,,
+baseline,L02,3,L02_r3,chembl_cobimetinib,exact,PASS,PASS,False,,,
+alloagent,L03,1,L03_r1,accession_P00519,exact,FAIL,FAIL,False,,accession_P00519.name: 'Tyrosine-protein kinase ABL1'; accession_P00519.organism: 'Homo sapiens',accession_P00519.name: 'Tyrosine-protein kinase ABL1'; accession_P00519.organism: 'Homo sapiens'
+alloagent,L03,1,L03_r1,chembl_asciminib,exact,PASS,PASS,False,,,
+alloagent,L03,1,L03_r1,chembl_imatinib,exact,PASS,PASS,False,,,
+alloagent,L03,1,L03_r1,site_evidence,qualitative,DEFERRED,DEFERRED,False,,judged,judged
+baseline,L03,1,L03_r1,accession_P00519,exact,PASS,PASS,False,,,
+baseline,L03,1,L03_r1,chembl_asciminib,exact,PASS,PASS,False,,,
+baseline,L03,1,L03_r1,chembl_imatinib,exact,FAIL,FAIL,False,,chembl_imatinib.count: 94; chembl_imatinib.assay_types.B: 94,chembl_imatinib.count: 94; chembl_imatinib.assay_types.B: 94
+baseline,L03,1,L03_r1,site_evidence,qualitative,DEFERRED,DEFERRED,False,,judged,judged
+alloagent,L03,2,L03_r2,accession_P00519,exact,FAIL,FAIL,False,,accession_P00519.name: 'Tyrosine-protein kinase ABL1'; accession_P00519.organism: 'Homo sapiens',accession_P00519.name: 'Tyrosine-protein kinase ABL1'; accession_P00519.organism: 'Homo sapiens'
+alloagent,L03,2,L03_r2,chembl_asciminib,exact,PASS,PASS,False,,,
+alloagent,L03,2,L03_r2,chembl_imatinib,exact,FAIL,FAIL,False,,chembl_imatinib.count: 94; chembl_imatinib.assay_types.B: 94,chembl_imatinib.count: 94; chembl_imatinib.assay_types.B: 94
+alloagent,L03,2,L03_r2,site_evidence,qualitative,DEFERRED,DEFERRED,False,,judged,judged
+baseline,L03,2,L03_r2,accession_P00519,exact,FAIL,FAIL,False,,accession_P00519.organism: 'Homo sapiens',accession_P00519.organism: 'Homo sapiens'
+baseline,L03,2,L03_r2,chembl_asciminib,exact,PASS,PASS,False,,,
+baseline,L03,2,L03_r2,chembl_imatinib,exact,PASS,PASS,False,,,
+baseline,L03,2,L03_r2,site_evidence,qualitative,DEFERRED,DEFERRED,False,,judged,judged
+alloagent,L03,3,L03_r3,accession_P00519,exact,FAIL,FAIL,False,,accession_P00519.name: 'Tyrosine-protein kinase ABL1'; accession_P00519.organism: 'Homo sapiens',accession_P00519.name: 'Tyrosine-protein kinase ABL1'; accession_P00519.organism: 'Homo sapiens'
+alloagent,L03,3,L03_r3,chembl_asciminib,exact,PASS,PASS,False,,,
+alloagent,L03,3,L03_r3,chembl_imatinib,exact,FAIL,FAIL,False,,chembl_imatinib.count: 94; chembl_imatinib.assay_types.B: 94,chembl_imatinib.count: 94; chembl_imatinib.assay_types.B: 94
+alloagent,L03,3,L03_r3,site_evidence,qualitative,DEFERRED,DEFERRED,False,,judged,judged
+baseline,L03,3,L03_r3,accession_P00519,exact,PASS,PASS,False,,,
+baseline,L03,3,L03_r3,chembl_asciminib,exact,PASS,PASS,False,,,
+baseline,L03,3,L03_r3,chembl_imatinib,exact,PASS,PASS,False,,,
+baseline,L03,3,L03_r3,site_evidence,qualitative,DEFERRED,DEFERRED,False,,judged,judged
+alloagent,L04,1,L04_r1,accession_Q06124,exact,FAIL,FAIL,False,,accession_Q06124.organism: 'Homo sapiens',accession_Q06124.organism: 'Homo sapiens'
+alloagent,L04,1,L04_r1,5od_shp2_entries,exact,PASS,PASS,False,,,
+alloagent,L04,1,L04_r1,chembl_shp099_absence,exact,FAIL,FAIL,False,,chembl_shp099_absence: an absence claim is not scripted,chembl_shp099_absence: an absence claim is not scripted
+baseline,L04,1,L04_r1,accession_Q06124,exact,FAIL,FAIL,False,,accession_Q06124.organism: 'Homo sapiens',accession_Q06124.organism: 'Homo sapiens'
+baseline,L04,1,L04_r1,5od_shp2_entries,exact,PASS,PASS,False,,,
+baseline,L04,1,L04_r1,chembl_shp099_absence,exact,FAIL,FAIL,False,,chembl_shp099_absence: an absence claim is not scripted,chembl_shp099_absence: an absence claim is not scripted
+alloagent,L04,2,L04_r2,accession_Q06124,exact,FAIL,FAIL,False,,accession_Q06124.name: 'Tyrosine-protein phosphatase non-receptor type 11'; accession_Q06124.gene: 'PTPN11'; accession_Q06124.organism: 'Homo sapiens',accession_Q06124.name: 'Tyrosine-protein phosphatase non-receptor type 11'; accession_Q06124.gene: 'PTPN11'; accession_Q06124.organism: 'Homo sapiens'
+alloagent,L04,2,L04_r2,5od_shp2_entries,exact,PASS,PASS,False,,,
+alloagent,L04,2,L04_r2,chembl_shp099_absence,exact,FAIL,FAIL,False,,chembl_shp099_absence: an absence claim is not scripted,chembl_shp099_absence: an absence claim is not scripted
+baseline,L04,2,L04_r2,accession_Q06124,exact,FAIL,FAIL,False,,accession_Q06124.name: 'Tyrosine-protein phosphatase non-receptor type 11'; accession_Q06124.organism: 'Homo sapiens',accession_Q06124.name: 'Tyrosine-protein phosphatase non-receptor type 11'; accession_Q06124.organism: 'Homo sapiens'
+baseline,L04,2,L04_r2,5od_shp2_entries,exact,PASS,PASS,False,,,
+baseline,L04,2,L04_r2,chembl_shp099_absence,exact,FAIL,FAIL,False,,chembl_shp099_absence: an absence claim is not scripted,chembl_shp099_absence: an absence claim is not scripted
+alloagent,L04,3,L04_r3,accession_Q06124,exact,FAIL,FAIL,False,,accession_Q06124.name: 'Tyrosine-protein phosphatase non-receptor type 11'; accession_Q06124.organism: 'Homo sapiens',accession_Q06124.name: 'Tyrosine-protein phosphatase non-receptor type 11'; accession_Q06124.organism: 'Homo sapiens'
+alloagent,L04,3,L04_r3,5od_shp2_entries,exact,PASS,PASS,False,,,
+alloagent,L04,3,L04_r3,chembl_shp099_absence,exact,FAIL,FAIL,False,,chembl_shp099_absence: an absence claim is not scripted,chembl_shp099_absence: an absence claim is not scripted
+baseline,L04,3,L04_r3,accession_Q06124,exact,PASS,PASS,False,,,
+baseline,L04,3,L04_r3,5od_shp2_entries,exact,PASS,PASS,False,,,
+baseline,L04,3,L04_r3,chembl_shp099_absence,exact,FAIL,FAIL,False,,chembl_shp099_absence: an absence claim is not scripted,chembl_shp099_absence: an absence claim is not scripted
+alloagent,P08,1,P08_r1,accession_Q06124,exact,FAIL,FAIL,False,,accession_Q06124.name: 'Tyrosine-protein phosphatase non-receptor type 11'; accession_Q06124.gene: 'PTPN11'; accession_Q06124.organism: 'Homo sapiens',accession_Q06124.name: 'Tyrosine-protein phosphatase non-receptor type 11'; accession_Q06124.gene: 'PTPN11'; accession_Q06124.organism: 'Homo sapiens'
+alloagent,P08,1,P08_r1,pocketminer_top10_2SHP_chain_A,exact,FAIL,FAIL,False,,pocketminer_top10_2SHP_chain_A[1].pdb_number: 423; pocketminer_top10_2SHP_chain_A[1].residue_name: 'TRP'; pocketminer_top10_2SHP_chain_A[8].pdb_number: 366,pocketminer_top10_2SHP_chain_A[1].pdb_number: 423; pocketminer_top10_2SHP_chain_A[1].residue_name: 'TRP'; pocketminer_top10_2SHP_chain_A[8].pdb_number: 366
+alloagent,P08,1,P08_r1,mapped_5EHR_SHP099_contacts_on_2SHP,exact,FAIL,FAIL,False,,mapped_5EHR_SHP099_contacts_on_2SHP[0].uniprot_number: 108; mapped_5EHR_SHP099_contacts_on_2SHP[0].pdb_number_2SHP: 108; mapped_5EHR_SHP099_contacts_on_2SHP[0].pocketminer_rank_in_chain_A: 63; mapped_5EHR_SHP099_contacts_on_2SHP[1].pocketminer_rank_in_chain_A: 47; mapped_5EHR_SHP099_contacts_on_2SHP[3].pocketminer_rank_in_chain_A: 72; mapped_5EHR_SHP099_contacts_on_2SHP[4].uniprot_number: 114; mapped_5EHR_SHP099_contacts_on_2SHP[4].pdb_number_2SHP: 114; mapped_5EHR_SHP099_contacts_on_2SHP[4].pocketminer_rank_in_chain_A: 68; mapped_5EHR_SHP099_contacts_on_2SHP[7].uniprot_number: 249; mapped_5EHR_SHP099_contacts_on_2SHP[7].pdb_number_2SHP: 249; mapped_5EHR_SHP099_contacts_on_2SHP[7].pocketminer_score: 0.7307; mapped_5EHR_SHP099_contacts_on_2SHP[7].pocketminer_rank_in_chain_A: 99; mapped_5EHR_SHP099_contacts_on_2SHP[8].uniprot_number: 250; mapped_5EHR_SHP099_contacts_on_2SHP[8].pdb_number_2SHP: 250; mapped_5EHR_SHP099_contacts_on_2SHP[8].pocketminer_rank_in_chain_A: 78; mapped_5EHR_SHP099_contacts_on_2SHP[9].uniprot_number: 253; mapped_5EHR_SHP099_contacts_on_2SHP[9].pdb_number_2SHP: 253; mapped_5EHR_SHP099_contacts_on_2SHP[9].pocketminer_rank_in_chain_A: 36; mapped_5EHR_SHP099_contacts_on_2SHP[10].uniprot_number: 254; mapped_5EHR_SHP099_contacts_on_2SHP[10].pdb_number_2SHP: 254; mapped_5EHR_SHP099_contacts_on_2SHP[10].pocketminer_rank_in_chain_A: 43; mapped_5EHR_SHP099_contacts_on_2SHP[11].uniprot_number: 257; mapped_5EHR_SHP099_contacts_on_2SHP[11].pdb_number_2SHP: 257; mapped_5EHR_SHP099_contacts_on_2SHP[11].pocketminer_rank_in_chain_A: 182; mapped_5EHR_SHP099_contacts_on_2SHP[12].pocketminer_rank_in_chain_A: 42; mapped_5EHR_SHP099_contacts_on_2SHP[13].pocketminer_rank_in_chain_A: 35; mapped_5EHR_SHP099_contacts_on_2SHP[14].pocketminer_rank_in_chain_A: 122,mapped_5EHR_SHP099_contacts_on_2SHP[0].uniprot_number: 108; mapped_5EHR_SHP099_contacts_on_2SHP[0].pdb_number_2SHP: 108; mapped_5EHR_SHP099_contacts_on_2SHP[0].pocketminer_rank_in_chain_A: 63; mapped_5EHR_SHP099_contacts_on_2SHP[1].pocketminer_rank_in_chain_A: 47; mapped_5EHR_SHP099_contacts_on_2SHP[3].pocketminer_rank_in_chain_A: 72; mapped_5EHR_SHP099_contacts_on_2SHP[4].uniprot_number: 114; mapped_5EHR_SHP099_contacts_on_2SHP[4].pdb_number_2SHP: 114; mapped_5EHR_SHP099_contacts_on_2SHP[4].pocketminer_rank_in_chain_A: 68; mapped_5EHR_SHP099_contacts_on_2SHP[7].uniprot_number: 249; mapped_5EHR_SHP099_contacts_on_2SHP[7].pdb_number_2SHP: 249; mapped_5EHR_SHP099_contacts_on_2SHP[7].pocketminer_score: 0.7307; mapped_5EHR_SHP099_contacts_on_2SHP[7].pocketminer_rank_in_chain_A: 99; mapped_5EHR_SHP099_contacts_on_2SHP[8].uniprot_number: 250; mapped_5EHR_SHP099_contacts_on_2SHP[8].pdb_number_2SHP: 250; mapped_5EHR_SHP099_contacts_on_2SHP[8].pocketminer_rank_in_chain_A: 78; mapped_5EHR_SHP099_contacts_on_2SHP[9].uniprot_number: 253; mapped_5EHR_SHP099_contacts_on_2SHP[9].pdb_number_2SHP: 253; mapped_5EHR_SHP099_contacts_on_2SHP[9].pocketminer_rank_in_chain_A: 36; mapped_5EHR_SHP099_contacts_on_2SHP[10].uniprot_number: 254; mapped_5EHR_SHP099_contacts_on_2SHP[10].pdb_number_2SHP: 254; mapped_5EHR_SHP099_contacts_on_2SHP[10].pocketminer_rank_in_chain_A: 43; mapped_5EHR_SHP099_contacts_on_2SHP[11].uniprot_number: 257; mapped_5EHR_SHP099_contacts_on_2SHP[11].pdb_number_2SHP: 257; mapped_5EHR_SHP099_contacts_on_2SHP[11].pocketminer_rank_in_chain_A: 182; mapped_5EHR_SHP099_contacts_on_2SHP[12].pocketminer_rank_in_chain_A: 42; mapped_5EHR_SHP099_contacts_on_2SHP[13].pocketminer_rank_in_chain_A: 35; mapped_5EHR_SHP099_contacts_on_2SHP[14].pocketminer_rank_in_chain_A: 122
+alloagent,P08,1,P08_r1,site_rank_comparison,exact,FAIL,FAIL,False,,site_rank_comparison.median_rank: 47,site_rank_comparison.median_rank: 47
+alloagent,P08,1,P08_r1,modest_accuracy_caveat,qualitative,DEFERRED,DEFERRED,False,,judged,judged
+alloagent,P08,1,P08_r1,mapping_stated,qualitative,DEFERRED,DEFERRED,False,,judged,judged
+baseline,P08,1,P08_r1,accession_Q06124,exact,FAIL,FAIL,False,,accession_Q06124.name: 'Tyrosine-protein phosphatase non-receptor type 11'; accession_Q06124.gene: 'PTPN11'; accession_Q06124.organism: 'Homo sapiens',accession_Q06124.name: 'Tyrosine-protein phosphatase non-receptor type 11'; accession_Q06124.gene: 'PTPN11'; accession_Q06124.organism: 'Homo sapiens'
+baseline,P08,1,P08_r1,pocketminer_top10_2SHP_chain_A,exact,FAIL,FAIL,False,,pocketminer_top10_2SHP_chain_A[0].residue_name: 'ARG'; pocketminer_top10_2SHP_chain_A[1].pdb_number: 423; pocketminer_top10_2SHP_chain_A[1].residue_name: 'TRP'; pocketminer_top10_2SHP_chain_A[3].residue_name: 'ARG'; pocketminer_top10_2SHP_chain_A[8].pdb_number: 366,pocketminer_top10_2SHP_chain_A[0].residue_name: 'ARG'; pocketminer_top10_2SHP_chain_A[1].pdb_number: 423; pocketminer_top10_2SHP_chain_A[1].residue_name: 'TRP'; pocketminer_top10_2SHP_chain_A[3].residue_name: 'ARG'; pocketminer_top10_2SHP_chain_A[8].pdb_number: 366
+baseline,P08,1,P08_r1,mapped_5EHR_SHP099_contacts_on_2SHP,exact,FAIL,FAIL,False,,mapped_5EHR_SHP099_contacts_on_2SHP[0].pocketminer_rank_in_chain_A: 63; mapped_5EHR_SHP099_contacts_on_2SHP[1].pocketminer_rank_in_chain_A: 47; mapped_5EHR_SHP099_contacts_on_2SHP[3].pocketminer_rank_in_chain_A: 72; mapped_5EHR_SHP099_contacts_on_2SHP[4].pocketminer_rank_in_chain_A: 68; mapped_5EHR_SHP099_contacts_on_2SHP[7].pocketminer_score: 0.7307; mapped_5EHR_SHP099_contacts_on_2SHP[7].pocketminer_rank_in_chain_A: 99; mapped_5EHR_SHP099_contacts_on_2SHP[8].pocketminer_rank_in_chain_A: 78; mapped_5EHR_SHP099_contacts_on_2SHP[9].pocketminer_rank_in_chain_A: 36; mapped_5EHR_SHP099_contacts_on_2SHP[10].pocketminer_rank_in_chain_A: 43; mapped_5EHR_SHP099_contacts_on_2SHP[11].pocketminer_rank_in_chain_A: 182; mapped_5EHR_SHP099_contacts_on_2SHP[12].pocketminer_rank_in_chain_A: 42; mapped_5EHR_SHP099_contacts_on_2SHP[13].pocketminer_rank_in_chain_A: 35; mapped_5EHR_SHP099_contacts_on_2SHP[14].pocketminer_rank_in_chain_A: 122,mapped_5EHR_SHP099_contacts_on_2SHP[0].pocketminer_rank_in_chain_A: 63; mapped_5EHR_SHP099_contacts_on_2SHP[1].pocketminer_rank_in_chain_A: 47; mapped_5EHR_SHP099_contacts_on_2SHP[3].pocketminer_rank_in_chain_A: 72; mapped_5EHR_SHP099_contacts_on_2SHP[4].pocketminer_rank_in_chain_A: 68; mapped_5EHR_SHP099_contacts_on_2SHP[7].pocketminer_score: 0.7307; mapped_5EHR_SHP099_contacts_on_2SHP[7].pocketminer_rank_in_chain_A: 99; mapped_5EHR_SHP099_contacts_on_2SHP[8].pocketminer_rank_in_chain_A: 78; mapped_5EHR_SHP099_contacts_on_2SHP[9].pocketminer_rank_in_chain_A: 36; mapped_5EHR_SHP099_contacts_on_2SHP[10].pocketminer_rank_in_chain_A: 43; mapped_5EHR_SHP099_contacts_on_2SHP[11].pocketminer_rank_in_chain_A: 182; mapped_5EHR_SHP099_contacts_on_2SHP[12].pocketminer_rank_in_chain_A: 42; mapped_5EHR_SHP099_contacts_on_2SHP[13].pocketminer_rank_in_chain_A: 35; mapped_5EHR_SHP099_contacts_on_2SHP[14].pocketminer_rank_in_chain_A: 122
+baseline,P08,1,P08_r1,site_rank_comparison,exact,FAIL,FAIL,False,,site_rank_comparison.median_rank: 47,site_rank_comparison.median_rank: 47
+baseline,P08,1,P08_r1,modest_accuracy_caveat,qualitative,DEFERRED,DEFERRED,False,,judged,judged
+baseline,P08,1,P08_r1,mapping_stated,qualitative,DEFERRED,DEFERRED,False,,judged,judged
+alloagent,P08,2,P08_r2,accession_Q06124,exact,FAIL,FAIL,False,,accession_Q06124.name: 'Tyrosine-protein phosphatase non-receptor type 11'; accession_Q06124.gene: 'PTPN11'; accession_Q06124.organism: 'Homo sapiens',accession_Q06124.name: 'Tyrosine-protein phosphatase non-receptor type 11'; accession_Q06124.gene: 'PTPN11'; accession_Q06124.organism: 'Homo sapiens'
+alloagent,P08,2,P08_r2,pocketminer_top10_2SHP_chain_A,exact,FAIL,FAIL,False,,pocketminer_top10_2SHP_chain_A[1].pdb_number: 423; pocketminer_top10_2SHP_chain_A[1].residue_name: 'TRP'; pocketminer_top10_2SHP_chain_A[5].pdb_number: 460; pocketminer_top10_2SHP_chain_A[6].pdb_number: 129; pocketminer_top10_2SHP_chain_A[8].pdb_number: 366; pocketminer_top10_2SHP_chain_A[9].pdb_number: 33,pocketminer_top10_2SHP_chain_A[1].pdb_number: 423; pocketminer_top10_2SHP_chain_A[1].residue_name: 'TRP'; pocketminer_top10_2SHP_chain_A[8].pdb_number: 366
+alloagent,P08,2,P08_r2,mapped_5EHR_SHP099_contacts_on_2SHP,exact,FAIL,FAIL,False,,mapped_5EHR_SHP099_contacts_on_2SHP[0].pocketminer_rank_in_chain_A: 63; mapped_5EHR_SHP099_contacts_on_2SHP[1].pocketminer_rank_in_chain_A: 47; mapped_5EHR_SHP099_contacts_on_2SHP[3].pocketminer_rank_in_chain_A: 72; mapped_5EHR_SHP099_contacts_on_2SHP[4].pocketminer_rank_in_chain_A: 68; mapped_5EHR_SHP099_contacts_on_2SHP[7].pocketminer_score: 0.7307; mapped_5EHR_SHP099_contacts_on_2SHP[9].pocketminer_rank_in_chain_A: 36; mapped_5EHR_SHP099_contacts_on_2SHP[10].pocketminer_rank_in_chain_A: 43; mapped_5EHR_SHP099_contacts_on_2SHP[11].pocketminer_rank_in_chain_A: 182; mapped_5EHR_SHP099_contacts_on_2SHP[12].pocketminer_rank_in_chain_A: 42; mapped_5EHR_SHP099_contacts_on_2SHP[13].pocketminer_rank_in_chain_A: 35; mapped_5EHR_SHP099_contacts_on_2SHP[14].pocketminer_rank_in_chain_A: 122,mapped_5EHR_SHP099_contacts_on_2SHP[0].pocketminer_rank_in_chain_A: 63; mapped_5EHR_SHP099_contacts_on_2SHP[1].pocketminer_rank_in_chain_A: 47; mapped_5EHR_SHP099_contacts_on_2SHP[3].pocketminer_rank_in_chain_A: 72; mapped_5EHR_SHP099_contacts_on_2SHP[4].pocketminer_rank_in_chain_A: 68; mapped_5EHR_SHP099_contacts_on_2SHP[7].pocketminer_score: 0.7307; mapped_5EHR_SHP099_contacts_on_2SHP[9].pocketminer_rank_in_chain_A: 36; mapped_5EHR_SHP099_contacts_on_2SHP[10].pocketminer_rank_in_chain_A: 43; mapped_5EHR_SHP099_contacts_on_2SHP[11].pocketminer_rank_in_chain_A: 182; mapped_5EHR_SHP099_contacts_on_2SHP[12].pocketminer_rank_in_chain_A: 42; mapped_5EHR_SHP099_contacts_on_2SHP[13].pocketminer_rank_in_chain_A: 35; mapped_5EHR_SHP099_contacts_on_2SHP[14].pocketminer_rank_in_chain_A: 122
+alloagent,P08,2,P08_r2,site_rank_comparison,exact,FAIL,FAIL,False,,site_rank_comparison.median_rank: 47,site_rank_comparison.median_rank: 47
+alloagent,P08,2,P08_r2,modest_accuracy_caveat,qualitative,DEFERRED,DEFERRED,False,,judged,judged
+alloagent,P08,2,P08_r2,mapping_stated,qualitative,DEFERRED,DEFERRED,False,,judged,judged
+baseline,P08,2,P08_r2,accession_Q06124,exact,FAIL,FAIL,False,,accession_Q06124.name: 'Tyrosine-protein phosphatase non-receptor type 11'; accession_Q06124.gene: 'PTPN11'; accession_Q06124.organism: 'Homo sapiens',accession_Q06124.name: 'Tyrosine-protein phosphatase non-receptor type 11'; accession_Q06124.gene: 'PTPN11'; accession_Q06124.organism: 'Homo sapiens'
+baseline,P08,2,P08_r2,pocketminer_top10_2SHP_chain_A,exact,FAIL,FAIL,False,,pocketminer_top10_2SHP_chain_A[1].pdb_number: 423; pocketminer_top10_2SHP_chain_A[5].pdb_number: 460; pocketminer_top10_2SHP_chain_A[6].pdb_number: 129; pocketminer_top10_2SHP_chain_A[8].pdb_number: 366,pocketminer_top10_2SHP_chain_A[1].pdb_number: 423; pocketminer_top10_2SHP_chain_A[8].pdb_number: 366
+baseline,P08,2,P08_r2,mapped_5EHR_SHP099_contacts_on_2SHP,exact,FAIL,FAIL,False,,mapped_5EHR_SHP099_contacts_on_2SHP[0].pocketminer_rank_in_chain_A: 63; mapped_5EHR_SHP099_contacts_on_2SHP[1].uniprot_number: 110; mapped_5EHR_SHP099_contacts_on_2SHP[1].pdb_number_2SHP: 110; mapped_5EHR_SHP099_contacts_on_2SHP[1].pocketminer_rank_in_chain_A: 47; mapped_5EHR_SHP099_contacts_on_2SHP[3].pocketminer_rank_in_chain_A: 72; mapped_5EHR_SHP099_contacts_on_2SHP[4].uniprot_number: 114; mapped_5EHR_SHP099_contacts_on_2SHP[4].pdb_number_2SHP: 114; mapped_5EHR_SHP099_contacts_on_2SHP[4].pocketminer_rank_in_chain_A: 68; mapped_5EHR_SHP099_contacts_on_2SHP[7].uniprot_number: 249; mapped_5EHR_SHP099_contacts_on_2SHP[7].pdb_number_2SHP: 249; mapped_5EHR_SHP099_contacts_on_2SHP[7].pocketminer_score: 0.7307; mapped_5EHR_SHP099_contacts_on_2SHP[7].pocketminer_rank_in_chain_A: 99; mapped_5EHR_SHP099_contacts_on_2SHP[8].uniprot_number: 250; mapped_5EHR_SHP099_contacts_on_2SHP[8].pdb_number_2SHP: 250; mapped_5EHR_SHP099_contacts_on_2SHP[8].pocketminer_rank_in_chain_A: 78; mapped_5EHR_SHP099_contacts_on_2SHP[9].uniprot_number: 253; mapped_5EHR_SHP099_contacts_on_2SHP[9].pdb_number_2SHP: 253; mapped_5EHR_SHP099_contacts_on_2SHP[9].pocketminer_rank_in_chain_A: 36; mapped_5EHR_SHP099_contacts_on_2SHP[10].uniprot_number: 254; mapped_5EHR_SHP099_contacts_on_2SHP[10].pdb_number_2SHP: 254; mapped_5EHR_SHP099_contacts_on_2SHP[10].pocketminer_rank_in_chain_A: 43; mapped_5EHR_SHP099_contacts_on_2SHP[11].uniprot_number: 257; mapped_5EHR_SHP099_contacts_on_2SHP[11].pdb_number_2SHP: 257; mapped_5EHR_SHP099_contacts_on_2SHP[11].pocketminer_rank_in_chain_A: 182; mapped_5EHR_SHP099_contacts_on_2SHP[12].pocketminer_rank_in_chain_A: 42; mapped_5EHR_SHP099_contacts_on_2SHP[13].pocketminer_rank_in_chain_A: 35; mapped_5EHR_SHP099_contacts_on_2SHP[14].pocketminer_rank_in_chain_A: 122,mapped_5EHR_SHP099_contacts_on_2SHP[0].pocketminer_rank_in_chain_A: 63; mapped_5EHR_SHP099_contacts_on_2SHP[1].pocketminer_rank_in_chain_A: 47; mapped_5EHR_SHP099_contacts_on_2SHP[3].pocketminer_rank_in_chain_A: 72; mapped_5EHR_SHP099_contacts_on_2SHP[4].pocketminer_rank_in_chain_A: 68; mapped_5EHR_SHP099_contacts_on_2SHP[7].pocketminer_score: 0.7307; mapped_5EHR_SHP099_contacts_on_2SHP[7].pocketminer_rank_in_chain_A: 99; mapped_5EHR_SHP099_contacts_on_2SHP[8].pocketminer_rank_in_chain_A: 78; mapped_5EHR_SHP099_contacts_on_2SHP[9].pocketminer_rank_in_chain_A: 36; mapped_5EHR_SHP099_contacts_on_2SHP[10].pocketminer_rank_in_chain_A: 43; mapped_5EHR_SHP099_contacts_on_2SHP[11].pocketminer_rank_in_chain_A: 182; mapped_5EHR_SHP099_contacts_on_2SHP[12].pocketminer_rank_in_chain_A: 42; mapped_5EHR_SHP099_contacts_on_2SHP[13].pocketminer_rank_in_chain_A: 35; mapped_5EHR_SHP099_contacts_on_2SHP[14].pocketminer_rank_in_chain_A: 122
+baseline,P08,2,P08_r2,site_rank_comparison,exact,FAIL,FAIL,False,,site_rank_comparison.median_rank: 47,site_rank_comparison.median_rank: 47
+baseline,P08,2,P08_r2,modest_accuracy_caveat,qualitative,DEFERRED,DEFERRED,False,,judged,judged
+baseline,P08,2,P08_r2,mapping_stated,qualitative,DEFERRED,DEFERRED,False,,judged,judged
+alloagent,P08,3,P08_r3,accession_Q06124,exact,FAIL,FAIL,False,,accession_Q06124.name: 'Tyrosine-protein phosphatase non-receptor type 11'; accession_Q06124.gene: 'PTPN11'; accession_Q06124.organism: 'Homo sapiens',accession_Q06124.name: 'Tyrosine-protein phosphatase non-receptor type 11'; accession_Q06124.gene: 'PTPN11'; accession_Q06124.organism: 'Homo sapiens'
+alloagent,P08,3,P08_r3,pocketminer_top10_2SHP_chain_A,exact,FAIL,FAIL,False,,pocketminer_top10_2SHP_chain_A[1].pdb_number: 423; pocketminer_top10_2SHP_chain_A[1].residue_name: 'TRP'; pocketminer_top10_2SHP_chain_A[8].pdb_number: 366,pocketminer_top10_2SHP_chain_A[1].pdb_number: 423; pocketminer_top10_2SHP_chain_A[1].residue_name: 'TRP'; pocketminer_top10_2SHP_chain_A[8].pdb_number: 366
+alloagent,P08,3,P08_r3,mapped_5EHR_SHP099_contacts_on_2SHP,exact,FAIL,FAIL,False,,mapped_5EHR_SHP099_contacts_on_2SHP[0].pocketminer_rank_in_chain_A: 63; mapped_5EHR_SHP099_contacts_on_2SHP[1].pocketminer_rank_in_chain_A: 47; mapped_5EHR_SHP099_contacts_on_2SHP[3].pocketminer_rank_in_chain_A: 72; mapped_5EHR_SHP099_contacts_on_2SHP[4].pocketminer_rank_in_chain_A: 68; mapped_5EHR_SHP099_contacts_on_2SHP[7].pocketminer_score: 0.7307; mapped_5EHR_SHP099_contacts_on_2SHP[8].pocketminer_rank_in_chain_A: 78; mapped_5EHR_SHP099_contacts_on_2SHP[9].pocketminer_rank_in_chain_A: 36; mapped_5EHR_SHP099_contacts_on_2SHP[10].pocketminer_rank_in_chain_A: 43; mapped_5EHR_SHP099_contacts_on_2SHP[11].pocketminer_rank_in_chain_A: 182; mapped_5EHR_SHP099_contacts_on_2SHP[12].pocketminer_rank_in_chain_A: 42; mapped_5EHR_SHP099_contacts_on_2SHP[13].pocketminer_rank_in_chain_A: 35; mapped_5EHR_SHP099_contacts_on_2SHP[14].pocketminer_rank_in_chain_A: 122,mapped_5EHR_SHP099_contacts_on_2SHP[0].pocketminer_rank_in_chain_A: 63; mapped_5EHR_SHP099_contacts_on_2SHP[1].pocketminer_rank_in_chain_A: 47; mapped_5EHR_SHP099_contacts_on_2SHP[3].pocketminer_rank_in_chain_A: 72; mapped_5EHR_SHP099_contacts_on_2SHP[4].pocketminer_rank_in_chain_A: 68; mapped_5EHR_SHP099_contacts_on_2SHP[7].pocketminer_score: 0.7307; mapped_5EHR_SHP099_contacts_on_2SHP[8].pocketminer_rank_in_chain_A: 78; mapped_5EHR_SHP099_contacts_on_2SHP[9].pocketminer_rank_in_chain_A: 36; mapped_5EHR_SHP099_contacts_on_2SHP[10].pocketminer_rank_in_chain_A: 43; mapped_5EHR_SHP099_contacts_on_2SHP[11].pocketminer_rank_in_chain_A: 182; mapped_5EHR_SHP099_contacts_on_2SHP[12].pocketminer_rank_in_chain_A: 42; mapped_5EHR_SHP099_contacts_on_2SHP[13].pocketminer_rank_in_chain_A: 35; mapped_5EHR_SHP099_contacts_on_2SHP[14].pocketminer_rank_in_chain_A: 122
+alloagent,P08,3,P08_r3,site_rank_comparison,exact,FAIL,FAIL,False,,site_rank_comparison.median_rank: 47,site_rank_comparison.median_rank: 47
+alloagent,P08,3,P08_r3,modest_accuracy_caveat,qualitative,DEFERRED,DEFERRED,False,,judged,judged
+alloagent,P08,3,P08_r3,mapping_stated,qualitative,DEFERRED,DEFERRED,False,,judged,judged
+baseline,P08,3,P08_r3,accession_Q06124,exact,FAIL,FAIL,False,,accession_Q06124.name: 'Tyrosine-protein phosphatase non-receptor type 11'; accession_Q06124.gene: 'PTPN11'; accession_Q06124.organism: 'Homo sapiens',accession_Q06124.name: 'Tyrosine-protein phosphatase non-receptor type 11'; accession_Q06124.gene: 'PTPN11'; accession_Q06124.organism: 'Homo sapiens'
+baseline,P08,3,P08_r3,pocketminer_top10_2SHP_chain_A,exact,FAIL,FAIL,False,,pocketminer_top10_2SHP_chain_A[0].pdb_number: 220; pocketminer_top10_2SHP_chain_A[1].pdb_number: 423; pocketminer_top10_2SHP_chain_A[2].pdb_number: 218; pocketminer_top10_2SHP_chain_A[5].pdb_number: 460; pocketminer_top10_2SHP_chain_A[6].pdb_number: 129; pocketminer_top10_2SHP_chain_A[7].pdb_number: 219; pocketminer_top10_2SHP_chain_A[8].pdb_number: 366; pocketminer_top10_2SHP_chain_A[9].pdb_number: 33,pocketminer_top10_2SHP_chain_A[1].pdb_number: 423; pocketminer_top10_2SHP_chain_A[8].pdb_number: 366
+baseline,P08,3,P08_r3,mapped_5EHR_SHP099_contacts_on_2SHP,exact,FAIL,FAIL,False,,mapped_5EHR_SHP099_contacts_on_2SHP[0].uniprot_number: 108; mapped_5EHR_SHP099_contacts_on_2SHP[0].pdb_number_2SHP: 108; mapped_5EHR_SHP099_contacts_on_2SHP[0].pocketminer_rank_in_chain_A: 63; mapped_5EHR_SHP099_contacts_on_2SHP[1].uniprot_number: 110; mapped_5EHR_SHP099_contacts_on_2SHP[1].pdb_number_2SHP: 110; mapped_5EHR_SHP099_contacts_on_2SHP[1].pocketminer_rank_in_chain_A: 47; mapped_5EHR_SHP099_contacts_on_2SHP[3].pocketminer_rank_in_chain_A: 72; mapped_5EHR_SHP099_contacts_on_2SHP[4].uniprot_number: 114; mapped_5EHR_SHP099_contacts_on_2SHP[4].pdb_number_2SHP: 114; mapped_5EHR_SHP099_contacts_on_2SHP[4].pocketminer_rank_in_chain_A: 68; mapped_5EHR_SHP099_contacts_on_2SHP[5].uniprot_number: 218; mapped_5EHR_SHP099_contacts_on_2SHP[5].pdb_number_2SHP: 218; mapped_5EHR_SHP099_contacts_on_2SHP[6].uniprot_number: 219; mapped_5EHR_SHP099_contacts_on_2SHP[6].pdb_number_2SHP: 219; mapped_5EHR_SHP099_contacts_on_2SHP[7].uniprot_number: 249; mapped_5EHR_SHP099_contacts_on_2SHP[7].pdb_number_2SHP: 249; mapped_5EHR_SHP099_contacts_on_2SHP[7].pocketminer_score: 0.7307; mapped_5EHR_SHP099_contacts_on_2SHP[7].pocketminer_rank_in_chain_A: 99; mapped_5EHR_SHP099_contacts_on_2SHP[8].uniprot_number: 250; mapped_5EHR_SHP099_contacts_on_2SHP[8].pdb_number_2SHP: 250; mapped_5EHR_SHP099_contacts_on_2SHP[8].pocketminer_rank_in_chain_A: 78; mapped_5EHR_SHP099_contacts_on_2SHP[9].uniprot_number: 253; mapped_5EHR_SHP099_contacts_on_2SHP[9].pdb_number_2SHP: 253; mapped_5EHR_SHP099_contacts_on_2SHP[9].pocketminer_rank_in_chain_A: 36; mapped_5EHR_SHP099_contacts_on_2SHP[10].uniprot_number: 254; mapped_5EHR_SHP099_contacts_on_2SHP[10].pdb_number_2SHP: 254; mapped_5EHR_SHP099_contacts_on_2SHP[10].pocketminer_rank_in_chain_A: 43; mapped_5EHR_SHP099_contacts_on_2SHP[11].uniprot_number: 257; mapped_5EHR_SHP099_contacts_on_2SHP[11].pdb_number_2SHP: 257; mapped_5EHR_SHP099_contacts_on_2SHP[11].pocketminer_rank_in_chain_A: 182; mapped_5EHR_SHP099_contacts_on_2SHP[12].pocketminer_rank_in_chain_A: 42; mapped_5EHR_SHP099_contacts_on_2SHP[13].pocketminer_rank_in_chain_A: 35; mapped_5EHR_SHP099_contacts_on_2SHP[14].pocketminer_rank_in_chain_A: 122,mapped_5EHR_SHP099_contacts_on_2SHP[0].pocketminer_rank_in_chain_A: 63; mapped_5EHR_SHP099_contacts_on_2SHP[1].pocketminer_rank_in_chain_A: 47; mapped_5EHR_SHP099_contacts_on_2SHP[3].pocketminer_rank_in_chain_A: 72; mapped_5EHR_SHP099_contacts_on_2SHP[4].pocketminer_rank_in_chain_A: 68; mapped_5EHR_SHP099_contacts_on_2SHP[7].pocketminer_score: 0.7307; mapped_5EHR_SHP099_contacts_on_2SHP[7].pocketminer_rank_in_chain_A: 99; mapped_5EHR_SHP099_contacts_on_2SHP[8].pocketminer_rank_in_chain_A: 78; mapped_5EHR_SHP099_contacts_on_2SHP[9].pocketminer_rank_in_chain_A: 36; mapped_5EHR_SHP099_contacts_on_2SHP[10].pocketminer_rank_in_chain_A: 43; mapped_5EHR_SHP099_contacts_on_2SHP[11].pocketminer_rank_in_chain_A: 182; mapped_5EHR_SHP099_contacts_on_2SHP[12].pocketminer_rank_in_chain_A: 42; mapped_5EHR_SHP099_contacts_on_2SHP[13].pocketminer_rank_in_chain_A: 35; mapped_5EHR_SHP099_contacts_on_2SHP[14].pocketminer_rank_in_chain_A: 122
+baseline,P08,3,P08_r3,site_rank_comparison,exact,FAIL,FAIL,False,,site_rank_comparison.median_rank: 47,site_rank_comparison.median_rank: 47
+baseline,P08,3,P08_r3,modest_accuracy_caveat,qualitative,DEFERRED,DEFERRED,False,,judged,judged
+baseline,P08,3,P08_r3,mapping_stated,qualitative,DEFERRED,DEFERRED,False,,judged,judged
+alloagent,K01,1,K01_r1,accession_P18031,exact,FAIL,FAIL,False,,accession_P18031.name: 'Tyrosine-protein phosphatase non-receptor type 1'; accession_P18031.gene: 'PTPN1'; accession_P18031.organism: 'Homo sapiens',accession_P18031.name: 'Tyrosine-protein phosphatase non-receptor type 1'; accession_P18031.gene: 'PTPN1'; accession_P18031.organism: 'Homo sapiens'
+alloagent,K01,1,K01_r1,stingallo_residues,exact,FAIL,FAIL,False,,stingallo_residues[0]: '129'; stingallo_residues[1]: '130'; stingallo_residues[2]: '187'; stingallo_residues[3]: '188'; stingallo_residues[4]: '189'; stingallo_residues[5]: '192'; stingallo_residues[6]: '193'; stingallo_residues[7]: '196'; stingallo_residues[8]: '200'; stingallo_residues[9]: '276'; stingallo_residues[10]: '279'; stingallo_residues[11]: '280'; stingallo_residues[12]: '281'; stingallo_residues[13]: '282',stingallo_residues[0]: '129'; stingallo_residues[1]: '130'; stingallo_residues[2]: '187'; stingallo_residues[3]: '188'; stingallo_residues[4]: '189'; stingallo_residues[5]: '192'; stingallo_residues[6]: '193'; stingallo_residues[7]: '196'; stingallo_residues[8]: '200'; stingallo_residues[9]: '276'; stingallo_residues[10]: '279'; stingallo_residues[11]: '280'; stingallo_residues[12]: '281'; stingallo_residues[13]: '282'
+baseline,K01,1,K01_r1,accession_P18031,exact,FAIL,FAIL,False,,accession_P18031.name: 'Tyrosine-protein phosphatase non-receptor type 1'; accession_P18031.gene: 'PTPN1'; accession_P18031.organism: 'Homo sapiens',accession_P18031.name: 'Tyrosine-protein phosphatase non-receptor type 1'; accession_P18031.gene: 'PTPN1'; accession_P18031.organism: 'Homo sapiens'
+baseline,K01,1,K01_r1,stingallo_residues,exact,PASS,PASS,False,,,
+alloagent,K01,2,K01_r2,accession_P18031,exact,FAIL,FAIL,False,,accession_P18031.name: 'Tyrosine-protein phosphatase non-receptor type 1'; accession_P18031.gene: 'PTPN1'; accession_P18031.organism: 'Homo sapiens',accession_P18031.name: 'Tyrosine-protein phosphatase non-receptor type 1'; accession_P18031.gene: 'PTPN1'; accession_P18031.organism: 'Homo sapiens'
+alloagent,K01,2,K01_r2,stingallo_residues,exact,PASS,PASS,False,,,
+baseline,K01,2,K01_r2,accession_P18031,exact,FAIL,FAIL,False,,accession_P18031.name: 'Tyrosine-protein phosphatase non-receptor type 1'; accession_P18031.gene: 'PTPN1'; accession_P18031.organism: 'Homo sapiens',accession_P18031.name: 'Tyrosine-protein phosphatase non-receptor type 1'; accession_P18031.gene: 'PTPN1'; accession_P18031.organism: 'Homo sapiens'
+baseline,K01,2,K01_r2,stingallo_residues,exact,PASS,PASS,False,,,
+alloagent,K01,3,K01_r3,accession_P18031,exact,FAIL,FAIL,False,,accession_P18031.name: 'Tyrosine-protein phosphatase non-receptor type 1'; accession_P18031.gene: 'PTPN1'; accession_P18031.organism: 'Homo sapiens',accession_P18031.name: 'Tyrosine-protein phosphatase non-receptor type 1'; accession_P18031.gene: 'PTPN1'; accession_P18031.organism: 'Homo sapiens'
+alloagent,K01,3,K01_r3,stingallo_residues,exact,FAIL,FAIL,False,,stingallo_residues[0]: '129'; stingallo_residues[1]: '130'; stingallo_residues[2]: '187'; stingallo_residues[3]: '188'; stingallo_residues[4]: '189'; stingallo_residues[5]: '192'; stingallo_residues[6]: '193'; stingallo_residues[7]: '196'; stingallo_residues[8]: '200'; stingallo_residues[9]: '276'; stingallo_residues[10]: '279'; stingallo_residues[11]: '280'; stingallo_residues[12]: '281'; stingallo_residues[13]: '282',stingallo_residues[0]: '129'; stingallo_residues[1]: '130'; stingallo_residues[2]: '187'; stingallo_residues[3]: '188'; stingallo_residues[4]: '189'; stingallo_residues[5]: '192'; stingallo_residues[6]: '193'; stingallo_residues[7]: '196'; stingallo_residues[8]: '200'; stingallo_residues[9]: '276'; stingallo_residues[10]: '279'; stingallo_residues[11]: '280'; stingallo_residues[12]: '281'; stingallo_residues[13]: '282'
+baseline,K01,3,K01_r3,accession_P18031,exact,FAIL,FAIL,False,,accession_P18031.name: 'Tyrosine-protein phosphatase non-receptor type 1'; accession_P18031.gene: 'PTPN1'; accession_P18031.organism: 'Homo sapiens',accession_P18031.name: 'Tyrosine-protein phosphatase non-receptor type 1'; accession_P18031.gene: 'PTPN1'; accession_P18031.organism: 'Homo sapiens'
+baseline,K01,3,K01_r3,stingallo_residues,exact,PASS,PASS,False,,,
+alloagent,K02,1,K02_r1,accession_P18031,exact,FAIL,FAIL,False,,accession_P18031.name: 'Tyrosine-protein phosphatase non-receptor type 1'; accession_P18031.gene: 'PTPN1'; accession_P18031.organism: 'Homo sapiens',accession_P18031.name: 'Tyrosine-protein phosphatase non-receptor type 1'; accession_P18031.gene: 'PTPN1'; accession_P18031.organism: 'Homo sapiens'
+alloagent,K02,1,K02_r1,stingallo_residues,exact,FAIL,FAIL,False,,stingallo_residues[0]: '129'; stingallo_residues[1]: '130'; stingallo_residues[2]: '187'; stingallo_residues[12]: '281',stingallo_residues[0]: '129'; stingallo_residues[1]: '130'; stingallo_residues[2]: '187'; stingallo_residues[12]: '281'
+alloagent,K02,1,K02_r1,overlap_1T4J,number,FAIL,FAIL,False,,expected 10,expected 10
+baseline,K02,1,K02_r1,accession_P18031,exact,FAIL,FAIL,False,,accession_P18031.name: 'Tyrosine-protein phosphatase non-receptor type 1'; accession_P18031.gene: 'PTPN1'; accession_P18031.organism: 'Homo sapiens',accession_P18031.name: 'Tyrosine-protein phosphatase non-receptor type 1'; accession_P18031.gene: 'PTPN1'; accession_P18031.organism: 'Homo sapiens'
+baseline,K02,1,K02_r1,stingallo_residues,exact,PASS,PASS,False,,,
+baseline,K02,1,K02_r1,overlap_1T4J,number,PASS,PASS,False,,,
+alloagent,K02,2,K02_r2,accession_P18031,exact,FAIL,FAIL,False,,accession_P18031.name: 'Tyrosine-protein phosphatase non-receptor type 1'; accession_P18031.gene: 'PTPN1'; accession_P18031.organism: 'Homo sapiens',accession_P18031.name: 'Tyrosine-protein phosphatase non-receptor type 1'; accession_P18031.gene: 'PTPN1'; accession_P18031.organism: 'Homo sapiens'
+alloagent,K02,2,K02_r2,stingallo_residues,exact,PASS,PASS,False,,,
+alloagent,K02,2,K02_r2,overlap_1T4J,number,PASS,PASS,False,,,
+baseline,K02,2,K02_r2,accession_P18031,exact,FAIL,FAIL,False,,accession_P18031.name: 'Tyrosine-protein phosphatase non-receptor type 1'; accession_P18031.gene: 'PTPN1'; accession_P18031.organism: 'Homo sapiens',accession_P18031.name: 'Tyrosine-protein phosphatase non-receptor type 1'; accession_P18031.gene: 'PTPN1'; accession_P18031.organism: 'Homo sapiens'
+baseline,K02,2,K02_r2,stingallo_residues,exact,PASS,PASS,False,,,
+baseline,K02,2,K02_r2,overlap_1T4J,number,PASS,PASS,False,,,
+alloagent,K02,3,K02_r3,accession_P18031,exact,FAIL,FAIL,False,,accession_P18031.name: 'Tyrosine-protein phosphatase non-receptor type 1'; accession_P18031.gene: 'PTPN1'; accession_P18031.organism: 'Homo sapiens',accession_P18031.name: 'Tyrosine-protein phosphatase non-receptor type 1'; accession_P18031.gene: 'PTPN1'; accession_P18031.organism: 'Homo sapiens'
+alloagent,K02,3,K02_r3,stingallo_residues,exact,FAIL,FAIL,False,,stingallo_residues[0]: '129'; stingallo_residues[1]: '130'; stingallo_residues[2]: '187'; stingallo_residues[12]: '281',stingallo_residues[0]: '129'; stingallo_residues[1]: '130'; stingallo_residues[2]: '187'; stingallo_residues[12]: '281'
+alloagent,K02,3,K02_r3,overlap_1T4J,number,FAIL,FAIL,False,,expected 10,expected 10
+baseline,K02,3,K02_r3,accession_P18031,exact,FAIL,FAIL,False,,accession_P18031.name: 'Tyrosine-protein phosphatase non-receptor type 1'; accession_P18031.gene: 'PTPN1'; accession_P18031.organism: 'Homo sapiens',accession_P18031.name: 'Tyrosine-protein phosphatase non-receptor type 1'; accession_P18031.gene: 'PTPN1'; accession_P18031.organism: 'Homo sapiens'
+baseline,K02,3,K02_r3,stingallo_residues,exact,PASS,PASS,False,,,
+baseline,K02,3,K02_r3,overlap_1T4J,number,PASS,PASS,False,,,
+alloagent,K03,1,K03_r1,accession_Q06124,exact,FAIL,FAIL,False,,accession_Q06124.name: 'Tyrosine-protein phosphatase non-receptor type 11'; accession_Q06124.gene: 'PTPN11'; accession_Q06124.organism: 'Homo sapiens',accession_Q06124.name: 'Tyrosine-protein phosphatase non-receptor type 11'; accession_Q06124.gene: 'PTPN11'; accession_Q06124.organism: 'Homo sapiens'
+alloagent,K03,1,K03_r1,stingallo_residues,exact,FAIL,FAIL,False,,stingallo_residues[0]: '314',stingallo_residues[0]: '314'
+alloagent,K03,1,K03_r1,overlap_5EHR,number,PASS,PASS,False,,,
+alloagent,K03,1,K03_r1,chance_base_rate_5EHR,exact,FAIL,FAIL,False,,chance_base_rate_5EHR.predicted_residue_numbers[0]: 314; chance_base_rate_5EHR.modelled_chain_A_residues: 485; chance_base_rate_5EHR.predicted_fraction_of_chain: 0.002061855670103093; chance_base_rate_5EHR.expected_overlap_by_chance: 0.030927835051546393,chance_base_rate_5EHR.predicted_residue_numbers[0]: 314; chance_base_rate_5EHR.modelled_chain_A_residues: 485; chance_base_rate_5EHR.predicted_fraction_of_chain: 0.002061855670103093; chance_base_rate_5EHR.expected_overlap_by_chance: 0.030927835051546393
+baseline,K03,1,K03_r1,accession_Q06124,exact,FAIL,FAIL,False,,accession_Q06124.name: 'Tyrosine-protein phosphatase non-receptor type 11'; accession_Q06124.gene: 'PTPN11'; accession_Q06124.organism: 'Homo sapiens',accession_Q06124.name: 'Tyrosine-protein phosphatase non-receptor type 11'; accession_Q06124.gene: 'PTPN11'; accession_Q06124.organism: 'Homo sapiens'
+baseline,K03,1,K03_r1,stingallo_residues,exact,PASS,PASS,False,,,
+baseline,K03,1,K03_r1,overlap_5EHR,number,FAIL,FAIL,False,,expected 0,expected 0
+baseline,K03,1,K03_r1,chance_base_rate_5EHR,exact,FAIL,FAIL,False,,chance_base_rate_5EHR.predicted_residues: 1; chance_base_rate_5EHR.contact_residues: 15; chance_base_rate_5EHR.modelled_chain_A_residues: 485; chance_base_rate_5EHR.predicted_fraction_of_chain: 0.002061855670103093; chance_base_rate_5EHR.expected_overlap_by_chance: 0.030927835051546393; chance_base_rate_5EHR.observed_overlap: 0; chance_base_rate_5EHR.enrichment: 0.0,chance_base_rate_5EHR.predicted_residues: 1; chance_base_rate_5EHR.contact_residues: 15; chance_base_rate_5EHR.modelled_chain_A_residues: 485; chance_base_rate_5EHR.predicted_fraction_of_chain: 0.002061855670103093; chance_base_rate_5EHR.expected_overlap_by_chance: 0.030927835051546393; chance_base_rate_5EHR.observed_overlap: 0; chance_base_rate_5EHR.enrichment: 0.0
+alloagent,K03,2,K03_r2,accession_Q06124,exact,FAIL,FAIL,False,,accession_Q06124.name: 'Tyrosine-protein phosphatase non-receptor type 11'; accession_Q06124.gene: 'PTPN11'; accession_Q06124.organism: 'Homo sapiens',accession_Q06124.name: 'Tyrosine-protein phosphatase non-receptor type 11'; accession_Q06124.gene: 'PTPN11'; accession_Q06124.organism: 'Homo sapiens'
+alloagent,K03,2,K03_r2,stingallo_residues,exact,PASS,PASS,False,,,
+alloagent,K03,2,K03_r2,overlap_5EHR,number,FAIL,FAIL,False,,expected 0,expected 0
+alloagent,K03,2,K03_r2,chance_base_rate_5EHR,exact,FAIL,FAIL,False,,chance_base_rate_5EHR.contact_residues: 15; chance_base_rate_5EHR.modelled_chain_A_residues: 485; chance_base_rate_5EHR.predicted_fraction_of_chain: 0.002061855670103093; chance_base_rate_5EHR.expected_overlap_by_chance: 0.030927835051546393; chance_base_rate_5EHR.observed_overlap: 0; chance_base_rate_5EHR.enrichment: 0.0,chance_base_rate_5EHR.contact_residues: 15; chance_base_rate_5EHR.modelled_chain_A_residues: 485; chance_base_rate_5EHR.predicted_fraction_of_chain: 0.002061855670103093; chance_base_rate_5EHR.expected_overlap_by_chance: 0.030927835051546393; chance_base_rate_5EHR.observed_overlap: 0; chance_base_rate_5EHR.enrichment: 0.0
+baseline,K03,2,K03_r2,accession_Q06124,exact,FAIL,FAIL,False,,accession_Q06124.name: 'Tyrosine-protein phosphatase non-receptor type 11'; accession_Q06124.gene: 'PTPN11'; accession_Q06124.organism: 'Homo sapiens',accession_Q06124.name: 'Tyrosine-protein phosphatase non-receptor type 11'; accession_Q06124.gene: 'PTPN11'; accession_Q06124.organism: 'Homo sapiens'
+baseline,K03,2,K03_r2,stingallo_residues,exact,PASS,PASS,False,,,
+baseline,K03,2,K03_r2,overlap_5EHR,number,FAIL,FAIL,False,,expected 0,expected 0
+baseline,K03,2,K03_r2,chance_base_rate_5EHR,exact,FAIL,FAIL,False,,chance_base_rate_5EHR.modelled_chain_A_residues: 485; chance_base_rate_5EHR.predicted_fraction_of_chain: 0.002061855670103093; chance_base_rate_5EHR.expected_overlap_by_chance: 0.030927835051546393; chance_base_rate_5EHR.observed_overlap: 0; chance_base_rate_5EHR.enrichment: 0.0,chance_base_rate_5EHR.modelled_chain_A_residues: 485; chance_base_rate_5EHR.predicted_fraction_of_chain: 0.002061855670103093; chance_base_rate_5EHR.expected_overlap_by_chance: 0.030927835051546393; chance_base_rate_5EHR.observed_overlap: 0; chance_base_rate_5EHR.enrichment: 0.0
+alloagent,K03,3,K03_r3,accession_Q06124,exact,FAIL,FAIL,False,,accession_Q06124.name: 'Tyrosine-protein phosphatase non-receptor type 11'; accession_Q06124.gene: 'PTPN11'; accession_Q06124.organism: 'Homo sapiens',accession_Q06124.name: 'Tyrosine-protein phosphatase non-receptor type 11'; accession_Q06124.gene: 'PTPN11'; accession_Q06124.organism: 'Homo sapiens'
+alloagent,K03,3,K03_r3,stingallo_residues,exact,FAIL,FAIL,False,,stingallo_residues[0]: '314',stingallo_residues[0]: '314'
+alloagent,K03,3,K03_r3,overlap_5EHR,number,PASS,PASS,False,,,
+alloagent,K03,3,K03_r3,chance_base_rate_5EHR,exact,FAIL,FAIL,False,,chance_base_rate_5EHR.predicted_residue_numbers[0]: 314; chance_base_rate_5EHR.modelled_chain_A_residues: 485; chance_base_rate_5EHR.predicted_fraction_of_chain: 0.002061855670103093; chance_base_rate_5EHR.expected_overlap_by_chance: 0.030927835051546393,chance_base_rate_5EHR.predicted_residue_numbers[0]: 314; chance_base_rate_5EHR.modelled_chain_A_residues: 485; chance_base_rate_5EHR.predicted_fraction_of_chain: 0.002061855670103093; chance_base_rate_5EHR.expected_overlap_by_chance: 0.030927835051546393
+baseline,K03,3,K03_r3,accession_Q06124,exact,FAIL,FAIL,False,,accession_Q06124.name: 'Tyrosine-protein phosphatase non-receptor type 11'; accession_Q06124.gene: 'PTPN11'; accession_Q06124.organism: 'Homo sapiens',accession_Q06124.name: 'Tyrosine-protein phosphatase non-receptor type 11'; accession_Q06124.gene: 'PTPN11'; accession_Q06124.organism: 'Homo sapiens'
+baseline,K03,3,K03_r3,stingallo_residues,exact,PASS,PASS,False,,,
+baseline,K03,3,K03_r3,overlap_5EHR,number,FAIL,FAIL,False,,expected 0,expected 0
+baseline,K03,3,K03_r3,chance_base_rate_5EHR,exact,FAIL,FAIL,False,,chance_base_rate_5EHR.contact_residues: 15; chance_base_rate_5EHR.modelled_chain_A_residues: 485; chance_base_rate_5EHR.predicted_fraction_of_chain: 0.002061855670103093; chance_base_rate_5EHR.expected_overlap_by_chance: 0.030927835051546393; chance_base_rate_5EHR.observed_overlap: 0; chance_base_rate_5EHR.enrichment: 0.0,chance_base_rate_5EHR.contact_residues: 15; chance_base_rate_5EHR.modelled_chain_A_residues: 485; chance_base_rate_5EHR.predicted_fraction_of_chain: 0.002061855670103093; chance_base_rate_5EHR.expected_overlap_by_chance: 0.030927835051546393; chance_base_rate_5EHR.observed_overlap: 0; chance_base_rate_5EHR.enrichment: 0.0
+alloagent,G01,1,G01_r1,accession_P01116,exact,FAIL,FAIL,False,,accession_P01116.name: 'GTPase KRas'; accession_P01116.organism: 'Homo sapiens',accession_P01116.name: 'GTPase KRas'; accession_P01116.organism: 'Homo sapiens'
+alloagent,G01,1,G01_r1,components_present,qualitative,DEFERRED,DEFERRED,False,,judged,judged
+baseline,G01,1,G01_r1,accession_P01116,exact,FAIL,FAIL,False,,accession_P01116.name: 'GTPase KRas'; accession_P01116.organism: 'Homo sapiens',accession_P01116.name: 'GTPase KRas'; accession_P01116.organism: 'Homo sapiens'
+baseline,G01,1,G01_r1,components_present,qualitative,DEFERRED,DEFERRED,False,,judged,judged
+alloagent,G01,2,G01_r2,accession_P01116,exact,FAIL,FAIL,False,,accession_P01116.name: 'GTPase KRas'; accession_P01116.organism: 'Homo sapiens',accession_P01116.name: 'GTPase KRas'; accession_P01116.organism: 'Homo sapiens'
+alloagent,G01,2,G01_r2,components_present,qualitative,DEFERRED,DEFERRED,False,,judged,judged
+baseline,G01,2,G01_r2,accession_P01116,exact,FAIL,FAIL,False,,accession_P01116.name: 'GTPase KRas'; accession_P01116.organism: 'Homo sapiens',accession_P01116.name: 'GTPase KRas'; accession_P01116.organism: 'Homo sapiens'
+baseline,G01,2,G01_r2,components_present,qualitative,DEFERRED,DEFERRED,False,,judged,judged
+alloagent,G01,3,G01_r3,accession_P01116,exact,FAIL,FAIL,False,,accession_P01116.name: 'GTPase KRas'; accession_P01116.organism: 'Homo sapiens',accession_P01116.name: 'GTPase KRas'; accession_P01116.organism: 'Homo sapiens'
+alloagent,G01,3,G01_r3,components_present,qualitative,DEFERRED,DEFERRED,False,,judged,judged
+baseline,G01,3,G01_r3,accession_P01116,exact,FAIL,FAIL,False,,accession_P01116.name: 'GTPase KRas'; accession_P01116.organism: 'Homo sapiens',accession_P01116.name: 'GTPase KRas'; accession_P01116.organism: 'Homo sapiens'
+baseline,G01,3,G01_r3,components_present,qualitative,DEFERRED,DEFERRED,False,,judged,judged
+alloagent,G02,1,G02_r1,accession_P00519,exact,FAIL,FAIL,False,,accession_P00519.name: 'Tyrosine-protein kinase ABL1'; accession_P00519.organism: 'Homo sapiens',accession_P00519.name: 'Tyrosine-protein kinase ABL1'; accession_P00519.organism: 'Homo sapiens'
+alloagent,G02,1,G02_r1,components_present,qualitative,DEFERRED,DEFERRED,False,,judged,judged
+baseline,G02,1,G02_r1,accession_P00519,exact,FAIL,FAIL,False,,accession_P00519.name: 'Tyrosine-protein kinase ABL1'; accession_P00519.organism: 'Homo sapiens',accession_P00519.name: 'Tyrosine-protein kinase ABL1'; accession_P00519.organism: 'Homo sapiens'
+baseline,G02,1,G02_r1,components_present,qualitative,DEFERRED,DEFERRED,False,,judged,judged
+alloagent,G02,2,G02_r2,accession_P00519,exact,FAIL,FAIL,False,,accession_P00519.name: 'Tyrosine-protein kinase ABL1'; accession_P00519.organism: 'Homo sapiens',accession_P00519.name: 'Tyrosine-protein kinase ABL1'; accession_P00519.organism: 'Homo sapiens'
+alloagent,G02,2,G02_r2,components_present,qualitative,DEFERRED,DEFERRED,False,,judged,judged
+baseline,G02,2,G02_r2,accession_P00519,exact,FAIL,FAIL,False,,accession_P00519.name: 'Tyrosine-protein kinase ABL1'; accession_P00519.organism: 'Homo sapiens',accession_P00519.name: 'Tyrosine-protein kinase ABL1'; accession_P00519.organism: 'Homo sapiens'
+baseline,G02,2,G02_r2,components_present,qualitative,DEFERRED,DEFERRED,False,,judged,judged
+alloagent,G02,3,G02_r3,accession_P00519,exact,FAIL,FAIL,False,,accession_P00519.name: 'Tyrosine-protein kinase ABL1'; accession_P00519.organism: 'Homo sapiens',accession_P00519.name: 'Tyrosine-protein kinase ABL1'; accession_P00519.organism: 'Homo sapiens'
+alloagent,G02,3,G02_r3,components_present,qualitative,DEFERRED,DEFERRED,False,,judged,judged
+baseline,G02,3,G02_r3,accession_P00519,exact,FAIL,FAIL,False,,accession_P00519.name: 'Tyrosine-protein kinase ABL1'; accession_P00519.organism: 'Homo sapiens',accession_P00519.name: 'Tyrosine-protein kinase ABL1'; accession_P00519.organism: 'Homo sapiens'
+baseline,G02,3,G02_r3,components_present,qualitative,DEFERRED,DEFERRED,False,,judged,judged
+alloagent,G03,1,G03_r1,accession_Q06124,exact,FAIL,FAIL,False,,accession_Q06124.name: 'Tyrosine-protein phosphatase non-receptor type 11'; accession_Q06124.organism: 'Homo sapiens',accession_Q06124.name: 'Tyrosine-protein phosphatase non-receptor type 11'; accession_Q06124.organism: 'Homo sapiens'
+alloagent,G03,1,G03_r1,components_present,qualitative,DEFERRED,DEFERRED,False,,judged,judged
+baseline,G03,1,G03_r1,accession_Q06124,exact,FAIL,FAIL,False,,accession_Q06124.name: 'Tyrosine-protein phosphatase non-receptor type 11'; accession_Q06124.organism: 'Homo sapiens',accession_Q06124.name: 'Tyrosine-protein phosphatase non-receptor type 11'; accession_Q06124.organism: 'Homo sapiens'
+baseline,G03,1,G03_r1,components_present,qualitative,DEFERRED,DEFERRED,False,,judged,judged
+alloagent,G03,2,G03_r2,accession_Q06124,exact,FAIL,FAIL,False,,accession_Q06124.name: 'Tyrosine-protein phosphatase non-receptor type 11'; accession_Q06124.organism: 'Homo sapiens',accession_Q06124.name: 'Tyrosine-protein phosphatase non-receptor type 11'; accession_Q06124.organism: 'Homo sapiens'
+alloagent,G03,2,G03_r2,components_present,qualitative,DEFERRED,DEFERRED,False,,judged,judged
+baseline,G03,2,G03_r2,accession_Q06124,exact,FAIL,FAIL,False,,accession_Q06124.name: 'Tyrosine-protein phosphatase non-receptor type 11'; accession_Q06124.gene: 'PTPN11'; accession_Q06124.organism: 'Homo sapiens',accession_Q06124.name: 'Tyrosine-protein phosphatase non-receptor type 11'; accession_Q06124.gene: 'PTPN11'; accession_Q06124.organism: 'Homo sapiens'
+baseline,G03,2,G03_r2,components_present,qualitative,DEFERRED,DEFERRED,False,,judged,judged
+alloagent,G03,3,G03_r3,accession_Q06124,exact,FAIL,FAIL,False,,accession_Q06124.name: 'Tyrosine-protein phosphatase non-receptor type 11'; accession_Q06124.organism: 'Homo sapiens',accession_Q06124.name: 'Tyrosine-protein phosphatase non-receptor type 11'; accession_Q06124.organism: 'Homo sapiens'
+alloagent,G03,3,G03_r3,components_present,qualitative,DEFERRED,DEFERRED,False,,judged,judged
+baseline,G03,3,G03_r3,accession_Q06124,exact,FAIL,FAIL,False,,accession_Q06124.name: 'Tyrosine-protein phosphatase non-receptor type 11'; accession_Q06124.organism: 'Homo sapiens',accession_Q06124.name: 'Tyrosine-protein phosphatase non-receptor type 11'; accession_Q06124.organism: 'Homo sapiens'
+baseline,G03,3,G03_r3,components_present,qualitative,DEFERRED,DEFERRED,False,,judged,judged
+alloagent,G04,1,G04_r1,accession_P31749,exact,PASS,PASS,False,,,
+alloagent,G04,1,G04_r1,components_present,qualitative,DEFERRED,DEFERRED,False,,judged,judged
+baseline,G04,1,G04_r1,accession_P31749,exact,FAIL,FAIL,False,,accession_P31749.name: 'RAC-alpha serine/threonine-protein kinase'; accession_P31749.organism: 'Homo sapiens',accession_P31749.name: 'RAC-alpha serine/threonine-protein kinase'; accession_P31749.organism: 'Homo sapiens'
+baseline,G04,1,G04_r1,components_present,qualitative,DEFERRED,DEFERRED,False,,judged,judged
+alloagent,G04,2,G04_r2,accession_P31749,exact,FAIL,FAIL,False,,accession_P31749.name: 'RAC-alpha serine/threonine-protein kinase'; accession_P31749.organism: 'Homo sapiens',accession_P31749.name: 'RAC-alpha serine/threonine-protein kinase'; accession_P31749.organism: 'Homo sapiens'
+alloagent,G04,2,G04_r2,components_present,qualitative,DEFERRED,DEFERRED,False,,judged,judged
+baseline,G04,2,G04_r2,accession_P31749,exact,FAIL,FAIL,False,,accession_P31749.organism: 'Homo sapiens',accession_P31749.organism: 'Homo sapiens'
+baseline,G04,2,G04_r2,components_present,qualitative,DEFERRED,DEFERRED,False,,judged,judged
+alloagent,G04,3,G04_r3,accession_P31749,exact,FAIL,FAIL,False,,accession_P31749.name: 'RAC-alpha serine/threonine-protein kinase'; accession_P31749.organism: 'Homo sapiens',accession_P31749.name: 'RAC-alpha serine/threonine-protein kinase'; accession_P31749.organism: 'Homo sapiens'
+alloagent,G04,3,G04_r3,components_present,qualitative,DEFERRED,DEFERRED,False,,judged,judged
+baseline,G04,3,G04_r3,accession_P31749,exact,FAIL,FAIL,False,,accession_P31749.organism: 'Homo sapiens',accession_P31749.organism: 'Homo sapiens'
+baseline,G04,3,G04_r3,components_present,qualitative,DEFERRED,DEFERRED,False,,judged,judged
+alloagent,H01,1,H01_r1,accession_P18031,exact,FAIL,FAIL,False,,accession_P18031.name: 'Tyrosine-protein phosphatase non-receptor type 1'; accession_P18031.organism: 'Homo sapiens',accession_P18031.name: 'Tyrosine-protein phosphatase non-receptor type 1'; accession_P18031.organism: 'Homo sapiens'
+alloagent,H01,1,H01_r1,shp099_ptpn1_absence,exact,FAIL,FAIL,False,,shp099_ptpn1_absence: an absence claim is not scripted,shp099_ptpn1_absence: an absence claim is not scripted
+baseline,H01,1,H01_r1,accession_P18031,exact,FAIL,FAIL,False,,accession_P18031.name: 'Tyrosine-protein phosphatase non-receptor type 1',accession_P18031.name: 'Tyrosine-protein phosphatase non-receptor type 1'
+baseline,H01,1,H01_r1,shp099_ptpn1_absence,exact,FAIL,FAIL,False,,shp099_ptpn1_absence: an absence claim is not scripted,shp099_ptpn1_absence: an absence claim is not scripted
+alloagent,H01,2,H01_r2,accession_P18031,exact,FAIL,FAIL,False,,accession_P18031.name: 'Tyrosine-protein phosphatase non-receptor type 1',accession_P18031.name: 'Tyrosine-protein phosphatase non-receptor type 1'
+alloagent,H01,2,H01_r2,shp099_ptpn1_absence,exact,FAIL,FAIL,False,,shp099_ptpn1_absence: an absence claim is not scripted,shp099_ptpn1_absence: an absence claim is not scripted
+baseline,H01,2,H01_r2,accession_P18031,exact,FAIL,FAIL,False,,accession_P18031.name: 'Tyrosine-protein phosphatase non-receptor type 1'; accession_P18031.organism: 'Homo sapiens',accession_P18031.name: 'Tyrosine-protein phosphatase non-receptor type 1'; accession_P18031.organism: 'Homo sapiens'
+baseline,H01,2,H01_r2,shp099_ptpn1_absence,exact,FAIL,FAIL,False,,shp099_ptpn1_absence: an absence claim is not scripted,shp099_ptpn1_absence: an absence claim is not scripted
+alloagent,H01,3,H01_r3,accession_P18031,exact,FAIL,FAIL,False,,accession_P18031.name: 'Tyrosine-protein phosphatase non-receptor type 1'; accession_P18031.organism: 'Homo sapiens',accession_P18031.name: 'Tyrosine-protein phosphatase non-receptor type 1'; accession_P18031.organism: 'Homo sapiens'
+alloagent,H01,3,H01_r3,shp099_ptpn1_absence,exact,FAIL,FAIL,False,,shp099_ptpn1_absence: an absence claim is not scripted,shp099_ptpn1_absence: an absence claim is not scripted
+baseline,H01,3,H01_r3,accession_P18031,exact,FAIL,FAIL,False,,accession_P18031.name: 'Tyrosine-protein phosphatase non-receptor type 1',accession_P18031.name: 'Tyrosine-protein phosphatase non-receptor type 1'
+baseline,H01,3,H01_r3,shp099_ptpn1_absence,exact,FAIL,FAIL,False,,shp099_ptpn1_absence: an absence claim is not scripted,shp099_ptpn1_absence: an absence claim is not scripted
+alloagent,H02,1,H02_r1,accession_P18031,exact,FAIL,FAIL,False,,accession_P18031.name: 'Tyrosine-protein phosphatase non-receptor type 1'; accession_P18031.gene: 'PTPN1'; accession_P18031.organism: 'Homo sapiens',accession_P18031.name: 'Tyrosine-protein phosphatase non-receptor type 1'; accession_P18031.gene: 'PTPN1'; accession_P18031.organism: 'Homo sapiens'
+alloagent,H02,1,H02_r1,fpocket_top3,exact,PASS,PASS,False,,,
+alloagent,H02,1,H02_r1,pocket_recovery,qualitative,DEFERRED,DEFERRED,False,,judged,judged
+baseline,H02,1,H02_r1,accession_P18031,exact,FAIL,FAIL,False,,accession_P18031.name: 'Tyrosine-protein phosphatase non-receptor type 1'; accession_P18031.gene: 'PTPN1'; accession_P18031.organism: 'Homo sapiens',accession_P18031.name: 'Tyrosine-protein phosphatase non-receptor type 1'; accession_P18031.gene: 'PTPN1'; accession_P18031.organism: 'Homo sapiens'
+baseline,H02,1,H02_r1,fpocket_top3,exact,PASS,PASS,False,,,
+baseline,H02,1,H02_r1,pocket_recovery,qualitative,DEFERRED,DEFERRED,False,,judged,judged
+alloagent,H02,2,H02_r2,accession_P18031,exact,FAIL,FAIL,False,,accession_P18031.name: 'Tyrosine-protein phosphatase non-receptor type 1'; accession_P18031.gene: 'PTPN1'; accession_P18031.organism: 'Homo sapiens',accession_P18031.name: 'Tyrosine-protein phosphatase non-receptor type 1'; accession_P18031.gene: 'PTPN1'; accession_P18031.organism: 'Homo sapiens'
+alloagent,H02,2,H02_r2,fpocket_top3,exact,FAIL,FAIL,False,,fpocket_top3[1].residues: 12; fpocket_top3[2].residues: 15,fpocket_top3[1].residues: 12; fpocket_top3[2].residues: 15
+alloagent,H02,2,H02_r2,pocket_recovery,qualitative,DEFERRED,DEFERRED,False,,judged,judged
+baseline,H02,2,H02_r2,accession_P18031,exact,FAIL,FAIL,False,,accession_P18031.name: 'Tyrosine-protein phosphatase non-receptor type 1'; accession_P18031.gene: 'PTPN1'; accession_P18031.organism: 'Homo sapiens',accession_P18031.name: 'Tyrosine-protein phosphatase non-receptor type 1'; accession_P18031.gene: 'PTPN1'; accession_P18031.organism: 'Homo sapiens'
+baseline,H02,2,H02_r2,fpocket_top3,exact,FAIL,FAIL,False,,fpocket_top3[0].residues: 9; fpocket_top3[1].residues: 12,fpocket_top3[0].residues: 9; fpocket_top3[1].residues: 12
+baseline,H02,2,H02_r2,pocket_recovery,qualitative,DEFERRED,DEFERRED,False,,judged,judged
+alloagent,H02,3,H02_r3,accession_P18031,exact,FAIL,FAIL,False,,accession_P18031.name: 'Tyrosine-protein phosphatase non-receptor type 1'; accession_P18031.gene: 'PTPN1'; accession_P18031.organism: 'Homo sapiens',accession_P18031.name: 'Tyrosine-protein phosphatase non-receptor type 1'; accession_P18031.gene: 'PTPN1'; accession_P18031.organism: 'Homo sapiens'
+alloagent,H02,3,H02_r3,fpocket_top3,exact,FAIL,FAIL,False,,fpocket_top3[0].residues: 9; fpocket_top3[1].residues: 12,fpocket_top3[0].residues: 9; fpocket_top3[1].residues: 12
+alloagent,H02,3,H02_r3,pocket_recovery,qualitative,DEFERRED,DEFERRED,False,,judged,judged
+baseline,H02,3,H02_r3,accession_P18031,exact,FAIL,FAIL,False,,accession_P18031.name: 'Tyrosine-protein phosphatase non-receptor type 1'; accession_P18031.gene: 'PTPN1'; accession_P18031.organism: 'Homo sapiens',accession_P18031.name: 'Tyrosine-protein phosphatase non-receptor type 1'; accession_P18031.gene: 'PTPN1'; accession_P18031.organism: 'Homo sapiens'
+baseline,H02,3,H02_r3,fpocket_top3,exact,FAIL,FAIL,False,,fpocket_top3[0].residues: 9; fpocket_top3[1].residues: 12; fpocket_top3[2].residues: 15,fpocket_top3[0].residues: 9; fpocket_top3[1].residues: 12; fpocket_top3[2].residues: 15
+baseline,H02,3,H02_r3,pocket_recovery,qualitative,DEFERRED,DEFERRED,False,,judged,judged

@@ -1,0 +1,78 @@
+# docs/dev_installs.txt
+#
+# Every third-party package installed during development, with the
+# version that was actually resolved in the dev container and verified
+# by importing it. These are installed at BUILD TIME in the Dockerfile
+# (one layer, before the repository is copied), never at test time.
+#
+# Resolved and import-verified in
+# alloagent-dev:v4-reb4 on 2026-10-23/24 with:
+#   pip install --extra-index-url https://download.pytorch.org/whl/cpu \
+#     -c constraints.txt <the list below>
+# where constraints.txt pins torch==2.4.1+cpu, torchvision==0.19.1+cpu,
+# numpy==2.3.5, pandas==3.0.6, setuptools<81.
+#
+# format: <pip name>==<version>  # <import name> - <what it is for>
+
+# --- literature / search (the old repo's literature.py) ---
+googlesearch-python==1.3.0  # googlesearch - literature.search_google (search-engine scraper)
+scholarly==1.7.11  # scholarly - literature.query_scholar
+arxiv==4.0.1  # arxiv - literature arXiv lookup
+pymed==0.8.9  # pymed - literature PubMed lookup
+
+# --- sequence / structure ---
+ViennaRNA==2.7.2  # RNA - microbiology RNA folding (deferred import)
+nilearn==0.14.1  # nilearn - bioimaging plotting
+pyliftover==0.4.1  # pyliftover - genetics coordinate liftover
+msprime==1.4.4  # msprime - genetics demographic simulation
+python-louvain==0.16  # community - cancer_biology community detection
+pykalman==0.11.2  # pykalman - bioengineering Kalman filtering
+trackpy==0.7  # trackpy - bioengineering / immunology particle tracking
+flowkit==1.3.0  # flowkit - cell_biology flow cytometry
+python-libsbml==5.21.2  # libsbml - synthetic_biology SBML
+cobra==0.18.1  # cobra - systems_biology flux balance analysis
+pybedtools==0.12.1  # pybedtools - genomics genome intervals
+
+# --- single-cell / ML ---
+accelerate==1.15.0  # accelerate - genomics HuggingFace accelerate
+cooler==0.10.4  # cooler - genomics contact matrices
+scvi-tools==1.4.2  # scvi - genomics probabilistic models
+popv==0.6.1  # popv - genomics population-level variational inference
+cellpose==4.2.1.1  # cellpose - microbiology cell segmentation
+nnunet==1.7.1  # nnunet - bioimaging segmentation
+DeepPurpose==0.1.5  # DeepPurpose - pharmacology compound/DTI prediction
+PyTDC==0.4.1  # tdc - pharmacology therapeutic data commons
+
+# --- transformers (the old repo's systems_biology.query_chatnt) ---
+transformers==4.57.6  # transformers - systems_biology.query_chatnt
+torchvision==0.19.1+cpu  # torchvision - matches torch 2.4.1+cpu
+
+# --- transitive pins that are load-bearing ---
+setuptools==80.10.2  # setuptools - <81 keeps pkg_resources, which PyTDC needs
+bibtexparser==1.3.0  # bibtexparser - <1.4, scholarly imports bibtexparser.bibdatabase
+
+# ---------------------------------------------------------------------------
+# Requested but NOT installable in this image (recorded with the evidence)
+# ---------------------------------------------------------------------------
+# FlowCytometryTools - the newest release on PyPI is 0.5.1, which uses
+#   collections.MutableMapping and so cannot be imported on Python 3.11
+#   ("AttributeError: module 'collections' has no attribute
+#   'MutableMapping'"). There is no 1.x release. Affects
+#   cancer_biology, cell_biology, immunology.
+# harmony - the upstream genomics.py does `from harmony import harmonize`.
+#   The PyPI project named `harmony` (1.2.4126) is a different project
+#   and does not provide that module; the TravisRuth repository ships
+#   `harmonypy`, not `harmony`. No distribution satisfies the import.
+#   Affects genomics.
+# eval_single_anndata - genomics.py does
+#   `from eval_single_anndata import main, parse_args_uce`. No
+#   distribution on PyPI provides that module. Affects genomics.
+
+# --- GPU tools (2026-10-25, own conda envs, installed in a throwaway
+#     container from the frozen image alloagent-eval:v3) ---
+# boltz2_env: conda create -y -p /opt/conda/envs/boltz2_env python=3.11 pip
+#   then: /opt/conda/envs/boltz2_env/bin/pip install --no-cache-dir boltz
+# bioemu_env: conda create -y -p /opt/conda/envs/bioemu_env python=3.11 pip
+#   then: /opt/conda/envs/bioemu_env/bin/pip install --no-cache-dir bioemu
+# (the versions resolved are recorded with the run reports; the envs are
+#  NOT part of the main env or of pocketminer_env)

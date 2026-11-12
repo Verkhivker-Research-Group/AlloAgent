@@ -1,0 +1,71 @@
+# docs/collected_counts.txt
+#
+# Pinned per-file and total collected test counts for the
+# alloagent arm. The guard test (tests/test_collect_count_guard.py)
+# reads this file and compares against the live `pytest --collect-only`
+# output. Any decrease or increase that is NOT accompanied by an
+# update to this file in the same commit causes the guard to FAIL.
+#
+# When you add or remove a test, you MUST:
+#   1. Update the counts below to match the new state.
+#   2. List the added and removed test node IDs in the commit
+#      message (e.g., 'tests: remove test_X (replaced by test_Y)').
+#
+# The benchmark suite has its own pins, in benchmark/collected_counts.txt
+# and benchmark/collected_nodeids.txt; the two suites are independent, so
+# deleting benchmark/ leaves this file and its guard intact.
+#
+# Format:
+#   total: N
+#   tests/<file>.py: N
+#   tests/<file>.py: N
+#   ...
+
+total: 844
+tests/test_parser_upstream_compare.py: 233
+tests/test_parser_fix.py: 124
+tests/test_get_ligand_contacts.py: 42
+tests/test_port_batch1_allosteric.py: 34
+tests/test_secrets_mask.py: 31
+tests/test_T9_get_clinvar_variants.py: 26
+tests/test_B1_get_chembl_bioactivity.py: 25
+tests/test_port_batch3_allosteric.py: 23
+tests/test_port_batch2_asd_crossref.py: 19
+tests/test_T10_get_alphamissense_score.py: 17
+tests/test_resumable.py: 17
+tests/test_T8_search_pdb_by_uniprot_and_ligand.py: 16
+tests/test_port_batch4_database_support.py: 16
+tests/test_B3_pocketminer.py: 14
+tests/test_T7_residue_contact_network.py: 14
+tests/test_T6_normal_mode_analysis.py: 13
+tests/test_lookup_index.py: 12
+tests/test_B2_dock_ligand_vina.py: 11
+tests/test_runner_env_hygiene.py: 10
+tests/test_T4_detect_pockets_fpocket.py: 9
+tests/test_T5_detect_pockets_p2rank.py: 9
+tests/test_no_tag_counter.py: 9
+tests/test_query_uses_agent_model.py: 9
+tests/test_registration.py: 9
+tests/test_per_run_recording.py: 8
+tests/test_B1_chembl_real_db.py: 7
+tests/test_T1_map_residues_uniprot_pdb.py: 6
+tests/test_T2_get_uniprot_variants.py: 6
+tests/test_return_contract.py: 6
+tests/test_schema_audit.py: 6
+tests/test_T3_get_stingallo_allosteric_residues.py: 5
+tests/test_T9_get_clinvar_variants_regression.py: 5
+tests/test_b3_validate_cryptobench.py: 5
+tests/test_fpocket_pocket_residues.py: 5
+tests/test_shared_record_fields.py: 5
+tests/test_token_recording.py: 5
+tests/test_blocklist.py: 4
+tests/test_collect_count_guard.py: 4
+tests/test_eval_settings.py: 4
+tests/test_tool_cards.py: 4
+tests/test_allosteric_site_workflow.py: 3
+tests/test_egress_proxy.py: 3
+tests/test_pocketminer_per_chain.py: 3
+tests/test_recursion_limit.py: 3
+tests/test_p2rank_pocket_residues.py: 2
+tests/test_run_record_budget_fields.py: 2
+tests/test_criteria_checksum_guard.py: 1

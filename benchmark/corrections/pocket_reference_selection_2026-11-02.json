@@ -1,0 +1,125 @@
+{
+  "dated_note": "2026-11-02",
+  "note": "The pocket reference picked the first pocket with any site residue instead of the pocket with the most site residues (benchmark/pocket_reference_outputs.py).  These are the corrected values of the committed items; the committed checklists and the committed reference output are unchanged.",
+  "dated_note_file": "benchmark/corrections.md",
+  "sources": {
+    "committed_reference": "benchmark/pocket_reference_outputs.json",
+    "corrected_reference": "benchmark/pocket_reference_outputs_v2.json",
+    "measurement_script": "benchmark/pocket_reference_outputs_v2.py"
+  },
+  "corrections": {
+    "fpocket_reference_P01": {
+      "rank_of_the_pocket_covering_the_site": 11,
+      "overlap_of_the_covering_pocket": 8
+    },
+    "fpocket_reference_P07": {
+      "rank_of_the_pocket_covering_the_site": 11,
+      "overlap_of_the_covering_pocket": 8
+    }
+  },
+  "sites_without_a_committed_item": {
+    "1V4S_GLC": {
+      "method": "fpocket",
+      "prompts": [
+        "P06"
+      ],
+      "committed": {
+        "rank_of_the_pocket_covering_the_site": 1,
+        "overlap_of_the_covering_pocket": 2
+      },
+      "corrected": {
+        "rank_of_the_pocket_covering_the_site": 2,
+        "overlap_of_the_covering_pocket": 13
+      }
+    },
+    "5EHR": {
+      "method": "fpocket",
+      "prompts": [
+        "P03"
+      ],
+      "committed": {
+        "rank_of_the_pocket_covering_the_site": 7,
+        "overlap_of_the_covering_pocket": 3
+      },
+      "corrected": {
+        "rank_of_the_pocket_covering_the_site": 40,
+        "overlap_of_the_covering_pocket": 15
+      }
+    }
+  },
+  "judge_needs_these_numbers": {
+    "P06": {
+      "1V4S_GLC": {
+        "rank_of_the_pocket_covering_the_site": 2,
+        "overlap_of_the_covering_pocket": 13
+      }
+    },
+    "P03": {
+      "5EHR": {
+        "rank_of_the_pocket_covering_the_site": 40,
+        "overlap_of_the_covering_pocket": 15
+      }
+    }
+  },
+  "degenerate_items": {
+    "p2rank_reference_P01": {
+      "reason": "no P2Rank pocket carries a residue in the measurement, so the item only asks the answer for the number 0 and cannot discriminate",
+      "measured_p2rank_pockets": 3,
+      "measured_p2rank_residues": [
+        0,
+        0,
+        0
+      ]
+    },
+    "p2rank_reference_P02": {
+      "reason": "no P2Rank pocket carries a residue in the measurement, so the item only asks the answer for the number 0 and cannot discriminate",
+      "measured_p2rank_pockets": 2,
+      "measured_p2rank_residues": [
+        0,
+        0
+      ]
+    },
+    "p2rank_reference_P05": {
+      "reason": "no P2Rank pocket carries a residue in the measurement, so the item only asks the answer for the number 0 and cannot discriminate",
+      "measured_p2rank_pockets": 10,
+      "measured_p2rank_residues": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "p2rank_reference_P06": {
+      "reason": "no P2Rank pocket carries a residue in the measurement, so the item only asks the answer for the number 0 and cannot discriminate",
+      "measured_p2rank_pockets": 6,
+      "measured_p2rank_residues": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "p2rank_reference_P07": {
+      "reason": "no P2Rank pocket carries a residue in the measurement, so the item only asks the answer for the number 0 and cannot discriminate",
+      "measured_p2rank_pockets": 3,
+      "measured_p2rank_residues": [
+        0,
+        0,
+        0
+      ]
+    }
+  },
+  "unchanged_items": [
+    "fpocket_reference_P02",
+    "fpocket_reference_P05",
+    "fpocket_reference_P06"
+  ]
+}

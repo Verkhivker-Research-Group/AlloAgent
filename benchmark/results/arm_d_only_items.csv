@@ -1,0 +1,23 @@
+prompt_id,item_key,the_tools_of_arm_D,arm,runs,correct,incorrect,missing,not_applicable
+K04,mov_contact_residue_P01116,get_ligand_contacts,D,3,3,0,0,0
+K04,mov_contact_residue_P01116,get_ligand_contacts,A,3,3,0,0,0
+K04,gdp_contact_residue_P01116,get_ligand_contacts,D,3,3,0,0,0
+K04,gdp_contact_residue_P01116,get_ligand_contacts,A,3,3,0,0,0
+K04,path_length_edges,residue_contact_network,D,3,3,0,0,0
+K04,path_length_edges,residue_contact_network,A,3,3,0,0,0
+P01,detector_limit_stated_P01,detect_pockets_fpocket; detect_pockets_p2rank,D,3,0,0,3,0
+P01,detector_limit_stated_P01,detect_pockets_fpocket; detect_pockets_p2rank,A,3,0,0,3,0
+P02,detector_limit_stated_P02,detect_pockets_fpocket; detect_pockets_p2rank,D,3,0,0,3,0
+P02,detector_limit_stated_P02,detect_pockets_fpocket; detect_pockets_p2rank,A,3,0,0,3,0
+P03,detector_limit_stated_P03,detect_pockets_fpocket; detect_pockets_p2rank,D,3,0,0,3,0
+P03,detector_limit_stated_P03,detect_pockets_fpocket; detect_pockets_p2rank,A,3,0,0,3,0
+P05,detector_limit_stated_P05,detect_pockets_fpocket; detect_pockets_p2rank,D,3,0,0,3,0
+P05,detector_limit_stated_P05,detect_pockets_fpocket; detect_pockets_p2rank,A,3,0,0,3,0
+P06,detector_limit_stated_P06,detect_pockets_fpocket; detect_pockets_p2rank,D,3,0,0,3,0
+P06,detector_limit_stated_P06,detect_pockets_fpocket; detect_pockets_p2rank,A,3,0,0,3,0
+P07,detector_limit_stated_P07,detect_pockets_fpocket; detect_pockets_p2rank,D,3,3,0,0,0
+P07,detector_limit_stated_P07,detect_pockets_fpocket; detect_pockets_p2rank,A,3,2,0,1,0
+P08,mapped_5EHR_SHP099_contacts_on_2SHP,pocketminer_score,D,3,0,3,0,0
+P08,mapped_5EHR_SHP099_contacts_on_2SHP,pocketminer_score,A,3,0,3,0,0
+P08,modest_accuracy_caveat,pocketminer_score,D,3,0,0,3,0
+P08,modest_accuracy_caveat,pocketminer_score,A,3,0,0,3,0

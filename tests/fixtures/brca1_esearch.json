@@ -1,0 +1,27 @@
+{
+  "header": {
+    "type": "esearch",
+    "version": "0.3"
+  },
+  "esearchresult": {
+    "count": "16106",
+    "retmax": "3",
+    "retstart": "0",
+    "idlist": [
+      "5019327",
+      "5019127",
+      "5016490"
+    ],
+    "translationset": [],
+    "translationstack": [
+      {
+        "term": "BRCA1[gene]",
+        "field": "gene",
+        "count": "16106",
+        "explode": "N"
+      },
+      "GROUP"
+    ],
+    "querytranslation": "BRCA1[gene]"
+  }
+}

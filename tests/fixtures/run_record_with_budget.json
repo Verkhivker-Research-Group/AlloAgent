@@ -1,0 +1,39 @@
+{
+  "wall_time_s": 12.5,
+  "git_commit": "0000000000000000000000000000000000000000",
+  "git_branch": "alloagent",
+  "git_dirty": false,
+  "image_id": "alloagent-eval:v5",
+  "token_total": {
+    "input_tokens": 1200,
+    "output_tokens": 300,
+    "total_tokens": 1500
+  },
+  "n_steps": 3,
+  "messages": [
+    {
+      "step": 1,
+      "role": "AIMessage",
+      "content": "first",
+      "token_usage": {"input_tokens": 500, "output_tokens": 100, "total_tokens": 600},
+      "elapsed_s": 1.5,
+      "cumulative_tokens": {"input_tokens": 500, "output_tokens": 100, "total_tokens": 600}
+    },
+    {
+      "step": 2,
+      "role": "AIMessage",
+      "content": "second",
+      "token_usage": {"input_tokens": 400, "output_tokens": 100, "total_tokens": 500},
+      "elapsed_s": 6.25,
+      "cumulative_tokens": {"input_tokens": 900, "output_tokens": 200, "total_tokens": 1100}
+    },
+    {
+      "step": 3,
+      "role": "AIMessage",
+      "content": "third",
+      "token_usage": {"input_tokens": 300, "output_tokens": 100, "total_tokens": 400},
+      "elapsed_s": 12.5,
+      "cumulative_tokens": {"input_tokens": 1200, "output_tokens": 300, "total_tokens": 1500}
+    }
+  ]
+}

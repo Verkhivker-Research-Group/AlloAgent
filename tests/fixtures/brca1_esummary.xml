@@ -1,0 +1,392 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE eSummaryResult PUBLIC "-//NLM//DTD esummary clinvar 20241209//EN" "https://eutils.ncbi.nlm.nih.gov/eutils/dtd/20241209/esummary_clinvar.dtd">
+<eSummaryResult>
+<DocumentSummarySet status="OK">
+<DbBuild>Build261019-1305.1</DbBuild>
+
+<DocumentSummary uid="5019327">
+	<obj_type>Insertion</obj_type>
+	<accession>VCV005019327</accession>
+	<accession_version>VCV005019327.1</accession_version>
+	<title>NM_007294.4(BRCA1):c.5296_5297insC (p.Ile1766fs)</title>
+	<variation_set>
+		<variation>
+			<measure_id>5129633</measure_id>
+			<variation_xrefs>
+			</variation_xrefs>
+			<variation_name>NM_007294.4(BRCA1):c.5296_5297insC (p.Ile1766fs)</variation_name>
+			<cdna_change>c.5296_5297insC</cdna_change>
+			<aliases>
+			</aliases>
+			<variation_loc>
+				<assembly_set>
+					<status>current</status>
+					<assembly_name>GRCh38</assembly_name>
+					<chr>17</chr>
+					<band>17q21.31</band>
+					<start>43051098</start>
+					<stop>43051099</stop>
+					<inner_start></inner_start>
+					<inner_stop></inner_stop>
+					<outer_start></outer_start>
+					<outer_stop></outer_stop>
+					<display_start>43051098</display_start>
+					<display_stop>43051099</display_stop>
+					<assembly_acc_ver>GCF_000001405.38</assembly_acc_ver>
+					<annotation_release></annotation_release>
+					<alt></alt>
+					<ref></ref>
+				</assembly_set>
+				<assembly_set>
+					<status>previous</status>
+					<assembly_name>GRCh37</assembly_name>
+					<chr>17</chr>
+					<band>17q21.31</band>
+					<start>41203115</start>
+					<stop>41203116</stop>
+					<inner_start></inner_start>
+					<inner_stop></inner_stop>
+					<outer_start></outer_start>
+					<outer_stop></outer_stop>
+					<display_start>41203115</display_start>
+					<display_stop>41203116</display_stop>
+					<assembly_acc_ver>GCF_000001405.25</assembly_acc_ver>
+					<annotation_release></annotation_release>
+					<alt></alt>
+					<ref></ref>
+				</assembly_set>
+			</variation_loc>
+			<allele_freq_set>
+			</allele_freq_set>
+			<variant_type>Insertion</variant_type>
+			<canonical_spdi>NC_000017.11:43051098::G</canonical_spdi>
+			<common_name></common_name>
+		</variation>
+	</variation_set>
+	<supporting_submissions>
+		<scv>
+			<string>SCV008101219</string>
+		</scv>
+		<rcv>
+			<string>RCV007092891</string>
+		</rcv>
+	</supporting_submissions>
+	<germline_classification>
+		<description>Pathogenic</description>
+		<last_evaluated>1/01/01 00:00</last_evaluated>
+		<review_status>criteria provided, single submitter</review_status>
+		<fda_recognized_database></fda_recognized_database>
+		<trait_set>
+			<trait>
+				<trait_xrefs>
+					<trait_xref>
+						<db_source>Orphanet</db_source>
+						<db_id>145</db_id>
+					</trait_xref>
+					<trait_xref>
+						<db_source>MedGen</db_source>
+						<db_id>C2676676</db_id>
+					</trait_xref>
+					<trait_xref>
+						<db_source>MONDO</db_source>
+						<db_id>MONDO:0011450</db_id>
+					</trait_xref>
+					<trait_xref>
+						<db_source>OMIM</db_source>
+						<db_id>604370</db_id>
+					</trait_xref>
+				</trait_xrefs>
+				<trait_name>Breast-ovarian cancer, familial, susceptibility to, 1</trait_name>
+			</trait>
+		</trait_set>
+	</germline_classification>
+	<clinical_impact_classification>
+		<description></description>
+		<last_evaluated>1/01/01 00:00</last_evaluated>
+		<review_status></review_status>
+		<fda_recognized_database></fda_recognized_database>
+		<trait_set>
+		</trait_set>
+	</clinical_impact_classification>
+	<oncogenicity_classification>
+		<description></description>
+		<last_evaluated>1/01/01 00:00</last_evaluated>
+		<review_status></review_status>
+		<fda_recognized_database></fda_recognized_database>
+		<trait_set>
+		</trait_set>
+	</oncogenicity_classification>
+	<record_status></record_status>
+	<gene_sort>BRCA1</gene_sort>
+	<chr_sort>17</chr_sort>
+	<location_sort>00000000000043051098</location_sort>
+	<variation_set_name></variation_set_name>
+	<variation_set_id></variation_set_id>
+	<genes>
+		<gene>
+			<symbol>BRCA1</symbol>
+			<GeneID>672</GeneID>
+			<strand>-</strand>
+			<source>submitted</source>
+		</gene>
+	</genes>
+	<molecular_consequence_list>
+		<string>frameshift variant</string>
+		<string>intron variant</string>
+	</molecular_consequence_list>
+	<protein_change>I1469fs, I1470fs, I1597fs, I1612fs, I1637fs, I1638fs, I1639fs, I1653fs, I1654fs, I1655fs, I1676fs, I1677fs, I1678fs, I1694fs, I1695fs, I1696fs, I1697fs, I1698fs, I1699fs, I1717fs, I1718fs, I1719fs, I1722fs, I1723fs, I1724fs, I1725fs, I1738fs, I1739fs, I1740fs, I1746fs, I1747fs, I1761fs, I1762fs, I1763fs, I1764fs, I1765fs, I1766fs, I1786fs, I1787fs, I1788fs, I354fs, I486fs, I495fs, I535fs, I536fs, I549fs, I550fs, I553fs, I554fs, I573fs, I574fs, I575fs, I581fs, I583fs, I591fs, I592fs, I593fs, I595fs, I596fs, I614fs, I615fs, I616fs, I618fs, I620fs, I621fs, I622fs, I623fs, I624fs, I636fs, I637fs, I638fs, I659fs, I660fs, I661fs, I662fs, I663fs, I684fs, I685fs, I897fs, I898fs</protein_change>
+	<fda_recognized_database></fda_recognized_database>
+</DocumentSummary>
+
+<DocumentSummary uid="5019127">
+	<obj_type>single nucleotide variant</obj_type>
+	<accession>VCV005019127</accession>
+	<accession_version>VCV005019127.1</accession_version>
+	<title>NM_007294.4(BRCA1):c.872T&gt;G (p.Leu291Ter)</title>
+	<variation_set>
+		<variation>
+			<measure_id>5129433</measure_id>
+			<variation_xrefs>
+			</variation_xrefs>
+			<variation_name>NM_007294.4(BRCA1):c.872T&gt;G (p.Leu291Ter)</variation_name>
+			<cdna_change>c.872T&gt;G</cdna_change>
+			<aliases>
+			</aliases>
+			<variation_loc>
+				<assembly_set>
+					<status>current</status>
+					<assembly_name>GRCh38</assembly_name>
+					<chr>17</chr>
+					<band>17q21.31</band>
+					<start>43094659</start>
+					<stop>43094659</stop>
+					<inner_start></inner_start>
+					<inner_stop></inner_stop>
+					<outer_start></outer_start>
+					<outer_stop></outer_stop>
+					<display_start>43094659</display_start>
+					<display_stop>43094659</display_stop>
+					<assembly_acc_ver>GCF_000001405.38</assembly_acc_ver>
+					<annotation_release></annotation_release>
+					<alt></alt>
+					<ref></ref>
+				</assembly_set>
+				<assembly_set>
+					<status>previous</status>
+					<assembly_name>GRCh37</assembly_name>
+					<chr>17</chr>
+					<band>17q21.31</band>
+					<start>41246676</start>
+					<stop>41246676</stop>
+					<inner_start></inner_start>
+					<inner_stop></inner_stop>
+					<outer_start></outer_start>
+					<outer_stop></outer_stop>
+					<display_start>41246676</display_start>
+					<display_stop>41246676</display_stop>
+					<assembly_acc_ver>GCF_000001405.25</assembly_acc_ver>
+					<annotation_release></annotation_release>
+					<alt></alt>
+					<ref></ref>
+				</assembly_set>
+			</variation_loc>
+			<allele_freq_set>
+			</allele_freq_set>
+			<variant_type>single nucleotide variant</variant_type>
+			<canonical_spdi>NC_000017.11:43094658:A:C</canonical_spdi>
+			<common_name></common_name>
+		</variation>
+	</variation_set>
+	<supporting_submissions>
+		<scv>
+			<string>SCV008100328</string>
+		</scv>
+		<rcv>
+			<string>RCV007092691</string>
+		</rcv>
+	</supporting_submissions>
+	<germline_classification>
+		<description>Pathogenic</description>
+		<last_evaluated>1/01/01 00:00</last_evaluated>
+		<review_status>criteria provided, single submitter</review_status>
+		<fda_recognized_database></fda_recognized_database>
+		<trait_set>
+			<trait>
+				<trait_xrefs>
+					<trait_xref>
+						<db_source>Orphanet</db_source>
+						<db_id>145</db_id>
+					</trait_xref>
+					<trait_xref>
+						<db_source>MedGen</db_source>
+						<db_id>C2676676</db_id>
+					</trait_xref>
+					<trait_xref>
+						<db_source>MONDO</db_source>
+						<db_id>MONDO:0011450</db_id>
+					</trait_xref>
+					<trait_xref>
+						<db_source>OMIM</db_source>
+						<db_id>604370</db_id>
+					</trait_xref>
+				</trait_xrefs>
+				<trait_name>Breast-ovarian cancer, familial, susceptibility to, 1</trait_name>
+			</trait>
+		</trait_set>
+	</germline_classification>
+	<clinical_impact_classification>
+		<description></description>
+		<last_evaluated>1/01/01 00:00</last_evaluated>
+		<review_status></review_status>
+		<fda_recognized_database></fda_recognized_database>
+		<trait_set>
+		</trait_set>
+	</clinical_impact_classification>
+	<oncogenicity_classification>
+		<description></description>
+		<last_evaluated>1/01/01 00:00</last_evaluated>
+		<review_status></review_status>
+		<fda_recognized_database></fda_recognized_database>
+		<trait_set>
+		</trait_set>
+	</oncogenicity_classification>
+	<record_status></record_status>
+	<gene_sort>BRCA1</gene_sort>
+	<chr_sort>17</chr_sort>
+	<location_sort>00000000000043094659</location_sort>
+	<variation_set_name></variation_set_name>
+	<variation_set_id></variation_set_id>
+	<genes>
+		<gene>
+			<symbol>BRCA1</symbol>
+			<GeneID>672</GeneID>
+			<strand>-</strand>
+			<source>submitted</source>
+		</gene>
+	</genes>
+	<molecular_consequence_list>
+		<string>nonsense</string>
+		<string>5 prime UTR variant</string>
+		<string>intron variant</string>
+	</molecular_consequence_list>
+	<protein_change>L123*, L163*, L164*, L179*, L180*, L202*, L203*, L220*, L221*, L223*, L224*, L243*, L244*, L249*, L250*, L264*, L265*, L288*, L290*, L291*</protein_change>
+	<fda_recognized_database></fda_recognized_database>
+</DocumentSummary>
+
+<DocumentSummary uid="5016490">
+	<obj_type>Duplication</obj_type>
+	<accession>VCV005016490</accession>
+	<accession_version>VCV005016490.1</accession_version>
+	<title>Single allele</title>
+	<variation_set>
+		<variation>
+			<measure_id>5126799</measure_id>
+			<variation_xrefs>
+			</variation_xrefs>
+			<variation_name>Single allele</variation_name>
+			<cdna_change>Single allele</cdna_change>
+			<aliases>
+				<string>NC_000017.11:g.43095510_43114978dup; NM_007294.4:c.135-8441_670+340dup; direct tandem duplication of exons 4-9 (legacy exons 5-10); frameshift at the exon 9-exon 4 junction, p.(Ala224Aspfs*5) predicted; breakpoints in an AluJb element (intron 9) and unique sequence (intron 3), 4-bp microhomology (TTGG)</string>
+			</aliases>
+			<variation_loc>
+				<assembly_set>
+					<status>current</status>
+					<assembly_name>GRCh38</assembly_name>
+					<chr>17</chr>
+					<band>17q21.31</band>
+					<start>43095510</start>
+					<stop>43114978</stop>
+					<inner_start></inner_start>
+					<inner_stop></inner_stop>
+					<outer_start></outer_start>
+					<outer_stop></outer_stop>
+					<display_start>43095510</display_start>
+					<display_stop>43114978</display_stop>
+					<assembly_acc_ver>GCF_000001405.38</assembly_acc_ver>
+					<annotation_release></annotation_release>
+					<alt></alt>
+					<ref></ref>
+				</assembly_set>
+			</variation_loc>
+			<allele_freq_set>
+			</allele_freq_set>
+			<variant_type>Duplication</variant_type>
+			<canonical_spdi></canonical_spdi>
+			<common_name></common_name>
+		</variation>
+	</variation_set>
+	<supporting_submissions>
+		<scv>
+			<string>SCV008095537</string>
+		</scv>
+		<rcv>
+			<string>RCV007089553</string>
+		</rcv>
+	</supporting_submissions>
+	<germline_classification>
+		<description>Likely pathogenic</description>
+		<last_evaluated>2026/09/24 00:00</last_evaluated>
+		<review_status>criteria provided, single submitter</review_status>
+		<fda_recognized_database></fda_recognized_database>
+		<trait_set>
+			<trait>
+				<trait_xrefs>
+					<trait_xref>
+						<db_source>Orphanet</db_source>
+						<db_id>145</db_id>
+					</trait_xref>
+					<trait_xref>
+						<db_source>MedGen</db_source>
+						<db_id>C2676676</db_id>
+					</trait_xref>
+					<trait_xref>
+						<db_source>MONDO</db_source>
+						<db_id>MONDO:0011450</db_id>
+					</trait_xref>
+					<trait_xref>
+						<db_source>OMIM</db_source>
+						<db_id>604370</db_id>
+					</trait_xref>
+				</trait_xrefs>
+				<trait_name>Breast-ovarian cancer, familial, susceptibility to, 1</trait_name>
+			</trait>
+		</trait_set>
+	</germline_classification>
+	<clinical_impact_classification>
+		<description></description>
+		<last_evaluated>1/01/01 00:00</last_evaluated>
+		<review_status></review_status>
+		<fda_recognized_database></fda_recognized_database>
+		<trait_set>
+		</trait_set>
+	</clinical_impact_classification>
+	<oncogenicity_classification>
+		<description></description>
+		<last_evaluated>1/01/01 00:00</last_evaluated>
+		<review_status></review_status>
+		<fda_recognized_database></fda_recognized_database>
+		<trait_set>
+		</trait_set>
+	</oncogenicity_classification>
+	<record_status></record_status>
+	<gene_sort>BRCA1</gene_sort>
+	<chr_sort>17</chr_sort>
+	<location_sort>00000000000043095510</location_sort>
+	<variation_set_name></variation_set_name>
+	<variation_set_id></variation_set_id>
+	<genes>
+		<gene>
+			<symbol>BRCA1</symbol>
+			<GeneID>672</GeneID>
+			<strand>-</strand>
+			<source>submitted</source>
+		</gene>
+	</genes>
+	<molecular_consequence_list>
+	</molecular_consequence_list>
+	<protein_change></protein_change>
+	<fda_recognized_database></fda_recognized_database>
+</DocumentSummary>
+
+</DocumentSummarySet>
+</eSummaryResult>

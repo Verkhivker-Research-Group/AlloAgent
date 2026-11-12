@@ -1,0 +1,4 @@
+# This analysis was made on 2026-11-06, after the data existed. The run records (2026-10-28 to 2026-11-04) and the judge outputs (2026-11-03 to 2026-11-05) are used as they stand; nothing was re-run, re-measured or re-judged. The re-scoring on the full text reuses the committed scorer on the same answers.
+run_id,prompt_id,arm,characters_recorded,characters_full,total_tokens,steps,item_key,verdict_on_the_recorded_copy,verdict_on_the_full_text,state_on_the_recorded_copy,state_on_the_full_text
+S07_r2,S07,A,20000,23806,1170465,34,numbering_offset_5MO4,FAIL,PASS,incorrect,correct
+P04_r1,P04,A,20000,27162,4451654,88,pocketminer_scores_for_1PZO_contacts,FAIL,PASS,incorrect,correct

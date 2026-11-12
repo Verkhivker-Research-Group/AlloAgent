@@ -1,0 +1,697 @@
+{
+ "what_this_file_is": "The key of every capability item: the exact value, the source file, the source version or checksum, and how the value was read. The values come from the PRIMARY sources, never from the output of an AlloAgent tool; the tool calls of the 'tool check' only confirm that the tool can return the same fact.",
+ "created": "2026-11-06",
+ "the_sources": {
+  "asd_ap": {
+   "file": "ASD_Release_202306_AP.csv",
+   "source": "the Allosteric Set Database release 202306 (the AP table)",
+   "origin": "https://github.com/mpirgu/ASD (the release archive in the local ASD download)",
+   "local_copy": "C:<HOME>/Downloads/ASD/ASD_files/ASD_CSVs_XMLs/ASD_Release_202306_AP.csv",
+   "also": "data/biomni_data/data_lake/ASD_Release_202306_AP.csv (the mounted lake)"
+  },
+  "asd_hl": {
+   "file": "ASD_Release_202306_HL.csv",
+   "source": "the Allosteric Set Database release 202306 (the HL table: the curated modulators and their activity types)",
+   "origin": "the ASD release archive in the local ASD download",
+   "local_copy": "C:<HOME>/Downloads/ASD/ASD_files/ASD_CSVs_XMLs/ASD_Release_202306_HL.csv"
+  },
+  "biolip": {
+   "file": "biolip.pkl",
+   "source": "BioLiP (the binding-site table: PDB, chain, ligand, binding-site residues, affinity)",
+   "origin": "the BioLiP release used by the AlloAgent data lake",
+   "local_copy": "C:<HOME>/Documents/CPSC/Biolab/data/biomni_data/biolip/biolip.pkl"
+  },
+  "pm_labels": {
+   "file": "test_label_dictionary.npy + apo-structures/",
+   "source": "the PocketMiner authors' published test-set labels (Meller et al.) and their apo structures",
+   "origin": "https://github.com/Mickdub/pocketminer (the dataset shipped in the image)",
+   "local_copy": "/opt/pocketminer/data/pm-dataset/ (in the eval image)"
+  },
+  "pm_ref": {
+   "file": "src/validate_performance_on_xtals.py + models/pocketminer",
+   "source": "the PocketMiner authors' reference implementation and checkpoint (not the AlloAgent wrapper)",
+   "origin": "https://github.com/Mickdub/pocketminer (commit 187062df3c94127e991669768009141a08fd5d8b)",
+   "local_copy": "/opt/pocketminer/ (in the eval image)"
+  },
+  "chembl": {
+   "file": "chembl_37.db",
+   "source": "the pinned ChEMBL 37 SQLite release",
+   "sha256": "33c203740555f96067710cdfc1c3c55d890660e5908ec5cbf5817492c290d281",
+   "origin": "https://ftp.ebi.ac.uk/pub/databases/chembl/ChEMBLdb/releases/chembl_37/chembl_37_sqlite.tar.gz",
+   "local_copy": "data/chembl/chembl_37_sqlite/chembl_37.db"
+  },
+  "clinvar": {
+   "file": "variant_summary.txt.gz",
+   "source": "the pinned ClinVar release (b235cd5742ac)",
+   "sha256": "b235cd5742ac615d55703672751fa3ea71c8222d5ff0547cd1e9b107fd8a647f",
+   "origin": "https://ftp.ncbi.nlm.nih.gov/pub/clinvar/tab_delimited/variant_summary.txt.gz",
+   "local_copy": "data/clinvar/variant_summary.txt.gz"
+  },
+  "alphamissense": {
+   "file": "AlphaMissense_aa_substitutions.tsv.gz",
+   "source": "the pinned AlphaMissense release (bc18d954a9aa)",
+   "sha256": "bc18d954a9aa6b9efab8e40d6d1912e32b774906cd3846a1f51066588e9c176d",
+   "origin": "https://storage.googleapis.com/dm_alphamissense/AlphaMissense_aa_substitutions.tsv.gz",
+   "local_copy": "data/alphamissense/AlphaMissense_aa_substitutions.tsv.gz"
+  },
+  "pdb": {
+   "file": "the RCSB PDB coordinate files (mmCIF / PDB)",
+   "source": "the RCSB PDB (5EHR, 3O96, 5MO4) and the local read-only structure cache",
+   "origin": "https://www.rcsb.org/",
+   "local_copy": "data/structures_cache/{5ehr,3o96,5mo4}.pdb"
+  },
+  "uniprot": {
+   "file": "the UniProtKB records (P31749, Q06124)",
+   "source": "the UniProt REST records (the domain features of P31749)",
+   "origin": "https://rest.uniprot.org/uniprotkb/P31749.json",
+   "local_copy": "the public REST record (the container has internet access)"
+  },
+  "ccd": {
+   "file": "the RCSB Chemical Component Dictionary for AY7",
+   "source": "the RCSB CCD (the ChEMBL and PubChem identifiers of the 5MO4 myristoyl ligand)",
+   "origin": "https://data.rcsb.org/rest/v1/core/chemcomp/AY7",
+   "local_copy": "the public CCD record"
+  }
+ },
+ "the_tool_check": {
+  "what_it_is": "Each needed tool was called directly in the eval image (no LLM) and its output compared with the key above. The result of each call is in the 'the_tool_check_result' field.",
+  "the_tool_check_result": {
+   "asd.parse_asd_xf": "OK for P00519, P35557 and P31749: the 202306 XF records and the pdb_entries list come back for each accession",
+   "biolip.parse_biolip_interactions": "OK: 989058 records; the P18031 rows 409, of which 92 carry a recorded affinity; the AY7 rows 3 (5MO4 chain A, 8SSN chains A and B)",
+   "pocketminer.pocketminer_score": "OK: on the authors' apo structures the tool returns exactly the reference implementation's scores (6HB0: 0.926939, 0.904469, 0.89051, 0.889284, 0.882455; 2LAO: 0.93533, 0.919266, 0.902997, 0.902111, 0.899701)",
+   "get_chembl_bioactivity": "OK: the KRAS target CHEMBL2189121 gives sotorasib 8 IC50 records (median 49 nM) and adagrasib 7 (median 10 nM), matching the pinned SQL",
+   "get_clinvar_variants": "OK: the tool returns the ClinVar Allele ID (the release's #AlleleID column) as clinvar_id; for KRAS G12C it returns 27617 (the release row: #AlleleID 27617, VariationID 12578)",
+   "get_alphamissense_score": "OK: 11267 scored variants for Q06124 over 593 positions",
+   "get_uniprot_variants": "OK: 61 variants for Q06124"
+  },
+  "the_tool_failures": "none: every call above succeeded. The failures seen during the check were in the harness, not in the tools: the BioLiP directory convention (the tool wants <dir>/biolip/biolip.pkl), the ClinVar significance spelling (the tool wants 'pathogenic', not 'Pathogenic'), and the AlphaMissense data path (the tool wants the release under /data/alphamissense)."
+ },
+ "the_keys": {
+  "X01": [
+   {
+    "item_key": "asd_site_records_P00519",
+    "kind": "number",
+    "value": 225,
+    "tolerance": 0,
+    "the_source": "the Allosteric Set Database release 202306 (the AP table)",
+    "the_source_file": "ASD_Release_202306_AP.csv",
+    "the_source_version_or_checksum": "the Allosteric Set Database release 202306 (the AP table)",
+    "how_it_was_read": ""
+   },
+   {
+    "item_key": "asd_pdb_entries_P00519",
+    "kind": "number",
+    "value": 59,
+    "tolerance": 0,
+    "the_source": "the Allosteric Set Database release 202306 (the AP table)",
+    "the_source_file": "ASD_Release_202306_AP.csv",
+    "the_source_version_or_checksum": "the Allosteric Set Database release 202306 (the AP table)",
+    "how_it_was_read": ""
+   },
+   {
+    "item_key": "asd_modulator_records_P00519",
+    "kind": "number",
+    "value": 84,
+    "tolerance": 0,
+    "the_source": "the Allosteric Set Database release 202306 (the HL table: the curated modulators and their activity types)",
+    "the_source_file": "ASD_Release_202306_HL.csv",
+    "the_source_version_or_checksum": "the Allosteric Set Database release 202306 (the HL table: the curated modulators and their activity types)",
+    "how_it_was_read": ""
+   },
+   {
+    "item_key": "asd_activity_type_P00519",
+    "kind": "exact",
+    "value": "IC50",
+    "tolerance": null,
+    "the_source": "the Allosteric Set Database release 202306 (the HL table: the curated modulators and their activity types)",
+    "the_source_file": "ASD_Release_202306_HL.csv",
+    "the_source_version_or_checksum": "the Allosteric Set Database release 202306 (the HL table: the curated modulators and their activity types)",
+    "how_it_was_read": ""
+   },
+   {
+    "item_key": "asd_modulator_feature_P00519",
+    "kind": "exact",
+    "value": "Inhibitor",
+    "tolerance": null,
+    "the_source": "the Allosteric Set Database release 202306 (the HL table: the curated modulators and their activity types)",
+    "the_source_file": "ASD_Release_202306_HL.csv",
+    "the_source_version_or_checksum": "the Allosteric Set Database release 202306 (the HL table: the curated modulators and their activity types)",
+    "how_it_was_read": ""
+   }
+  ],
+  "X02": [
+   {
+    "item_key": "asd_modulator_records_P35557",
+    "kind": "number",
+    "value": 171,
+    "tolerance": 0,
+    "the_source": "the Allosteric Set Database release 202306 (the HL table: the curated modulators and their activity types)",
+    "the_source_file": "ASD_Release_202306_HL.csv",
+    "the_source_version_or_checksum": "the Allosteric Set Database release 202306 (the HL table: the curated modulators and their activity types)",
+    "how_it_was_read": ""
+   },
+   {
+    "item_key": "asd_distinct_modulators_P35557",
+    "kind": "number",
+    "value": 170,
+    "tolerance": 0,
+    "the_source": "the Allosteric Set Database release 202306 (the HL table: the curated modulators and their activity types)",
+    "the_source_file": "ASD_Release_202306_HL.csv",
+    "the_source_version_or_checksum": "the Allosteric Set Database release 202306 (the HL table: the curated modulators and their activity types)",
+    "how_it_was_read": ""
+   },
+   {
+    "item_key": "asd_activity_types_P35557",
+    "kind": "exact",
+    "value": {
+     "IC50": "IC50",
+     "EC50": "EC50"
+    },
+    "tolerance": null,
+    "the_source": "the Allosteric Set Database release 202306 (the HL table: the curated modulators and their activity types)",
+    "the_source_file": "ASD_Release_202306_HL.csv",
+    "the_source_version_or_checksum": "the Allosteric Set Database release 202306 (the HL table: the curated modulators and their activity types)",
+    "how_it_was_read": ""
+   },
+   {
+    "item_key": "asd_activity_type_records_EC50",
+    "kind": "number",
+    "value": 170,
+    "tolerance": 0,
+    "the_source": "the Allosteric Set Database release 202306 (the HL table: the curated modulators and their activity types)",
+    "the_source_file": "ASD_Release_202306_HL.csv",
+    "the_source_version_or_checksum": "the Allosteric Set Database release 202306 (the HL table: the curated modulators and their activity types)",
+    "how_it_was_read": ""
+   },
+   {
+    "item_key": "asd_activity_type_records_IC50",
+    "kind": "number",
+    "value": 1,
+    "tolerance": 0,
+    "the_source": "the Allosteric Set Database release 202306 (the HL table: the curated modulators and their activity types)",
+    "the_source_file": "ASD_Release_202306_HL.csv",
+    "the_source_version_or_checksum": "the Allosteric Set Database release 202306 (the HL table: the curated modulators and their activity types)",
+    "how_it_was_read": ""
+   }
+  ],
+  "X03": [
+   {
+    "item_key": "biolip_ptp1b_entries",
+    "kind": "number",
+    "value": 409,
+    "tolerance": 0,
+    "the_source": "BioLiP (the binding-site table: PDB, chain, ligand, binding-site residues, affinity)",
+    "the_source_file": "biolip.pkl",
+    "the_source_version_or_checksum": "BioLiP (the binding-site table: PDB, chain, ligand, binding-site residues, affinity)",
+    "how_it_was_read": "the BioLiP rows with UniProt_ID = P18031 (409)"
+   },
+   {
+    "item_key": "biolip_ptp1b_non_metal",
+    "kind": "number",
+    "value": 400,
+    "tolerance": 0,
+    "the_source": "BioLiP (the binding-site table: PDB, chain, ligand, binding-site residues, affinity)",
+    "the_source_file": "biolip.pkl",
+    "the_source_version_or_checksum": "BioLiP (the binding-site table: PDB, chain, ligand, binding-site residues, affinity)",
+    "how_it_was_read": ""
+   },
+   {
+    "item_key": "biolip_ptp1b_with_affinity",
+    "kind": "number",
+    "value": 92,
+    "tolerance": 0,
+    "the_source": "BioLiP (the binding-site table: PDB, chain, ligand, binding-site residues, affinity)",
+    "the_source_file": "biolip.pkl",
+    "the_source_version_or_checksum": "BioLiP (the binding-site table: PDB, chain, ligand, binding-site residues, affinity)",
+    "how_it_was_read": ""
+   },
+   {
+    "item_key": "biolip_INX_present",
+    "kind": "exact",
+    "value": "INX",
+    "tolerance": null,
+    "the_source": "BioLiP (the binding-site table: PDB, chain, ligand, binding-site residues, affinity)",
+    "the_source_file": "biolip.pkl",
+    "the_source_version_or_checksum": "BioLiP (the binding-site table: PDB, chain, ligand, binding-site residues, affinity)",
+    "how_it_was_read": ""
+   },
+   {
+    "item_key": "biolip_INX_affinity_uM",
+    "kind": "number",
+    "value": 0.25,
+    "tolerance": 0.001,
+    "the_source": "BioLiP (the binding-site table: PDB, chain, ligand, binding-site residues, affinity)",
+    "the_source_file": "biolip.pkl",
+    "the_source_version_or_checksum": "BioLiP (the binding-site table: PDB, chain, ligand, binding-site residues, affinity)",
+    "how_it_was_read": ""
+   }
+  ],
+  "X04": [
+   {
+    "item_key": "pm_6hb0_top10",
+    "kind": "set",
+    "value": {
+     "residues": [
+      53,
+      52,
+      234,
+      208,
+      262,
+      281,
+      54,
+      264,
+      261,
+      284
+     ]
+    },
+    "tolerance": 0,
+    "the_source": "the PocketMiner authors' reference implementation and checkpoint (not the AlloAgent wrapper)",
+    "the_source_file": "src/validate_performance_on_xtals.py + models/pocketminer",
+    "the_source_version_or_checksum": "the PocketMiner authors' reference implementation and checkpoint (not the AlloAgent wrapper)",
+    "how_it_was_read": "the authors' reference implementation on /opt/pocketminer/data/pm-dataset/apo-structures/6hb0A_clean_h.pdb"
+   },
+   {
+    "item_key": "pm_6hb0_top_score",
+    "kind": "number",
+    "value": 0.926939,
+    "tolerance": 0.001,
+    "the_source": "the PocketMiner authors' reference implementation and checkpoint (not the AlloAgent wrapper)",
+    "the_source_file": "src/validate_performance_on_xtals.py + models/pocketminer",
+    "the_source_version_or_checksum": "the PocketMiner authors' reference implementation and checkpoint (not the AlloAgent wrapper)",
+    "how_it_was_read": ""
+   },
+   {
+    "item_key": "pm_6hb0_labelled_in_top10",
+    "kind": "number",
+    "value": 5,
+    "tolerance": 0,
+    "the_source": "the PocketMiner authors' published test-set labels (Meller et al.) and their apo structures",
+    "the_source_file": "test_label_dictionary.npy + apo-structures/",
+    "the_source_version_or_checksum": "the PocketMiner authors' published test-set labels (Meller et al.) and their apo structures",
+    "how_it_was_read": ""
+   },
+   {
+    "item_key": "pm_6hb0_overlap",
+    "kind": "set",
+    "value": {
+     "residues": [
+      52,
+      53,
+      208,
+      234,
+      262
+     ]
+    },
+    "tolerance": 0,
+    "the_source": "the PocketMiner authors' published test-set labels (Meller et al.) and their apo structures",
+    "the_source_file": "test_label_dictionary.npy + apo-structures/",
+    "the_source_version_or_checksum": "the PocketMiner authors' published test-set labels (Meller et al.) and their apo structures",
+    "how_it_was_read": ""
+   },
+   {
+    "item_key": "pm_6hb0_n_labelled",
+    "kind": "number",
+    "value": 15,
+    "tolerance": 0,
+    "the_source": "the PocketMiner authors' published test-set labels (Meller et al.) and their apo structures",
+    "the_source_file": "test_label_dictionary.npy + apo-structures/",
+    "the_source_version_or_checksum": "the PocketMiner authors' published test-set labels (Meller et al.) and their apo structures",
+    "how_it_was_read": ""
+   }
+  ],
+  "X05": [
+   {
+    "item_key": "pm_2lao_top10",
+    "kind": "set",
+    "value": {
+     "residues": [
+      163,
+      14,
+      230,
+      90,
+      70,
+      235,
+      180,
+      233,
+      231,
+      191
+     ]
+    },
+    "tolerance": 0,
+    "the_source": "the PocketMiner authors' reference implementation and checkpoint (not the AlloAgent wrapper)",
+    "the_source_file": "src/validate_performance_on_xtals.py + models/pocketminer",
+    "the_source_version_or_checksum": "the PocketMiner authors' reference implementation and checkpoint (not the AlloAgent wrapper)",
+    "how_it_was_read": ""
+   },
+   {
+    "item_key": "pm_2lao_top_score",
+    "kind": "number",
+    "value": 0.93533,
+    "tolerance": 0.001,
+    "the_source": "the PocketMiner authors' reference implementation and checkpoint (not the AlloAgent wrapper)",
+    "the_source_file": "src/validate_performance_on_xtals.py + models/pocketminer",
+    "the_source_version_or_checksum": "the PocketMiner authors' reference implementation and checkpoint (not the AlloAgent wrapper)",
+    "how_it_was_read": ""
+   },
+   {
+    "item_key": "pm_2lao_labelled_in_top10",
+    "kind": "number",
+    "value": 2,
+    "tolerance": 0,
+    "the_source": "the PocketMiner authors' published test-set labels (Meller et al.) and their apo structures",
+    "the_source_file": "test_label_dictionary.npy + apo-structures/",
+    "the_source_version_or_checksum": "the PocketMiner authors' published test-set labels (Meller et al.) and their apo structures",
+    "how_it_was_read": ""
+   },
+   {
+    "item_key": "pm_2lao_overlap",
+    "kind": "set",
+    "value": {
+     "residues": [
+      14,
+      70
+     ]
+    },
+    "tolerance": 0,
+    "the_source": "the PocketMiner authors' published test-set labels (Meller et al.) and their apo structures",
+    "the_source_file": "test_label_dictionary.npy + apo-structures/",
+    "the_source_version_or_checksum": "the PocketMiner authors' published test-set labels (Meller et al.) and their apo structures",
+    "how_it_was_read": ""
+   },
+   {
+    "item_key": "pm_2lao_n_labelled",
+    "kind": "number",
+    "value": 15,
+    "tolerance": 0,
+    "the_source": "the PocketMiner authors' published test-set labels (Meller et al.) and their apo structures",
+    "the_source_file": "test_label_dictionary.npy + apo-structures/",
+    "the_source_version_or_checksum": "the PocketMiner authors' published test-set labels (Meller et al.) and their apo structures",
+    "how_it_was_read": ""
+   }
+  ],
+  "X06": [
+   {
+    "item_key": "x06_variant_count",
+    "kind": "number",
+    "value": 7,
+    "tolerance": 2,
+    "the_source": "the pinned ClinVar release (b235cd5742ac)",
+    "the_source_file": "variant_summary.txt.gz",
+    "the_source_version_or_checksum": "b235cd5742ac615d55703672751fa3ea71c8222d5ff0547cd1e9b107fd8a647f",
+    "how_it_was_read": "the pinned ClinVar P/LP missense variants of PTPN11 with an AlphaMissense score (the records whose aggregate significance is 'Conflicting classifications of pathogenicity' are excluded), of which seven lie within 8 A of the SHP099 ligand in 5EHR chain A; the count carries a band of +/-2 because the pinned release and the live service classify differently"
+   },
+   {
+    "item_key": "x06_positions",
+    "kind": "set",
+    "value": {
+     "residues": [
+      110,
+      491,
+      498
+     ]
+    },
+    "tolerance": 0,
+    "the_source": "the RCSB PDB (5EHR, 3O96, 5MO4) and the local read-only structure cache",
+    "the_source_file": "the RCSB PDB coordinate files (mmCIF / PDB)",
+    "the_source_version_or_checksum": "the RCSB PDB (5EHR, 3O96, 5MO4) and the local read-only structure cache",
+    "how_it_was_read": ""
+   },
+   {
+    "item_key": "x06_scores",
+    "kind": "exact",
+    "value": {
+     "E110K": 0.9908,
+     "E110A": 0.9621,
+     "P491H": 0.9611,
+     "P491L": 0.9431,
+     "R498Q": 0.9993,
+     "R498W": 0.9998,
+     "R498L": 0.9995
+    },
+    "tolerance": 0.001,
+    "the_source": "the pinned AlphaMissense release (bc18d954a9aa)",
+    "the_source_file": "AlphaMissense_aa_substitutions.tsv.gz",
+    "the_source_version_or_checksum": "bc18d954a9aa6b9efab8e40d6d1912e32b774906cd3846a1f51066588e9c176d",
+    "how_it_was_read": ""
+   },
+   {
+    "item_key": "x06_distances_A",
+    "kind": "exact",
+    "value": {
+     "110": 3.465,
+     "491": 3.454,
+     "498": 7.154
+    },
+    "tolerance": 0.05,
+    "the_source": "the RCSB PDB (5EHR, 3O96, 5MO4) and the local read-only structure cache",
+    "the_source_file": "the RCSB PDB coordinate files (mmCIF / PDB)",
+    "the_source_version_or_checksum": "the RCSB PDB (5EHR, 3O96, 5MO4) and the local read-only structure cache",
+    "how_it_was_read": ""
+   },
+   {
+    "item_key": "x06_clinvar_ids",
+    "kind": "set",
+    "value": {
+     "variation_ids": [
+      40507,
+      40508,
+      40551,
+      40552,
+      1805026,
+      40553,
+      40554
+     ],
+     "allele_ids": [
+      48977,
+      48978,
+      49021,
+      49022,
+      1862041,
+      49023,
+      49024
+     ]
+    },
+    "tolerance": 0,
+    "the_source": "the pinned ClinVar release (b235cd5742ac)",
+    "the_source_file": "variant_summary.txt.gz",
+    "the_source_version_or_checksum": "b235cd5742ac615d55703672751fa3ea71c8222d5ff0547cd1e9b107fd8a647f",
+    "how_it_was_read": "the pinned ClinVar release (the VariationID and the #AlleleID columns of variant_summary.txt.gz, sha256 b235cd5742ac): the Variation IDs are 40507, 40508, 40551, 40552, 1805026, 40553 and 40554 for p.Glu110Lys, p.Glu110Ala, p.Pro491His, p.Pro491Leu, p.Arg498Gln, p.Arg498Trp and p.Arg498Leu; their Allele IDs are 48977, 48978, 49021, 49022, 1862041, 49023 and 49024. The item is a set with both groups, so the answer passes when it reports either form"
+   },
+   {
+    "item_key": "x06_distance_statement",
+    "kind": "qualitative",
+    "value": "the answer states, for every variant it lists, the nearest heavy-atom distance from the variant residue to the SHP099 ligand in 5EHR chain A, and that every residue it lists lies within 8 A of it",
+    "tolerance": null,
+    "the_source": "the RCSB PDB (5EHR, 3O96, 5MO4) and the local read-only structure cache",
+    "the_source_file": "the RCSB PDB coordinate files (mmCIF / PDB)",
+    "the_source_version_or_checksum": "the RCSB PDB (5EHR, 3O96, 5MO4) and the local read-only structure cache",
+    "how_it_was_read": ""
+   }
+  ],
+  "X07": [
+   {
+    "item_key": "chembl_kras_sotorasib_count",
+    "kind": "number",
+    "value": 8,
+    "tolerance": 0,
+    "the_source": "the pinned ChEMBL 37 SQLite release",
+    "the_source_file": "chembl_37.db",
+    "the_source_version_or_checksum": "33c203740555f96067710cdfc1c3c55d890660e5908ec5cbf5817492c290d281",
+    "how_it_was_read": "the SQL over the pinned chembl_37.db (activities -> assays -> target_dictionary CHEMBL2189121)"
+   },
+   {
+    "item_key": "chembl_kras_sotorasib_median_nM",
+    "kind": "number",
+    "value": 49.0,
+    "tolerance": 0.5,
+    "the_source": "the pinned ChEMBL 37 SQLite release",
+    "the_source_file": "chembl_37.db",
+    "the_source_version_or_checksum": "33c203740555f96067710cdfc1c3c55d890660e5908ec5cbf5817492c290d281",
+    "how_it_was_read": ""
+   },
+   {
+    "item_key": "chembl_kras_adagrasib_count",
+    "kind": "number",
+    "value": 7,
+    "tolerance": 0,
+    "the_source": "the pinned ChEMBL 37 SQLite release",
+    "the_source_file": "chembl_37.db",
+    "the_source_version_or_checksum": "33c203740555f96067710cdfc1c3c55d890660e5908ec5cbf5817492c290d281",
+    "how_it_was_read": ""
+   },
+   {
+    "item_key": "chembl_kras_adagrasib_median_nM",
+    "kind": "number",
+    "value": 10.0,
+    "tolerance": 0.5,
+    "the_source": "the pinned ChEMBL 37 SQLite release",
+    "the_source_file": "chembl_37.db",
+    "the_source_version_or_checksum": "33c203740555f96067710cdfc1c3c55d890660e5908ec5cbf5817492c290d281",
+    "how_it_was_read": ""
+   },
+   {
+    "item_key": "chembl_kras_sotorasib_min_nM",
+    "kind": "number",
+    "value": 7.0,
+    "tolerance": 0.1,
+    "the_source": "the pinned ChEMBL 37 SQLite release",
+    "the_source_file": "chembl_37.db",
+    "the_source_version_or_checksum": "33c203740555f96067710cdfc1c3c55d890660e5908ec5cbf5817492c290d281",
+    "how_it_was_read": ""
+   },
+   {
+    "item_key": "chembl_kras_sotorasib_max_nM",
+    "kind": "number",
+    "value": 10000.0,
+    "tolerance": 1.0,
+    "the_source": "the pinned ChEMBL 37 SQLite release",
+    "the_source_file": "chembl_37.db",
+    "the_source_version_or_checksum": "33c203740555f96067710cdfc1c3c55d890660e5908ec5cbf5817492c290d281",
+    "how_it_was_read": ""
+   }
+  ],
+  "X08": [
+   {
+    "item_key": "asd_site_records_P31749",
+    "kind": "number",
+    "value": 77,
+    "tolerance": 0,
+    "the_source": "the Allosteric Set Database release 202306 (the AP table)",
+    "the_source_file": "ASD_Release_202306_AP.csv",
+    "the_source_version_or_checksum": "the Allosteric Set Database release 202306 (the AP table)",
+    "how_it_was_read": ""
+   },
+   {
+    "item_key": "asd_pdb_entries_P31749",
+    "kind": "number",
+    "value": 32,
+    "tolerance": 0,
+    "the_source": "the Allosteric Set Database release 202306 (the AP table)",
+    "the_source_file": "ASD_Release_202306_AP.csv",
+    "the_source_version_or_checksum": "the Allosteric Set Database release 202306 (the AP table)",
+    "how_it_was_read": ""
+   },
+   {
+    "item_key": "3o96_ligand_component",
+    "kind": "exact",
+    "value": "IQO",
+    "tolerance": null,
+    "the_source": "the RCSB PDB (5EHR, 3O96, 5MO4) and the local read-only structure cache",
+    "the_source_file": "the RCSB PDB coordinate files (mmCIF / PDB)",
+    "the_source_version_or_checksum": "the RCSB PDB (5EHR, 3O96, 5MO4) and the local read-only structure cache",
+    "how_it_was_read": ""
+   },
+   {
+    "item_key": "3o96_contacts_4A",
+    "kind": "set",
+    "value": {
+     "residues": [
+      205,
+      292,
+      272,
+      296,
+      268,
+      290,
+      80,
+      84,
+      211,
+      264,
+      210,
+      83,
+      85,
+      273,
+      274,
+      271,
+      82,
+      291
+     ]
+    },
+    "tolerance": 0,
+    "the_source": "the RCSB PDB (5EHR, 3O96, 5MO4) and the local read-only structure cache",
+    "the_source_file": "the RCSB PDB coordinate files (mmCIF / PDB)",
+    "the_source_version_or_checksum": "the RCSB PDB (5EHR, 3O96, 5MO4) and the local read-only structure cache",
+    "how_it_was_read": ""
+   },
+   {
+    "item_key": "3o96_domain_assignment",
+    "kind": "qualitative",
+    "value": "the answer assigns every residue it lists to the UniProt PH domain (5-108), the protein kinase domain (150-408) or the AGC-kinase C-terminal region (409-480) of P31749, with the boundaries stated",
+    "tolerance": null,
+    "the_source": "the UniProt REST records (the domain features of P31749)",
+    "the_source_file": "the UniProtKB records (P31749, Q06124)",
+    "the_source_version_or_checksum": "the UniProt REST records (the domain features of P31749)",
+    "how_it_was_read": ""
+   }
+  ],
+  "X09": [
+   {
+    "item_key": "ay7_chembl_id",
+    "kind": "exact",
+    "value": "CHEMBL4208229",
+    "tolerance": null,
+    "the_source": "the RCSB CCD (the ChEMBL and PubChem identifiers of the 5MO4 myristoyl ligand)",
+    "the_source_file": "the RCSB Chemical Component Dictionary for AY7",
+    "the_source_version_or_checksum": "the RCSB CCD (the ChEMBL and PubChem identifiers of the 5MO4 myristoyl ligand)",
+    "how_it_was_read": "the RCSB chemical component dictionary for AY7 (the ChEMBL and PubChem identifiers)"
+   },
+   {
+    "item_key": "ay7_pubchem_id",
+    "kind": "exact",
+    "value": "72165228",
+    "tolerance": null,
+    "the_source": "the RCSB CCD (the ChEMBL and PubChem identifiers of the 5MO4 myristoyl ligand)",
+    "the_source_file": "the RCSB Chemical Component Dictionary for AY7",
+    "the_source_version_or_checksum": "the RCSB CCD (the ChEMBL and PubChem identifiers of the 5MO4 myristoyl ligand)",
+    "how_it_was_read": ""
+   },
+   {
+    "item_key": "biolip_ay7_5mo4_chainA_sites",
+    "kind": "set",
+    "value": {
+     "residues": [
+      359,
+      360,
+      451,
+      452,
+      453,
+      481,
+      483,
+      484,
+      487,
+      521,
+      525
+     ]
+    },
+    "tolerance": 0,
+    "the_source": "BioLiP (the binding-site table: PDB, chain, ligand, binding-site residues, affinity)",
+    "the_source_file": "biolip.pkl",
+    "the_source_version_or_checksum": "BioLiP (the binding-site table: PDB, chain, ligand, binding-site residues, affinity)",
+    "how_it_was_read": "the BioLiP row for PDB 5MO4 chain A with Ligand = AY7"
+   },
+   {
+    "item_key": "abl1_asciminib_min_ic50_nM",
+    "kind": "number",
+    "value": 0.5,
+    "tolerance": 0.01,
+    "the_source": "the pinned ChEMBL 37 SQLite release",
+    "the_source_file": "chembl_37.db",
+    "the_source_version_or_checksum": "33c203740555f96067710cdfc1c3c55d890660e5908ec5cbf5817492c290d281",
+    "how_it_was_read": "the SQL over the pinned chembl_37.db for CHEMBL1862 and CHEMBL4208229"
+   },
+   {
+    "item_key": "abl1_asciminib_ic50_record_count",
+    "kind": "number",
+    "value": 2,
+    "tolerance": 0,
+    "the_source": "the pinned ChEMBL 37 SQLite release",
+    "the_source_file": "chembl_37.db",
+    "the_source_version_or_checksum": "33c203740555f96067710cdfc1c3c55d890660e5908ec5cbf5817492c290d281",
+    "how_it_was_read": ""
+   }
+  ]
+ },
+ "the_live_service_cross_check": {
+  "ChEMBL": "the live public API for CHEMBL2189121 x CHEMBL4535757 (sotorasib) returns the same 8 IC50 records with the same median (49 nM) as the pinned ChEMBL 37, and the same 7 records with the same median (10 nM) for adagrasib; the pinned release is still the reference the items use, because the live service serves a later release in general",
+  "ClinVar": "the live service counts 392 pathogenic PTPN11 records against the pinned release's 568 pathogenic and 206 likely pathogenic (the pinned aggregate strings also carry 'Conflicting classifications of pathogenicity'); the counts therefore differ between the pinned release and the live service, which is why the X06 items are per-variant presence checks and the count carries a band of +/-2"
+ }
+}

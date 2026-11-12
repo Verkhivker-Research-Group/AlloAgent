@@ -1,0 +1,22 @@
+# PROVENANCE: this file was produced on 2026-11-06, after the data existed. The two scorer defects of benchmark/score_scripted.py were fixed on 2026-11-06 and this analysis was run afterwards over the same 240 run records (2026-10-28 to 2026-11-04) and the same judge outputs (2026-11-03 to 2026-11-05). Nothing was re-measured, re-run or re-judged. The results of the unfixed scorer are in benchmark/results/.
+variant,pass_mark,arm,runs,successes,success_rate,wilson_low,wilson_high
+accession_excluded,50%,D,120,96,0.8,0.7196,0.8618
+accession_excluded,50%,A,120,96,0.8,0.7196,0.8618
+accession_excluded,60%,D,120,89,0.7417,0.6567,0.8116
+accession_excluded,60%,A,120,86,0.7167,0.6303,0.7896
+accession_excluded,75%,D,120,71,0.5917,0.5022,0.6754
+accession_excluded,75%,A,120,67,0.5583,0.469,0.644
+accession_excluded,90%,D,120,65,0.5417,0.4526,0.6281
+accession_excluded,90%,A,120,63,0.525,0.4363,0.6122
+accession_excluded,100%,D,120,65,0.5417,0.4526,0.6281
+accession_excluded,100%,A,120,63,0.525,0.4363,0.6122
+accession_included,50%,D,120,89,0.7417,0.6567,0.8116
+accession_included,50%,A,120,86,0.7167,0.6303,0.7896
+accession_included,60%,D,120,38,0.3167,0.2402,0.4045
+accession_included,60%,A,120,34,0.2833,0.2104,0.3697
+accession_included,75%,D,120,28,0.2333,0.1667,0.3166
+accession_included,75%,A,120,24,0.2,0.1382,0.2804
+accession_included,90%,D,120,1,0.0083,0.0015,0.0457
+accession_included,90%,A,120,1,0.0083,0.0015,0.0457
+accession_included,100%,D,120,1,0.0083,0.0015,0.0457
+accession_included,100%,A,120,1,0.0083,0.0015,0.0457

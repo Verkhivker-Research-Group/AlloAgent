@@ -1,0 +1,10 @@
+{
+  "data": {
+    "pdb_id": "1OPK",
+    "chain_id": "A",
+    "residues": []
+  },
+  "query_time_utc": "2026-10-27T13:13:22Z",
+  "source": "biomni.tool.get_stingallo_allosteric_residues.get_stingallo_allosteric_residues",
+  "source_version": "1.0"
+}

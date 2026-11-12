@@ -1,0 +1,32 @@
+# benchmark/collected_counts.txt
+#
+# Pinned per-file and total collected test counts for the benchmark
+# suite. The guard test (benchmark/tests/test_benchmark_collect_count_guard.py)
+# reads this file and compares against the live `pytest --collect-only`
+# output. Any decrease or increase that is NOT accompanied by an
+# update to this file in the same commit causes the guard to FAIL.
+#
+# Format:
+#   total: N
+#   benchmark/tests/<file>.py: N
+#   benchmark/tests/<file>.py: N
+#   ...
+
+total: 101
+benchmark/tests/test_launch_record_provenance.py: 13
+benchmark/tests/test_validate_judge_outputs.py: 13
+benchmark/tests/test_judge_batches_export.py: 11
+benchmark/tests/test_quota_pause.py: 9
+benchmark/tests/test_score_scripted.py: 9
+benchmark/tests/test_judge_batch_scripts.py: 8
+benchmark/tests/test_agent_cwd_isolation.py: 6
+benchmark/tests/test_launch_prompt_set.py: 5
+benchmark/tests/test_validate_benchmark_clinvar.py: 5
+benchmark/tests/test_benchmark_validation.py: 4
+benchmark/tests/test_restricted_prompt_set.py: 4
+benchmark/tests/test_run_agent_cwd_isolation.py: 4
+benchmark/tests/test_infrastructure_retry.py: 3
+benchmark/tests/test_benchmark_collect_count_guard.py: 2
+benchmark/tests/test_benchmark_criteria_checksums.py: 2
+benchmark/tests/test_fpocket_pocket_residues_2shp.py: 2
+benchmark/tests/test_analyze_budget_fields.py: 1

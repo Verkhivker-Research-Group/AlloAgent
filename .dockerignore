@@ -1,0 +1,28 @@
+__pycache__/
+*.pyc
+*.pyo
+.git/
+.gitignore
+.omo/
+.pytest_cache/
+build/
+dist/
+*.egg-info/
+.eggs/
+
+# Per-run env-file scratch: the runner MUST NOT write inside
+# the repo tree (it now writes under the OS temp dir). If this
+# directory ever appears, it must NOT be copied into an image.
+scripts/.run/
+
+# Biolab bind-mount target (created at container runtime;
+# never COPY into the image)
+Biolab/
+
+# The runtime data lake (AlphaMissense TSV, ClinVar, ChEMBL SQLite,
+# the BioLiP pickles). ~16 GB, mounted read-only at run time; it must
+# never be baked into an image.
+data/
+
+# Git-ignored build scratch (audit JSON, per-run logs, worktrees).
+build_logs/

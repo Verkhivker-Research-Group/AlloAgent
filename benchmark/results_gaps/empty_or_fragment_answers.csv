@@ -1,0 +1,3 @@
+# This analysis was made on 2026-11-06, after the data existed. The run records (2026-10-28 to 2026-11-04) and the judge outputs (2026-11-03 to 2026-11-05) are used as they stand; nothing was re-run, re-measured or re-judged. The re-scoring on the full text reuses the committed scorer on the same answers.
+run_id,prompt_id,arm,characters,total_tokens,steps,the_exact_text
+V06_r1,V06,A,122,1671652,56,Reminder: Always include the thinking process followed by <execute> or <solution> tags.</observation></execute></solution>

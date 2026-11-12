@@ -1,0 +1,11 @@
+# benchmark/criteria_checksums.txt
+#
+# sha256 of the criteria section of the frozen benchmark files: the
+# restricted prompt set and the analysis plan.  The guard test
+# (benchmark/tests/test_benchmark_criteria_checksums.py) recomputes these
+# and fails on a mismatch.
+#
+# Format: <sha256>  <path relative to the repository root>
+
+301dab089f02629ce4197bedd05c86c33fe89efff66474d3e2e4868d0a227c13  benchmark/restricted_prompt_set.json
+147badd64badb93bf00a31cd9207c741f61c74483a9299833527b429f520cafd  benchmark/analysis_plan.md

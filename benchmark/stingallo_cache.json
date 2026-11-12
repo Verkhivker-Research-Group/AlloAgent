@@ -1,0 +1,64 @@
+{
+  "1T4J:A": {
+    "url": "https://www.stingallo.cbi.cnptia.embrapa.br/api/afrs?pdb_id=1T4J&chain_id=A",
+    "response_date": "2026-10-27T15:13:30Z",
+    "payload": {
+      "allosteric_residues": [
+        "129",
+        "130",
+        "187",
+        "188",
+        "189",
+        "192",
+        "193",
+        "196",
+        "200",
+        "276",
+        "279",
+        "280",
+        "281",
+        "282"
+      ],
+      "chain_id": "A",
+      "pdb_id": "1T4J"
+    }
+  },
+  "5EHR:A": {
+    "url": "https://www.stingallo.cbi.cnptia.embrapa.br/api/afrs?pdb_id=5EHR&chain_id=A",
+    "response_date": "2026-10-27T15:13:31Z",
+    "payload": {
+      "allosteric_residues": [
+        "314"
+      ],
+      "chain_id": "A",
+      "pdb_id": "5EHR"
+    }
+  },
+  "1V4S:A": {
+    "url": "https://www.stingallo.cbi.cnptia.embrapa.br/api/afrs?pdb_id=1V4S&chain_id=A",
+    "response_date": "2026-10-28T00:57:22Z",
+    "payload": {
+      "allosteric_residues": [],
+      "chain_id": "A",
+      "pdb_id": "1V4S"
+    }
+  },
+  "3O96:A": {
+    "url": "https://www.stingallo.cbi.cnptia.embrapa.br/api/afrs?pdb_id=3O96&chain_id=A",
+    "response_date": "2026-10-28T00:57:23Z",
+    "payload": {
+      "allosteric_residues": [],
+      "chain_id": "A",
+      "pdb_id": "3O96"
+    }
+  },
+  "1PZO:A": {
+    "url": "https://www.stingallo.cbi.cnptia.embrapa.br/api/afrs?pdb_id=1PZO&chain_id=A",
+    "response_date": "2026-10-28T00:57:24Z",
+    "payload": {
+      "allosteric_residues": [],
+      "chain_id": "A",
+      "pdb_id": "1PZO"
+    }
+  }
+}

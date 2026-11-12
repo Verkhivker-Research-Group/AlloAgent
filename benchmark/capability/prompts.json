@@ -1,0 +1,145 @@
+{
+ "what_this_file_is": "The capability benchmark: nine prompts (X01-X09) that test the capabilities AlloAgent has and the baseline (upstream BioMNI) arm lacks, plus the restricted-egress repeat of three of them. This is a NEW registry: nothing in benchmark/benchmark_draft.json, benchmark/checklists.json, benchmark/analysis_set.json or benchmark/results* is touched.",
+ "created": "2026-11-06",
+ "status": "FROZEN (2026-11-07): the pilot gate was cleared - one AlloAgent run per prompt was executed and scored (43 of the 47 items pass; two are judged items deferred to the judge), and the three problems the pilots exposed were fixed in the wording and the keys and re-validated. See pilot/pilot_report.md.",
+ "the_arms": {
+  "D": "alloagent (the AlloAgent tools and the data lake)",
+  "A": "baseline (upstream BioMNI)"
+ },
+ "prompts": [
+  {
+   "id": "X01",
+   "title": "The ASD curation of ABL1",
+   "category": "Allosteric databases",
+   "prompt": "In the Allosteric Set Database release 202306, the allosteric-protein table (AP) lists the curated allosteric sites: how many site records and how many distinct PDB entries does it hold for human ABL1 (P00519)? In the same release's hit-and-lead table (HL), how many modulator records are curated for ABL1, and what activity type and what modulator feature do those records carry?",
+   "requirement": "the ASD release 202306 (the AP and HL tables) reached through the ASD tools and the mounted lake",
+   "why_not_biomni": "the baseline arm's tool registry (221 names) has no ASD tool and no AlloAgent data-lake path; the ASD release is not reachable from the upstream BioMNI tools",
+   "source_keys": [
+    "asd_ap",
+    "asd_hl"
+   ],
+   "restricted": false
+  },
+  {
+   "id": "X02",
+   "title": "The ASD modulators of glucokinase",
+   "category": "Allosteric databases",
+   "prompt": "In the Allosteric Set Database release 202306, the hit-and-lead table (HL) lists the curated modulators: how many modulator records does it hold for human glucokinase (P35557), how many distinct modulator names do they carry, which activity types do they use and how many records use each type?",
+   "requirement": "the ASD release 202306 HL table (the modulators, their names and their activity types)",
+   "why_not_biomni": "the upstream BioMNI has no ASD curation; the baseline tools cannot reach the release",
+   "source_keys": [
+    "asd_hl"
+   ],
+   "restricted": true
+  },
+  {
+   "id": "X03",
+   "title": "The BioLiP ligands of PTP1B",
+   "category": "Ligand databases",
+   "prompt": "In BioLiP, how many ligand binding entries are curated for human PTP1B (P18031)? How many of them are for a non-metal ligand, and how many carry a recorded binding affinity? For the ligand with the code INX, give its recorded affinity.",
+   "requirement": "the BioLiP binding-site table (the ligand codes, the affinities and the non-metal split)",
+   "why_not_biomni": "the baseline arm has no BioLiP tool and no BioLiP table; the upstream BioMNI does not ship BioLiP",
+   "source_keys": [
+    "biolip"
+   ],
+   "restricted": false
+  },
+  {
+   "id": "X04",
+   "title": "PocketMiner on the apo structure 6HB0",
+   "category": "Cryptic pockets",
+   "prompt": "For the apo structure of PDB 6HB0 chain A, which ten residues does the PocketMiner model score highest for cryptic-pocket propensity, what is the score of the highest-ranked residue, and how many of the published cryptic-pocket residues of that structure fall among those ten? Name the overlapping residues.",
+   "requirement": "the PocketMiner checkpoint and the authors' published test-set labels, run on the authors' apo structure",
+   "why_not_biomni": "the baseline arm has no PocketMiner model, no checkpoint and no labels; it cannot obtain per-residue cryptic-pocket scores",
+   "source_keys": [
+    "pm_labels",
+    "pm_ref"
+   ],
+   "restricted": false
+  },
+  {
+   "id": "X05",
+   "title": "PocketMiner on the apo structure 2LAO",
+   "category": "Cryptic pockets",
+   "prompt": "For the apo structure of PDB 2LAO chain A, which ten residues does the PocketMiner model score highest for cryptic-pocket propensity, what is the score of the highest-ranked residue, and how many of the published cryptic-pocket residues of that structure fall among those ten? Name the overlapping residues.",
+   "requirement": "the PocketMiner checkpoint and the authors' published test-set labels, run on the authors' apo structure",
+   "why_not_biomni": "the baseline arm has no PocketMiner model, no checkpoint and no labels; it cannot obtain per-residue cryptic-pocket scores",
+   "source_keys": [
+    "pm_labels",
+    "pm_ref"
+   ],
+   "restricted": false
+  },
+  {
+   "id": "X06",
+   "title": "The PTPN11 variants near the SHP099 ligand",
+   "category": "Variants",
+   "prompt": "In the pinned ClinVar release, list the pathogenic or likely pathogenic missense variants of human PTPN11 (Q06124) whose AlphaMissense score is above 0.9 and whose residue has a heavy atom within 8 A of any heavy atom of the SHP099 ligand in PDB 5EHR chain A. Give, for each, the variant, its ClinVar variation id, its AlphaMissense score and the nearest heavy-atom distance. The pinned release and the live service differ in how they classify a record, so answer from the pinned release.",
+   "requirement": "the pinned ClinVar and AlphaMissense releases joined with the 5EHR coordinates",
+   "why_not_biomni": "the baseline arm's own ClinVar and AlphaMissense tools are not exposed and the pinned releases are not in the baseline's tools; the baseline cannot reach the variant/ligand join",
+   "source_keys": [
+    "clinvar",
+    "alphamissense",
+    "pdb"
+   ],
+   "restricted": true
+  },
+  {
+   "id": "X07",
+   "title": "Sotorasib and adagrasib against KRAS in ChEMBL 37",
+   "category": "Bioactivity",
+   "prompt": "In the pinned ChEMBL 37 release, compare sotorasib and adagrasib against the KRAS target CHEMBL2189121: how many IC50 records does each have, what is the median IC50 of each, and what are the smallest and the largest IC50 recorded for sotorasib? The live ChEMBL service serves a later release, so report the pinned release.",
+   "requirement": "the pinned ChEMBL 37 SQLite (the KRAS-target IC50 records, their values and their assay types)",
+   "why_not_biomni": "the baseline arm has no ChEMBL-37 tool and no pinned release; the public API serves a later release with different counts",
+   "source_keys": [
+    "chembl"
+   ],
+   "restricted": true
+  },
+  {
+   "id": "X08",
+   "title": "The ASD sites of AKT1 and the 3O96 contacts",
+   "category": "Allosteric databases",
+   "prompt": "In the Allosteric Set Database release 202306, the allosteric-protein table (AP) lists the curated allosteric sites: how many site records and how many distinct PDB entries does it hold for human AKT1 (P31749)? For the 3O96 entry of that table: which chemical component is the bound ligand, which residues of chain A lie within 4 A of it, and which UniProt domain does each of those residues belong to?",
+   "requirement": "the ASD release 202306 AP table, the 3O96 coordinates and the UniProt domain features",
+   "why_not_biomni": "the baseline arm has no ASD curation and no way to reach the UniProt domain features for the answer",
+   "source_keys": [
+    "asd_ap",
+    "pdb",
+    "uniprot"
+   ],
+   "restricted": false
+  },
+  {
+   "id": "X09",
+   "title": "The myristoyl-site ligand of 5MO4, cross-referenced",
+   "category": "Cross-reference",
+   "prompt": "For the myristoyl-site ligand of PDB 5MO4 (the allosteric inhibitor of ABL1), report its ChEMBL identifier and its PubChem identifier, the residues BioLiP curates as its binding site in 5MO4 chain A, and the lowest IC50 recorded against ABL1 (CHEMBL1862) in the pinned ChEMBL 37 release.",
+   "requirement": "the cross-reference of the PDB chemical component, BioLiP and the pinned ChEMBL 37",
+   "why_not_biomni": "the baseline arm has neither the BioLiP table nor the pinned ChEMBL release, and cannot join the three sources",
+   "source_keys": [
+    "ccd",
+    "biolip",
+    "chembl"
+   ],
+   "restricted": false
+  }
+ ],
+ "the_restricted_repeat": {
+  "prompts": [
+   "X02",
+   "X06",
+   "X07"
+  ],
+  "repeats": 3,
+  "arms": 2,
+  "runs": 18,
+  "the_cache_check": {
+   "5EHR (for X06)": "present in the read-only structure cache (data/structures_cache/5ehr.pdb)",
+   "the pinned ChEMBL 37 (for X07)": "present (data/chembl/chembl_37_sqlite/chembl_37.db)",
+   "the pinned ClinVar and AlphaMissense (for X06)": "present (data/clinvar, data/alphamissense)",
+   "the ASD release 202306 (for X02)": "present in the mounted lake (data/biomni_data/asd and data/biomni_data/data_lake)",
+   "verdict": "all three restricted prompts are answerable from the local data alone; nothing is missing from the cache and nothing in the cache has to be changed"
+  }
+ }
+}

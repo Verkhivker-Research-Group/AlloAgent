@@ -1,0 +1,3 @@
+arm,runs,mean_steps,median_steps,mean_wall_s,median_wall_s,mean_tokens,median_tokens
+D,120,28.5,26,352.2,258.3,609118.2,445651
+A,120,59.8,53,911.3,674.5,2669058.4,1810694

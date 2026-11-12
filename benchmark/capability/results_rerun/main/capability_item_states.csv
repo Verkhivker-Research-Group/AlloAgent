@@ -1,0 +1,43 @@
+arm,prompt_id,repeat,run,item_key,kind,scripted_verdict,state,answer_chars,reason
+alloagent,X06,1,X06_r1,x06_variant_count,number,PASS,correct,7701,
+alloagent,X06,1,X06_r1,x06_positions,set,PASS,correct,7701,
+alloagent,X06,1,X06_r1,x06_scores,exact,PASS,correct,7701,
+alloagent,X06,1,X06_r1,x06_distances_A,exact,PASS,correct,7701,
+alloagent,X06,1,X06_r1,x06_clinvar_ids,set,PASS,correct,7701,
+alloagent,X06,1,X06_r1,x06_distance_statement,qualitative,DEFERRED,missing,7701,judged
+alloagent,X06,2,X06_r2,x06_variant_count,number,PASS,correct,9849,
+alloagent,X06,2,X06_r2,x06_positions,set,PASS,correct,9849,
+alloagent,X06,2,X06_r2,x06_scores,exact,PASS,correct,9849,
+alloagent,X06,2,X06_r2,x06_distances_A,exact,PASS,correct,9849,
+alloagent,X06,2,X06_r2,x06_clinvar_ids,set,PASS,correct,9849,
+alloagent,X06,2,X06_r2,x06_distance_statement,qualitative,DEFERRED,missing,9849,judged
+alloagent,X06,3,X06_r3,x06_variant_count,number,PASS,correct,10479,
+alloagent,X06,3,X06_r3,x06_positions,set,PASS,correct,10479,
+alloagent,X06,3,X06_r3,x06_scores,exact,PASS,correct,10479,
+alloagent,X06,3,X06_r3,x06_distances_A,exact,PASS,correct,10479,
+alloagent,X06,3,X06_r3,x06_clinvar_ids,set,PASS,correct,10479,
+alloagent,X06,3,X06_r3,x06_distance_statement,qualitative,DEFERRED,missing,10479,judged
+attempts,X06,3,alloagent_X06_r3_attempt2,x06_variant_count,number,FAIL,incorrect,0,expected 7
+attempts,X06,3,alloagent_X06_r3_attempt2,x06_positions,set,FAIL,incorrect,0,"residues: missing [110, 491, 498]"
+attempts,X06,3,alloagent_X06_r3_attempt2,x06_scores,exact,FAIL,incorrect,0,x06_scores.E110K: 0.9908; x06_scores.E110A: 0.9621; x06_scores.P491H: 0.9611; x06_scores.P491L: 0.9431; x06_scores.R498Q: 0.9993; x06_scores.R498W: 0.9998; x06_scores.R498L: 0.9995
+attempts,X06,3,alloagent_X06_r3_attempt2,x06_distances_A,exact,FAIL,incorrect,0,x06_distances_A.110: 3.465; x06_distances_A.491: 3.454; x06_distances_A.498: 7.154
+attempts,X06,3,alloagent_X06_r3_attempt2,x06_clinvar_ids,set,FAIL,incorrect,0,"variation_ids: missing [40507, 40508, 40551, 40552, 1805026, 40553, 40554]"
+attempts,X06,3,alloagent_X06_r3_attempt2,x06_distance_statement,qualitative,DEFERRED,missing,0,judged
+baseline,X06,1,X06_r1,x06_variant_count,number,PASS,correct,6745,
+baseline,X06,1,X06_r1,x06_positions,set,PASS,correct,6745,
+baseline,X06,1,X06_r1,x06_scores,exact,PASS,correct,6745,
+baseline,X06,1,X06_r1,x06_distances_A,exact,PASS,correct,6745,
+baseline,X06,1,X06_r1,x06_clinvar_ids,set,PASS,correct,6745,
+baseline,X06,1,X06_r1,x06_distance_statement,qualitative,DEFERRED,missing,6745,judged
+baseline,X06,2,X06_r2,x06_variant_count,number,PASS,correct,18098,
+baseline,X06,2,X06_r2,x06_positions,set,PASS,correct,18098,
+baseline,X06,2,X06_r2,x06_scores,exact,PASS,correct,18098,
+baseline,X06,2,X06_r2,x06_distances_A,exact,PASS,correct,18098,
+baseline,X06,2,X06_r2,x06_clinvar_ids,set,PASS,correct,18098,
+baseline,X06,2,X06_r2,x06_distance_statement,qualitative,DEFERRED,missing,18098,judged
+baseline,X06,3,X06_r3,x06_variant_count,number,PASS,correct,7168,
+baseline,X06,3,X06_r3,x06_positions,set,PASS,correct,7168,
+baseline,X06,3,X06_r3,x06_scores,exact,PASS,correct,7168,
+baseline,X06,3,X06_r3,x06_distances_A,exact,PASS,correct,7168,
+baseline,X06,3,X06_r3,x06_clinvar_ids,set,PASS,correct,7168,
+baseline,X06,3,X06_r3,x06_distance_statement,qualitative,DEFERRED,missing,7168,judged
