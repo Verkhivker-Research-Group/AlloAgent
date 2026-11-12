@@ -92,7 +92,8 @@ ANTHROPIC_API_KEY=your_key
 OPENAI_API_KEY=your_key
 GEMINI_API_KEY=your_key
 GROQ_API_KEY=your_key
-AWS_BEARER_TOKEN_BEDROCK=your_key
+AWS_ACCESS_KEY_ID=your_key
+AWS_SECRET_ACCESS_KEY=your_key
 AWS_REGION=us-east-1
 
 # Azure OpenAI
