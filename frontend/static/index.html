@@ -177,6 +177,7 @@
     <div class="composer">
       <div class="row">
         <button class="btn ghost" id="example2">Try this example</button>
+        <button class="btn ghost" id="download">Download</button>
         <div class="spacer"></div>
         <div class="foot-note" id="state"></div>
       </div>
@@ -385,6 +386,39 @@ async function fillExample() {
   }
 }
 
+function stamp() {
+  return new Date().toISOString().slice(0, 19).replace(/:/g, '-');
+}
+
+function downloadConversation() {
+  const styles = document.querySelector('style').textContent;
+  const clone = document.getElementById('thread').cloneNode(true);
+  const empty = clone.querySelector('#empty');
+  if (empty) empty.remove();
+  clone.querySelectorAll('details.tool[open]').forEach(d => d.removeAttribute('open'));
+  const when = stamp();
+  const doc = '<!doctype html>\n<html lang="en">\n<head>\n<meta charset="utf-8" />\n'
+    + '<meta name="viewport" content="width=device-width, initial-scale=1" />\n'
+    + '<title>AlloAgent conversation ' + when + '</title>\n'
+    + '<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 32 32\'%3E%3Crect width=\'32\' height=\'32\' rx=\'9\' fill=\'%230F766E\'/%3E%3Ctext x=\'16\' y=\'22\' font-family=\'Inter,Arial\' font-size=\'17\' font-weight=\'700\' fill=\'white\' text-anchor=\'middle\'%3EA%3C/text%3E%3C/svg%3E" />\n'
+    + '<style>\n' + styles + '\n'
+    + 'html, body { height: auto; }\n.app { height: auto; min-height: 100vh; }\n'
+    + 'main { overflow: visible; }\n</style>\n</head>\n<body>\n<div class="app">\n'
+    + '<header>\n<div class="logo">A</div>\n<div class="brand">AlloAgent</div>\n'
+    + '<div class="chip">export</div>\n<div class="spacer"></div>\n'
+    + '<div class="hint">' + when + '</div>\n</header>\n<main>\n<div class="thread">\n'
+    + clone.innerHTML + '\n</div>\n</main>\n</div>\n</body>\n</html>\n';
+  const url = URL.createObjectURL(new Blob([doc], { type: 'text/html' }));
+  const link = document.createElement('a');
+  link.href = url;
+  link.download = 'alloagent-' + when + '.html';
+  document.body.appendChild(link);
+  link.click();
+  link.remove();
+  setTimeout(() => URL.revokeObjectURL(url), 2000);
+  stateEl.textContent = 'downloaded alloagent-' + when + '.html';
+}
+
 sendBtn.addEventListener('click', () => {
   const text = input.value.trim();
   if (text) run(text);
@@ -397,6 +431,7 @@ input.addEventListener('keydown', e => {
   }
 });
 document.getElementById('example2').addEventListener('click', fillExample);
+document.getElementById('download').addEventListener('click', downloadConversation);
 input.addEventListener('input', () => {
   input.style.height = 'auto';
   input.style.height = Math.min(input.scrollHeight, 220) + 'px';
