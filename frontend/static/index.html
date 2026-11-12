@@ -1,0 +1,406 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>AlloAgent</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='9' fill='%230F766E'/%3E%3Ctext x='16' y='22' font-family='Inter,Arial' font-size='17' font-weight='700' fill='white' text-anchor='middle'%3EA%3C/text%3E%3C/svg%3E" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+<style>
+  :root {
+    --accent: #0F766E;
+    --accent-soft: #E6F2F0;
+    --accent-deep: #0B5A54;
+    --ink: #14201F;
+    --text: #556070;
+    --muted: #9AA5B4;
+    --line: #E4E9EC;
+    --surface: #FFFFFF;
+    --canvas: #F5F8F8;
+    --radius: 14px;
+    --shadow: 0 1px 2px rgba(16, 32, 31, .04), 0 8px 24px rgba(16, 32, 31, .05);
+  }
+  * { box-sizing: border-box; }
+  html, body { height: 100%; }
+  body {
+    margin: 0;
+    background: var(--canvas);
+    color: var(--ink);
+    font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    font-size: 15px;
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+  }
+  .app { display: flex; flex-direction: column; height: 100vh; }
+
+  header {
+    flex: none;
+    display: flex; align-items: center; gap: 12px;
+    padding: 16px 28px;
+    background: rgba(255,255,255,.85);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid var(--line);
+  }
+  .logo {
+    width: 30px; height: 30px; border-radius: 9px;
+    background: var(--accent);
+    display: grid; place-items: center;
+    color: #fff; font-weight: 700; font-size: 15px; letter-spacing: -.3px;
+  }
+  .brand { font-weight: 600; font-size: 16px; letter-spacing: -.2px; }
+  .chip {
+    font-size: 11px; font-weight: 600; letter-spacing: .4px; text-transform: uppercase;
+    color: var(--accent); background: var(--accent-soft);
+    padding: 3px 9px; border-radius: 999px;
+  }
+  .spacer { flex: 1; }
+  .hint { color: var(--muted); font-size: 12.5px; }
+
+  main { flex: 1; overflow-y: auto; scroll-behavior: smooth; }
+  .thread { max-width: 1080px; margin: 0 auto; padding: 28px 28px 12px; }
+
+  .empty { max-width: 640px; margin: 8vh auto 0; text-align: center; color: var(--text); }
+  .empty h1 { font-size: 26px; font-weight: 600; color: var(--ink); margin: 0 0 8px; letter-spacing: -.4px; }
+  .empty p { margin: 0; color: var(--muted); }
+  .empty .btn { margin-top: 22px; }
+
+  .msg { margin-bottom: 18px; display: flex; }
+  .msg.user { justify-content: flex-end; }
+  .bubble {
+    max-width: 760px; padding: 12px 16px; border-radius: var(--radius);
+    box-shadow: var(--shadow); white-space: pre-wrap; word-break: break-word;
+  }
+  .msg.user .bubble { background: var(--accent); color: #fff; border-bottom-right-radius: 5px; }
+  .msg.agent { justify-content: flex-start; }
+  .msg.agent .bubble { background: var(--surface); border: 1px solid var(--line); border-bottom-left-radius: 5px; width: 100%; }
+
+  .tools { display: flex; flex-direction: column; gap: 8px; margin-bottom: 10px; }
+  .tool {
+    background: var(--surface); border: 1px solid var(--line); border-left: 3px solid var(--accent);
+    border-radius: 10px; box-shadow: var(--shadow); overflow: hidden;
+  }
+  .tool > summary {
+    list-style: none; cursor: pointer; display: flex; align-items: center; gap: 10px;
+    padding: 10px 14px; user-select: none;
+  }
+  .tool > summary::-webkit-details-marker { display: none; }
+  .tool .caret { color: var(--muted); transition: transform .15s ease; font-size: 11px; }
+  .tool[open] .caret { transform: rotate(90deg); }
+  .tool .label { font-weight: 500; font-size: 14px; }
+  .tool .name { color: var(--accent-deep); font-weight: 600; font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 13px; }
+  .tool .secs { margin-left: auto; color: var(--muted); font-size: 12px; font-variant-numeric: tabular-nums; }
+  .tool .body { padding: 2px 14px 14px; border-top: 1px solid var(--line); }
+  .tool .body h4 {
+    margin: 12px 0 6px; font-size: 11px; letter-spacing: .5px; text-transform: uppercase;
+    color: var(--muted); font-weight: 600;
+  }
+
+  table { border-collapse: collapse; width: 100%; font-size: 13.5px; }
+  th, td { text-align: left; padding: 6px 10px; border-bottom: 1px solid var(--line); vertical-align: top; }
+  th { color: var(--muted); font-weight: 600; font-size: 12px; text-transform: uppercase; letter-spacing: .3px; white-space: nowrap; }
+  tbody tr:last-child td { border-bottom: none; }
+  .tablewrap { border: 1px solid var(--line); border-radius: 8px; overflow: auto; max-height: 320px; }
+  pre {
+    margin: 0; padding: 10px 12px; background: #F7FAFA; border: 1px solid var(--line);
+    border-radius: 8px; overflow: auto; max-height: 320px;
+    font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 12.5px; color: var(--text);
+  }
+  .kv { display: grid; grid-template-columns: 170px minmax(0, 1fr); gap: 6px 16px; font-size: 13.5px; align-items: start; }
+  .kv .k { color: var(--muted); font-weight: 500; word-break: break-word; padding-top: 1px; }
+  .kv .v { overflow-wrap: break-word; min-width: 0; }
+  .kv .kvn { grid-template-columns: 130px minmax(0, 1fr); gap: 4px 12px; font-size: 13px; }
+  .kv pre { margin: 0; }
+  .kv > .tablewrap { grid-column: 1 / -1; }
+  .tool .body table { min-width: 440px; }
+  .note { color: var(--muted); font-size: 12px; margin-top: 6px; }
+  .err { color: #B42318; }
+
+  .answer h1, .answer h2, .answer h3 { font-weight: 600; letter-spacing: -.2px; margin: 18px 0 8px; }
+  .answer h1 { font-size: 20px; } .answer h2 { font-size: 17px; } .answer h3 { font-size: 15px; }
+  .answer p { margin: 0 0 10px; }
+  .answer ul, .answer ol { margin: 0 0 10px; padding-left: 22px; }
+  .answer code { background: var(--accent-soft); color: var(--accent-deep); padding: 1px 5px; border-radius: 5px; font-size: 13px; }
+  .answer pre code { background: none; padding: 0; color: inherit; }
+  .answer table { margin: 10px 0; }
+  .answer blockquote { margin: 10px 0; padding: 4px 14px; border-left: 3px solid var(--accent-soft); color: var(--text); }
+
+  .status { display: flex; align-items: center; gap: 9px; color: var(--muted); font-size: 13.5px; padding: 4px 2px 8px; }
+  .dot { width: 8px; height: 8px; border-radius: 50%; background: var(--accent); animation: pulse 1.1s infinite ease-in-out; }
+  @keyframes pulse { 0%,100% { opacity: .25; transform: scale(.8);} 50% { opacity: 1; transform: scale(1);} }
+
+  footer { flex: none; background: rgba(255,255,255,.9); border-top: 1px solid var(--line); backdrop-filter: blur(8px); }
+  .composer { max-width: 1080px; margin: 0 auto; padding: 14px 28px 18px; }
+  .box { display: flex; gap: 10px; align-items: flex-end; }
+  textarea {
+    flex: 1; resize: none; min-height: 52px; max-height: 220px;
+    padding: 13px 15px; border-radius: 12px; border: 1px solid var(--line);
+    background: var(--surface); font: inherit; color: var(--ink); outline: none;
+    box-shadow: var(--shadow);
+  }
+  textarea:focus { border-color: var(--accent); box-shadow: 0 0 0 3px var(--accent-soft); }
+  .btn {
+    border: none; cursor: pointer; font: inherit; font-weight: 500;
+    padding: 12px 18px; border-radius: 12px; background: var(--accent); color: #fff;
+    box-shadow: var(--shadow); transition: background .15s ease;
+  }
+  .btn:hover { background: var(--accent-deep); }
+  .btn:disabled { opacity: .5; cursor: not-allowed; }
+  .btn.ghost { background: var(--surface); color: var(--text); border: 1px solid var(--line); }
+  .btn.ghost:hover { background: var(--accent-soft); color: var(--accent-deep); }
+  .row { display: flex; gap: 10px; margin-bottom: 10px; }
+  .row .spacer { flex: 1; }
+  .foot-note { color: var(--muted); font-size: 12px; margin-top: 8px; }
+</style>
+</head>
+<body>
+<div class="app">
+  <header>
+    <div class="logo">A</div>
+    <div class="brand">AlloAgent</div>
+    <div class="chip">demo</div>
+    <div class="spacer"></div>
+    <div class="hint">an allosteric research agent, built on Biomni</div>
+  </header>
+
+  <main id="main">
+    <div class="thread" id="thread">
+      <div class="empty" id="empty">
+        <h1>Ask AlloAgent an allostery question</h1>
+        <p>The agent runs live: every tool it calls appears here as it happens.</p>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <div class="composer">
+      <div class="row">
+        <button class="btn ghost" id="example2">Try this example</button>
+        <div class="spacer"></div>
+        <div class="foot-note" id="state"></div>
+      </div>
+      <div class="box">
+        <textarea id="input" placeholder="Ask about an allosteric site, a pocket, a ligand contact..."></textarea>
+        <button class="btn" id="send">Send</button>
+      </div>
+    </div>
+  </footer>
+</div>
+
+<script>
+const thread = document.getElementById('thread');
+const input = document.getElementById('input');
+const sendBtn = document.getElementById('send');
+const stateEl = document.getElementById('state');
+let emptyEl = document.getElementById('empty');
+
+function scroll() { document.getElementById('main').scrollTop = 1e9; }
+
+function el(tag, cls, text) {
+  const n = document.createElement(tag);
+  if (cls) n.className = cls;
+  if (text !== undefined) n.textContent = text;
+  return n;
+}
+
+function isPlainObject(v) {
+  return v !== null && typeof v === 'object' && !Array.isArray(v);
+}
+
+function tableOf(rows) {
+  const wrap = el('div', 'tablewrap');
+  const table = el('table');
+  const cols = [];
+  rows.slice(0, 40).forEach(r => Object.keys(r).forEach(k => { if (!cols.includes(k)) cols.push(k); }));
+  const head = el('tr');
+  cols.forEach(c => { const th = el('th', null, c); head.appendChild(th); });
+  const thead = el('thead'); thead.appendChild(head);
+  const tbody = el('tbody');
+  rows.slice(0, 60).forEach(r => {
+    const tr = el('tr');
+    cols.forEach(c => {
+      const td = el('td');
+      const v = r[c];
+      if (v !== null && typeof v === 'object') td.appendChild(renderCell(v));
+      else td.textContent = v === undefined || v === null ? '' : String(v);
+      tr.appendChild(td);
+    });
+    tbody.appendChild(tr);
+  });
+  table.appendChild(thead); table.appendChild(tbody);
+  wrap.appendChild(table);
+  if (rows.length > 60) wrap.appendChild(el('div', 'note', 'showing the first 60 of ' + rows.length + ' rows'));
+  return wrap;
+}
+
+function renderValue(v) {
+  if (v === null || v === undefined) return el('span', 'note', '-');
+  if (typeof v !== 'object') return document.createTextNode(String(v));
+  if (v.__table__ && Array.isArray(v.__table__)) return tableOf(v.__table__);
+  if (Array.isArray(v)) {
+    if (!v.length) return el('span', 'note', 'empty');
+    if (v.every(isPlainObject)) return tableOf(v);
+    return el('div', 'v', v.map(x => typeof x === 'object' ? JSON.stringify(x) : String(x)).join(', '));
+  }
+  const grid = el('div', 'kv');
+  Object.keys(v).forEach(k => {
+    grid.appendChild(el('div', 'k', k));
+    grid.appendChild(renderCell(v[k], 0));
+  });
+  return grid;
+}
+
+function renderCell(v, depth) {
+  if (v === null || v === undefined) return el('div', 'v note', '-');
+  if (typeof v !== 'object') return el('div', 'v', String(v));
+  if (v.__table__ && Array.isArray(v.__table__)) return tableOf(v.__table__);
+  if (Array.isArray(v)) {
+    if (!v.length) return el('div', 'v note', 'empty');
+    if (v.every(isPlainObject)) return tableOf(v);
+    return el('div', 'v', v.map(x => typeof x === 'object' ? JSON.stringify(x) : String(x)).join(', '));
+  }
+  if (depth >= 2) {
+    const pre = el('pre');
+    pre.textContent = JSON.stringify(v, null, 2);
+    return pre;
+  }
+  const grid = el('div', 'kv kvn');
+  Object.keys(v).forEach(k => {
+    grid.appendChild(el('div', 'k', k));
+    grid.appendChild(renderCell(v[k], depth + 1));
+  });
+  return grid;
+}
+
+function toolCard(ev) {
+  const d = el('details', 'tool');
+  const s = el('summary');
+  s.appendChild(el('span', 'caret', '▸'));
+  s.appendChild(el('span', 'label', 'Ran '));
+  s.appendChild(el('span', 'name', ev.name));
+  if (ev.seconds !== undefined) s.appendChild(el('span', 'secs', ev.seconds + 's'));
+  d.appendChild(s);
+  const body = el('div', 'body');
+  body.appendChild(el('h4', null, 'Inputs'));
+  body.appendChild(renderValue(ev.inputs));
+  body.appendChild(el('h4', null, ev.error ? 'Error' : 'Output'));
+  if (ev.error) {
+    const p = el('div', 'err', ev.error);
+    body.appendChild(p);
+  } else {
+    body.appendChild(renderValue(ev.output));
+  }
+  d.appendChild(body);
+  return d;
+}
+
+function addUser(text) {
+  if (emptyEl) { emptyEl.remove(); emptyEl = null; }
+  const m = el('div', 'msg user');
+  m.appendChild(el('div', 'bubble', text));
+  thread.appendChild(m);
+  scroll();
+}
+
+function addAgentShell() {
+  const m = el('div', 'msg agent');
+  const b = el('div', 'bubble');
+  const tools = el('div', 'tools');
+  const status = el('div', 'status');
+  status.appendChild(el('span', 'dot'));
+  status.appendChild(el('span', 'stext', 'Starting...'));
+  b.appendChild(tools);
+  b.appendChild(status);
+  const answer = el('div', 'answer');
+  b.appendChild(answer);
+  m.appendChild(b);
+  thread.appendChild(m);
+  scroll();
+  return { tools, status, answer };
+}
+
+async function run(prompt) {
+  addUser(prompt);
+  const shell = addAgentShell();
+  sendBtn.disabled = true;
+  stateEl.textContent = 'running...';
+  try {
+    const res = await fetch('/api/run', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ prompt: prompt })
+    });
+    if (!res.ok || !res.body) throw new Error('the server answered ' + res.status);
+    const reader = res.body.getReader();
+    const decoder = new TextDecoder();
+    let buffer = '';
+    while (true) {
+      const { value, done } = await reader.read();
+      if (done) break;
+      buffer += decoder.decode(value, { stream: true });
+      const frames = buffer.split('\n\n');
+      buffer = frames.pop();
+      frames.forEach(frame => {
+        const line = frame.split('\n').find(l => l.startsWith('data: '));
+        if (!line) return;
+        let ev;
+        try { ev = JSON.parse(line.slice(6)); } catch (e) { return; }
+        if (ev.type === 'status') {
+          shell.status.querySelector('.stext').textContent = ev.text;
+        } else if (ev.type === 'tool') {
+          shell.tools.appendChild(toolCard(ev));
+          shell.status.querySelector('.stext').textContent = 'Working on it...';
+          scroll();
+        } else if (ev.type === 'final') {
+          shell.status.remove();
+          shell.answer.innerHTML = ev.html;
+          scroll();
+        } else if (ev.type === 'error') {
+          shell.status.remove();
+          shell.answer.appendChild(el('div', 'err', ev.message));
+          scroll();
+        }
+      });
+    }
+  } catch (err) {
+    shell.status.remove();
+    shell.answer.appendChild(el('div', 'err', String(err)));
+  }
+  sendBtn.disabled = false;
+  stateEl.textContent = '';
+  input.value = '';
+  scroll();
+}
+
+async function fillExample() {
+  try {
+    const r = await fetch('/api/example');
+    const d = await r.json();
+    input.value = d.prompt || '';
+    input.focus();
+    input.setSelectionRange(input.value.length, input.value.length);
+  } catch (e) {
+    stateEl.textContent = 'could not load the example';
+  }
+}
+
+sendBtn.addEventListener('click', () => {
+  const text = input.value.trim();
+  if (text) run(text);
+});
+input.addEventListener('keydown', e => {
+  if (e.key === 'Enter' && !e.shiftKey) {
+    e.preventDefault();
+    const text = input.value.trim();
+    if (text) run(text);
+  }
+});
+document.getElementById('example2').addEventListener('click', fillExample);
+input.addEventListener('input', () => {
+  input.style.height = 'auto';
+  input.style.height = Math.min(input.scrollHeight, 220) + 'px';
+});
+</script>
+</body>
+</html>
