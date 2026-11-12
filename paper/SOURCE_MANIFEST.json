@@ -1,0 +1,1462 @@
+[
+  {
+    "archived": "run_records/docs/dev_runs/batch_summary.json",
+    "source": "docs/dev_runs/batch_summary.json",
+    "source_sha256": "5fd75643ba7c3ce60f60384f263df41f1560eb7e2c673ca71ba827eaf8f9ab49"
+  },
+  {
+    "archived": "run_records/docs/dev_runs/D1/run.json",
+    "source": "docs/dev_runs/D1/run.json",
+    "source_sha256": "8b6123a4ac29594a4eab0e3a65b20cc6c845a1e53238d4cd25764ffee4e4d9bb"
+  },
+  {
+    "archived": "run_records/docs/dev_runs/D1/summary.json",
+    "source": "docs/dev_runs/D1/summary.json",
+    "source_sha256": "bad432eb8e1846bbf9c31ea281ce23a03ec07734f48723ba858989aa667a060c"
+  },
+  {
+    "archived": "run_records/docs/dev_runs/D2/run.json",
+    "source": "docs/dev_runs/D2/run.json",
+    "source_sha256": "e7cf4d122ca9e549bb7c92ba9a9baa98e40b78ee83bebeceb246ad6d6364207a"
+  },
+  {
+    "archived": "run_records/docs/dev_runs/D2/summary.json",
+    "source": "docs/dev_runs/D2/summary.json",
+    "source_sha256": "42ea9ea57f660094013e26655df8df449ab5553f20c3abed0a5c2b9bfbfb5a9c"
+  },
+  {
+    "archived": "run_records/docs/dev_runs/D3/run.json",
+    "source": "docs/dev_runs/D3/run.json",
+    "source_sha256": "48dbb2601194847edeacf784237fe6324da20de7f25e5dbacecc23d2a83671e0"
+  },
+  {
+    "archived": "run_records/docs/dev_runs/D3/summary.json",
+    "source": "docs/dev_runs/D3/summary.json",
+    "source_sha256": "e8911e7f6ebb709f41aac03d4f836fb1e747ef64d2e3ce9d9ca2a3f570520fe3"
+  },
+  {
+    "archived": "run_records/docs/dev_runs/D4/run.json",
+    "source": "docs/dev_runs/D4/run.json",
+    "source_sha256": "f6839b612eb2edb6e54378a78a0e05efff33678659cb0222396410548c1e646e"
+  },
+  {
+    "archived": "run_records/docs/dev_runs/D4/summary.json",
+    "source": "docs/dev_runs/D4/summary.json",
+    "source_sha256": "94ca833fc8a258ca70eaeabe03f62ed9b263b6c1fee8925a6d918852fb9a14e2"
+  },
+  {
+    "archived": "run_records/docs/dev_runs/D5/run.json",
+    "source": "docs/dev_runs/D5/run.json",
+    "source_sha256": "e084ca13377b4bd2d8305b6448570b8a9a2d6e06425df7d717e44b8b52169d15"
+  },
+  {
+    "archived": "run_records/docs/dev_runs/D5/summary.json",
+    "source": "docs/dev_runs/D5/summary.json",
+    "source_sha256": "17f384f995884a7f38270788cf415fa91de7377eecd55e97d62bb65c2e0a5e55"
+  },
+  {
+    "archived": "run_records/docs/dev_runs/D6/run.json",
+    "source": "docs/dev_runs/D6/run.json",
+    "source_sha256": "f1fab48596b6eb9a432a3953a09a2c1ef7262cd774ddbc1f2c774d4e5cc3bcfa"
+  },
+  {
+    "archived": "run_records/docs/dev_runs/D6/summary.json",
+    "source": "docs/dev_runs/D6/summary.json",
+    "source_sha256": "2ecedc848a65816579549865e127039a732a4384027618e5de2b11b51c7a5aae"
+  },
+  {
+    "archived": "run_records/docs/dev_runs/D7/run.json",
+    "source": "docs/dev_runs/D7/run.json",
+    "source_sha256": "ee2889241b51c67a81c7be0e49702eb66af40ecd1e86e3cba30cdc7ecac5bf03"
+  },
+  {
+    "archived": "run_records/docs/dev_runs/D7/summary.json",
+    "source": "docs/dev_runs/D7/summary.json",
+    "source_sha256": "a87076ea376b979eb448debcf857aa50382ccaa4fef667aafc4524df83bf1750"
+  },
+  {
+    "archived": "run_records/docs/dev_runs/D8/run.json",
+    "source": "docs/dev_runs/D8/run.json",
+    "source_sha256": "e9cd888f495461f22e58254fdf321321fffff27a4fa1e89e0293f81b4bba1bf8"
+  },
+  {
+    "archived": "run_records/docs/dev_runs/D8/summary.json",
+    "source": "docs/dev_runs/D8/summary.json",
+    "source_sha256": "9fe22d04f0c6eb70427e1e83a05e709e79b4270e126bd00892bf449ec6710417"
+  },
+  {
+    "archived": "run_records/docs/dev_runs_v3/batch_summary.json",
+    "source": "docs/dev_runs_v3/batch_summary.json",
+    "source_sha256": "eb42d0616c296245c2be657525f5ad5d72e5a258f0e996297ae3f7c75a100891"
+  },
+  {
+    "archived": "run_records/docs/dev_runs_v3/D1/run.json",
+    "source": "docs/dev_runs_v3/D1/run.json",
+    "source_sha256": "c40995169b02d6898ddeb80aec2a1e7d139112c2b5f1364716cf4cbcf5b2d707"
+  },
+  {
+    "archived": "run_records/docs/dev_runs_v3/D1/summary.json",
+    "source": "docs/dev_runs_v3/D1/summary.json",
+    "source_sha256": "7e66d782e810c06d03ce3f946dcd35837e119c9c43b92afa438c90a8723e2434"
+  },
+  {
+    "archived": "run_records/docs/dev_runs_v3/D2/run.json",
+    "source": "docs/dev_runs_v3/D2/run.json",
+    "source_sha256": "522fef2515a019d967af9bd40dfbc1eb9779af1c60a053b59bec7251fb73d37c"
+  },
+  {
+    "archived": "run_records/docs/dev_runs_v3/D2/summary.json",
+    "source": "docs/dev_runs_v3/D2/summary.json",
+    "source_sha256": "8780bcd5e99935ac773e9a426c99ffcd4ed6074280a559e55f6f2ef4f43f15d8"
+  },
+  {
+    "archived": "run_records/docs/dev_runs_v3/D3/run.json",
+    "source": "docs/dev_runs_v3/D3/run.json",
+    "source_sha256": "1d2a07f1dcaa0df142a47ca1f8ba7a7166907d4588410af720b14598f9d08c67"
+  },
+  {
+    "archived": "run_records/docs/dev_runs_v3/D3/summary.json",
+    "source": "docs/dev_runs_v3/D3/summary.json",
+    "source_sha256": "0e23222245c21585db21d00af4afd55cdf7f42cb72b44be61817bbc3fbb32ae4"
+  },
+  {
+    "archived": "run_records/docs/dev_runs_v3/D4/run.json",
+    "source": "docs/dev_runs_v3/D4/run.json",
+    "source_sha256": "583d8282b728bd0c3a7abb7a06b1886851691201aac73e5a44a0dc05c20c0491"
+  },
+  {
+    "archived": "run_records/docs/dev_runs_v3/D4/summary.json",
+    "source": "docs/dev_runs_v3/D4/summary.json",
+    "source_sha256": "ab5b45b43d00cb090409a66f9e34adc5a045235b5adb26b2cbe1489db13c1743"
+  },
+  {
+    "archived": "run_records/docs/dev_runs_v3/D5/run.json",
+    "source": "docs/dev_runs_v3/D5/run.json",
+    "source_sha256": "d178a6fd83c72882d1b8aab973312c8ac46e30a64712c7df4ea19aa38d0c25da"
+  },
+  {
+    "archived": "run_records/docs/dev_runs_v3/D5/summary.json",
+    "source": "docs/dev_runs_v3/D5/summary.json",
+    "source_sha256": "2cfe90462dc42efd265e7deb5edf5f15224c47f7be7c906776a8e2708cfaf66a"
+  },
+  {
+    "archived": "run_records/docs/dev_runs_v3/D6/run.json",
+    "source": "docs/dev_runs_v3/D6/run.json",
+    "source_sha256": "19eb643241972d2abc7a12e3507582c2d499f6048652806d8e943565890ecbf2"
+  },
+  {
+    "archived": "run_records/docs/dev_runs_v3/D6/summary.json",
+    "source": "docs/dev_runs_v3/D6/summary.json",
+    "source_sha256": "3764216727d1a1cc76cbee0fd992183c198d973c65639d518755facf562954ac"
+  },
+  {
+    "archived": "run_records/docs/dev_runs_v3/D7/run.json",
+    "source": "docs/dev_runs_v3/D7/run.json",
+    "source_sha256": "bad7d5087c27d5d9d1eb54792eaaef611267f3b3704e28e000c22dec20d47924"
+  },
+  {
+    "archived": "run_records/docs/dev_runs_v3/D7/summary.json",
+    "source": "docs/dev_runs_v3/D7/summary.json",
+    "source_sha256": "f141dbafc45ea4357e507d3ac983c8add0732745c4cf8b78359a486dc7ba4268"
+  },
+  {
+    "archived": "run_records/docs/dev_runs_v3/D8/run.json",
+    "source": "docs/dev_runs_v3/D8/run.json",
+    "source_sha256": "11e0438cb56094bdc6306b76c245e68aa82e76fd1a41eecf056d5708d1378f56"
+  },
+  {
+    "archived": "run_records/docs/dev_runs_v3/D8/summary.json",
+    "source": "docs/dev_runs_v3/D8/summary.json",
+    "source_sha256": "61083af7d3ed64b04dd89352e77d40a1726fc5feaa10a0fdfbfd6d5298262972"
+  },
+  {
+    "archived": "run_records/docs/dev_runs_v3_armA/batch_summary.json",
+    "source": "docs/dev_runs_v3_armA/batch_summary.json",
+    "source_sha256": "da3f16c2c2ec5fc967ff05032b6f372f3d77f1eadac5badc709ee34cb6c0851e"
+  },
+  {
+    "archived": "run_records/docs/dev_runs_v3_armA/D1/run.json",
+    "source": "docs/dev_runs_v3_armA/D1/run.json",
+    "source_sha256": "735d603478a0add6b36a3a944b772c01c80866fc9df118979e0a29beead50232"
+  },
+  {
+    "archived": "run_records/docs/dev_runs_v3_armA/D1/summary.json",
+    "source": "docs/dev_runs_v3_armA/D1/summary.json",
+    "source_sha256": "5df7df1987f9047fc287f92bf473e6e33d996254de15ae81abaa0eef764b8ce3"
+  },
+  {
+    "archived": "run_records/docs/dev_runs_v3_armA/D2/run.json",
+    "source": "docs/dev_runs_v3_armA/D2/run.json",
+    "source_sha256": "24f42510dae1d57dea184649f7d62b2d069f2c8fa6aa785d140eba01e250e5cb"
+  },
+  {
+    "archived": "run_records/docs/dev_runs_v3_armA/D2/summary.json",
+    "source": "docs/dev_runs_v3_armA/D2/summary.json",
+    "source_sha256": "4c1556710b555ce8ef97444d28a554d02e2e4aa0033c9e61d401ef4eb5d82875"
+  },
+  {
+    "archived": "run_records/docs/dev_runs_v3_armA/D3/run.json",
+    "source": "docs/dev_runs_v3_armA/D3/run.json",
+    "source_sha256": "764e2f4f336f1ca84a8a01aea8cd260791d445b3dcee63329c9a2a04c8a7b7cc"
+  },
+  {
+    "archived": "run_records/docs/dev_runs_v3_armA/D3/summary.json",
+    "source": "docs/dev_runs_v3_armA/D3/summary.json",
+    "source_sha256": "8d164f50fb7c77cad651ef4b713df93173ed912332dcf848e7da119f9e25d491"
+  },
+  {
+    "archived": "run_records/docs/dev_runs_v3_armA/D4/run.json",
+    "source": "docs/dev_runs_v3_armA/D4/run.json",
+    "source_sha256": "ccb5d425d09519228972a27e53bdf59f7fd6b94b634f24df4fa9ed276540154f"
+  },
+  {
+    "archived": "run_records/docs/dev_runs_v3_armA/D4/summary.json",
+    "source": "docs/dev_runs_v3_armA/D4/summary.json",
+    "source_sha256": "2a52f2333f1c559f4b55b6a09d7eea66248f9608920df44dc64c2da667511623"
+  },
+  {
+    "archived": "run_records/docs/dev_runs_v3_armA/D5/run.json",
+    "source": "docs/dev_runs_v3_armA/D5/run.json",
+    "source_sha256": "a22696c900a75ae7d09f314e07a03656b4a05aa89cf2103e9e87a36d3384f63f"
+  },
+  {
+    "archived": "run_records/docs/dev_runs_v3_armA/D5/summary.json",
+    "source": "docs/dev_runs_v3_armA/D5/summary.json",
+    "source_sha256": "a283136a1768d10d6af543764202b46c5b533f0110c218d9fd8cd260ccc3e2e9"
+  },
+  {
+    "archived": "run_records/docs/dev_runs_v3_armA/D6/run.json",
+    "source": "docs/dev_runs_v3_armA/D6/run.json",
+    "source_sha256": "7edcf030701153bc66fd13559c81b0a4f8c235e4fe6bc6c54d7ee1c1d60d8ec0"
+  },
+  {
+    "archived": "run_records/docs/dev_runs_v3_armA/D6/summary.json",
+    "source": "docs/dev_runs_v3_armA/D6/summary.json",
+    "source_sha256": "ea1dab7dad597c17b28296cc761706294e3d778a3b1a70629ca2ff5d8c99213b"
+  },
+  {
+    "archived": "run_records/docs/dev_runs_v3_armA/D7/run.json",
+    "source": "docs/dev_runs_v3_armA/D7/run.json",
+    "source_sha256": "1dae668217640158b226498f5500850946ad25729acf8e9e14c0694257c5e5ba"
+  },
+  {
+    "archived": "run_records/docs/dev_runs_v3_armA/D7/summary.json",
+    "source": "docs/dev_runs_v3_armA/D7/summary.json",
+    "source_sha256": "02ca7579eb18b1df044ae18413d80d8d2890bcafef720a2abab9f92b2d664ef5"
+  },
+  {
+    "archived": "run_records/docs/dev_runs_v3_armA/D8/run.json",
+    "source": "docs/dev_runs_v3_armA/D8/run.json",
+    "source_sha256": "9368338bf36ad232c0d53fb84ec8d58806b01e0b0a83636abeb65040e8a5344d"
+  },
+  {
+    "archived": "run_records/docs/dev_runs_v3_armA/D8/summary.json",
+    "source": "docs/dev_runs_v3_armA/D8/summary.json",
+    "source_sha256": "3071639c1ac72222ec169639bf030edad25717109d0dd4022d477245348b85ee"
+  },
+  {
+    "archived": "run_records/build_logs/dev_runs/batch_summary.json",
+    "source": "build_logs/dev_runs/batch_summary.json",
+    "source_sha256": "29f10ed82bde211228562932534e5abe88c05aaf5a5a673e99ba9d3a8c0f858f"
+  },
+  {
+    "archived": "run_records/build_logs/dev_runs/D1/run.json",
+    "source": "build_logs/dev_runs/D1/run.json",
+    "source_sha256": "5375235a00a71bda0197aaa424d44d615b137d22cc7a2a5291b0e4844759c684"
+  },
+  {
+    "archived": "run_records/build_logs/dev_runs/D1/summary.json",
+    "source": "build_logs/dev_runs/D1/summary.json",
+    "source_sha256": "17d770e5f7ba7ae8202b4e5784eab94f6900c25198c92c62cb2163d3078767a6"
+  },
+  {
+    "archived": "run_records/build_logs/dev_runs/D2/run.json",
+    "source": "build_logs/dev_runs/D2/run.json",
+    "source_sha256": "ade2262854b918d6348f18135db5f74caba600caf1febe160bcde3420923113a"
+  },
+  {
+    "archived": "run_records/build_logs/dev_runs/D2/summary.json",
+    "source": "build_logs/dev_runs/D2/summary.json",
+    "source_sha256": "69101759852131ed4de97b580336ec58fab59ededcd60fce8b704c73d7593ed4"
+  },
+  {
+    "archived": "run_records/build_logs/dev_runs/D3/run.json",
+    "source": "build_logs/dev_runs/D3/run.json",
+    "source_sha256": "43b6e7ec659c4315d6f0a8f89fc690dafb1aff3f336d749fe248ad0e8716b446"
+  },
+  {
+    "archived": "run_records/build_logs/dev_runs/D3/summary.json",
+    "source": "build_logs/dev_runs/D3/summary.json",
+    "source_sha256": "44016be321915440dd5875538d1a0a53aabd0ff444288a7bbac5d8a46c16c6bf"
+  },
+  {
+    "archived": "run_records/build_logs/dev_runs/D4/run.json",
+    "source": "build_logs/dev_runs/D4/run.json",
+    "source_sha256": "33f1a4d80f919563c829b224eec9d527b7fbce4ffe694c30b07403c22fa0688a"
+  },
+  {
+    "archived": "run_records/build_logs/dev_runs/D4/summary.json",
+    "source": "build_logs/dev_runs/D4/summary.json",
+    "source_sha256": "4209d0df7172bda971c659a8acb227db3fff4de1a2bd5125acc76a728314ecbd"
+  },
+  {
+    "archived": "run_records/build_logs/dev_runs/D5/run.json",
+    "source": "build_logs/dev_runs/D5/run.json",
+    "source_sha256": "a3d1e05ae8b6ed7fe0982d9d7e8453e9237eb9e970e2052ef1883d294cf66261"
+  },
+  {
+    "archived": "run_records/build_logs/dev_runs/D5/summary.json",
+    "source": "build_logs/dev_runs/D5/summary.json",
+    "source_sha256": "e5a648a3060df5b28a194a6a765284b7a9c1b5164f44bbb15d2df62aad65377d"
+  },
+  {
+    "archived": "run_records/build_logs/dev_runs/D6/run.json",
+    "source": "build_logs/dev_runs/D6/run.json",
+    "source_sha256": "6b39b8d38c4dc1b7547f9ce15ea67ad4ee2e63a6a001b103561abca36c3f45f0"
+  },
+  {
+    "archived": "run_records/build_logs/dev_runs/D6/summary.json",
+    "source": "build_logs/dev_runs/D6/summary.json",
+    "source_sha256": "51d773b1fbffd5f620a31d672d20619a6a6b6ce4e80766664137d2a70ea2398f"
+  },
+  {
+    "archived": "run_records/build_logs/dev_runs/D7/run.json",
+    "source": "build_logs/dev_runs/D7/run.json",
+    "source_sha256": "935dc8debc6341d95877e04e631eab8feb5883aae703f46652e2856a0fd748e7"
+  },
+  {
+    "archived": "run_records/build_logs/dev_runs/D7/summary.json",
+    "source": "build_logs/dev_runs/D7/summary.json",
+    "source_sha256": "5d1a95fd090ea54f35652b80c6d28ba0332739e5bb9edd0bbaf2ebcc77848e93"
+  },
+  {
+    "archived": "run_records/build_logs/dev_runs/D8/run.json",
+    "source": "build_logs/dev_runs/D8/run.json",
+    "source_sha256": "92d116497650beeed24cef23918df036065223f53f8a9f99df0aa5f9cb3e2b76"
+  },
+  {
+    "archived": "run_records/build_logs/dev_runs/D8/summary.json",
+    "source": "build_logs/dev_runs/D8/summary.json",
+    "source_sha256": "92b293b166b10581a961bbac0c6c6c1fb5105cf21a4a4f03a96d29cf53a9b092"
+  },
+  {
+    "archived": "run_records/build_logs/dev_runs_v3_armD/batch_summary.json",
+    "source": "build_logs/dev_runs_v3_armD/batch_summary.json",
+    "source_sha256": "eb42d0616c296245c2be657525f5ad5d72e5a258f0e996297ae3f7c75a100891"
+  },
+  {
+    "archived": "run_records/build_logs/dev_runs_v3_armD/D1/run.json",
+    "source": "build_logs/dev_runs_v3_armD/D1/run.json",
+    "source_sha256": "c40995169b02d6898ddeb80aec2a1e7d139112c2b5f1364716cf4cbcf5b2d707"
+  },
+  {
+    "archived": "run_records/build_logs/dev_runs_v3_armD/D1/summary.json",
+    "source": "build_logs/dev_runs_v3_armD/D1/summary.json",
+    "source_sha256": "7e66d782e810c06d03ce3f946dcd35837e119c9c43b92afa438c90a8723e2434"
+  },
+  {
+    "archived": "run_records/build_logs/dev_runs_v3_armD/D2/run.json",
+    "source": "build_logs/dev_runs_v3_armD/D2/run.json",
+    "source_sha256": "522fef2515a019d967af9bd40dfbc1eb9779af1c60a053b59bec7251fb73d37c"
+  },
+  {
+    "archived": "run_records/build_logs/dev_runs_v3_armD/D2/summary.json",
+    "source": "build_logs/dev_runs_v3_armD/D2/summary.json",
+    "source_sha256": "8780bcd5e99935ac773e9a426c99ffcd4ed6074280a559e55f6f2ef4f43f15d8"
+  },
+  {
+    "archived": "run_records/build_logs/dev_runs_v3_armD/D3/run.json",
+    "source": "build_logs/dev_runs_v3_armD/D3/run.json",
+    "source_sha256": "1d2a07f1dcaa0df142a47ca1f8ba7a7166907d4588410af720b14598f9d08c67"
+  },
+  {
+    "archived": "run_records/build_logs/dev_runs_v3_armD/D3/summary.json",
+    "source": "build_logs/dev_runs_v3_armD/D3/summary.json",
+    "source_sha256": "0e23222245c21585db21d00af4afd55cdf7f42cb72b44be61817bbc3fbb32ae4"
+  },
+  {
+    "archived": "run_records/build_logs/dev_runs_v3_armD/D4/run.json",
+    "source": "build_logs/dev_runs_v3_armD/D4/run.json",
+    "source_sha256": "583d8282b728bd0c3a7abb7a06b1886851691201aac73e5a44a0dc05c20c0491"
+  },
+  {
+    "archived": "run_records/build_logs/dev_runs_v3_armD/D4/summary.json",
+    "source": "build_logs/dev_runs_v3_armD/D4/summary.json",
+    "source_sha256": "ab5b45b43d00cb090409a66f9e34adc5a045235b5adb26b2cbe1489db13c1743"
+  },
+  {
+    "archived": "run_records/build_logs/dev_runs_v3_armD/D5/run.json",
+    "source": "build_logs/dev_runs_v3_armD/D5/run.json",
+    "source_sha256": "d178a6fd83c72882d1b8aab973312c8ac46e30a64712c7df4ea19aa38d0c25da"
+  },
+  {
+    "archived": "run_records/build_logs/dev_runs_v3_armD/D5/summary.json",
+    "source": "build_logs/dev_runs_v3_armD/D5/summary.json",
+    "source_sha256": "2cfe90462dc42efd265e7deb5edf5f15224c47f7be7c906776a8e2708cfaf66a"
+  },
+  {
+    "archived": "run_records/build_logs/dev_runs_v3_armD/D6/run.json",
+    "source": "build_logs/dev_runs_v3_armD/D6/run.json",
+    "source_sha256": "19eb643241972d2abc7a12e3507582c2d499f6048652806d8e943565890ecbf2"
+  },
+  {
+    "archived": "run_records/build_logs/dev_runs_v3_armD/D6/summary.json",
+    "source": "build_logs/dev_runs_v3_armD/D6/summary.json",
+    "source_sha256": "3764216727d1a1cc76cbee0fd992183c198d973c65639d518755facf562954ac"
+  },
+  {
+    "archived": "run_records/build_logs/dev_runs_v3_armD/D7/run.json",
+    "source": "build_logs/dev_runs_v3_armD/D7/run.json",
+    "source_sha256": "bad7d5087c27d5d9d1eb54792eaaef611267f3b3704e28e000c22dec20d47924"
+  },
+  {
+    "archived": "run_records/build_logs/dev_runs_v3_armD/D7/summary.json",
+    "source": "build_logs/dev_runs_v3_armD/D7/summary.json",
+    "source_sha256": "f141dbafc45ea4357e507d3ac983c8add0732745c4cf8b78359a486dc7ba4268"
+  },
+  {
+    "archived": "run_records/build_logs/dev_runs_v3_armD/D8/run.json",
+    "source": "build_logs/dev_runs_v3_armD/D8/run.json",
+    "source_sha256": "11e0438cb56094bdc6306b76c245e68aa82e76fd1a41eecf056d5708d1378f56"
+  },
+  {
+    "archived": "run_records/build_logs/dev_runs_v3_armD/D8/summary.json",
+    "source": "build_logs/dev_runs_v3_armD/D8/summary.json",
+    "source_sha256": "61083af7d3ed64b04dd89352e77d40a1726fc5feaa10a0fdfbfd6d5298262972"
+  },
+  {
+    "archived": "run_records/build_logs/dev_runs_capability_armD/batch_summary.json",
+    "source": "build_logs/dev_runs_capability_armD/batch_summary.json",
+    "source_sha256": "6762978b1dc2a1bf27c8403d3059ac5ee805e89eba75c8ae6c85bf0ff6ffbd85"
+  },
+  {
+    "archived": "run_records/build_logs/dev_runs_capability_armD/D1/run.json",
+    "source": "build_logs/dev_runs_capability_armD/D1/run.json",
+    "source_sha256": "60f0d96a5d1633242edb90740370d6f31de90262f2cbd5140b8fff65ba08a89c"
+  },
+  {
+    "archived": "run_records/build_logs/dev_runs_capability_armD/D1/summary.json",
+    "source": "build_logs/dev_runs_capability_armD/D1/summary.json",
+    "source_sha256": "db65d2495d4e06d28543489e892bf55e2b87c73ff0113b6c46bc540710941bad"
+  },
+  {
+    "archived": "run_records/build_logs/dev_runs_capability_armD/D2/run.json",
+    "source": "build_logs/dev_runs_capability_armD/D2/run.json",
+    "source_sha256": "c2ab27ea525537777dcd1bb1bb2dc6367587fc04b9cb634c7f20b55f530408e9"
+  },
+  {
+    "archived": "run_records/build_logs/dev_runs_capability_armD/D2/summary.json",
+    "source": "build_logs/dev_runs_capability_armD/D2/summary.json",
+    "source_sha256": "6c257c4d2f41cb350388dfb53cf0e7ea7f0b4e49f81cd34cb74836f6b56b8fce"
+  },
+  {
+    "archived": "run_records/build_logs/dev_runs_capability_armD/D3/run.json",
+    "source": "build_logs/dev_runs_capability_armD/D3/run.json",
+    "source_sha256": "d964bca5e0e08b120dac857e5e9b6f678487f1de7c65cbcc10f38735e668dc37"
+  },
+  {
+    "archived": "run_records/build_logs/dev_runs_capability_armD/D3/summary.json",
+    "source": "build_logs/dev_runs_capability_armD/D3/summary.json",
+    "source_sha256": "798ec03431f7b8a8c09402d3c80cae61d63a4d507d2cd80a9107b31eb97523ce"
+  },
+  {
+    "archived": "run_records/build_logs/dev_runs_capability_armD/D4/run.json",
+    "source": "build_logs/dev_runs_capability_armD/D4/run.json",
+    "source_sha256": "5a0d8a1d5536fbdc20e85f5583b89c6ce6005ec48bc88cfd8be4bb39c39577fc"
+  },
+  {
+    "archived": "run_records/build_logs/dev_runs_capability_armD/D4/summary.json",
+    "source": "build_logs/dev_runs_capability_armD/D4/summary.json",
+    "source_sha256": "17017f27b6525462ad6c2e0c92fcdff931a9a47fffc9706a4f380e62419d4d7f"
+  },
+  {
+    "archived": "run_records/build_logs/dev_runs_capability_armD/D5/run.json",
+    "source": "build_logs/dev_runs_capability_armD/D5/run.json",
+    "source_sha256": "d49ec5c7f4d4aa9df7ab7c7b977e116503bc442076c2fcd03759ff1a3577bf9d"
+  },
+  {
+    "archived": "run_records/build_logs/dev_runs_capability_armD/D5/summary.json",
+    "source": "build_logs/dev_runs_capability_armD/D5/summary.json",
+    "source_sha256": "8d25e5966d021cd9530e26821c99781673e469dfd57e574d160c99ad0482a88f"
+  },
+  {
+    "archived": "run_records/build_logs/dev_runs_capability_armD/D6/run.json",
+    "source": "build_logs/dev_runs_capability_armD/D6/run.json",
+    "source_sha256": "4ec3cd257a5d3a3dfbbdd07ed3f9832bf32db1f30fe3781ea5bfc499a0572eb3"
+  },
+  {
+    "archived": "run_records/build_logs/dev_runs_capability_armD/D6/summary.json",
+    "source": "build_logs/dev_runs_capability_armD/D6/summary.json",
+    "source_sha256": "1e5f7e6a768cd2b41133998984b4f1bf7e03801e99ae0acff8f1c0d63b85935f"
+  },
+  {
+    "archived": "run_records/build_logs/dev_runs_capability2_armD/batch_summary.json",
+    "source": "build_logs/dev_runs_capability2_armD/batch_summary.json",
+    "source_sha256": "0796ceab5545f35b7e45bf33d59b69a81a13b267ec6fb241021d6890b6ad947b"
+  },
+  {
+    "archived": "run_records/build_logs/dev_runs_capability2_armD/D1/run.json",
+    "source": "build_logs/dev_runs_capability2_armD/D1/run.json",
+    "source_sha256": "74e3113aff69b554a68aaa7ef59500fe9c12a3aa6e2495fc5f484f843d2acbfe"
+  },
+  {
+    "archived": "run_records/build_logs/dev_runs_capability2_armD/D1/summary.json",
+    "source": "build_logs/dev_runs_capability2_armD/D1/summary.json",
+    "source_sha256": "0a61b9228456ffa2f6a2a4c762968c9dd933eaf90a292ee539434fd9f55a03c1"
+  },
+  {
+    "archived": "run_records/build_logs/dev_runs_capability2_armD/D2/run.json",
+    "source": "build_logs/dev_runs_capability2_armD/D2/run.json",
+    "source_sha256": "9906c884a2fb258b6e301c4d661c46fd75763d7fd4d34a81a1ee9bd25142e20c"
+  },
+  {
+    "archived": "run_records/build_logs/dev_runs_capability2_armD/D2/summary.json",
+    "source": "build_logs/dev_runs_capability2_armD/D2/summary.json",
+    "source_sha256": "940a5e3058b80e5a63c667e6058a484f1bba184bc74cf31ab2e859f5c54278f0"
+  },
+  {
+    "archived": "run_records/build_logs/dev_runs_capability2_armD/D3/run.json",
+    "source": "build_logs/dev_runs_capability2_armD/D3/run.json",
+    "source_sha256": "020d86adb3590ad6c77e1e9ad4f8fbf737d988753f79f9706096e896dcf8b440"
+  },
+  {
+    "archived": "run_records/build_logs/dev_runs_capability2_armD/D3/summary.json",
+    "source": "build_logs/dev_runs_capability2_armD/D3/summary.json",
+    "source_sha256": "ee4cdd6bb0f278a963fc5667dd7194fafecbbc0e18cc8d8c2b32a326be53b9a9"
+  },
+  {
+    "archived": "run_records/build_logs/dev_runs_capability2_armD/D4/run.json",
+    "source": "build_logs/dev_runs_capability2_armD/D4/run.json",
+    "source_sha256": "b2f0d85aa6184c4920ef135bb2b8d7809e09d7778e6872130c9ad0df7289a528"
+  },
+  {
+    "archived": "run_records/build_logs/dev_runs_capability2_armD/D4/summary.json",
+    "source": "build_logs/dev_runs_capability2_armD/D4/summary.json",
+    "source_sha256": "cefc5dfe37163e1d8ecec5b8b3f1f123eaa7453886e123c3e3253d1b39cb866a"
+  },
+  {
+    "archived": "run_records/build_logs/dev_runs_capability2_armD/D5/run.json",
+    "source": "build_logs/dev_runs_capability2_armD/D5/run.json",
+    "source_sha256": "2164130d7926653bd3e02fc8dd9a6ed587fca8d466fe55877abf513729eaa717"
+  },
+  {
+    "archived": "run_records/build_logs/dev_runs_capability2_armD/D5/summary.json",
+    "source": "build_logs/dev_runs_capability2_armD/D5/summary.json",
+    "source_sha256": "26098e8318559e0844ecf9e2c6ea495354012fec27947581572bff704ba2af5e"
+  },
+  {
+    "archived": "run_records/build_logs/dev_runs_capability2_armD/D6/run.json",
+    "source": "build_logs/dev_runs_capability2_armD/D6/run.json",
+    "source_sha256": "e8a4b6dba9fee5d6b2d790cebc02cedc64d2053c005eac768a29909f15876321"
+  },
+  {
+    "archived": "run_records/build_logs/dev_runs_capability2_armD/D6/summary.json",
+    "source": "build_logs/dev_runs_capability2_armD/D6/summary.json",
+    "source_sha256": "405464bcfd3865970bf570db845763c4b6092cecbc26b3d08bf0123baa1f998e"
+  },
+  {
+    "archived": "run_records/build_logs/smoke_armD/batch_summary.json",
+    "source": "build_logs/smoke_armD/batch_summary.json",
+    "source_sha256": "cbc26dabc347b71d1f7c092fa07ea405173cf38aa89079d84c6d6193f9605444"
+  },
+  {
+    "archived": "run_records/build_logs/smoke_armD/D2/run.json",
+    "source": "build_logs/smoke_armD/D2/run.json",
+    "source_sha256": "d764a2f5f8ebff9f6eb5d0de1c22bb943988a4f4d0ef38b48448505b4088214b"
+  },
+  {
+    "archived": "run_records/build_logs/smoke_armD/D2/summary.json",
+    "source": "build_logs/smoke_armD/D2/summary.json",
+    "source_sha256": "a414877b10fd33789fa16252e235b096339233aec47b1b572d6e550c21375aba"
+  },
+  {
+    "archived": "run_records/build_logs/smoke_armD/D5/run.json",
+    "source": "build_logs/smoke_armD/D5/run.json",
+    "source_sha256": "99868d2dd5d8be0a325eee94e3810a9037d90d6529bf906f4429e88b3ba333c1"
+  },
+  {
+    "archived": "run_records/build_logs/smoke_armD/D5/summary.json",
+    "source": "build_logs/smoke_armD/D5/summary.json",
+    "source_sha256": "fd9c15a2956a15a3175f9359ff397543bb40edd49c54fd7626aeff16a37a5ed9"
+  },
+  {
+    "archived": "run_records/build_logs/smoke2_armD/batch_summary.json",
+    "source": "build_logs/smoke2_armD/batch_summary.json",
+    "source_sha256": "c97facc5216d4740cf2d7ae99c77318ee19c6827a8c325cdc6074b2fe48eaf45"
+  },
+  {
+    "archived": "run_records/build_logs/smoke2_armD/D2/run.json",
+    "source": "build_logs/smoke2_armD/D2/run.json",
+    "source_sha256": "6f575dc9a5a4f2a9e8be700fc272e7a5bd7ab7fb9151139b559ea52365aafd1e"
+  },
+  {
+    "archived": "run_records/build_logs/smoke2_armD/D2/summary.json",
+    "source": "build_logs/smoke2_armD/D2/summary.json",
+    "source_sha256": "26faa52dde78edfb72e254b9494e4f6224ab9fb1ccb72115486678985a1a0130"
+  },
+  {
+    "archived": "run_records/build_logs/smoke2_armD/D5/run.json",
+    "source": "build_logs/smoke2_armD/D5/run.json",
+    "source_sha256": "2953f03c347ead0c190acfd56006b7cbe3798763e708acae89fc49676ae954ee"
+  },
+  {
+    "archived": "run_records/build_logs/smoke2_armD/D5/summary.json",
+    "source": "build_logs/smoke2_armD/D5/summary.json",
+    "source_sha256": "232037dceaf658034f0f021ca149ca4c3484cdaca3cce837b99578ef8df4c8c4"
+  },
+  {
+    "archived": "scoring_and_judge/benchmark/results/arm_d_only_items.csv",
+    "source": "benchmark/results/arm_d_only_items.csv",
+    "source_sha256": "817ffb5820729204b886995957d80f6193c7593a7a2d8dccb1a091606d7bb694"
+  },
+  {
+    "archived": "scoring_and_judge/benchmark/results/paired_difference_by_prompt.csv",
+    "source": "benchmark/results/paired_difference_by_prompt.csv",
+    "source_sha256": "cfe71e2eb6e8cdbd8b30784a886a7dd86ef15f41f045c4dcb80e1dc52a7fc9eb"
+  },
+  {
+    "archived": "scoring_and_judge/benchmark/results/restricted_scenario.csv",
+    "source": "benchmark/results/restricted_scenario.csv",
+    "source_sha256": "ddd66b8414d552671c3218cbe8cfb6e33119dd6feccaed6152aa99a6ea14274f"
+  },
+  {
+    "archived": "scoring_and_judge/benchmark/results/restricted_side_by_side.md",
+    "source": "benchmark/results/restricted_side_by_side.md",
+    "source_sha256": "7f2f4c58f346ceb7c8fc72b09a3f7498043871bc00adb20d14980c3de153103b"
+  },
+  {
+    "archived": "scoring_and_judge/benchmark/results/side_by_side.md",
+    "source": "benchmark/results/side_by_side.md",
+    "source_sha256": "2b824cb08f83618784dd49ec4298bc4deb107f7ebb38cf15826f4ca81885e49f"
+  },
+  {
+    "archived": "scoring_and_judge/benchmark/results/steps_walltime_tokens.csv",
+    "source": "benchmark/results/steps_walltime_tokens.csv",
+    "source_sha256": "fa97729ea954bc0f8e118aa2db39a4eb3e0fb73367685c9ba6223b420ac7d074"
+  },
+  {
+    "archived": "scoring_and_judge/benchmark/results/success_against_budgets.csv",
+    "source": "benchmark/results/success_against_budgets.csv",
+    "source_sha256": "8ecee2bdb0eaf39fde57de7a77f9a1dcbfe9d1afe2be5fe7bac09a4829ef3490"
+  },
+  {
+    "archived": "scoring_and_judge/benchmark/results/success_against_budgets.pdf",
+    "source": "benchmark/results/success_against_budgets.pdf",
+    "source_sha256": "6a6a0cbcc8fd28d75e03997b6c2c82abfd1fc6bfe984f7b3a2a625af45f2177c"
+  },
+  {
+    "archived": "scoring_and_judge/benchmark/results/success_against_budgets.png",
+    "source": "benchmark/results/success_against_budgets.png",
+    "source_sha256": "b6af5791edd07a0ad9e8a08193270b1f0be6011e28ac5a349a344a74340e2b3f"
+  },
+  {
+    "archived": "scoring_and_judge/benchmark/results/success_by_arm.csv",
+    "source": "benchmark/results/success_by_arm.csv",
+    "source_sha256": "157d0f728ab0b1aecc4fda1a11116abb8bfffdfdee011ae109628899671a4a9d"
+  },
+  {
+    "archived": "scoring_and_judge/benchmark/results/success_by_category.csv",
+    "source": "benchmark/results/success_by_category.csv",
+    "source_sha256": "f00a3129f0ffd3e93e04de7b8cb7c1f7f7bf391b2ab7465afd000b2882dfd581"
+  },
+  {
+    "archived": "scoring_and_judge/benchmark/results/success_by_category.pdf",
+    "source": "benchmark/results/success_by_category.pdf",
+    "source_sha256": "1c8ca440fa9eac6d83787ebbf02c99c880ca63d6eefa715b205ccf023b5979a5"
+  },
+  {
+    "archived": "scoring_and_judge/benchmark/results/success_by_category.png",
+    "source": "benchmark/results/success_by_category.png",
+    "source_sha256": "1786e0b0f5c6d3d72a3913a11b0ab2fc8b386212e99a294cef09420241c40aeb"
+  },
+  {
+    "archived": "scoring_and_judge/benchmark/results/summary.md",
+    "source": "benchmark/results/summary.md",
+    "source_sha256": "92a314c42e3642798e7d325e96b6b408c49512b33eeee834cfb1cbe24186389f"
+  },
+  {
+    "archived": "scoring_and_judge/benchmark/results/tool_use_by_tool.csv",
+    "source": "benchmark/results/tool_use_by_tool.csv",
+    "source_sha256": "28e48ac7fbfd4aa3efaff65b38b510181af621578c6873045498361190f39e8a"
+  },
+  {
+    "archived": "scoring_and_judge/benchmark/results/validation_report.md",
+    "source": "benchmark/results/validation_report.md",
+    "source_sha256": "c837a4ee39ee3e5d4639e5682e88b07cd50a459c0429b0310b65ffc2f05248b5"
+  },
+  {
+    "archived": "scoring_and_judge/benchmark/results_scorerfix/arm_d_only_items.csv",
+    "source": "benchmark/results_scorerfix/arm_d_only_items.csv",
+    "source_sha256": "bce4cfb2979e57efdc6fb84292ef81dff09de5d6efd4be8744bffec4fbcdfa75"
+  },
+  {
+    "archived": "scoring_and_judge/benchmark/results_scorerfix/item_share_difference_by_prompt.csv",
+    "source": "benchmark/results_scorerfix/item_share_difference_by_prompt.csv",
+    "source_sha256": "66e15dbd487ae0b62aeee40a918e636c87aaedfedaa0d0bf1ff777431bb8fdd0"
+  },
+  {
+    "archived": "scoring_and_judge/benchmark/results_scorerfix/item_shares.csv",
+    "source": "benchmark/results_scorerfix/item_shares.csv",
+    "source_sha256": "1db7ee5f6c414f2e372d1b8c042ed3d3f9f1b7c4883a50034e530a669eb0d0a7"
+  },
+  {
+    "archived": "scoring_and_judge/benchmark/results_scorerfix/item_shares_summary.md",
+    "source": "benchmark/results_scorerfix/item_shares_summary.md",
+    "source_sha256": "564caa8c5dc8511bbfded772b4cd490c6d9bfccdb55deefa8430a0e08377c395"
+  },
+  {
+    "archived": "scoring_and_judge/benchmark/results_scorerfix/paired_difference_by_prompt.csv",
+    "source": "benchmark/results_scorerfix/paired_difference_by_prompt.csv",
+    "source_sha256": "30603d4a90198fc526f533f6ebe1e601feb832800a9574efeb139505ba19616d"
+  },
+  {
+    "archived": "scoring_and_judge/benchmark/results_scorerfix/pass_mark_success.csv",
+    "source": "benchmark/results_scorerfix/pass_mark_success.csv",
+    "source_sha256": "4be4de5dd7b4ae3ba09cbf3721c8298b982236d1bd84f590c3cd0626435685e2"
+  },
+  {
+    "archived": "scoring_and_judge/benchmark/results_scorerfix/README.md",
+    "source": "benchmark/results_scorerfix/README.md",
+    "source_sha256": "c844dc59196af214ce5986aa5cfcfb74173df263c37292fbbd1aaedb52ff2657"
+  },
+  {
+    "archived": "scoring_and_judge/benchmark/results_scorerfix/rescored_items.csv",
+    "source": "benchmark/results_scorerfix/rescored_items.csv",
+    "source_sha256": "fbe21d861ca6b3c93805f36f51d66c39d7d15259199b83821e91ed1775522c38"
+  },
+  {
+    "archived": "scoring_and_judge/benchmark/results_scorerfix/restricted_scenario.csv",
+    "source": "benchmark/results_scorerfix/restricted_scenario.csv",
+    "source_sha256": "8674773f62cac47f39812be5b85663434d745e64c3b7576debebb18396171b90"
+  },
+  {
+    "archived": "scoring_and_judge/benchmark/results_scorerfix/steps_walltime_tokens.csv",
+    "source": "benchmark/results_scorerfix/steps_walltime_tokens.csv",
+    "source_sha256": "d95493658eae76e49c0bcfc6ce85a815fd0f2f509fb56c7a5e404b9888303c34"
+  },
+  {
+    "archived": "scoring_and_judge/benchmark/results_scorerfix/success_against_budgets.csv",
+    "source": "benchmark/results_scorerfix/success_against_budgets.csv",
+    "source_sha256": "954db8ba45add2faa8196025d0f1702acd4056d3489b1a5ae9edbabb724e6d29"
+  },
+  {
+    "archived": "scoring_and_judge/benchmark/results_scorerfix/success_against_budgets.pdf",
+    "source": "benchmark/results_scorerfix/success_against_budgets.pdf",
+    "source_sha256": "2365d4e9fa7d40eb79d03cddccd49f791e62c14bb90c21d78bfe7f4e455f0b44"
+  },
+  {
+    "archived": "scoring_and_judge/benchmark/results_scorerfix/success_against_budgets.png",
+    "source": "benchmark/results_scorerfix/success_against_budgets.png",
+    "source_sha256": "b6af5791edd07a0ad9e8a08193270b1f0be6011e28ac5a349a344a74340e2b3f"
+  },
+  {
+    "archived": "scoring_and_judge/benchmark/results_scorerfix/success_by_arm.csv",
+    "source": "benchmark/results_scorerfix/success_by_arm.csv",
+    "source_sha256": "a0c5134b098e8c77894f2db703d1f5fa051f37e8e9ffa762530c175c2ccb13bd"
+  },
+  {
+    "archived": "scoring_and_judge/benchmark/results_scorerfix/success_by_category.csv",
+    "source": "benchmark/results_scorerfix/success_by_category.csv",
+    "source_sha256": "4fbd8235dc2ed99629ee11d2ebc98cb4d9c7fbb63b761c0bb22cbd23d01f9b77"
+  },
+  {
+    "archived": "scoring_and_judge/benchmark/results_scorerfix/success_by_category.pdf",
+    "source": "benchmark/results_scorerfix/success_by_category.pdf",
+    "source_sha256": "99790221bdfca0deec023c290ea84bf78dc0d97d192716162a082a385671326c"
+  },
+  {
+    "archived": "scoring_and_judge/benchmark/results_scorerfix/success_by_category.png",
+    "source": "benchmark/results_scorerfix/success_by_category.png",
+    "source_sha256": "1786e0b0f5c6d3d72a3913a11b0ab2fc8b386212e99a294cef09420241c40aeb"
+  },
+  {
+    "archived": "scoring_and_judge/benchmark/results_scorerfix/summary.md",
+    "source": "benchmark/results_scorerfix/summary.md",
+    "source_sha256": "23d71c1d73ce425419e7cfd602dc27a8e24574c4accaf7486bcc84adc4a2ba09"
+  },
+  {
+    "archived": "scoring_and_judge/benchmark/results_scorerfix/tool_use_by_tool.csv",
+    "source": "benchmark/results_scorerfix/tool_use_by_tool.csv",
+    "source_sha256": "521938960d8dad6c40d54b5ee9e072791bdef6bf247625db6ea6260866e6abfe"
+  },
+  {
+    "archived": "scoring_and_judge/benchmark/results_gaps/empty_or_fragment_answers.csv",
+    "source": "benchmark/results_gaps/empty_or_fragment_answers.csv",
+    "source_sha256": "8b4097088145a0891105f993ae72c24baa3038078db9f04bd3b910c518aaf8a4"
+  },
+  {
+    "archived": "scoring_and_judge/benchmark/results_gaps/harness_artifact_endings.csv",
+    "source": "benchmark/results_gaps/harness_artifact_endings.csv",
+    "source_sha256": "98a91fdfa76678eb824ebf6aa20f349eb667f566250409c3db352086f14908d7"
+  },
+  {
+    "archived": "scoring_and_judge/benchmark/results_gaps/leaked_reasoning.csv",
+    "source": "benchmark/results_gaps/leaked_reasoning.csv",
+    "source_sha256": "ef254023e753888415419e94b8214a3856aecbf5933815ba15f06d91b5099619"
+  },
+  {
+    "archived": "scoring_and_judge/benchmark/results_gaps/rescored_on_full_text.csv",
+    "source": "benchmark/results_gaps/rescored_on_full_text.csv",
+    "source_sha256": "5b1ffcf7e00313081da04cf38879d9af29ce91327e368f062a3ab53e8eef71ee"
+  },
+  {
+    "archived": "scoring_and_judge/benchmark/results_gaps/run_costs.csv",
+    "source": "benchmark/results_gaps/run_costs.csv",
+    "source_sha256": "1817f2e764e7ba369f33218edd48c211d70486b727d16c0f9b1be468005f2d68"
+  },
+  {
+    "archived": "scoring_and_judge/benchmark/results_gaps/summary.md",
+    "source": "benchmark/results_gaps/summary.md",
+    "source_sha256": "e089b8a867f8898c086cd2f5a34ba50cf14d19339a2db0a3d9762164e17c4e0d"
+  },
+  {
+    "archived": "scoring_and_judge/benchmark/results_gaps/summary_by_arm.csv",
+    "source": "benchmark/results_gaps/summary_by_arm.csv",
+    "source_sha256": "b2d91bf005feeaa0a838614e676fb65f4cbc23a9dda3aee0e63703571ae6b626"
+  },
+  {
+    "archived": "scoring_and_judge/benchmark/results_gaps/truncated_answers.csv",
+    "source": "benchmark/results_gaps/truncated_answers.csv",
+    "source_sha256": "af13ea10f2b0e5f0554ee5e2f7b8e11b49ad80853729d951150a2b13f3872035"
+  },
+  {
+    "archived": "scoring_and_judge/benchmark/judging/capability_judge_batches/judge_batch_001.md",
+    "source": "benchmark/judging/capability_judge_batches/judge_batch_001.md",
+    "source_sha256": "4e51c99e0a9c9b672c378d611ac05a7be4580774c338271b9d82b206d03b24db"
+  },
+  {
+    "archived": "scoring_and_judge/benchmark/judging/capability_judge_batches/judge_batch_002.md",
+    "source": "benchmark/judging/capability_judge_batches/judge_batch_002.md",
+    "source_sha256": "dd46ac8a391ec83fed9db0fac2c16f9f8123ff235bbb6571014835f40671ed71"
+  },
+  {
+    "archived": "scoring_and_judge/benchmark/judging/capability_judge_batches/judge_batch_003.md",
+    "source": "benchmark/judging/capability_judge_batches/judge_batch_003.md",
+    "source_sha256": "891643a1ad9ed3efe77b79f0271733ab1ac2475f156c26a5df1880ab2dd23ad5"
+  },
+  {
+    "archived": "scoring_and_judge/benchmark/judging/capability_judge_batches/judge_batch_004.md",
+    "source": "benchmark/judging/capability_judge_batches/judge_batch_004.md",
+    "source_sha256": "f2c37d858b864cd6e99bbb7b2649e16bdce70ef2b36a9b7fb0cff6a21c6e9741"
+  },
+  {
+    "archived": "scoring_and_judge/benchmark/judging/capability_judge_batches/judge_batch_005.md",
+    "source": "benchmark/judging/capability_judge_batches/judge_batch_005.md",
+    "source_sha256": "79b133e1da977decb18514d23bb40b4f41f754080738cccc889c7c6eeede2d4f"
+  },
+  {
+    "archived": "scoring_and_judge/benchmark/judging/capability_judge_batches/judge_batch_006.md",
+    "source": "benchmark/judging/capability_judge_batches/judge_batch_006.md",
+    "source_sha256": "172887398971e00cbd21cf01c2ca3ff075e69a4e24eb68e41c4412d59d59944a"
+  },
+  {
+    "archived": "scoring_and_judge/benchmark/judging/capability_judge_batches/judge_batch_007.md",
+    "source": "benchmark/judging/capability_judge_batches/judge_batch_007.md",
+    "source_sha256": "7b15f3ee2729ca75ac9f8247dbcf115b9420a2eb8c94f9a9612c2f4610314136"
+  },
+  {
+    "archived": "scoring_and_judge/benchmark/judging/capability_judge_batches/judge_batch_008.md",
+    "source": "benchmark/judging/capability_judge_batches/judge_batch_008.md",
+    "source_sha256": "d4f5cb61631ac5d079df09d2b50deb554b946cee89f5b08a13c2f81eb77237ae"
+  },
+  {
+    "archived": "scoring_and_judge/benchmark/judging/capability_judge_batches/judge_redaction_report.json",
+    "source": "benchmark/judging/capability_judge_batches/judge_redaction_report.json",
+    "source_sha256": "060917035fa79cdfa6b96ac12e28e668eef72e77cf2d5221c0c17d16ddf6b4bc"
+  },
+  {
+    "archived": "scoring_and_judge/benchmark/judging/capability_judge_batches/README.md",
+    "source": "benchmark/judging/capability_judge_batches/README.md",
+    "source_sha256": "b845216a5098d28704cf686578fe34915e3ca177f7f029ab788dec0e4e8d0e5a"
+  },
+  {
+    "archived": "scoring_and_judge/benchmark/judging/capability_judge_batches_rerun/judge_batch_001.md",
+    "source": "benchmark/judging/capability_judge_batches_rerun/judge_batch_001.md",
+    "source_sha256": "031cfb6fa18602cc9d50a137feba3b95266ae70f6a5864b4661515a66fa7e0dd"
+  },
+  {
+    "archived": "scoring_and_judge/benchmark/judging/capability_judge_batches_rerun/judge_batch_002.md",
+    "source": "benchmark/judging/capability_judge_batches_rerun/judge_batch_002.md",
+    "source_sha256": "694022a04557267a27801133e4db82ccac01e2bd4f4e362d3997dc08a8e56b5d"
+  },
+  {
+    "archived": "scoring_and_judge/benchmark/judging/capability_judge_batches_rerun/judge_batch_003.md",
+    "source": "benchmark/judging/capability_judge_batches_rerun/judge_batch_003.md",
+    "source_sha256": "78130a3379ba0532be5dc568bc27b4d00d9f20fa1c7eb8275e5d3afff76de615"
+  },
+  {
+    "archived": "scoring_and_judge/benchmark/judging/capability_judge_batches_rerun/judge_batch_004.md",
+    "source": "benchmark/judging/capability_judge_batches_rerun/judge_batch_004.md",
+    "source_sha256": "fae7e3ce133a5d92b6b6a3f5d9625d6838dc306fd63a27efd88c156336fba3a5"
+  },
+  {
+    "archived": "scoring_and_judge/benchmark/judging/capability_judge_batches_rerun/judge_batch_005.md",
+    "source": "benchmark/judging/capability_judge_batches_rerun/judge_batch_005.md",
+    "source_sha256": "9939ea17c9af53add8ba2a17961433e80ef5944cb358ef1aca57d5feef9e51a8"
+  },
+  {
+    "archived": "scoring_and_judge/benchmark/judging/capability_judge_batches_rerun/judge_batch_006.md",
+    "source": "benchmark/judging/capability_judge_batches_rerun/judge_batch_006.md",
+    "source_sha256": "493e0c10ae91d4bc3c56e6f67ef698234b869a7988d155e0bfcccee0afaf1e80"
+  },
+  {
+    "archived": "scoring_and_judge/benchmark/judging/capability_judge_batches_rerun/judge_batch_007.md",
+    "source": "benchmark/judging/capability_judge_batches_rerun/judge_batch_007.md",
+    "source_sha256": "730394e6e37255ba25fd23cec0ad11d4a74f1b4e9079817d66cb595a3529505e"
+  },
+  {
+    "archived": "scoring_and_judge/benchmark/judging/capability_judge_batches_rerun/judge_batch_008.md",
+    "source": "benchmark/judging/capability_judge_batches_rerun/judge_batch_008.md",
+    "source_sha256": "d4f5cb61631ac5d079df09d2b50deb554b946cee89f5b08a13c2f81eb77237ae"
+  },
+  {
+    "archived": "scoring_and_judge/benchmark/judging/capability_judge_batches_rerun/judge_redaction_report.json",
+    "source": "benchmark/judging/capability_judge_batches_rerun/judge_redaction_report.json",
+    "source_sha256": "3b30c9459044e7917085632534a28c9419616a86cb71c6cff1b24328d6fb391e"
+  },
+  {
+    "archived": "scoring_and_judge/benchmark/judging/capability_judge_batches_rerun/README.md",
+    "source": "benchmark/judging/capability_judge_batches_rerun/README.md",
+    "source_sha256": "8191041007315e737f84078f6e18960968be750a41c64db399c60a1fd666f593"
+  },
+  {
+    "archived": "scoring_and_judge/benchmark/judging/human_subset_15/human_run_01.md",
+    "source": "benchmark/judging/human_subset_15/human_run_01.md",
+    "source_sha256": "4d87b44f0395c3a0bd8494c34b9844a8d9227cd88dd2996d62670f6486d5f399"
+  },
+  {
+    "archived": "scoring_and_judge/benchmark/judging/human_subset_15/human_run_02.md",
+    "source": "benchmark/judging/human_subset_15/human_run_02.md",
+    "source_sha256": "1668b28de38971d8ccf615678d4b4a9c58d8738b134d9e0cbda4303ad8b88a9b"
+  },
+  {
+    "archived": "scoring_and_judge/benchmark/judging/human_subset_15/human_run_03.md",
+    "source": "benchmark/judging/human_subset_15/human_run_03.md",
+    "source_sha256": "3b731c8eebfa5cc046aeb034b7589efd8c8ffe15b7fb428a43447833e771c876"
+  },
+  {
+    "archived": "scoring_and_judge/benchmark/judging/human_subset_15/human_run_04.md",
+    "source": "benchmark/judging/human_subset_15/human_run_04.md",
+    "source_sha256": "3445983b2cabd1c978d1d84c39c11141b1f78bf436efb6315f324b82da0b5b27"
+  },
+  {
+    "archived": "scoring_and_judge/benchmark/judging/human_subset_15/human_run_05.md",
+    "source": "benchmark/judging/human_subset_15/human_run_05.md",
+    "source_sha256": "bb10a66b94d0daf6ce6744263e34a0485442637e9153308f3f8aab7ceb23155e"
+  },
+  {
+    "archived": "scoring_and_judge/benchmark/judging/human_subset_15/human_run_06.md",
+    "source": "benchmark/judging/human_subset_15/human_run_06.md",
+    "source_sha256": "b061a03974fc081c47d46949c0a7ad94da0a30aa14adae50a48869f69995b6d9"
+  },
+  {
+    "archived": "scoring_and_judge/benchmark/judging/human_subset_15/human_run_07.md",
+    "source": "benchmark/judging/human_subset_15/human_run_07.md",
+    "source_sha256": "697567b92ad99466a2b4babe05dc209bfcc8be8deac5ff2de598e6ed19d79ebf"
+  },
+  {
+    "archived": "scoring_and_judge/benchmark/judging/human_subset_15/human_run_08.md",
+    "source": "benchmark/judging/human_subset_15/human_run_08.md",
+    "source_sha256": "33889699df6af0d03e46c8529b242add313ceb3eb2b3d96483d5829aca06596a"
+  },
+  {
+    "archived": "scoring_and_judge/benchmark/judging/human_subset_15/human_run_09.md",
+    "source": "benchmark/judging/human_subset_15/human_run_09.md",
+    "source_sha256": "c9bef6ad7d545e27b6d5872bd8f7b7c99ca3c823020e33eeffe64c2b304ec202"
+  },
+  {
+    "archived": "scoring_and_judge/benchmark/judging/human_subset_15/human_run_10.md",
+    "source": "benchmark/judging/human_subset_15/human_run_10.md",
+    "source_sha256": "9b79debb06e46168ad1d4a5273ee6357a75164f0e32328a27ca62bec70f1c990"
+  },
+  {
+    "archived": "scoring_and_judge/benchmark/judging/human_subset_15/human_run_11.md",
+    "source": "benchmark/judging/human_subset_15/human_run_11.md",
+    "source_sha256": "79c014d3c51e5e3fd4de0ec90f2a349c3cba5e60e2e245a1800205a72bb18228"
+  },
+  {
+    "archived": "scoring_and_judge/benchmark/judging/human_subset_15/human_run_12.md",
+    "source": "benchmark/judging/human_subset_15/human_run_12.md",
+    "source_sha256": "97acca4e518e183b4330272a40f328ff8edbd48fd3352c026c23f558f2da2932"
+  },
+  {
+    "archived": "scoring_and_judge/benchmark/judging/human_subset_15/human_run_13.md",
+    "source": "benchmark/judging/human_subset_15/human_run_13.md",
+    "source_sha256": "81171854e9678972c10001cb7760f3001e5fec22539e16a5d7a53b4bd33eab22"
+  },
+  {
+    "archived": "scoring_and_judge/benchmark/judging/human_subset_15/human_run_14.md",
+    "source": "benchmark/judging/human_subset_15/human_run_14.md",
+    "source_sha256": "148e37705daf50e3fec2d0590adc318823701c4a37e72e49b361da5fffd5cfd5"
+  },
+  {
+    "archived": "scoring_and_judge/benchmark/judging/human_subset_15/human_run_15.md",
+    "source": "benchmark/judging/human_subset_15/human_run_15.md",
+    "source_sha256": "45733bde91a66d05159061181c951ca1e86ba87783e122c52cd7088ae8540555"
+  },
+  {
+    "archived": "scoring_and_judge/benchmark/judging/human_subset_15/human_subset_scores.csv",
+    "source": "benchmark/judging/human_subset_15/human_subset_scores.csv",
+    "source_sha256": "4893d35202b1c9525372cb763ec61f8e0a12cee5d06ff729be59753286707f16"
+  },
+  {
+    "archived": "scoring_and_judge/benchmark/judging/human_subset_15/README.md",
+    "source": "benchmark/judging/human_subset_15/README.md",
+    "source_sha256": "619cc123032697e8eeea7e7f268d08a14609dd9610975631888807217c27ecde"
+  },
+  {
+    "archived": "scoring_and_judge/benchmark/judging/human_subset_30/human_run_01.md",
+    "source": "benchmark/judging/human_subset_30/human_run_01.md",
+    "source_sha256": "aafc70e6f5b20a173e1c2004c2a52c134b2ff7b2b570597649f504e5e9728d3a"
+  },
+  {
+    "archived": "scoring_and_judge/benchmark/judging/human_subset_30/human_run_02.md",
+    "source": "benchmark/judging/human_subset_30/human_run_02.md",
+    "source_sha256": "b5308d50986cb6502d1baa00675b3d033792020ec554722874de3dbc52108591"
+  },
+  {
+    "archived": "scoring_and_judge/benchmark/judging/human_subset_30/human_run_03.md",
+    "source": "benchmark/judging/human_subset_30/human_run_03.md",
+    "source_sha256": "22b59ec76181da9bbf28f37d53463c5db738e506be449fdd580c6409eaaaf9b8"
+  },
+  {
+    "archived": "scoring_and_judge/benchmark/judging/human_subset_30/human_run_04.md",
+    "source": "benchmark/judging/human_subset_30/human_run_04.md",
+    "source_sha256": "81171854e9678972c10001cb7760f3001e5fec22539e16a5d7a53b4bd33eab22"
+  },
+  {
+    "archived": "scoring_and_judge/benchmark/judging/human_subset_30/human_run_05.md",
+    "source": "benchmark/judging/human_subset_30/human_run_05.md",
+    "source_sha256": "b061a03974fc081c47d46949c0a7ad94da0a30aa14adae50a48869f69995b6d9"
+  },
+  {
+    "archived": "scoring_and_judge/benchmark/judging/human_subset_30/human_run_06.md",
+    "source": "benchmark/judging/human_subset_30/human_run_06.md",
+    "source_sha256": "68005b79d8545822e7aea4ee22eb8f49097f8b1bb48607fd15290cad571a37a2"
+  },
+  {
+    "archived": "scoring_and_judge/benchmark/judging/human_subset_30/human_run_07.md",
+    "source": "benchmark/judging/human_subset_30/human_run_07.md",
+    "source_sha256": "6b093d0688d13c2fba51f57ead489fb03f011b34e1fc132f9aac36dda09ad2a1"
+  },
+  {
+    "archived": "scoring_and_judge/benchmark/judging/human_subset_30/human_run_08.md",
+    "source": "benchmark/judging/human_subset_30/human_run_08.md",
+    "source_sha256": "da4a9336175549e234830935b4cde33350ef9f20203167e5944655602ea9bd28"
+  },
+  {
+    "archived": "scoring_and_judge/benchmark/judging/human_subset_30/human_run_09.md",
+    "source": "benchmark/judging/human_subset_30/human_run_09.md",
+    "source_sha256": "bb10a66b94d0daf6ce6744263e34a0485442637e9153308f3f8aab7ceb23155e"
+  },
+  {
+    "archived": "scoring_and_judge/benchmark/judging/human_subset_30/human_run_10.md",
+    "source": "benchmark/judging/human_subset_30/human_run_10.md",
+    "source_sha256": "33889699df6af0d03e46c8529b242add313ceb3eb2b3d96483d5829aca06596a"
+  },
+  {
+    "archived": "scoring_and_judge/benchmark/judging/human_subset_30/human_run_11.md",
+    "source": "benchmark/judging/human_subset_30/human_run_11.md",
+    "source_sha256": "2c678c8c9604f7fab66dd42694e434d46bacd1bb799c447d302f892bb49729f1"
+  },
+  {
+    "archived": "scoring_and_judge/benchmark/judging/human_subset_30/human_run_12.md",
+    "source": "benchmark/judging/human_subset_30/human_run_12.md",
+    "source_sha256": "b784c5f0abccad1cd77a35b95e7d389dd04298bd4d8c32642f8f97d69ad8ab08"
+  },
+  {
+    "archived": "scoring_and_judge/benchmark/judging/human_subset_30/human_run_13.md",
+    "source": "benchmark/judging/human_subset_30/human_run_13.md",
+    "source_sha256": "1668b28de38971d8ccf615678d4b4a9c58d8738b134d9e0cbda4303ad8b88a9b"
+  },
+  {
+    "archived": "scoring_and_judge/benchmark/judging/human_subset_30/human_run_14.md",
+    "source": "benchmark/judging/human_subset_30/human_run_14.md",
+    "source_sha256": "c6beb4d8deba0449d1bbe4d1506e8cf104ba98882dd54d2a3bb6a825758a91d3"
+  },
+  {
+    "archived": "scoring_and_judge/benchmark/judging/human_subset_30/human_run_15.md",
+    "source": "benchmark/judging/human_subset_30/human_run_15.md",
+    "source_sha256": "148e37705daf50e3fec2d0590adc318823701c4a37e72e49b361da5fffd5cfd5"
+  },
+  {
+    "archived": "scoring_and_judge/benchmark/judging/human_subset_30/human_run_16.md",
+    "source": "benchmark/judging/human_subset_30/human_run_16.md",
+    "source_sha256": "6ae381b555651382fc57899f607194d5c09c73d654fda05546338b27e5444de0"
+  },
+  {
+    "archived": "scoring_and_judge/benchmark/judging/human_subset_30/human_run_17.md",
+    "source": "benchmark/judging/human_subset_30/human_run_17.md",
+    "source_sha256": "6c43308ffb82b477a38629e46fcb0b521de4033216109cf95cf3a41d90fbb3ad"
+  },
+  {
+    "archived": "scoring_and_judge/benchmark/judging/human_subset_30/human_run_18.md",
+    "source": "benchmark/judging/human_subset_30/human_run_18.md",
+    "source_sha256": "69cc6beee7fda767c14a1c9d5a3338715c234bdbaedc9b96ce596fde6a81ec54"
+  },
+  {
+    "archived": "scoring_and_judge/benchmark/judging/human_subset_30/human_run_19.md",
+    "source": "benchmark/judging/human_subset_30/human_run_19.md",
+    "source_sha256": "4cecf0a448ec95c31a87a0fba38fc303cdafe802e9d74710720e0d6e73e4d681"
+  },
+  {
+    "archived": "scoring_and_judge/benchmark/judging/human_subset_30/human_run_20.md",
+    "source": "benchmark/judging/human_subset_30/human_run_20.md",
+    "source_sha256": "3445983b2cabd1c978d1d84c39c11141b1f78bf436efb6315f324b82da0b5b27"
+  },
+  {
+    "archived": "scoring_and_judge/benchmark/judging/human_subset_30/human_run_21.md",
+    "source": "benchmark/judging/human_subset_30/human_run_21.md",
+    "source_sha256": "c9bef6ad7d545e27b6d5872bd8f7b7c99ca3c823020e33eeffe64c2b304ec202"
+  },
+  {
+    "archived": "scoring_and_judge/benchmark/judging/human_subset_30/human_run_22.md",
+    "source": "benchmark/judging/human_subset_30/human_run_22.md",
+    "source_sha256": "97acca4e518e183b4330272a40f328ff8edbd48fd3352c026c23f558f2da2932"
+  },
+  {
+    "archived": "scoring_and_judge/benchmark/judging/human_subset_30/human_run_23.md",
+    "source": "benchmark/judging/human_subset_30/human_run_23.md",
+    "source_sha256": "3b731c8eebfa5cc046aeb034b7589efd8c8ffe15b7fb428a43447833e771c876"
+  },
+  {
+    "archived": "scoring_and_judge/benchmark/judging/human_subset_30/human_run_24.md",
+    "source": "benchmark/judging/human_subset_30/human_run_24.md",
+    "source_sha256": "4d87b44f0395c3a0bd8494c34b9844a8d9227cd88dd2996d62670f6486d5f399"
+  },
+  {
+    "archived": "scoring_and_judge/benchmark/judging/human_subset_30/human_run_25.md",
+    "source": "benchmark/judging/human_subset_30/human_run_25.md",
+    "source_sha256": "13a43973c881b45d0344121ca8430d66346cca0d5cadc1491214afffd22451a6"
+  },
+  {
+    "archived": "scoring_and_judge/benchmark/judging/human_subset_30/human_run_26.md",
+    "source": "benchmark/judging/human_subset_30/human_run_26.md",
+    "source_sha256": "45733bde91a66d05159061181c951ca1e86ba87783e122c52cd7088ae8540555"
+  },
+  {
+    "archived": "scoring_and_judge/benchmark/judging/human_subset_30/human_run_27.md",
+    "source": "benchmark/judging/human_subset_30/human_run_27.md",
+    "source_sha256": "9b79debb06e46168ad1d4a5273ee6357a75164f0e32328a27ca62bec70f1c990"
+  },
+  {
+    "archived": "scoring_and_judge/benchmark/judging/human_subset_30/human_run_28.md",
+    "source": "benchmark/judging/human_subset_30/human_run_28.md",
+    "source_sha256": "697567b92ad99466a2b4babe05dc209bfcc8be8deac5ff2de598e6ed19d79ebf"
+  },
+  {
+    "archived": "scoring_and_judge/benchmark/judging/human_subset_30/human_run_29.md",
+    "source": "benchmark/judging/human_subset_30/human_run_29.md",
+    "source_sha256": "5383afe0f3ed12b47cc94d7d5d68f2cb8b3515fb58f888779380c6612b71d001"
+  },
+  {
+    "archived": "scoring_and_judge/benchmark/judging/human_subset_30/human_run_30.md",
+    "source": "benchmark/judging/human_subset_30/human_run_30.md",
+    "source_sha256": "79c014d3c51e5e3fd4de0ec90f2a349c3cba5e60e2e245a1800205a72bb18228"
+  },
+  {
+    "archived": "scoring_and_judge/benchmark/judging/human_subset_30/human_subset_scores.csv",
+    "source": "benchmark/judging/human_subset_30/human_subset_scores.csv",
+    "source_sha256": "22ca4e6f6bf4c5b47c0a2984b818ecf608c8b3b763aa3f18a4a9f9a25febcb07"
+  },
+  {
+    "archived": "scoring_and_judge/benchmark/judging/human_subset_30/README.md",
+    "source": "benchmark/judging/human_subset_30/README.md",
+    "source_sha256": "bcefb2d0c4ca58c73d28707e7ff042b7477b6f17e87bf30cac970c2de6aec7b4"
+  },
+  {
+    "archived": "scoring_and_judge/benchmark/judging/judge_batches/judge_batch_001.md",
+    "source": "benchmark/judging/judge_batches/judge_batch_001.md",
+    "source_sha256": "b191f776793314a5bf317524424f094a34b3e1fd4e39d62776e473ccd1a915eb"
+  },
+  {
+    "archived": "scoring_and_judge/benchmark/judging/judge_batches/judge_batch_002.md",
+    "source": "benchmark/judging/judge_batches/judge_batch_002.md",
+    "source_sha256": "d61184c370936300107587ffe0781fe9fb0df37eb12fc068797dddbc0b6d43cd"
+  },
+  {
+    "archived": "scoring_and_judge/benchmark/judging/judge_batches/judge_batch_003.md",
+    "source": "benchmark/judging/judge_batches/judge_batch_003.md",
+    "source_sha256": "aa3ae21320ede47f0aceea9d7fef4d7637bd433e9b8c05e21fbf4a072da6dcd6"
+  },
+  {
+    "archived": "scoring_and_judge/benchmark/judging/judge_batches/judge_batch_004.md",
+    "source": "benchmark/judging/judge_batches/judge_batch_004.md",
+    "source_sha256": "638bef16f417a5fc94bb9eda0c09c491688802d093fd4bba82f7ef842b066de0"
+  },
+  {
+    "archived": "scoring_and_judge/benchmark/judging/judge_batches/judge_batch_005.md",
+    "source": "benchmark/judging/judge_batches/judge_batch_005.md",
+    "source_sha256": "f100ce67750888f251b26a27cfe7f590e280d1ce02f9fb52c02a5e8fd19d61e7"
+  },
+  {
+    "archived": "scoring_and_judge/benchmark/judging/judge_batches/judge_batch_006.md",
+    "source": "benchmark/judging/judge_batches/judge_batch_006.md",
+    "source_sha256": "d0af45076c711b9b97b391722ea12998d51248821c1998ed1abbb32c131fe014"
+  },
+  {
+    "archived": "scoring_and_judge/benchmark/judging/judge_batches/judge_batch_007.md",
+    "source": "benchmark/judging/judge_batches/judge_batch_007.md",
+    "source_sha256": "d24bd47e67a9d1e63d6012ae8c6da29002cb8cb992b62718e2da36f867608192"
+  },
+  {
+    "archived": "scoring_and_judge/benchmark/judging/judge_batches/judge_batch_008.md",
+    "source": "benchmark/judging/judge_batches/judge_batch_008.md",
+    "source_sha256": "6bbb3a24529360e88ab47b0bfce0ef1745f89aa2f7efd66d16a02a655e7f9b63"
+  },
+  {
+    "archived": "scoring_and_judge/benchmark/judging/judge_batches/judge_batch_009.md",
+    "source": "benchmark/judging/judge_batches/judge_batch_009.md",
+    "source_sha256": "e9477a370c83cc34af0d2cb13bf23546d82215cdac05d66bbf50ddc5060b8d33"
+  },
+  {
+    "archived": "scoring_and_judge/benchmark/judging/judge_batches/judge_batch_010.md",
+    "source": "benchmark/judging/judge_batches/judge_batch_010.md",
+    "source_sha256": "84ceb63b7db6c7ba462ea82ddf17f4617ecbe3f56e072c3dd66ed02804f8de6c"
+  },
+  {
+    "archived": "scoring_and_judge/benchmark/judging/judge_batches/judge_batch_011.md",
+    "source": "benchmark/judging/judge_batches/judge_batch_011.md",
+    "source_sha256": "04db02ff985039541dea0b55b14e3f8b741d6cc930c13395d57dc96948327c55"
+  },
+  {
+    "archived": "scoring_and_judge/benchmark/judging/judge_batches/judge_batch_012.md",
+    "source": "benchmark/judging/judge_batches/judge_batch_012.md",
+    "source_sha256": "462bfe4383ba076b6b41152db079d79a0a0674bfd188593002aada4161298a81"
+  },
+  {
+    "archived": "scoring_and_judge/benchmark/judging/judge_batches/judge_batch_013.md",
+    "source": "benchmark/judging/judge_batches/judge_batch_013.md",
+    "source_sha256": "2139bd6275eaac926a03f04c72530d8a43e4472a874c221ac3e600409ce9cf50"
+  },
+  {
+    "archived": "scoring_and_judge/benchmark/judging/judge_batches/judge_batch_014.md",
+    "source": "benchmark/judging/judge_batches/judge_batch_014.md",
+    "source_sha256": "c1660a36e0ffc50c48c8868aa079fe9a7af185cd808adeae7db9aec9da8c3f1c"
+  },
+  {
+    "archived": "scoring_and_judge/benchmark/judging/judge_batches/judge_batch_015.md",
+    "source": "benchmark/judging/judge_batches/judge_batch_015.md",
+    "source_sha256": "66fdb8ca91cd3c3ecae937e9a0e11c96bd22919bcfd7ac375bd086dd8d50b049"
+  },
+  {
+    "archived": "scoring_and_judge/benchmark/judging/judge_batches/judge_batch_016.md",
+    "source": "benchmark/judging/judge_batches/judge_batch_016.md",
+    "source_sha256": "7f90836ff93decf3add07a7714e08e904253a6a011740998f347bfce2a0268b3"
+  },
+  {
+    "archived": "scoring_and_judge/benchmark/judging/judge_batches/judge_batch_017.md",
+    "source": "benchmark/judging/judge_batches/judge_batch_017.md",
+    "source_sha256": "9ec497ddc5c1dcdec19110551d9256b199a68f7094c77307ee388025e3c90e98"
+  },
+  {
+    "archived": "scoring_and_judge/benchmark/judging/judge_batches/judge_batch_018.md",
+    "source": "benchmark/judging/judge_batches/judge_batch_018.md",
+    "source_sha256": "ce59a968fccd7f31ca19d6bdd1ca5085a43f4dc2194dac6398a11cbe124cef69"
+  },
+  {
+    "archived": "scoring_and_judge/benchmark/judging/judge_batches/judge_batch_019.md",
+    "source": "benchmark/judging/judge_batches/judge_batch_019.md",
+    "source_sha256": "4c7edb26ded213dbb5797a60b62c7a6f114de8df8eef161eb0248ff2a8789b1a"
+  },
+  {
+    "archived": "scoring_and_judge/benchmark/judging/judge_batches/judge_batch_020.md",
+    "source": "benchmark/judging/judge_batches/judge_batch_020.md",
+    "source_sha256": "cf37ef7477773820685c83b81b1c6d9736a967367f5b370463d2c0e1c4345bde"
+  },
+  {
+    "archived": "scoring_and_judge/benchmark/judging/judge_batches/judge_batch_021.md",
+    "source": "benchmark/judging/judge_batches/judge_batch_021.md",
+    "source_sha256": "1a5b953e28be0e9e4ebbe6a7adaf5a13a5d36de3444f6e9c874de1225c22c830"
+  },
+  {
+    "archived": "scoring_and_judge/benchmark/judging/judge_batches/judge_batch_022.md",
+    "source": "benchmark/judging/judge_batches/judge_batch_022.md",
+    "source_sha256": "0dd8660e7fef63d78b60adaebf65bbb196753131a9749a7d6d8bef85ad0a697c"
+  },
+  {
+    "archived": "scoring_and_judge/benchmark/judging/judge_batches/judge_batch_023.md",
+    "source": "benchmark/judging/judge_batches/judge_batch_023.md",
+    "source_sha256": "86886dabf1ffc8a2e19a4c23c0aa1721c3f70bebf0f5a64e1533a374def73dad"
+  },
+  {
+    "archived": "scoring_and_judge/benchmark/judging/judge_batches/judge_batch_024.md",
+    "source": "benchmark/judging/judge_batches/judge_batch_024.md",
+    "source_sha256": "b2bff170c442770265d9cd2645f342ec0f8a244da4c329ebfb486c6103e87b1a"
+  },
+  {
+    "archived": "scoring_and_judge/benchmark/judging/judge_batches/judge_batch_025.md",
+    "source": "benchmark/judging/judge_batches/judge_batch_025.md",
+    "source_sha256": "cb9fa758a90bf8b5c171eec3fc4be9dfcb5a2f7a9bb86f5a456e36d77d03552a"
+  },
+  {
+    "archived": "scoring_and_judge/benchmark/judging/judge_batches/judge_redaction_report.json",
+    "source": "benchmark/judging/judge_batches/judge_redaction_report.json",
+    "source_sha256": "bfbc8123fec85e755d58bed21a363e1c22d49d5e8ca2d35cdf6906057a87985d"
+  },
+  {
+    "archived": "scoring_and_judge/benchmark/judging/judge_batches/README.md",
+    "source": "benchmark/judging/judge_batches/README.md",
+    "source_sha256": "99a7cd45add78a5431c1f162c43706aac06b95b9e243e2acbdfd8c2af7455615"
+  },
+  {
+    "archived": "scoring_and_judge/benchmark/judging/judge_batches_p07_rerun/judge_batch_001.md",
+    "source": "benchmark/judging/judge_batches_p07_rerun/judge_batch_001.md",
+    "source_sha256": "14163cf1078d67339870b0e2e76a5393fdff5bcf3c1d45dfad13491629ecd326"
+  },
+  {
+    "archived": "scoring_and_judge/benchmark/judging/judge_batches_p07_rerun/judge_redaction_report.json",
+    "source": "benchmark/judging/judge_batches_p07_rerun/judge_redaction_report.json",
+    "source_sha256": "151e20da21ba78ace6292df3cd5ad0c361c6ec14f0e04a7faa39ffcf65681846"
+  },
+  {
+    "archived": "scoring_and_judge/benchmark/judging/judge_batches_p07_rerun/README.md",
+    "source": "benchmark/judging/judge_batches_p07_rerun/README.md",
+    "source_sha256": "f0648496b40cc32cb615bccf0298c5426a9ef3bb9e9508d63b9e2cbb295b58b7"
+  },
+  {
+    "archived": "scoring_and_judge/benchmark/judging/README.md",
+    "source": "benchmark/judging/README.md",
+    "source_sha256": "7c63d382d596cd8231c0edb84b374e2652a51332cdeeaa68ea747df41c6b35ba"
+  },
+  {
+    "archived": "scoring_and_judge/benchmark/judging/validation_report.md",
+    "source": "benchmark/judging/validation_report.md",
+    "source_sha256": "c837a4ee39ee3e5d4639e5682e88b07cd50a459c0429b0310b65ffc2f05248b5"
+  },
+  {
+    "archived": "scoring_and_judge/benchmark/analysis_set.json",
+    "source": "benchmark/analysis_set.json",
+    "source_sha256": "53a47bf332be0b7ab53a4d9ee7f6d5307c08728a890b0d764182f083523ede23"
+  },
+  {
+    "archived": "scoring_and_judge/benchmark/analysis_plan.md",
+    "source": "benchmark/analysis_plan.md",
+    "source_sha256": "813eded8fdc577107a59a655247d7d3685244b3589b066a8177ea89d1d867405"
+  },
+  {
+    "archived": "scoring_and_judge/benchmark/judge_outputs_provisional.md",
+    "source": "benchmark/judge_outputs_provisional.md",
+    "source_sha256": "f4e0c3730b678a03b852041bea90111d61c97adb506df059cbb57e7f3f0602d7"
+  },
+  {
+    "archived": "scoring_and_judge/benchmark/human_subset_draw.md",
+    "source": "benchmark/human_subset_draw.md",
+    "source_sha256": "52f12150b7807384eb6267433ba51dc6297eb99ca117c0b8d08d0ad03a376363"
+  },
+  {
+    "archived": "scoring_and_judge/benchmark/human_rating_sheet_template.md",
+    "source": "benchmark/human_rating_sheet_template.md",
+    "source_sha256": "b4039f14917ab9a0a5f80a18288d0e4359c383738ca0d62561602a2302ea345f"
+  },
+  {
+    "archived": "scoring_and_judge/benchmark/3_restricted_prompt_set.md",
+    "source": "benchmark/3_restricted_prompt_set.md",
+    "source_sha256": "1e4a42c2171ca3d2b34011937abd3072326a690d159881c578a1c1f178b8f024"
+  },
+  {
+    "archived": "scoring_and_judge/benchmark/compromised_runs_main_v6c.md",
+    "source": "benchmark/compromised_runs_main_v6c.md",
+    "source_sha256": "c7365ee04efb613be7091f637f42654d52c9fc17a96687b5c48dab2180adc449"
+  },
+  {
+    "archived": "validation_reports/benchmark/validation_report.md",
+    "source": "benchmark/validation_report.md",
+    "source_sha256": "5b0eac0e249f4710df1ca44c78c0914881c169b0fbdd741ebd9e1561846719b3"
+  },
+  {
+    "archived": "validation_reports/benchmark/benchmark_validation.json",
+    "source": "benchmark/benchmark_validation.json",
+    "source_sha256": "11d059118145d622ab3c41008ca149eea974f29c8827ee8da13a78de782f85d8"
+  },
+  {
+    "archived": "validation_reports/benchmark/checklists.json",
+    "source": "benchmark/checklists.json",
+    "source_sha256": "8514c7776987e179a3f33fe4e87cbfa49bc4ffd2081f475c40fcc5dcb7ec271e"
+  },
+  {
+    "archived": "validation_reports/benchmark/benchmark_draft.json",
+    "source": "benchmark/benchmark_draft.json",
+    "source_sha256": "8bd86c040e106e92a244e859341bbe1cba0dd7ea2f0fc2258a83cb1c459f1ddc"
+  },
+  {
+    "archived": "validation_reports/benchmark/launch_prompt_set.json",
+    "source": "benchmark/launch_prompt_set.json",
+    "source_sha256": "ae294997459005268fa9225bd004de2e3a49f4dab96bdf6520dae0600b76c903"
+  },
+  {
+    "archived": "validation_reports/benchmark/restricted_prompt_set.json",
+    "source": "benchmark/restricted_prompt_set.json",
+    "source_sha256": "1db8f960a35259755b208c277e35663ba4361043e887d414b23005f57bc3184b"
+  },
+  {
+    "archived": "validation_reports/benchmark/checksums.txt",
+    "source": "benchmark/checksums.txt",
+    "source_sha256": "fb4cb2536b28a1991ffd870e8cc134a648cccd6b5d235bd1e96ff103876887c1"
+  },
+  {
+    "archived": "validation_reports/benchmark/criteria_checksums.txt",
+    "source": "benchmark/criteria_checksums.txt",
+    "source_sha256": "292a4d27a9ec870522e1b724d0cf228f07025559a9af9ec1e0d20b170a230048"
+  },
+  {
+    "archived": "docking_evidence/build_logs/_b2_full_redock.log",
+    "source": "build_logs/_b2_full_redock.log",
+    "source_sha256": "337da89c25f509dd60bf26b98e97e74139f86fd169634a982660d655f286fe22"
+  },
+  {
+    "archived": "docking_evidence/build_logs/_b2_full_redock2.log",
+    "source": "build_logs/_b2_full_redock2.log",
+    "source_sha256": "3d994ade092795eee9d895b2f8872573efa927f1d3a52f396063dd3be2454d4c"
+  },
+  {
+    "archived": "docking_evidence/build_logs/_b2_full_redock3.log",
+    "source": "build_logs/_b2_full_redock3.log",
+    "source_sha256": "3b29e988d105af10c3c729f034ae8d9d56a1045528ed9b4a9455c7acf5b79dd0"
+  },
+  {
+    "archived": "docking_evidence/build_logs/_b2b_results.log",
+    "source": "build_logs/_b2b_results.log",
+    "source_sha256": "e7236fa4667e98c68625a5e0958fce4046c9f469cec3fe3b53c97cc8460d2e4b"
+  },
+  {
+    "archived": "docking_evidence/build_logs/_b2c_rerun_pdb.log",
+    "source": "build_logs/_b2c_rerun_pdb.log",
+    "source_sha256": "c5f4610f266553f507ce7070d921bcf0c4feb110bb4b58eb21cf5011b945273d"
+  },
+  {
+    "archived": "docking_evidence/build_logs/_b2c_discrepancy.log",
+    "source": "build_logs/_b2c_discrepancy.log",
+    "source_sha256": "3c31ab18402a8770a5c124f5f7bc34a9e9dcfdbdb4953d8f53c9a2f1c0fb6053"
+  },
+  {
+    "archived": "docking_evidence/build_logs/_t3_determinism.log",
+    "source": "build_logs/_t3_determinism.log",
+    "source_sha256": "ea412156252693b5475b499d01afcf1c716ba747ff2ab3818b816c8bdabf95b9"
+  },
+  {
+    "archived": "docking_evidence/build_logs/_b2_dated_note.txt",
+    "source": "build_logs/_b2_dated_note.txt",
+    "source_sha256": "de1ef4ad41745d7541024daf40927924cf9e18b19a7da01118c7b2f5db54c46c"
+  },
+  {
+    "archived": "docking_evidence/build_logs/_b2b_dated_note.txt",
+    "source": "build_logs/_b2b_dated_note.txt",
+    "source_sha256": "9459a3db1a7fb613062fd448514ec341e0293b5ce4c9985b80fabefdf002b4a4"
+  },
+  {
+    "archived": "docking_evidence/build_logs/_b2b_post_mortem.txt",
+    "source": "build_logs/_b2b_post_mortem.txt",
+    "source_sha256": "515da5a42095bfeb78376d187281a09b9b491779f28885734124e35e5dc0e80a"
+  },
+  {
+    "archived": "docking_evidence/build_logs/_b3_cryptobench_download.log",
+    "source": "build_logs/_b3_cryptobench_download.log",
+    "source_sha256": "bae08a8927ba6a28a916c6893a63bd8537efb051e5ed3e8cce0623282e87e966"
+  },
+  {
+    "archived": "docking_evidence/build_logs/_b3_cryptobench_download2.log",
+    "source": "build_logs/_b3_cryptobench_download2.log",
+    "source_sha256": "11fc58beb184b15134e7731306e9c2cb7adb9a7452bde390d077a102f4c7b929"
+  }
+]

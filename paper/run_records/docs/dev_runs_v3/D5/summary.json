@@ -1,0 +1,32 @@
+{
+  "id": "D5",
+  "prompt": "\"For PDB entry 1CRN, list the allosteric residues the STINGAllo database records.\"",
+  "expected_tools": "`get_stingallo_allosteric_residues`",
+  "started_at": "2026-10-25T02:03:48Z",
+  "status": "completed",
+  "final_content": "PDB **1CRN** contains a single protein chain, **A**. The STINGAllo lookup with `chain_id=\"A\"` returned an empty residue list, so the database records **no allosteric residues for 1CRN**.\n\n1. [✗] Query STINGAllo for PDB 1CRN (initial all-chain request returned HTTP 400)\n2. [✓] Retry the validated lookup with chain identifier A\n3. [✓] Verify that the returned residue list is empty\n4. [✓] Present the result with appropriate provenance\n\n<solution>PDB entry **1CRN** has no allosteric residues recorded in the STINGAllo database. The validated lookup for chain **A** returned an empty `residues` list. This means STINGAllo records no allosteric residues for this entry; it does not establish that none could exist.</solution>",
+  "log_len": 8,
+  "elapsed_s": 20.62,
+  "run_json": "/workspace/build_logs/dev_runs_v3_armD/D5/run.json",
+  "n_steps": 8,
+  "token_total": {
+    "input_tokens": 74971,
+    "output_tokens": 1455,
+    "total_tokens": 76426
+  },
+  "config": {
+    "model": "MiniMax-M3",
+    "source": "openai-chat",
+    "base_url_host": "api.minimax.io",
+    "temperature": 1.0,
+    "top_p": 0.95,
+    "recursion_limit": 500
+  },
+  "git_commit": "bfd898947cc7c2a1a2b9dc185036622996171417",
+  "git_branch": "alloagent",
+  "git_dirty": true,
+  "image_id": "unknown",
+  "wall_time_s": 20.538324,
+  "messages_recorded": 8,
+  "tool_calls": []
+}

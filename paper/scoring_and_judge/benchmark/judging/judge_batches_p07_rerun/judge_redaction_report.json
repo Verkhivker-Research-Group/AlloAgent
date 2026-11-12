@@ -1,0 +1,25 @@
+{
+  "seed": 20261102,
+  "batches": 1,
+  "runs": 2,
+  "runs_per_batch": [
+    2
+  ],
+  "one_sided_tool_names": 266,
+  "tool_names_in_both_arms": 0,
+  "redaction_counts_by_category": {},
+  "runs_with_a_redaction": 0,
+  "runs_whose_redaction_changed_an_identifier": [],
+  "runs_whose_redaction_failed": [],
+  "the_final_answer_only": {
+    "characters_before": 37230,
+    "characters_after": 11694,
+    "characters_removed": 25536,
+    "runs_with_no_final_answer": [],
+    "runs_whose_whole_final_response_was_kept": [],
+    "runs_whose_record_is_truncated": [
+      "baseline/P07_r3: the record holds 20 000 characters, the final answer is longer"
+    ]
+  },
+  "per_run": {}
+}

@@ -1,0 +1,32 @@
+{
+  "id": "D1",
+  "prompt": "\"Map the UniProt accession P04637 to its PDB structures and report the residue numbers of the DNA-binding domain.\"",
+  "expected_tools": "`map_pdb_to_best_structures`, `map_residues_uniprot_pdb`",
+  "started_at": "2026-10-25T01:53:29Z",
+  "status": "completed",
+  "final_content": "<think>\nEverything is verified. Now write the final solution.\n\nFinal answer structure:\n1. Target identification.\n2. PDB mapping summary (counts, methods).\n3. DBD residue numbers — the headline answer: UniProt 102–292 (191 aa), ECO:0000269, PMIDs.\n4. Note structural core DBD constructs 94–292/293 (so PDB models of the DBD typically cover UniProt 94–292, adding 94–101).\n5. Landmark table with coordinate-verified coverage.\n6. Coverage statistics: 224 entries overlap, 196 fully resolve.\n7. DBD sub-features (Zn sites 176/179/238/242, DNA-contact region 273–280).\n8. Provenance & caveats, artifacts.\n\nLet me write it concisely but completely, in <solution> tags.\n</think>\n\n**Reasoning / outcome summary:** All mapping steps were completed and independently cross-checked. The mapping tool (SIFTS-backed) gave 321 PDB entries; I verified coordinates for four representative DBD structures, manually resolved two entries the tool missed (8ZZN modeled; 9A9W annotated but unmodeled), and confirmed the domain boundary from the local UniProt P04637 annotation (feature \"DNA binding\", 102–292, ECO:0000269).\n\n**Final plan status**\n1. [✓] Map P04637 to best PDB structures — 682 chain entries / 321 unique PDB IDs\n2. [✓] Confirm DBD boundary from local UniProt P04637 annotation — \"DNA binding\" 102–292 (ECO:0000269)\n3. [✓] Residue-level UniProt↔PDB mappings obtained (representative + all 321 IDs)\n4. [✓] Independent coordinate verification (1TUP/2AC0/4QO1/6ZNC/8ZZN; 9A9W p53 unmodeled)\n5. [✓] Final verification (live 8ZZN entity alignment) + counts + consolidated report\n6. [✓] Final answer\n\n<solution>\n# P04637 (TP53_HUMAN, human p53, 393 aa) → PDB structures and DNA-binding domain residues\n\n## 1. Headline answer — DNA-binding domain residue numbers\n\n| Feature | Residues (UniProt numbering) | Length | Evidence |\n|---|---|---|---|\n| **\"DNA binding\" domain (UniProt P04637 canonical DBD)** | **102–292** | **191 aa** | ECO:0000269 (experimental): PubMed 16793544, 18996393, 20364130 |\n| Structural core-DBD construct used in most PDB entries | 94–292 / 94–293 | ~199 aa | SIFTS/UniProt xrefs (e.g., 6ZNC \"A=94-293\"; 1TUP chain A author 94 = UniProt 94) |\n\nSo: **the annotated DNA-binding domain of P04637 is residues 102–292**, while PDB models of that domain almost always additionally resolve **94–101** (the N-terminal L1/L2 loops) and, in some entries, residue 293.\n\n### Functional sub-features inside the DBD (from the same UniProt record)\n- Zn(II) coordination / binding sites: **Cys176, His179, Cys238, Cys242** (binding-site features)\n- \"Interaction with DNA\" region: **273–280** (L3 loop)\n- Lys120 (N6-acetyllysine / N6-lactoyllysine), Lys139 (N6-lactoyllysine), Ser183/Ser269 phosphorylation, Thr284 phosphorylation\n- DBD-region annotations: \"Required for interaction with FBXO42\" 113–236; \"Interaction with AXIN1\" 116–292; \"Required for interaction with ZNF385A\" 100–300\n\n## 2. PDB mapping of P04637\n\n| Metric | Value |\n|---|---|\n| PDB entries with mapped p53 (P04637) chains | **322** (tool-verified 321 + 8ZZN verified manually) |\n| Additional entry with annotated but **unmodeled** p53 | **9A9W** (entity 7 = P04637, chains K–N, no coordinates) → 323 p53-containing entries total |\n| Chain-level P04637 mappings | 682 (679 tool-derived + 8ZZN chain C) |\n| Entries whose p53 chain **overlaps** the DBD (102–292) | **224** |\n| Entries **fully resolving** the DBD (102–292) | **196** |\n| Entries containing only non-DBD p53 (C-terminal oligomerization constructs, etc.) | 98 |\n| Methods among DBD-overlap entries | X-ray 207, cryo-EM 14, solution NMR 2, +1 (8ZZN) |\n\n**DBD-overlapping entries (224):** 1GZH 1KZY 1TSR 1TUP 1UOL 1YCS 21EX 2AC0 2ADY 2AHI 2ATA 2BIM 2BIN 2BIO 2BIP 2BIQ 2FEJ 2H1L 2J1W 2J1X 2J1Y 2J1Z 2J20 2J21 2MEJ 2OCJ 2PCX 2VUK 2WGX 2X0U 2X0V 2X0W 2XWR 2YBG 2YDR 37ZA 37ZR 3D05 3D06 3D07 3D08 3D09 3D0A 3IGK 3IGL 3KMD 3KZ8 3Q01 3Q05 3Q06 3TS8 3ZME 4AGL 4AGM 4AGN 4AGO 4AGP 4AGQ 4HJE 4IBQ 4IBS 4IBT 4IBU 4IBV 4IBW 4IBY 4IBZ 4IJT 4KVP 4LO9 4LOE 4LOF 4MZI 4MZR 4QO1 4RP6 4RP7 4",
+  "log_len": 62,
+  "elapsed_s": 425.87,
+  "run_json": "/workspace/build_logs/dev_runs_v3_armD/D1/run.json",
+  "n_steps": 62,
+  "token_total": {
+    "input_tokens": 1508775,
+    "output_tokens": 40065,
+    "total_tokens": 1548840
+  },
+  "config": {
+    "model": "MiniMax-M3",
+    "source": "openai-chat",
+    "base_url_host": "api.minimax.io",
+    "temperature": 1.0,
+    "top_p": 0.95,
+    "recursion_limit": 500
+  },
+  "git_commit": "bfd898947cc7c2a1a2b9dc185036622996171417",
+  "git_branch": "alloagent",
+  "git_dirty": true,
+  "image_id": "unknown",
+  "wall_time_s": 425.857878,
+  "messages_recorded": 62,
+  "tool_calls": []
+}

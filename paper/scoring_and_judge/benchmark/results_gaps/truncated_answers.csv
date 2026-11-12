@@ -1,0 +1,10 @@
+# This analysis was made on 2026-11-06, after the data existed. The run records (2026-10-28 to 2026-11-04) and the judge outputs (2026-11-03 to 2026-11-05) are used as they stand; nothing was re-run, re-measured or re-judged. The re-scoring on the full text reuses the committed scorer on the same answers.
+run_id,prompt_id,arm,characters,total_tokens,steps,why,the_last_120_characters
+P07_r3,P07,A,32388,1629069,42,ends mid-table-row,"1.4705 (0.2742); none | **0.67 (#54)** |
+| Lys197</solution>"
+V05_r1,V05,A,26700,3414710,72,ends mid-table-row,"athogenic | I |
+| VCV000036240 | p.Cys220Tyr | 0.</solution>"
+V05_r2,V05,D,28645,1798279,44,ends mid-table-row,"V 2845244 | **High** |
+| 214 | Tyr214Cys | 3.01 |</solution>"
+V05_r3,V05,A,28490,2824672,62,ends mid-table-row,"35 | Pathogenic | **Likely** |
+| M235 | VCV004687</solution>"

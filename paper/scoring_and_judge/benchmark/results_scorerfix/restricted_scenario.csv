@@ -1,0 +1,4 @@
+# PROVENANCE: this file was produced on 2026-11-06 by re-running benchmark/analyze_benchmark.py with the scorer of benchmark/score_scripted.py fixed AFTER the data existed (the fpocket_top3 method condition and the chain+number token reading). The run records (2026-10-28 to 2026-11-04) and the judge outputs (2026-11-03 to 2026-11-05) predate both the fix and this analysis. The results of the unfixed scorer are in benchmark/results/.
+scenario,arm,runs,scripted_successes,scripted_success_rate,wilson_low,wilson_high,mean_tokens
+restricted-egress,D,45,0,0.0,0.0,0.0787,603942.0
+restricted-egress,A,45,1,0.0222,0.0039,0.1157,2123657.0

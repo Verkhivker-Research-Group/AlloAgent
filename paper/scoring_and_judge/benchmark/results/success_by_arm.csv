@@ -1,0 +1,11 @@
+variant,arm,runs,successes,success_rate,wilson_low,wilson_high
+primary,D,120,1,0.0083,0.0015,0.0457
+primary,A,120,1,0.0083,0.0015,0.0457
+not_applicable_is_not_correct,D,120,1,0.0083,0.0015,0.0457
+not_applicable_is_not_correct,A,120,1,0.0083,0.0015,0.0457
+low_information_excluded,D,120,1,0.0083,0.0015,0.0457
+low_information_excluded,A,120,1,0.0083,0.0015,0.0457
+accession_excluded,D,120,65,0.5417,0.4526,0.6281
+accession_excluded,A,120,63,0.525,0.4363,0.6122
+full_or_partial,D,120,1,0.0083,0.0015,0.0457
+full_or_partial,A,120,1,0.0083,0.0015,0.0457

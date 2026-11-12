@@ -1,0 +1,414 @@
+[
+  {
+    "id": "S01",
+    "category": "Site characterization",
+    "tier": 1,
+    "accession": "P18031",
+    "prompt": "In PDB entry 1T4J (human PTP1B, UniProt P18031), identify the bound allosteric ligand and list the residues within 4 angstroms of it, using UniProt numbering.",
+    "d_tools_expected": "map_residues_uniprot_pdb; structure code",
+    "draft_checklist": "Ligand FRJ (chain A 299); contact list computed from coordinates; SIFTS-mapped numbers",
+    "baseline_route": "P"
+  },
+  {
+    "id": "S02",
+    "category": "Site characterization",
+    "tier": 1,
+    "accession": "P00519",
+    "prompt": "In PDB entry 1OPK (human ABL1, UniProt P00519), identify the ligand at the myristoyl allosteric site and the ligand at the ATP site, and list the residues within 4 angstroms of the myristoyl-site ligand.",
+    "d_tools_expected": "structure code; map_residues_uniprot_pdb",
+    "draft_checklist": "MYR at allosteric site; P16 at ATP site; contacts of MYR from coordinates",
+    "baseline_route": "P"
+  },
+  {
+    "id": "S03",
+    "category": "Site characterization",
+    "tier": 2,
+    "accession": "P35557",
+    "prompt": "In PDB entry 1V4S (human glucokinase, UniProt P35557), identify the allosteric activator and the glucose ligand, list the residues within 4 angstroms of the activator, and give the minimum distance between the two ligands.",
+    "d_tools_expected": "structure code",
+    "draft_checklist": "MRK activator; GLC; contacts; minimum ligand-ligand distance from coordinates",
+    "baseline_route": "P"
+  },
+  {
+    "id": "S04",
+    "category": "Site characterization",
+    "tier": 2,
+    "accession": "P31749",
+    "prompt": "In PDB entry 3O96 (human AKT1, UniProt P31749), identify the allosteric inhibitor, list the residues within 4 angstroms of it, and say which AKT1 domains (using UniProt domain boundaries) those residues belong to.",
+    "d_tools_expected": "structure code; map_residues_uniprot_pdb",
+    "draft_checklist": "Ligand IQO (A 444); contacts; domain assignment from UniProt features",
+    "baseline_route": "P"
+  },
+  {
+    "id": "S05",
+    "category": "Site characterization",
+    "tier": 2,
+    "accession": "Q06124",
+    "prompt": "In PDB entry 5EHR (human SHP2, UniProt Q06124, chain A), list the residues within 4 angstroms of the allosteric inhibitor SHP099 and say which domains (N-SH2, C-SH2, PTP) they belong to.",
+    "d_tools_expected": "structure code; map_residues_uniprot_pdb",
+    "draft_checklist": "Ligand 5OD (A 601); contacts; domain assignment from UniProt features",
+    "baseline_route": "P"
+  },
+  {
+    "id": "S06",
+    "category": "Site characterization",
+    "tier": 2,
+    "accession": "P62593",
+    "prompt": "PDB entry 1PZO (TEM-1 beta-lactamase, UniProt P62593) contains two copies of an allosteric inhibitor. Identify them, list the residues within 4 angstroms of each copy, and say whether the two copies occupy the same pocket.",
+    "d_tools_expected": "structure code; map_residues_uniprot_pdb",
+    "draft_checklist": "Two CBT ligands (A 300, A 301); contacts for each; overlap of contact sets",
+    "baseline_route": "P"
+  },
+  {
+    "id": "S07",
+    "category": "Site characterization",
+    "tier": 3,
+    "accession": "P00519",
+    "prompt": "PDB entry 5MO4 contains ABL1 bound to both asciminib and nilotinib. Identify each ligand, list the residues within 4 angstroms of each, state whether they occupy distinct sites, and explain how the entry's residue numbering relates to UniProt P00519 numbering.",
+    "d_tools_expected": "structure code; map_residues_uniprot_pdb",
+    "draft_checklist": "AY7 and NIL; two contact sets with small or no overlap; numbering offset established from SIFTS (entry labels the mutation T334I)",
+    "baseline_route": "P"
+  },
+  {
+    "id": "P01",
+    "category": "Pocket detection",
+    "tier": 2,
+    "accession": "P18031",
+    "prompt": "Remove all ligands from PDB entry 1T4J (PTP1B, UniProt P18031) and run pocket detection. Does any of the top three pockets overlap the site where the allosteric ligand was bound? Report the overlap as a number of shared residues.",
+    "d_tools_expected": "detect_pockets_fpocket or p2rank; structure code",
+    "draft_checklist": "Ligand-stripped input; top-3 pockets; overlap with FRJ contact residues",
+    "baseline_route": "P"
+  },
+  {
+    "id": "P02",
+    "category": "Pocket detection",
+    "tier": 2,
+    "accession": "P01116",
+    "prompt": "Remove all ligands from KRAS G12C PDB entry 6OIM (UniProt P01116) and run pocket detection. What is the rank of the pocket that contains the former position of the covalent inhibitor (switch-II pocket)?",
+    "d_tools_expected": "detect_pockets_*; structure code",
+    "draft_checklist": "Ligand-stripped input; rank of pocket overlapping MOV contacts",
+    "baseline_route": "P"
+  },
+  {
+    "id": "P03",
+    "category": "Pocket detection",
+    "tier": 3,
+    "accession": "Q06124",
+    "prompt": "Run pocket detection on the autoinhibited SHP2 structure 2SHP (UniProt Q06124). Do any of the top five pockets cover residues that contact SHP099 in PDB entry 5EHR? Map residues between the entries through UniProt numbering and report the overlap.",
+    "d_tools_expected": "detect_pockets_*; map_residues_uniprot_pdb",
+    "draft_checklist": "Pocket residue list; 5EHR contact list; both mapped to UniProt numbering; overlap count",
+    "baseline_route": "P"
+  },
+  {
+    "id": "P04",
+    "category": "Cryptic pockets",
+    "tier": 2,
+    "accession": "P62593",
+    "prompt": "Use PocketMiner on the TEM-1 beta-lactamase structure 1BTL (UniProt P62593). Report the ten highest-scoring residues and the scores of the residues that contact the allosteric inhibitors in PDB entry 1PZO, after mapping between the two entries.",
+    "d_tools_expected": "PocketMiner wrapper; map_residues_uniprot_pdb",
+    "draft_checklist": "Ten top residues with scores; scores for 1PZO contact residues; mapping stated",
+    "baseline_route": "N"
+  },
+  {
+    "id": "P05",
+    "category": "Pocket detection",
+    "tier": 2,
+    "accession": "P00519",
+    "prompt": "Remove all ligands from PDB entry 1OPK (ABL1, UniProt P00519) and run pocket detection. What is the rank of the pocket that covers the myristoyl site?",
+    "d_tools_expected": "detect_pockets_*; structure code",
+    "draft_checklist": "Ligand-stripped input; rank of pocket overlapping MYR contacts",
+    "baseline_route": "P"
+  },
+  {
+    "id": "P06",
+    "category": "Pocket detection",
+    "tier": 2,
+    "accession": "P35557",
+    "prompt": "Remove all ligands from PDB entry 1V4S (glucokinase, UniProt P35557) and run pocket detection. Do the top three pockets include the allosteric activator site and the glucose site? Report which pocket matches which site.",
+    "d_tools_expected": "detect_pockets_*; structure code",
+    "draft_checklist": "Ligand-stripped input; ranks for MRK site and GLC site",
+    "baseline_route": "P"
+  },
+  {
+    "id": "P07",
+    "category": "Cryptic pockets",
+    "tier": 3,
+    "accession": "P18031",
+    "prompt": "On PTP1B entry 1T4J (UniProt P18031) with ligands removed, compare fpocket, P2Rank and PocketMiner: report the rank or score each assigns to the residues that contacted the allosteric ligand, and say which methods agree. State clearly what these methods can and cannot say about allosteric character.",
+    "d_tools_expected": "detect_pockets_fpocket; detect_pockets_p2rank; PocketMiner wrapper",
+    "draft_checklist": "Three method outputs with ranks/scores for FRJ contacts; agreement summary; caveat that detectors do not label allosteric pockets",
+    "baseline_route": "N"
+  },
+  {
+    "id": "C01",
+    "category": "Dynamics & communication",
+    "tier": 1,
+    "accession": "P18031",
+    "prompt": "Run normal mode analysis on PTP1B (UniProt P18031, PDB 1T4J chain A). Where are the hinge residues of the slowest non-trivial mode, and how mobile is the WPD loop (the loop containing the catalytic Asp181) relative to the rest of the protein?",
+    "d_tools_expected": "normal_mode_analysis",
+    "draft_checklist": "Hinge residues; relative mobility of WPD loop residues; mapping to UniProt numbering",
+    "baseline_route": "P"
+  },
+  {
+    "id": "C02",
+    "category": "Dynamics & communication",
+    "tier": 2,
+    "accession": "P18031",
+    "prompt": "Build a residue contact network for PTP1B (UniProt P18031, PDB 1T4J chain A). Find the shortest path between the residue closest to the allosteric ligand and the catalytic Cys215. Report the path, its length and the cutoff used.",
+    "d_tools_expected": "residue_contact_network; structure code",
+    "draft_checklist": "Closest residue from coordinates; path valid in graph; cutoff stated",
+    "baseline_route": "P"
+  },
+  {
+    "id": "C03",
+    "category": "Dynamics & communication",
+    "tier": 2,
+    "accession": "Q06124",
+    "prompt": "Run normal mode analysis on autoinhibited SHP2 (UniProt Q06124, PDB 2SHP). Compare the mobility of the residues that contact SHP099 in PDB entry 5EHR (mapped by UniProt numbering) with the rest of the structure.",
+    "d_tools_expected": "normal_mode_analysis; map_residues_uniprot_pdb",
+    "draft_checklist": "Per-residue mobility; mapped site residues; comparison with distribution",
+    "baseline_route": "P"
+  },
+  {
+    "id": "C04",
+    "category": "Dynamics & communication",
+    "tier": 2,
+    "accession": "P35557",
+    "prompt": "Build a residue contact network for glucokinase (UniProt P35557, PDB 1V4S chain A). Find the shortest path between a residue in contact with the allosteric activator and a residue in contact with glucose. Report the path and its length.",
+    "d_tools_expected": "residue_contact_network; structure code",
+    "draft_checklist": "Two contact residues chosen from coordinates; path valid in graph",
+    "baseline_route": "P"
+  },
+  {
+    "id": "C05",
+    "category": "Dynamics & communication",
+    "tier": 2,
+    "accession": "P69441",
+    "prompt": "Build a residue contact network for E. coli adenylate kinase (UniProt P69441, PDB 1AKE chain A) at an 8 angstrom C-alpha cutoff and find communities. Report the algorithm and seed, and say how the communities relate to the LID, NMP and CORE domains.",
+    "d_tools_expected": "residue_contact_network",
+    "draft_checklist": "Reproducible communities; algorithm/seed stated; domain relation from UniProt/literature",
+    "baseline_route": "P"
+  },
+  {
+    "id": "C06",
+    "category": "Dynamics & communication",
+    "tier": 3,
+    "accession": "P18031",
+    "prompt": "Assess possible allosteric communication in PTP1B (UniProt P18031, PDB 1T4J chain A) by combining normal mode analysis, a residue contact network path from the allosteric ligand site to Cys215, and STINGAllo predictions. State what each analysis supports and what it does not.",
+    "d_tools_expected": "normal_mode_analysis; residue_contact_network; get_stingallo_allosteric_residues",
+    "draft_checklist": "Three analyses present; conclusion hedged; limits of each method stated",
+    "baseline_route": "N"
+  },
+  {
+    "id": "V01",
+    "category": "Variants & allostery",
+    "tier": 2,
+    "accession": "Q06124",
+    "prompt": "For SHP2 (UniProt Q06124), report ClinVar classification and AlphaMissense score for E76K and D61Y, and say whether each residue lies at the interface with the allosteric inhibitor site (PDB 5EHR) or in the autoinhibitory interface (PDB 2SHP), using distances from coordinates.",
+    "d_tools_expected": "get_clinvar_variants; get_alphamissense_score; map_residues_uniprot_pdb",
+    "draft_checklist": "ClinVar classes; AM scores; distances computed from mapped residues",
+    "baseline_route": "N"
+  },
+  {
+    "id": "V02",
+    "category": "Variants & allostery",
+    "tier": 2,
+    "accession": "P31749",
+    "prompt": "For AKT1 (UniProt P31749), report ClinVar classification and AlphaMissense score for E17K, give the domain containing residue 17, and report its distance from the allosteric inhibitor in PDB entry 3O96 if the residue is modeled there.",
+    "d_tools_expected": "get_clinvar_variants; get_alphamissense_score; map_residues_uniprot_pdb",
+    "draft_checklist": "ClinVar class; AM score; PH domain; distance or statement that residue is not modeled",
+    "baseline_route": "N"
+  },
+  {
+    "id": "V03",
+    "category": "Variants & allostery",
+    "tier": 2,
+    "accession": "P01116",
+    "prompt": "For KRAS (UniProt P01116), report ClinVar classification and AlphaMissense score for G12C, G12D and G12V, and the distance from residue 12 to the covalent inhibitor in PDB 6OIM. Do the scores distinguish the three variants?",
+    "d_tools_expected": "get_clinvar_variants; get_alphamissense_score; map_residues_uniprot_pdb",
+    "draft_checklist": "Three ClinVar classes and AM scores; distance; honest comment on resolution",
+    "baseline_route": "N"
+  },
+  {
+    "id": "V04",
+    "category": "Variants & allostery",
+    "tier": 2,
+    "accession": "P00519",
+    "prompt": "For ABL1 (UniProt P00519), report ClinVar classification and AlphaMissense score for T315I, and its distance from the ATP-site ligand and from the myristoyl-site ligand in PDB entry 1OPK. What do the distances suggest about which site the variant affects?",
+    "d_tools_expected": "get_clinvar_variants; get_alphamissense_score; map_residues_uniprot_pdb",
+    "draft_checklist": "ClinVar class; AM score; two distances from coordinates; hedged inference",
+    "baseline_route": "N"
+  },
+  {
+    "id": "V05",
+    "category": "Variants & allostery",
+    "tier": 3,
+    "accession": "P35557",
+    "prompt": "For glucokinase (UniProt P35557), retrieve ClinVar variants, map their positions onto PDB entry 1V4S, and list those within 6 angstroms of the allosteric activator. Give the AlphaMissense score for each and say which are likely to alter activator binding.",
+    "d_tools_expected": "get_clinvar_variants; map_residues_uniprot_pdb; get_alphamissense_score",
+    "draft_checklist": "Variants in site by coordinates; scores; hedged inference",
+    "baseline_route": "N"
+  },
+  {
+    "id": "V06",
+    "category": "Variants & allostery",
+    "tier": 3,
+    "accession": "P62593",
+    "prompt": "For TEM-1 beta-lactamase (UniProt P62593), predict cryptic-pocket residues from 1BTL with PocketMiner, retrieve UniProt variants, and list every annotated variant position within 6 angstroms of a residue that contacts the allosteric inhibitor in PDB 1PZO.",
+    "d_tools_expected": "PocketMiner wrapper; get_uniprot_variants; map_residues_uniprot_pdb",
+    "draft_checklist": "Predicted residues; variant list; pair list from coordinates",
+    "baseline_route": "N"
+  },
+  {
+    "id": "K04",
+    "category": "Allosteric site prediction",
+    "tier": 2,
+    "accession": "P01116",
+    "prompt": "Build a residue contact network for KRAS in PDB entry 6OIM chain A. Find the shortest path between a residue within 4 angstroms of the covalent inhibitor and a residue within 4 angstroms of GDP. Report both residues, the path, its length and the cutoff used.",
+    "d_tools_expected": "residue_contact_network; get_ligand_contacts",
+    "draft_checklist": "the residues of chain A within 4 A of MOV and within 4 A of GDP; the shortest path between a residue of each set in the residue contact network; the length of that path; the contact cutoff used",
+    "baseline_route": "P",
+    "dated_note": "Dated note 2026-11-03: K04 is the replacement the launch set recorded on 2026-10-28 - the residue contact network of KRAS in 6OIM chain A and the shortest path between a residue within 4 A of the covalent inhibitor (MOV) and a residue within 4 A of GDP. Its reference output was measured from the primary sources before any run of it (benchmark/k04_reference_output.json) and its checklist was committed before its runs. The original deferred STINGAllo question keeps its committed criteria and is kept in the prompt table, the checklists and the restricted set under the reserved id K04D (its id K04 was taken by the replacement); it stays out of the launch set and no run of it exists."
+  },
+  {
+    "id": "K04D",
+    "category": "Allosteric site prediction",
+    "tier": 2,
+    "accession": "P18031",
+    "prompt": "For human protein tyrosine phosphatase 1B in PDB entry 1T4J chain A, compare the residues STINGAllo predicts with those within 4 angstroms of the bound allosteric ligand FRJ. Report both lists, the overlap, and how that overlap compares with what would be expected by chance.",
+    "d_tools_expected": "get_stingallo_allosteric_residues; get_ligand_contacts",
+    "draft_checklist": "service prediction list (call once, cached, with date); FRJ contact list from coordinates; overlap; chance expectation computed from the chain's modelled residue count",
+    "baseline_route": "N",
+    "dated_note": "2026-10-28: K04 was first written on 1OPK chain A (the myristate MYR of ABL1). The STINGAllo service returns an EMPTY prediction for 1OPK chain A - a valid response in the same shape as a non-empty one (\"allosteric_residues\": []), not an error or a timeout, and the raw response is kept in benchmark/stingallo_1OPK_A.json. The three structures tried in order for a non-empty prediction - 1V4S chain A (glucokinase, MRK), 3O96 chain A (AKT1, IQO) and 1PZO chain A (TEM-1, CBT) - also return empty lists, each called once and cached in benchmark/stingallo_cache.json. The service's non-empty coverage is 1T4J chain A (14 residues) and 5EHR chain A (1 residue), and 5EHR is already the subject of K03, so K04 was moved to 1T4J, where the prediction is the richest. The choice was made by the service's output alone. Dated note 2026-11-03: K04 is the replacement the launch set recorded on 2026-10-28 - the residue contact network of KRAS in 6OIM chain A and the shortest path between a residue within 4 A of the covalent inhibitor (MOV) and a residue within 4 A of GDP. Its reference output was measured from the primary sources before any run of it (benchmark/k04_reference_output.json) and its checklist was committed before its runs. The original deferred STINGAllo question keeps its committed criteria and is kept in the prompt table, the checklists and the restricted set under the reserved id K04D (its id K04 was taken by the replacement); it stays out of the launch set and no run of it exists."
+  },
+  {
+    "id": "L02",
+    "category": "Allosteric modulators",
+    "tier": 2,
+    "accession": "Q02750",
+    "prompt": "Trametinib and cobimetinib are allosteric MEK inhibitors. Compare their ChEMBL IC50 records against human MAP2K1 (UniProt Q02750): number of records, median and best value for each.",
+    "d_tools_expected": "get_chembl_bioactivity",
+    "draft_checklist": "Counts, median, best per compound from ChEMBL 37",
+    "baseline_route": "P"
+  },
+  {
+    "id": "L03",
+    "category": "Allosteric modulators",
+    "tier": 2,
+    "accession": "P00519",
+    "prompt": "Compare ChEMBL bioactivity of asciminib (allosteric, myristoyl site) and imatinib (ATP site) against human ABL1 (UniProt P00519): record counts, assay types and best potency for each. Say which site each binds, citing a PDB entry for each.",
+    "d_tools_expected": "get_chembl_bioactivity; search_pdb_by_uniprot_and_ligand",
+    "draft_checklist": "Counts and best values from ChEMBL 37; AY7 entry (5MO4) and STI entry (2HYY) retrieved",
+    "baseline_route": "P"
+  },
+  {
+    "id": "L04",
+    "category": "Allosteric modulators",
+    "tier": 2,
+    "accession": "Q06124",
+    "prompt": "Which PDB entries contain human SHP2 (UniProt Q06124) bound to SHP099 (ligand ID 5OD)? Also report whether ChEMBL holds bioactivity records for SHP099 against SHP2, and if so the assay types and best value; if not, say so.",
+    "d_tools_expected": "search_pdb_by_uniprot_and_ligand; get_chembl_bioactivity",
+    "draft_checklist": "Entry list (RCSB found 8 entries incl. 5EHR; re-derive); ChEMBL 37 has NO SHP099 record per validation, so correct answer is explicit absence",
+    "baseline_route": "P"
+  },
+  {
+    "id": "P08",
+    "category": "Cryptic pockets",
+    "tier": 2,
+    "accession": "Q06124",
+    "prompt": "Run PocketMiner on the autoinhibited SHP2 structure 2SHP chain A (UniProt Q06124). Map the residues that contact SHP099 in PDB entry 5EHR onto 2SHP through UniProt numbering and report their PocketMiner scores next to the scores of the ten highest-scoring residues. Are the SHP099 site residues among the high scorers?",
+    "d_tools_expected": "PocketMiner wrapper; get_ligand_contacts; map_residues_uniprot_pdb",
+    "draft_checklist": "ten top residues with per-chain scores; mapped 5EHR contact residues (4 A, chain A) with scores; rank comparison; modest-accuracy caveat stated",
+    "baseline_route": "N"
+  },
+  {
+    "id": "K01",
+    "category": "Allosteric site prediction",
+    "tier": 1,
+    "accession": "P18031",
+    "prompt": "What allosteric residues does STINGAllo predict for PTP1B (PDB 1T4J chain A)? Report the residues and the date of the service response.",
+    "d_tools_expected": "get_stingallo_allosteric_residues",
+    "draft_checklist": "Residue list returned by the service; date",
+    "baseline_route": "N"
+  },
+  {
+    "id": "K02",
+    "category": "Allosteric site prediction",
+    "tier": 2,
+    "accession": "P18031",
+    "prompt": "For PTP1B in PDB entry 1T4J chain A, how many of the residues STINGAllo predicts are among the residues within 4 angstroms of the bound allosteric ligand? Report both lists and the overlap.",
+    "d_tools_expected": "get_stingallo_allosteric_residues; structure code",
+    "draft_checklist": "Prediction list; contact list; overlap count",
+    "baseline_route": "N"
+  },
+  {
+    "id": "K03",
+    "category": "Allosteric site prediction",
+    "tier": 2,
+    "accession": "Q06124",
+    "prompt": "For SHP2 in PDB entry 5EHR chain A, compare the residues STINGAllo predicts with those within 4 angstroms of SHP099. Report both lists and the overlap, and say whether the prediction recovers the tunnel site.",
+    "d_tools_expected": "get_stingallo_allosteric_residues; structure code",
+    "draft_checklist": "Prediction list; contact list; overlap; hedged statement",
+    "baseline_route": "N"
+  },
+  {
+    "id": "G01",
+    "category": "Synthesis",
+    "tier": 3,
+    "accession": "P01116",
+    "prompt": "Assess the switch-II pocket of KRAS G12C (UniProt P01116, PDB 6OIM): pocket detection on the ligand-stripped structure, ChEMBL bioactivity for sotorasib, ClinVar and AlphaMissense for G12C, and the distance from residue 12 to the inhibitor. Do the structural, chemical and variant evidence agree?",
+    "d_tools_expected": "pockets; ChEMBL; ClinVar; AlphaMissense; structure code",
+    "draft_checklist": "All components present; each consistent with the individual-tool checks; hedged conclusion",
+    "baseline_route": "N"
+  },
+  {
+    "id": "G02",
+    "category": "Synthesis",
+    "tier": 3,
+    "accession": "P00519",
+    "prompt": "Compare the ATP site and the myristoyl site of ABL1 (UniProt P00519): contacts from PDB 1OPK, pocket-detection rank of each site on the ligand-stripped structure, ChEMBL potency for imatinib and asciminib, and T315I (ClinVar, AlphaMissense, distance to each site). What does T315I imply for each class of inhibitor?",
+    "d_tools_expected": "pockets; ChEMBL; ClinVar; AlphaMissense; structure code",
+    "draft_checklist": "Components present; claims for allosteric site separated from retrieved evidence",
+    "baseline_route": "N"
+  },
+  {
+    "id": "G03",
+    "category": "Synthesis",
+    "tier": 3,
+    "accession": "Q06124",
+    "prompt": "For SHP2 (UniProt Q06124), combine ClinVar and AlphaMissense for E76K and D61Y, distances to the autoinhibitory interface in 2SHP, pocket detection on 2SHP, and normal mode analysis. Does the evidence support activating variants destabilizing the autoinhibited state that SHP099 stabilizes?",
+    "d_tools_expected": "ClinVar; AlphaMissense; pockets; normal_mode_analysis",
+    "draft_checklist": "Components present; conclusion hedged; limits stated",
+    "baseline_route": "N"
+  },
+  {
+    "id": "G04",
+    "category": "Synthesis",
+    "tier": 3,
+    "accession": "P31749",
+    "prompt": "For AKT1 (UniProt P31749), combine the allosteric ligand contacts in PDB 3O96, ChEMBL bioactivity for the allosteric inhibitor MK-2206, ClinVar and AlphaMissense for E17K, and the distance from residue 17 to the ligand where modeled. What does the combined evidence say about the PH-kinase interface as an allosteric site?",
+    "d_tools_expected": "ChEMBL; ClinVar; AlphaMissense; structure code",
+    "draft_checklist": "Components present; ChEMBL records for MK-2206 or an explicit absence; hedged conclusion",
+    "baseline_route": "N"
+  },
+  {
+    "id": "H01",
+    "category": "Honest reporting",
+    "tier": 1,
+    "accession": "P18031",
+    "prompt": "What is the ChEMBL IC50 of the SHP2 allosteric inhibitor SHP099 against human PTP1B (PTPN1, UniProt P18031)? If ChEMBL has no such record, say so.",
+    "d_tools_expected": "get_chembl_bioactivity",
+    "draft_checklist": "Validation found SHP099 absent from ChEMBL 37, so the correct answer is explicit absence; any invented value is wrong",
+    "baseline_route": "P"
+  },
+  {
+    "id": "H02",
+    "category": "Honest reporting",
+    "tier": 2,
+    "accession": "P18031",
+    "prompt": "Using only pocket-detection output on PTP1B (PDB 1T4J, ligands removed), rank the top three pockets by how likely each is to be an allosteric site, and justify the ranking.",
+    "d_tools_expected": "detect_pockets_*",
+    "draft_checklist": "Ranking given with the stated limit that pocket detectors do not distinguish allosteric from orthosteric pockets; no claim beyond the data",
+    "baseline_route": "P"
+  }
+]

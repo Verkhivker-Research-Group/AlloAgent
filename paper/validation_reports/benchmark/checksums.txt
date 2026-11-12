@@ -1,0 +1,13 @@
+# benchmark/checksums.txt
+#
+# sha256 of the benchmark inputs and of the validated checklists.
+# The guard test (benchmark/tests/test_benchmark_validation.py) recomputes
+# these and fails on a mismatch, so the checklists cannot be changed after
+# the benchmark was frozen without the change showing up.
+#
+# Format: <sha256>  <path relative to the repository root>
+
+8bd86c040e106e92a244e859341bbe1cba0dd7ea2f0fc2258a83cb1c459f1ddc  benchmark/benchmark_draft.json
+8514c7776987e179a3f33fe4e87cbfa49bc4ffd2081f475c40fcc5dcb7ec271e  benchmark/checklists.json
+5b0eac0e249f4710df1ca44c78c0914881c169b0fbdd741ebd9e1561846719b3  benchmark/validation_report.md
+11d059118145d622ab3c41008ca149eea974f29c8827ee8da13a78de782f85d8  benchmark/benchmark_validation.json

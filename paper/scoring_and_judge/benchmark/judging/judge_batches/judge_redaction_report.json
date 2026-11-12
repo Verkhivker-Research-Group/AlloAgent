@@ -1,0 +1,190 @@
+{
+  "seed": 20261102,
+  "batches": 25,
+  "runs": 240,
+  "runs_per_batch": [
+    10,
+    10,
+    10,
+    10,
+    10,
+    10,
+    10,
+    10,
+    10,
+    10,
+    10,
+    10,
+    10,
+    10,
+    10,
+    10,
+    10,
+    10,
+    10,
+    10,
+    10,
+    10,
+    10,
+    4,
+    6
+  ],
+  "one_sided_tool_names": 266,
+  "tool_names_in_both_arms": 0,
+  "redaction_counts_by_category": {
+    "one_sided_tool_name": 116
+  },
+  "runs_with_a_redaction": 28,
+  "runs_whose_redaction_changed_an_identifier": [
+    "alloagent/P07_r3: the redaction changed 7 dotted module path(s): ['detect_pockets_fpocket', 'detect_pockets_p2rank', 'get_ligand_contacts', 'map_residues_uniprot_pdb', 'pocketminer_score']",
+    "alloagent/C01_r1: the redaction changed 1 dotted module path(s): ['normal_mode_analysis']",
+    "alloagent/C01_r2: the redaction changed 6 dotted module path(s): ['biolip_ligands', 'get_ligand_contacts', 'get_stingallo_allosteric_residues', 'map_residues_uniprot_pdb', 'normal_mode_analysis']",
+    "alloagent/C02_r1: the redaction changed 2 dotted module path(s): ['residue_contact_network']",
+    "alloagent/C02_r2: the redaction changed 2 dotted module path(s): ['residue_contact_network']",
+    "alloagent/C02_r3: the redaction changed 2 dotted module path(s): ['get_ligand_contacts', 'residue_contact_network']",
+    "baseline/C03_r3: the redaction changed 1 dotted module path(s): ['normal_mode_analysis']",
+    "alloagent/C05_r1: the redaction changed 2 dotted module path(s): ['residue_contact_network']",
+    "alloagent/C05_r2: the redaction changed 2 dotted module path(s): ['residue_contact_network']",
+    "alloagent/C05_r3: the redaction changed 1 dotted module path(s): ['residue_contact_network']",
+    "alloagent/V02_r1: the redaction changed 5 dotted module path(s): ['biolip_ligands', 'get_alphamissense_score', 'get_clinvar_variants', 'get_ligand_contacts', 'map_residues_uniprot_pdb']",
+    "alloagent/L02_r2: the redaction changed 1 dotted module path(s): ['get_chembl_bioactivity']",
+    "alloagent/L02_r3: the redaction changed 1 dotted module path(s): ['get_chembl_bioactivity']",
+    "baseline/P08_r3: the redaction changed 3 dotted module path(s): ['pocketminer_score']",
+    "baseline/H02_r1: the redaction changed 1 dotted module path(s): ['pocket_geometry']"
+  ],
+  "runs_whose_redaction_failed": [],
+  "the_final_answer_only": {
+    "characters_before": 2598940,
+    "characters_after": 914202,
+    "characters_removed": 1684738,
+    "runs_with_no_final_answer": [],
+    "runs_whose_whole_final_response_was_kept": [
+      "baseline/V06_r1"
+    ],
+    "runs_whose_record_is_truncated": [
+      "baseline/S02_r1: the record holds 20 000 characters, the final answer is longer",
+      "baseline/S07_r1: the record holds 20 000 characters, the final answer is longer",
+      "baseline/S07_r2: the record holds 20 000 characters, the final answer is longer",
+      "baseline/P04_r1: the record holds 20 000 characters, the final answer is longer",
+      "baseline/P07_r1: the record holds 20 000 characters, the final answer is longer",
+      "alloagent/P07_r2: the record holds 20 000 characters, the final answer is longer",
+      "baseline/P07_r3: the record holds 20 000 characters, the final answer is longer",
+      "alloagent/C01_r1: the record holds 20 000 characters, the final answer is longer",
+      "baseline/C01_r3: the record holds 20 000 characters, the final answer is longer",
+      "alloagent/C03_r2: the record holds 20 000 characters, the final answer is longer",
+      "baseline/C06_r1: the record holds 20 000 characters, the final answer is longer",
+      "alloagent/C06_r3: the record holds 20 000 characters, the final answer is longer",
+      "baseline/C06_r3: the record holds 20 000 characters, the final answer is longer",
+      "baseline/V03_r1: the record holds 20 000 characters, the final answer is longer",
+      "baseline/V05_r1: the record holds 20 000 characters, the final answer is longer",
+      "alloagent/V05_r2: the record holds 20 000 characters, the final answer is longer",
+      "baseline/V05_r2: the record holds 20 000 characters, the final answer is longer",
+      "baseline/V05_r3: the record holds 20 000 characters, the final answer is longer",
+      "alloagent/L03_r1: the record holds 20 000 characters, the final answer is longer",
+      "alloagent/L03_r3: the record holds 20 000 characters, the final answer is longer",
+      "baseline/G01_r1: the record holds 20 000 characters, the final answer is longer",
+      "alloagent/G01_r2: the record holds 20 000 characters, the final answer is longer",
+      "baseline/G01_r3: the record holds 20 000 characters, the final answer is longer",
+      "alloagent/G02_r1: the record holds 20 000 characters, the final answer is longer",
+      "baseline/G02_r1: the record holds 20 000 characters, the final answer is longer",
+      "alloagent/G02_r2: the record holds 20 000 characters, the final answer is longer",
+      "baseline/G02_r2: the record holds 20 000 characters, the final answer is longer",
+      "alloagent/G02_r3: the record holds 20 000 characters, the final answer is longer",
+      "baseline/G02_r3: the record holds 20 000 characters, the final answer is longer",
+      "baseline/G03_r1: the record holds 20 000 characters, the final answer is longer",
+      "alloagent/G03_r2: the record holds 20 000 characters, the final answer is longer",
+      "baseline/G03_r2: the record holds 20 000 characters, the final answer is longer",
+      "alloagent/G03_r3: the record holds 20 000 characters, the final answer is longer",
+      "baseline/G04_r1: the record holds 20 000 characters, the final answer is longer",
+      "baseline/G04_r2: the record holds 20 000 characters, the final answer is longer",
+      "alloagent/H02_r1: the record holds 20 000 characters, the final answer is longer",
+      "alloagent/H02_r2: the record holds 20 000 characters, the final answer is longer"
+    ]
+  },
+  "per_run": {
+    "ralukn6ou87": {
+      "one_sided_tool_name": 6
+    },
+    "rlfz3k7l8i2": {
+      "one_sided_tool_name": 3
+    },
+    "rzj6147448o": {
+      "one_sided_tool_name": 1
+    },
+    "r8l54d81ig1": {
+      "one_sided_tool_name": 1
+    },
+    "rt697ihtlcv": {
+      "one_sided_tool_name": 5
+    },
+    "rw1aicdm34v": {
+      "one_sided_tool_name": 7
+    },
+    "ri032pmosk9": {
+      "one_sided_tool_name": 3
+    },
+    "rscj37l7o9d": {
+      "one_sided_tool_name": 8
+    },
+    "rgldaht1c4v": {
+      "one_sided_tool_name": 3
+    },
+    "rsg1vk3ffhc": {
+      "one_sided_tool_name": 2
+    },
+    "rzlk7b87wo5": {
+      "one_sided_tool_name": 2
+    },
+    "rkxkidxiu56": {
+      "one_sided_tool_name": 1
+    },
+    "re5ewdxskjq": {
+      "one_sided_tool_name": 1
+    },
+    "rjc6y41ppjj": {
+      "one_sided_tool_name": 5
+    },
+    "rnula7yy4kt": {
+      "one_sided_tool_name": 4
+    },
+    "rrwd3ipl8b8": {
+      "one_sided_tool_name": 10
+    },
+    "rzhcjxbaqaz": {
+      "one_sided_tool_name": 3
+    },
+    "r9iy6v2nqvw": {
+      "one_sided_tool_name": 5
+    },
+    "rr8xo9u2mxq": {
+      "one_sided_tool_name": 5
+    },
+    "rdnmto5ajux": {
+      "one_sided_tool_name": 8
+    },
+    "rw5az4vvi6z": {
+      "one_sided_tool_name": 1
+    },
+    "rjwomdepmdx": {
+      "one_sided_tool_name": 4
+    },
+    "rdyrznzvynm": {
+      "one_sided_tool_name": 1
+    },
+    "rt1hk8dl4yt": {
+      "one_sided_tool_name": 1
+    },
+    "rv4xzh6ydwv": {
+      "one_sided_tool_name": 3
+    },
+    "rucjf8k2xgq": {
+      "one_sided_tool_name": 15
+    },
+    "r83lagds20f": {
+      "one_sided_tool_name": 1
+    },
+    "rzzxao0ydru": {
+      "one_sided_tool_name": 7
+    }
+  }
+}

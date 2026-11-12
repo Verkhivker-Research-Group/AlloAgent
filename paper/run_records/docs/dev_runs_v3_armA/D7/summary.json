@@ -1,0 +1,32 @@
+{
+  "id": "D7",
+  "prompt": "\"Does the Allosteric Database confirm curated allosteric sites for UniProt P0AB91, and which modulators are involved?\"",
+  "expected_tools": "`allosteric_evidence`, `parse_asd_xf`",
+  "started_at": "2026-10-25T03:03:58Z",
+  "status": "completed",
+  "final_content": "<think>\nNow I have everything. Let me summarize the findings, including the caveats:\n\n**Key findings:**\n\n1. **Identity**: UniProt P0AB91 = ARO_G_ECOLI, \"Phospho-2-dehydro-3-deoxyheptonate aldolase, Phe-sensitive\" (DAHP synthase, aroG), *E. coli* K-12, 350 aa, MW 38,010 Da, EC 2.5.1.54, KO K01626, KEGG ecj:Y75_p0727, Pfam PF00793 (DAHP_synth_1), PDB 1KFL.\n\n2. **Resource clarification**: The \"Allosteric Database\" = ASD (AlloSteric Database, Shanghai University of Science and Technology), http://mdl.shsmu.edu.cn/ASD. Note: `allostericdb.org` does not resolve (NXDOMAIN at Google & Cloudflare DoH). I should mention this briefly because if the user meant a different \"Allosteric Database\" (e.g., the Cooper-lab AlloDB), it wasn't reachable/doesn't exist under that name — and I should note that the ASD is the canonical \"Allosteric Database\" with NAR-indexed papers.\n\n3. **Yes, ASD confirms curated allostery for P0AB91**: entry ASD00020000 (domain ASD00020000_1), mol_id 1, allosteric mechanism = \"Feedback inhibition allostery\"; counts: 1 allosteric site, 5 inhibitors, 0 activators, 0 regulators; reference: Shumilin IA, Zhao C, Bauerle R, Kretsinger RH, J Mol Biol 2002;320(5):1147-56, PMID 12126632, DOI 10.1016/s0022-2836(02)00545-4.\n\n4. **The single curated allosteric site** (ASD00020000_1): allosteric PDB 1KFL (2.8 Å), \"CRYSTAL STRUCTURE OF PHENYLALANINE-REGULATED 3-DEOXY-D-ARABINO-HEPTULOSONATE-7-PHOSPHATE SYNTHASE (DAHP SYNTHASE) FROM E.COLI COMPLEXED WITH MN2+, PEP, AND PHE\".\n   - Site-linked modulator: L-phenylalanine (ASD02170001, alias PHE), Ligand, chain A, residue 1354, feature: Inhibitor\n   - Position/type: \"Protein-Protein Interaction\"; Function: \"Inner Protein Regulator\"; Site overlap: No\n   - Typical chain A, residue 151 (GLN151)\n   - Site residues (13): Chain A: P150, Q151, A154, G178, L179, S180, F209, S211, K214, V221; Chain B: D6, D7, I10\n   - **All 13 verified to match UniProt P0AB91 canonical sequence exactly** (I checked each).\n\n5. **Modulators (5, all \"Inhibitor\" at protein level)**:\n   | ASD ID | Name | Class | Details |\n   | ASD00320001 | L-tryptophan | Compound | CAS 73-22-3, PubChem 6305, endogenous yes, DrugBank yes |\n   | ASD00690002 | Tyrosine | Compound | CAS 60-18-4, PubChem 6057 (L-tyrosine), endogenous yes, DrugBank yes |\n   | ASD02170001 | L-phenylalanine | Compound | CAS 63-91-2, PubChem 6140, endogenous yes, DrugBank yes — the one curated with the site (1KFL) |\n   | ASD00020003 | DTY | Compound | PubChem 69634752; formula C9H11NO3; in ASD's site archive its name is \"(2R)-2-amino-3-(4-hydroxyphenyl)propanoic acid\" = D-tyrosine; endogenous no |\n   | ASD10090002 | PRO | Polypeptide | formula C46H80N14O13 (peptide SMILES); endogenous no |\n   0 activators, 0 regulators.\n\n6. **Caveats / data-quality notes**:\n   - Only L-phenylalanine is linked to a specific structural allosteric site for P0AB91 (1KFL). The other four (Trp, Tyr, DTY, PRO) are protein-level inhibitor annotations without their own P0AB91 site row/PDB.\n   - \"PRO\" (ASD10090002) is internally inconsistent in ASD: in the site archive it is used with alias PHE / name PHENYLALANINE for other targets (N. meningitidis AroG Q9K169/4UC5, human PAH P00439 as activator, human PKM P14618, Leishmania UGP Q4QDU3), whereas the modulator registry stores it as a \"Polypeptide\" with a peptide SMILES (C46H80N14O13). So treat \"PRO\" as an ambiguous/loosely-linked entry.\n   - \"DTY\" (ASD00020003): the live API returns a corrupted IUPAC name (\"2-amino-3-(4-oxo-1-cyclohexa-1,5-dienyl)propanoic acid\"), while the ASD site archive for the same modulator serial gives \"(2R)-2-amino-3-(4-hydroxyphenyl)propanoic acid\" (D-tyrosine) for S. cerevisiae ARO4; PubChem CID 69634752's title is \"(2S)-2-amino-3-(4-oxocyclohexa-1,5-dien-1-yl)propanoic acid\" with only one synonym (SCHEMBL6009735) — i.e., the database entries are not cleanly reconciled; D-tyrosine-like amino acid.\n   - ASD does not curate a \"potential allosteric site\" for P0AB91 — AlloSite-Potential covers human proteins onl",
+  "log_len": 60,
+  "elapsed_s": 382.69,
+  "run_json": "/workspace/build_logs/dev_runs_v3_armA/D7/run.json",
+  "n_steps": 60,
+  "token_total": {
+    "input_tokens": 2065349,
+    "output_tokens": 33050,
+    "total_tokens": 2098399
+  },
+  "config": {
+    "model": "MiniMax-M3",
+    "source": "openai-chat",
+    "base_url_host": "api.minimax.io",
+    "temperature": 1.0,
+    "top_p": null,
+    "recursion_limit": 500
+  },
+  "git_commit": "ca0179f17ed7a3961956405407eccf1475953767",
+  "git_branch": "alloagent",
+  "git_dirty": false,
+  "image_id": "unknown",
+  "wall_time_s": 382.631189,
+  "messages_recorded": 60,
+  "tool_calls": []
+}

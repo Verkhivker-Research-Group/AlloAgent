@@ -1,0 +1,59 @@
+{
+  "seed": 20261102,
+  "batches": 8,
+  "runs": 72,
+  "runs_per_batch": [
+    10,
+    10,
+    10,
+    10,
+    10,
+    10,
+    10,
+    2
+  ],
+  "one_sided_tool_names": 266,
+  "tool_names_in_both_arms": 0,
+  "redaction_counts_by_category": {
+    "one_sided_tool_name": 9
+  },
+  "runs_with_a_redaction": 8,
+  "runs_whose_redaction_changed_an_identifier": [],
+  "runs_whose_redaction_failed": [],
+  "the_final_answer_only": {
+    "characters_before": 508317,
+    "characters_after": 141240,
+    "characters_removed": 367077,
+    "runs_with_no_final_answer": [],
+    "runs_whose_whole_final_response_was_kept": [],
+    "runs_whose_record_is_truncated": [
+      "baseline/X02_r1: the record holds 20 000 characters, the final answer is longer"
+    ]
+  },
+  "per_run": {
+    "rrqartfkqjq": {
+      "one_sided_tool_name": 1
+    },
+    "rlvlk2ycxvi": {
+      "one_sided_tool_name": 2
+    },
+    "rs807s41w19": {
+      "one_sided_tool_name": 1
+    },
+    "r6nv5g16tnm": {
+      "one_sided_tool_name": 1
+    },
+    "romg3ld2wdx": {
+      "one_sided_tool_name": 1
+    },
+    "rlc0viaxqrz": {
+      "one_sided_tool_name": 1
+    },
+    "rpdnxfpa2o2": {
+      "one_sided_tool_name": 1
+    },
+    "rf73864kw31": {
+      "one_sided_tool_name": 1
+    }
+  }
+}

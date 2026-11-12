@@ -1,0 +1,12 @@
+# PROVENANCE: this file was produced on 2026-11-06 by re-running benchmark/analyze_benchmark.py with the scorer of benchmark/score_scripted.py fixed AFTER the data existed (the fpocket_top3 method condition and the chain+number token reading). The run records (2026-10-28 to 2026-11-04) and the judge outputs (2026-11-03 to 2026-11-05) predate both the fix and this analysis. The results of the unfixed scorer are in benchmark/results/.
+variant,arm,runs,successes,success_rate,wilson_low,wilson_high
+primary,D,120,1,0.0083,0.0015,0.0457
+primary,A,120,1,0.0083,0.0015,0.0457
+not_applicable_is_not_correct,D,120,1,0.0083,0.0015,0.0457
+not_applicable_is_not_correct,A,120,1,0.0083,0.0015,0.0457
+low_information_excluded,D,120,1,0.0083,0.0015,0.0457
+low_information_excluded,A,120,1,0.0083,0.0015,0.0457
+accession_excluded,D,120,62,0.5167,0.4281,0.6042
+accession_excluded,A,120,63,0.525,0.4363,0.6122
+full_or_partial,D,120,1,0.0083,0.0015,0.0457
+full_or_partial,A,120,1,0.0083,0.0015,0.0457

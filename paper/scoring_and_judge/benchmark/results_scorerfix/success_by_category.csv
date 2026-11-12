@@ -1,0 +1,20 @@
+# PROVENANCE: this file was produced on 2026-11-06 by re-running benchmark/analyze_benchmark.py with the scorer of benchmark/score_scripted.py fixed AFTER the data existed (the fpocket_top3 method condition and the chain+number token reading). The run records (2026-10-28 to 2026-11-04) and the judge outputs (2026-11-03 to 2026-11-05) predate both the fix and this analysis. The results of the unfixed scorer are in benchmark/results/.
+category,arm,runs,successes,success_rate,wilson_low,wilson_high
+Allosteric modulators,D,9,0,0.0,0.0,0.2991
+Allosteric modulators,A,9,1,0.1111,0.0199,0.435
+Allosteric site prediction,D,12,0,0.0,0.0,0.2425
+Allosteric site prediction,A,12,0,0.0,0.0,0.2425
+Cryptic pockets,D,9,0,0.0,0.0,0.2991
+Cryptic pockets,A,9,0,0.0,0.0,0.2991
+Dynamics & communication,D,18,0,0.0,0.0,0.1759
+Dynamics & communication,A,18,0,0.0,0.0,0.1759
+Honest reporting,D,6,0,0.0,0.0,0.3903
+Honest reporting,A,6,0,0.0,0.0,0.3903
+Pocket detection,D,15,0,0.0,0.0,0.2039
+Pocket detection,A,15,0,0.0,0.0,0.2039
+Site characterization,D,21,0,0.0,0.0,0.1546
+Site characterization,A,21,0,0.0,0.0,0.1546
+Synthesis,D,12,1,0.0833,0.0149,0.3539
+Synthesis,A,12,0,0.0,0.0,0.2425
+Variants & allostery,D,18,0,0.0,0.0,0.1759
+Variants & allostery,A,18,0,0.0,0.0,0.1759

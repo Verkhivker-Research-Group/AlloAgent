@@ -1,0 +1,32 @@
+{
+  "id": "D7",
+  "prompt": "\"Does the Allosteric Database confirm curated allosteric sites for UniProt P0AB91, and which modulators are involved?\"",
+  "expected_tools": "`allosteric_evidence`, `parse_asd_xf`",
+  "started_at": "2026-10-25T02:05:01Z",
+  "status": "completed",
+  "final_content": "<think>\nAll evidence is consistent. The mol2 atom parsing: the residue name is at index 6? Format: \"   1 N1             0.6461     0.7012    -2.9739 N.3\" → columns: id, name, x, y, z, type → only 6 fields, so index 6 is out of range → empty. The peptide is a single molecule (not residue-named). Fine — I can describe it as a 12-residue peptide-like ligand (SMILES with amide backbone, aldehyde terminus). Let me not over-claim specifics; describe as \"a peptide-like ligand (C46H80N14O13, 1037 Da)\".\n\nActually, it might be useful to note it's the ASD entry annotated as \"PHENYLALANINE\" with function \"Allosteric Function\" at PDB 4UC5 in the same protein family record (aroG Q9K169 — a different organism's aroG? Q9K169 might be from Thermotoga or another bacterium). Careful: AS row ASD00020000_6 has pdb_uniprot Q9K169 and gene aroG with PDB 4UC5 — different accession. So the ASD10090002 entry with \"Allosteric Function\" annotation refers to a homolog record, not P0AB91 itself. For P0AB91's own record (ASD00020000_1), the site annotation is PHE/1KFL.\n\nHmm wait — the parse_asd_xf for P0AB91 returned protein_metadata pdb_entries including 4UC5 and others, and the modulator list includes ASD10090002. So ASD's P0AB91 record does include the ASD10090002 modulator (inhibitor) as part of the target record. Good.\n\nOne more check to be thorough: confirm the peptide's identity (maybe it's \"peptide 1014\" or \"D-Tat\"). The 2D mol file for ASD10090002 could give the structure; my RDKit SMILES: CC(C)CC(NC(=O)C(CC(N)=O)NC(=O)C(CC(C)C)NC(=O)C(NC(=O)C1CCCN1C(=O)C(CCCNC(=N)N)NC(=O)C(C)NC(=O)C1CCCN1)C(C)O)C(C)O)C(=O)NC(C)C=O — a peptide with Arg, Pro, etc., aldehyde C-terminus. Likely \"pepstatin-like\" or a D-peptide inhibitor. I won't name it beyond the ASD annotation (\"PHENYLALANINE\", ASD10090002) plus structure description.\n\nNow write the final solution with the updated plan, summarizing:\n\n1. Confirmation: YES — status CONFIRMED, \"Protein P0AB91 is experimentally confirmed as allosteric\".\n2. Protein: Phospho-2-dehydro-3-deoxyheptonate aldolase, Phe-sensitive (aroG), E. coli, DAHP synthase, Transferase class.\n3. Curated site: 1 site, PDB 1KFL site 1KFL-1, site overlap \"No\" (i.e., not overlapping the substrate site), function \"Inner Protein Regulator\", modulator PHE; residues Chain A: PRO150, GLN151, ALA154, GLY178, LEU179, SER180, PHE209, SER211, LYS214, VAL221; Chain B: ASP6, ASP7, ILE10; PMID 12126632 (ref title). Note the hotspot tool confirms 13 residues.\n4. Modulators (5, all \"Inhibitor\"): \n - ASD02170001 — PHE = L-phenylalanine, (2S)-2-amino-3-phenylpropanoic acid; the one with the curated site; DrugBank: Yes; Inner Protein Regulator; PDB 1KFL; PMID 12126632.\n - ASD00320001 — TRP = L-tryptophan, (2S)-2-amino-3-(1H-indol-3-yl)propanoic acid; DrugBank Yes.\n - ASD00690002 — TYR = L-tyrosine, (2S)-2-amino-3-(4-hydroxyphenyl)propanoic acid; DrugBank Yes.\n - ASD00020003 — D-TYR = (2R)-2-amino-3-(4-hydroxyphenyl)propanoic acid (structure file drawn as quinone-methide tautomer, C9H11NO3); DrugBank No.\n - ASD10090002 — peptide-like ligand (C46H80N14O13, 1037.2 Da); ASD annotates name \"PHENYLALANINE\"/alias PHE, feature Inhibitor, function \"Allosteric Function\", associated with aroG PDB 4UC5, PMID 26794122 (\"Calculated Pka Variations Expose Dynamic Allosteric Communication Networks\"); DrugBank No.\n5. Geometric corroboration: PHE in 1KFL (8 copies, chains A–H) contacts the ASD-annotated residues (ASP6 3.12 Å, ASP7 2.89 Å, ILE10 3.92 Å, PRO150 3.78, GLN151 3.19, ALA154 3.51, GLY178 3.81, LEU179 3.33, SER180...). Note: geometric proximity isn't proof of biological allostery.\n6. Caveats: Only PHE has a curated site assignment for P0AB91; the other four are annotated as inhibitors on the target record (XF modulator list, Allosteric_Inhibitor_Count = 5), not as separate site-annotated sites for P0AB91. Also note the aromatic amino acids are the feedback regulators of the three DAHP synthase paralogs (aroG/Phe, aroF/Tyr, aroF/Trp).\n\nAlso mention output files saved.\n\nLe",
+  "log_len": 34,
+  "elapsed_s": 203.71,
+  "run_json": "/workspace/build_logs/dev_runs_v3_armD/D7/run.json",
+  "n_steps": 34,
+  "token_total": {
+    "input_tokens": 534170,
+    "output_tokens": 16864,
+    "total_tokens": 551034
+  },
+  "config": {
+    "model": "MiniMax-M3",
+    "source": "openai-chat",
+    "base_url_host": "api.minimax.io",
+    "temperature": 1.0,
+    "top_p": 0.95,
+    "recursion_limit": 500
+  },
+  "git_commit": "bfd898947cc7c2a1a2b9dc185036622996171417",
+  "git_branch": "alloagent",
+  "git_dirty": true,
+  "image_id": "unknown",
+  "wall_time_s": 203.456886,
+  "messages_recorded": 34,
+  "tool_calls": []
+}

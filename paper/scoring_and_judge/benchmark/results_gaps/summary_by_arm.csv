@@ -1,0 +1,4 @@
+# This analysis was made on 2026-11-06, after the data existed. The run records (2026-10-28 to 2026-11-04) and the judge outputs (2026-11-03 to 2026-11-05) are used as they stand; nothing was re-run, re-measured or re-judged. The re-scoring on the full text reuses the committed scorer on the same answers.
+arm,runs,empty_or_fragment,truncated,artifact_ending,leaked_reasoning,over_20000_characters
+D,120,0,1,0,117,18
+A,120,1,3,2,112,26
