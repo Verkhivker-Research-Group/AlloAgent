@@ -1,412 +1,189 @@
-<p align="center">
-  <img src="./figs/biomni_logo.png" alt="Biomni Logo" width="600px" />
-</p>
+# AlloAgent
 
-<p align="center">
-<a href="https://join.slack.com/t/biomnigroup/shared_invite/zt-3avks4913-dotMBt8D_apQnJ3mG~ak6Q">
-<img src="https://img.shields.io/badge/Join-Slack-4A154B?style=for-the-badge&logo=slack" alt="Join Slack" />
-</a>
-<a href="https://biomni.stanford.edu">
-<img src="https://img.shields.io/badge/Try-Web%20UI-blue?style=for-the-badge" alt="Web UI" />
-</a>
-<a href="https://x.com/ProjectBiomni">
-<img src="https://img.shields.io/badge/Follow-on%20X-black?style=for-the-badge&logo=x" alt="Follow on X" />
-</a>
-<a href="https://www.linkedin.com/company/project-biomni">
-<img src="https://img.shields.io/badge/Follow-LinkedIn-0077B5?style=for-the-badge&logo=linkedin" alt="Follow on LinkedIn" />
-</a>
-<a href="https://www.biorxiv.org/content/10.1101/2025.05.30.656746v1">
-<img src="https://img.shields.io/badge/Read-Paper-green?style=for-the-badge" alt="Paper" />
-</a>
-</p>
+AlloAgent is an allosteric-research agent built by specializing
+[Biomni](https://github.com/snap-stanford/Biomni), the open-source
+general-purpose biomedical agent, for allosteric drug discovery. The
+AlloAgent agent configuration exposes **45 tools** - 44 of them new to
+Biomni, one (`run_python_repl`) modified upstream - in six groups:
+structural analysis (12), ML prediction (1), dynamics and networks (3),
+database access for allosteric and ligand data (17), database access for
+variants and predicted sites (4), and mapping and search (6). The two tools
+outside those groups are the import-policy tool and the Python REPL. The
+list is frozen in [`alloagent/exposed_tools.txt`](alloagent/exposed_tools.txt)
+and applied with `biomni.tool._registration.apply_exposed_tools(agent)`.
 
+Against the Biomni baseline on 120 paired runs per arm, AlloAgent used about
+**4.4x fewer tokens** (0.61M vs 2.67M per run), **2.1x fewer steps** (28.5 vs
+59.8) and **2.6x less wall time** (352 s vs 911 s), at the same task success
+(1 of 120 runs in both arms; the paired difference is 0.0000, p = 1.0). The
+numbers are committed in [`benchmark/results/`](benchmark/results/), the
+method in [`benchmark/analysis_plan.md`](benchmark/analysis_plan.md), and
+the per-tool evidence in [`docs/tool_cards/`](docs/tool_cards/).
 
+Paper: [link to be added]
 
-# Biomni: A General-Purpose Biomedical AI Agent
+## Quick start
 
-## Overview
+### 1. Build the image
 
-
-Biomni is a general-purpose biomedical AI agent designed to autonomously execute a wide range of research tasks across diverse biomedical subfields. By integrating cutting-edge large language model (LLM) reasoning with retrieval-augmented planning and code-based execution, Biomni helps scientists dramatically enhance research productivity and generate testable hypotheses.
-
-
-## Quick Start
-
-### Installation
-
-Our software environment is massive and we provide a single setup.sh script to setup.
-Follow this [file](biomni_env/README.md) to setup the env first.
-
-Then activate the environment E1:
+The allosteric tools call programs the image carries - fpocket 4.2.3,
+P2Rank 2.5.1, AutoDock Vina 1.2.7, PocketMiner, ProDy, Biotite - so run
+AlloAgent from its container.
 
 ```bash
-conda activate biomni_e1
+git clone https://github.com/Verkhivker-Research-Group/AlloAgent.git
+cd AlloAgent
+
+docker build \
+    --target dev \
+    --build-arg GIT_COMMIT="$(git rev-parse HEAD)" \
+    --build-arg GIT_BRANCH="$(git rev-parse --abbrev-ref HEAD)" \
+    -t alloagent-dev:latest .
 ```
 
-then install the biomni official pip package:
+The `eval` target builds the same image with the whole repository copied in
+(`docker build --target eval -t alloagent-eval:latest .`). The image
+layout, the two conda environments and the secrets policy are described in
+[`docs/dev_container.md`](docs/dev_container.md).
+
+### 2. Give the agent a key
+
+The agent reads its provider from the environment. Keep the key in a file
+outside the repository and pass it with `--env-file`; never mount a `.env`
+into the container (see [`docs/0c_secrets_hygiene.md`](docs/0c_secrets_hygiene.md)).
 
 ```bash
-pip install biomni --upgrade
+cat > /tmp/alloagent.env <<EOF
+ANTHROPIC_API_KEY=...
+EOF
+chmod 600 /tmp/alloagent.env
 ```
 
-For the latest update, install from the github source version, or do:
+`LLM_SOURCE` (or `BIOMNI_SOURCE`) picks the provider - `OpenAI`,
+`AzureOpenAI`, `Anthropic`, `Ollama`, `Gemini`, `Bedrock`, `Groq` or
+`Custom` - and `BIOMNI_LLM` names the model. The runs behind the paper used
+**MiniMax-M3**, served as an OpenAI-compatible endpoint:
 
 ```bash
-pip install git+https://github.com/snap-stanford/Biomni.git@main
+cat > /tmp/alloagent.env <<EOF
+MINIMAX_API_KEY=...
+BIOMNI_LLM=MiniMax-M3
+BIOMNI_SOURCE=Custom
+BIOMNI_CUSTOM_BASE_URL=https://api.minimax.io/v1
+EOF
 ```
 
-Lastly, configure your API keys using one of the following methods:
+(`MINIMAX_API_KEY` is the key variable the run scripts read; the agent reads
+`BIOMNI_CUSTOM_API_KEY`.) Any provider the configuration supports can be
+used instead - set `LLM_SOURCE` and the matching key.
 
-<details>
-<summary>Click to expand</summary>
-
-#### Option 1: Using .env file (Recommended)
-
-Create a `.env` file in your project directory:
+### 3. Run the agent
 
 ```bash
-# Copy the example file
-cp .env.example .env
-
-# Edit the .env file with your actual API keys
+docker run --rm -it \
+    --env-file /tmp/alloagent.env \
+    -v "$(pwd):/workspace" \
+    -w /workspace \
+    alloagent-dev:latest \
+    /opt/conda/envs/alloagent_e1/bin/python
 ```
-
-Your `.env` file should look like:
-
-```env
-# Required: Anthropic API Key for Claude models
-ANTHROPIC_API_KEY=your_anthropic_api_key_here
-
-# Optional: OpenAI API Key (if using OpenAI models)
-OPENAI_API_KEY=your_openai_api_key_here
-
-# Optional: Azure OpenAI API Key (if using Azure OpenAI models)
-OPENAI_API_KEY=your_azure_openai_api_key
-OPENAI_ENDPOINT=https://your-resource-name.openai.azure.com/
-
-# Optional: AI Studio Gemini API Key (if using Gemini models)
-GEMINI_API_KEY=your_gemini_api_key_here
-
-# Optional: groq API Key (if using groq as model provider)
-GROQ_API_KEY=your_groq_api_key_here
-
-# Optional: Set the source of your LLM for example:
-#"OpenAI", "AzureOpenAI", "Anthropic", "Ollama", "Gemini", "Bedrock", "Groq", "Custom"
-LLM_SOURCE=your_LLM_source_here
-
-# Optional: AWS Bedrock Configuration (if using AWS Bedrock models)
-AWS_BEARER_TOKEN_BEDROCK=your_bedrock_api_key_here
-AWS_REGION=us-east-1
-
-# Optional: Custom model serving configuration
-# CUSTOM_MODEL_BASE_URL=http://localhost:8000/v1
-# CUSTOM_MODEL_API_KEY=your_custom_api_key_here
-
-# Optional: Biomni data path (defaults to ./data)
-# BIOMNI_DATA_PATH=/path/to/your/data
-
-# Optional: Timeout settings (defaults to 600 seconds)
-# BIOMNI_TIMEOUT_SECONDS=600
-```
-
-#### Option 2: Using shell environment variables
-
-Alternatively, configure your API keys in bash profile `~/.bashrc`:
-
-```bash
-export ANTHROPIC_API_KEY="YOUR_API_KEY"
-export OPENAI_API_KEY="YOUR_API_KEY" # optional if you just use Claude
-export OPENAI_ENDPOINT="https://your-resource-name.openai.azure.com/" # optional unless you are using Azure
-export AWS_BEARER_TOKEN_BEDROCK="YOUR_BEDROCK_API_KEY" # optional for AWS Bedrock models
-export AWS_REGION="us-east-1" # optional, defaults to us-east-1 for Bedrock
-export GEMINI_API_KEY="YOUR_GEMINI_API_KEY" #optional if you want to use a gemini model
-export GROQ_API_KEY="YOUR_GROQ_API_KEY" # Optional: set this to use models served by Groq
-export LLM_SOURCE="Groq" # Optional: set this to use models served by Groq
-
-
-```
-</details>
-
-
-#### ⚠️ Known Package Conflicts
-
-Some Python packages are not installed by default in the Biomni environment due to dependency conflicts. If you need these features, you must install the packages manually and may need to uncomment relevant code in the codebase. See the up-to-date list and details in [docs/known_conflicts.md](./docs/known_conflicts.md).
-
-### Basic Usage
-
-Once inside the environment, you can start using Biomni:
 
 ```python
 from biomni.agent import A1
 
-# Initialize the agent with data path, Data lake will be automatically downloaded on first run (~11GB)
-agent = A1(path='./data', llm='claude-sonnet-4-20250514')
-
-# Execute biomedical tasks using natural language
-agent.go("Plan a CRISPR screen to identify genes that regulate T cell exhaustion, generate 32 genes that maximize the perturbation effect.")
-agent.go("Perform scRNA-seq annotation at [PATH] and generate meaningful hypothesis")
-agent.go("Predict ADMET properties for this compound: CC(C)CC1=CC=C(C=C1)C(C)C(=O)O")
-```
-
-#### Controlling Datalake Loading
-
-By default, Biomni automatically downloads the datalake files (~11GB) when you create an agent. You can control this behavior:
-
-```python
-# Skip automatic datalake download (faster initialization)
-agent = A1(path='./data', llm='claude-sonnet-4-20250514', expected_data_lake_files = [])
-```
-
-This is useful for:
-- Faster testing and development
-- Environments with limited storage or bandwidth
-- Cases where you only need specific tools that don't require datalake files
-If you plan on using Azure for your model, always prefix the model name with azure- (e.g. llm='azure-gpt-4o').
-
-### Gradio Interface
-
-Launch an interactive web UI for Biomni:
-
-```python
-from biomni.agent import A1
-
-agent = A1(path='./data', llm='claude-sonnet-4-20250514')
-agent.launch_gradio_demo()
-```
-
-**Installation:**
-```bash
-pip install "gradio>=5.0,<6.0"
-```
-
-**Note:** Biomni's Gradio interface currently requires Gradio 5.x due to API changes in Gradio 6.0. If you have Gradio 6.x installed, you may need to downgrade.
-
-**Options:**
-- `share=True` - Create a public shareable link
-- `server_name="127.0.0.1"` - Localhost only (default: "0.0.0.0")
-- `require_verification=True` - Require access code (default code: "Biomni2025")
-
-The interface will be available at `http://localhost:7860`
-
-### Configuration Management
-
-Biomni includes a centralized configuration system that provides flexible ways to manage settings. You can configure Biomni through environment variables, runtime modifications, or direct parameters.
-
-```python
-from biomni.config import default_config
-from biomni.agent import A1
-
-# RECOMMENDED: Modify global defaults for consistency
-default_config.llm = "gpt-4"
-default_config.timeout_seconds = 1200
-
-# All agents AND database queries use these defaults
-agent = A1()  # Everything uses gpt-4, 1200s timeout
-```
-
-**Note**: Direct parameters to `A1()` only affect that agent's reasoning, not database queries. For consistent configuration across all operations, use `default_config` or environment variables.
-
-For detailed configuration options, see the **[Configuration Guide](docs/configuration.md)**.
-
-### PDF Generation
-
-Generate PDF reports of execution traces:
-
-```python
-from biomni.agent import A1
-
-# Initialize agent
-agent = A1(path='./data', llm='claude-sonnet-4-20250514')
-
-# Run your task
-agent.go("Your biomedical task here")
-
-# Save conversation history as PDF
-agent.save_conversation_history("my_analysis_results.pdf")
-```
-
-**PDF Generation Dependencies:**
-<details>
-<summary>Click to expand</summary>
-For optimal PDF generation, install one of these packages:
-
-```bash
-# Option 1: WeasyPrint (recommended for best layout control)
-# Conda environment (recommended)
-conda install weasyprint
-
-# System installation
-brew install weasyprint  # macOS
-apt install weasyprint   # Linux
-
-# See [WeasyPrint Installation Guide](https://doc.courtbouillon.org/weasyprint/stable/first_steps.html) for detailed instructions.
-
-# Option 2: markdown2pdf (Rust-based, fast and reliable)
-# macOS:
-brew install theiskaa/tap/markdown2pdf
-
-# Windows/Linux (using Cargo):
-cargo install markdown2pdf
-
-# Or download prebuilt binaries from:
-# https://github.com/theiskaa/markdown2pdf/releases/latest
-
-# Option 3: Pandoc (pip installation)
-pip install pandoc
-```
-</details>
-
-## MCP (Model Context Protocol) Support
-
-Biomni supports MCP servers for external tool integration:
-
-```python
-from biomni.agent import A1
-
-agent = A1()
-agent.add_mcp(config_path="./mcp_config.yaml")
-agent.go("Find FDA active ingredient information for ibuprofen")
-```
-
-**Built-in MCP Servers:**
-For usage and implementation details, see the [MCP Integration Documentation](docs/mcp_integration.md) and examples in [`tutorials/examples/add_mcp_server/`](tutorials/examples/add_mcp_server/) and [`tutorials/examples/expose_biomni_server/`](tutorials/examples/expose_biomni_server/).
-
-
-## Biomni-R0
-
-**Biomni-R0** is our first reasoning model for biology, built on Qwen-32B with reinforcement learning from agent interaction data. It's designed to excel at tool use, multi-step reasoning, and complex biological problem-solving through iterative self-correction.
-
-- 🤗 Model: [biomni/Biomni-R0-32B-Preview](https://huggingface.co/biomni/Biomni-R0-32B-Preview)
-- 📝 Technical Report: [biomni.stanford.edu/blog/biomni-r0-technical-report](https://biomni.stanford.edu/blog/biomni-r0-technical-report)
-
-To use Biomni-R0 for agent reasoning while keeping database queries on your usual provider (recommended), run a local SGLang server and pass the model to `A1()` directly.
-
-1) Launch SGLang with Biomni-R0:
-
-```bash
-python -m sglang.launch_server --model-path RyanLi0802/Biomni-R0-Preview --port 30000 --host 0.0.0.0 --mem-fraction-static 0.8 --tp 2 --trust-remote-code --json-model-override-args '{"rope_scaling":{"rope_type":"yarn","factor":1.0,"original_max_position_embeddings":32768}, "max_position_embeddings": 131072}'
-```
-
-2) Point the agent to your SGLang endpoint for reasoning:
-
-```python
-from biomni.config import default_config
-from biomni.agent import A1
-
-# Database queries (indexes, retrieval, etc.) use default_config
-default_config.llm = "claude-3-5-sonnet-20241022"
-default_config.source = "Anthropic"
-
-# Agent reasoning uses Biomni-R0 served via SGLang (OpenAI-compatible API)
-agent = A1(
-    llm="biomni/Biomni-R0-32B-Preview",
-    source="Custom",
-    base_url="http://localhost:30000/v1",
-    api_key="EMPTY",
+agent = A1(path="./data", llm="MiniMax-M3")
+agent.go(
+    "In PDB entry 1T4J (human PTP1B, UniProt P18031), identify the bound "
+    "allosteric ligand and list the residues within 4 angstroms of it, "
+    "using UniProt numbering."
 )
-
-agent.go("Plan a CRISPR screen to identify genes regulating T cell exhaustion")
 ```
 
-## Biomni-Eval1
+That is one of the benchmark prompts. The tool it reaches
+(`get_ligand_contacts`) fetches the entry from RCSB and returns the 11
+residues within 4 A of the allosteric ligand FRJ.
 
-**Biomni-Eval1** is a comprehensive evaluation benchmark for assessing biological reasoning capabilities across diverse tasks. It contains **433 instances** spanning **10 biological reasoning tasks**, from gene identification to disease diagnosis.
+## Data
 
-**Tasks Included:**
-- GWAS causal gene identification (3 variants)
-- Lab bench Q&A (2 variants)
-- Patient gene detection
-- Screen gene retrieval
-- GWAS variant prioritization
-- Rare disease diagnosis
-- CRISPR delivery method selection
+The AlloAgent tools read six sources that Biomni's data lake does not
+carry. Three of them are fetched with the scripts in `scripts/`; the other
+three are snapshots of the data lake that the agent mounts read-only.
 
-**Resources:**
-- 🤗 Dataset: [biomni/Eval1](https://huggingface.co/datasets/biomni/Eval1)
-- 💻 Quick Start:
-```python
-from biomni.eval import BiomniEval1
+| source | what it is | how to get it |
+| --- | --- | --- |
+| **ChEMBL 37** | the ChEMBL 37 SQLite release the bioactivity tool queries | `python scripts/fetch_chembl.py --download --out ./data/chembl` (5.4 GB tarball) |
+| **ClinVar** | the NCBI ClinVar variant summary | `python scripts/fetch_clinvar.py --download --out ./data/clinvar` |
+| **AlphaMissense** | the DeepMind pathogenicity score per substitution | `python scripts/fetch_alphamissense.py --download --out ./data/alphamissense` |
+| **ASD** (Allosteric Database) | curated allosteric sites and modulators, with the XF functional files and the 2D/3D structures of the modulators | not redistributed: it is academic use with per-request registration, so you fetch it yourself and mount it read-only at `/biolab_data/asd` |
+| **BioLiP** | protein-ligand interaction snapshots (interactions, proteins, DNA, RNA, peptides) | mounted read-only at `/biolab_data` |
+| **CovalentInDB** | the covalent-probe attachment sites | mounted read-only at `/biolab_data/data_lake/CovInDB_All.csv` |
 
-evaluator = BiomniEval1()
-score = evaluator.evaluate('gwas_causal_gene_opentargets', 0, 'BRCA1')
+The scripts print the file sizes before they download (`--check-size`) and
+record the checksum of every file they fetch. The PDB structures the
+structural tools parse are fetched with
+`python scripts/fetch_structure_cache.py ./data/structures`. The three
+mounted snapshots have their paths fixed in the tool wrappers;
+`ASD_ROOT`, `ALLOAGENT_BIOLIP_DIR` and `ALLOAGENT_COVINDB` override them.
+
+The licence and the terms of every source - including the ASD registration -
+are in [`THIRD_PARTY_LICENSES`](THIRD_PARTY_LICENSES).
+
+## Tools
+
+| group | tools | what they use |
+| --- | ---: | --- |
+| structural analysis | 12 | pocket detection with fpocket 4.2.3 and P2Rank 2.5.1, ligand contacts from the RCSB mmCIF and the SIFTS alignment, residue geometry, accessibility and hydration, and the combined allosteric-site workflow |
+| ML prediction | 1 | PocketMiner pocket scoring, a learned model with its weights in the image |
+| dynamics and networks | 3 | ProDy normal modes (ANM/GNM), the residue contact network (Biotite + NetworkX) and AutoDock Vina docking |
+| database access for allosteric and ligand data | 17 | the Allosteric Database and BioLiP snapshots, ChEMBL 37 (local SQLite or the web service), PubChem, CovalentInDB and the large-dataset reader |
+| database access for variants and predicted sites | 4 | UniProt variants, ClinVar, the AlphaMissense scores and the STINGAllo predicted-residue service |
+| mapping and search | 6 | the PDBe SIFTS mappings API, the RCSB Search API and the structure lookups |
+
+Every tool has a card under [`docs/tool_cards/`](docs/tool_cards/) with the
+question it answers, its inputs, its sources and its versions;
+[`docs/new_tools_and_data.md`](docs/new_tools_and_data.md) has the full
+table of the 44 new tools and the seven data sources that are not upstream.
+
+## Benchmark
+
+[`benchmark/`](benchmark/) holds the evaluation prompts, the validated
+checklists, the launch and restricted prompt sets, the scorer, the judge
+material and the results of the 240-run analysis set. It is self-contained
+and can be deleted: nothing outside the folder reads from it or breaks when
+it is removed.
+
+```bash
+pytest benchmark/tests/
 ```
 
+The judge-batch tests read the run records of the launch, which are not part
+of this repository; they error out in a fresh clone until those records are
+in place.
 
-## 📚 Know-How Library
+## Security
 
-Biomni includes a **Know-How Library** — a curated collection of best practices, protocols, and troubleshooting guides for biomedical techniques. These documents are automatically retrieved by the A1 agent when relevant to provide domain expertise and practical knowledge.
+The agent executes LLM-generated code with full system privileges. Run it in
+a container or a sandbox, not on a machine you care about, and keep the
+write mounts to a scratch directory. The Python REPL can refuse whole module
+prefixes (`set_restricted_imports`); the policy is enforced by a static scan
+and by the importer itself.
 
-**Features:**
-- Automatic retrieval based on query relevance
-- Metadata tracking (authors, affiliations, licensing, commercial use)
-- Compatible with commercial mode (filters non-commercial content)
+## License
 
-### 📝 Contributing Know-How Documents
+AlloAgent is released under the Apache License 2.0 ([`LICENSE`](LICENSE)).
+Biomni itself is Apache 2.0-licensed, but certain integrated tools,
+databases, or software may carry more restrictive commercial licenses.
+Review each component carefully before any commercial use - the licences and
+terms of every third-party tool and dataset are listed in
+[`THIRD_PARTY_LICENSES`](THIRD_PARTY_LICENSES).
 
-We're actively seeking community contributions to expand our Know-How Library! Share your expertise by contributing:
+## Acknowledgments
 
-- **Lab protocols** (cell culture, flow cytometry, western blotting, etc.)
-- **Analysis best practices** (NGS workflows, microscopy techniques, etc.)
-- **Troubleshooting guides** (common issues and solutions)
-- **Experimental design guidelines** (sample size, controls, validation)
-- **Domain-specific knowledge** (drug formulation, animal models, clinical trials, etc.)
+AlloAgent is built on [Biomni](https://github.com/snap-stanford/Biomni), the
+open-source general-purpose biomedical AI agent by the Biomni team, and
+keeps its agent framework, its tool registry and its data lake.
 
-Know-how documents should be practical, succinct, and include proper attribution. Use [this know-how](know_how/single_cell_annotation.md) as an example.
-
-**To contribute:** Create a markdown file following our template and submit a pull request.
-
-## 🤝 Contributing to Biomni
-
-Biomni is an open-science initiative that thrives on community contributions. We welcome:
-
-- **🔧 New Tools**: Specialized analysis functions and algorithms
-- **📊 Datasets**: Curated biomedical data and knowledge bases
-- **💻 Software**: Integration of existing biomedical software packages
-- **📋 Benchmarks**: Evaluation datasets and performance metrics
-- **📚 Know-How**: Best practices, protocols, and domain expertise
-- **📚 Misc**: Tutorials, examples, and use cases
-- **🔧 Update existing tools**: many current tools are not optimized - fix and replacements are welcome!
-
-Check out this **[Contributing Guide](CONTRIBUTION.md)** on how to contribute to the Biomni ecosystem.
-
-If you have particular tool/database/software in mind that you want to add, you can also submit to [this form](https://forms.gle/nu2n1unzAYodTLVj6) and the biomni team will implement them.
-
-## 🔬 Call for Contributors: Help Build Biomni-E2
-
-Biomni-E1 only scratches the surface of what’s possible in the biomedical action space.
-
-Now, we’re building **Biomni-E2** — a next-generation environment developed **with and for the community**.
-
-We believe that by collaboratively defining and curating a shared library of standard biomedical actions, we can accelerate science for everyone.
-
-**Join us in shaping the future of biomedical AI agent.**
-
-- **Contributors with significant impact** (e.g., 10+ significant & integrated tool contributions or equivalent) will be **invited as co-authors** on our upcoming paper in a top-tier journal or conference.
-- **All contributors** will be acknowledged in our publications.
-- More contributor perks...
-
-Let’s build it together.
-
-
-## Tutorials and Examples
-
-**[Biomni 101](./tutorials/biomni_101.ipynb)** - Basic concepts and first steps
-
-More to come!
-
-## 🌐 Web Interface
-
-Experience Biomni through our no-code web interface at **[biomni.stanford.edu](https://biomni.stanford.edu)**.
-
-[![Watch the video](https://img.youtube.com/vi/E0BRvl23hLs/maxresdefault.jpg)](https://youtu.be/E0BRvl23hLs)
-
-
-## Important Note
-- Security warning: Currently, Biomni executes LLM-generated code with full system privileges. If you want to use it in production, please use in isolated/sandboxed environments. The agent can access files, network, and system commands. Be careful with sensitive data or credentials.
-- This release was frozen as of April 15 2025, so it differs from the current web platform.
-- Biomni itself is Apache 2.0-licensed, but certain integrated tools, databases, or software may carry more restrictive commercial licenses. Review each component carefully before any commercial use.
-
-## Cite Us
+### Please cite Biomni if you use this work
 
 ```
 @article{huang2025biomni,
